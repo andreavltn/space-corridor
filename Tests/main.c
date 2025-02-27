@@ -57,8 +57,8 @@ typedef struct textures_s textures_t;
 
 struct world_s{
   
-  int sprite_x;
-  int sprite_y;
+  int sprite_x; /*!< Champ indiquant la position x du sprite */
+  int sprite_y; /*!< Champ indiquant la position y du sprite */
   int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 
 };
@@ -80,9 +80,9 @@ typedef struct world_s world_t;
 
 
 void init_data(world_t * world){
-  world->sprite_x=SCREEN_WIDTH/2;
-  world->sprite_y=SCREEN_HEIGHT/2;
-  world->gameover = 0;
+  world->sprite_x=SCREEN_WIDTH/2; /*!< Initialisation de la position x du sprite dans le monde */
+  world->sprite_y=SCREEN_HEIGHT/2; /*!< Initialisation de la position y du sprite dans le monde */
+  world->gameover = 0; /*!< Initialisation de l'état de gameover (fin du jeu) à 0 */
     
 }
 
@@ -139,28 +139,29 @@ void handle_events(SDL_Event *event,world_t *world){
             world->gameover = 1;
         }
        
-         //si une touche est appuyée
-         if(event->type == SDL_KEYDOWN){
-             //si la touche appuyée est 'D'
-             if(event->key.keysym.sym == SDLK_d){
-                 printf("La touche D est appuyée\n");
-              }
-	     if (event->key.keysym.sym == SDLK_ESCAPE){
-	       world->gameover = 1;
-	     }
-	     if(event->key.keysym.sym == SDLK_RIGHT){
-	       world->sprite_x+=MOVING_STEP;
-	     }
-	     if(event->key.keysym.sym == SDLK_LEFT){
-	       world->sprite_x-=MOVING_STEP;
-	     }
-	     if(event->key.keysym.sym == SDLK_UP){
-	       world->sprite_y-=MOVING_STEP;
-	     }
-	     if(event->key.keysym.sym == SDLK_DOWN){
-	       world->sprite_y+=MOVING_STEP;
-	     }     
-         }
+        //si une touche est appuyée
+        if(event->type == SDL_KEYDOWN){
+          // echap
+	        if (event->key.keysym.sym == SDLK_ESCAPE){
+	          world->gameover = 1;
+	        }
+          // droite/d
+	        if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
+	          world->sprite_x+=MOVING_STEP;
+	        }
+          // gauche/q
+	        if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
+	          world->sprite_x-=MOVING_STEP;
+          }
+          // haut/z
+	        if(event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z){
+	          world->sprite_y-=MOVING_STEP;
+	        }
+          // bas/s
+	        if(event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s){
+	          world->sprite_y+=MOVING_STEP;
+	        }     
+        }
     }
 }
 
@@ -186,18 +187,20 @@ void clean_textures(textures_t *textures){
 
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/background.bmp",renderer);
-    textures->sprite=load_image("ressources/sprite.bmp",renderer);
-    /* A COMPLETER */
+    textures->sprite=load_image("ressources/sprite.bmp",renderer);   
+}
 
-    
-}
-void apply_sprite(SDL_Renderer *renderer , textures_t *textures ,
-world_t * world ){
-if(textures ->sprite != NULL){
-apply_texture(textures ->sprite , renderer ,
-world ->sprite_x -SPRITE_SIZE /2,
-world ->sprite_y -SPRITE_SIZE /2);
-}
+
+/**
+ * \brief La fonction applique la texture du sprite sur le renderer lié à l'écran de jeus
+ * \param renderer le renderer
+ * \param textures les textures du jeu
+ * \param world le monde du jeu
+*/
+void apply_sprite(SDL_Renderer *renderer , textures_t *textures , world_t * world ){
+  if(textures ->sprite != NULL){
+    apply_texture(textures->sprite, renderer, world->sprite_x-SPRITE_SIZE /2, world->sprite_y-SPRITE_SIZE /2);
+  }
 }
 
 
@@ -212,9 +215,6 @@ void apply_background(SDL_Renderer *renderer, textures_t *textures){
       apply_texture(textures->background, renderer, 0, 0);
     }
 }
-
-
-
 
 
 /**
