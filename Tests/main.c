@@ -141,7 +141,7 @@ void handle_events(SDL_Event *event,world_t *world){
        
         //si une touche est appuyée
         if(event->type == SDL_KEYDOWN){
-          // echap
+          // touche echap
 	        if (event->key.keysym.sym == SDLK_ESCAPE){
 	          world->gameover = 1;
 	        }
