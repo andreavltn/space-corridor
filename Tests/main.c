@@ -149,7 +149,7 @@ void handle_events(SDL_Event *event,world_t *world){
 	        if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
 	          world->sprite_x+=MOVING_STEP;
 	        }
-          // gauche/q
+          // touche gauche/q
 	        if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
 	          world->sprite_x-=MOVING_STEP;
           }
