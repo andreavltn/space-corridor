@@ -54,14 +54,18 @@
 */
 
 #define INITIAL_SPEED 2
- 
+ /**
+  * \brief Type qui correspond au sprite
+ */
 struct sprite_s{
-  int x;
-  int y;
-  int w;
-  int h;
+  int x; /*!< Champ indiquant la position x du sprite */
+  int y; /*!< Champ indiquant la position y du sprite */
+  int w; /*!< Champ indiquant la largeur w du sprite */
+  int h; /*!< Champ indiquant la hauteur h du sprite */
 };
-
+/**
+  * \brief Type qui correspond au sprite
+  */
 typedef struct sprite_s sprite_t;
 
  /**
@@ -86,7 +90,7 @@ typedef struct sprite_s sprite_t;
  
  struct world_s{
    
-   sprite_t sprite;
+   sprite_t sprite; /*!< Champ représentant le sprite */
    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
  
  };
@@ -97,6 +101,10 @@ typedef struct sprite_s sprite_t;
  
  typedef struct world_s world_t;
  
+
+  /**
+  * \brief Fonction de test des coordonnées du sprite
+  */
  void print_sprite(sprite_t *sprite){
   printf("x : %d\n",sprite->x);
   printf("y : %d\n",sprite->y);
