@@ -14,13 +14,13 @@
 */
 
 
-#define SCREEN_WIDTH 320
+#define SCREEN_WIDTH 300
 
 /**
  * \brief Hauteur de l'écran
 */
 
-#define SCREEN_HEIGHT 240
+#define SCREEN_HEIGHT 480
 
 /**
  * \brief Taille du sprite
