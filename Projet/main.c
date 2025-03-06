@@ -1,70 +1,46 @@
 /**
  * \file main.c
- * \brief Programme principal initial du niveau 1
+ * \brief Programme principal initial du niveau 0
  * \author Mathieu Constant
  * \version 1.0
- * \date 18 mars 2021
+ * \date 18 mars 2020
  */
 
 #include "sdl2-light.h"
 
 
 /**
- * \brief Largeur de l'écran de jeu
- */
-#define SCREEN_WIDTH 300
-
-/**
- * \brief Hauteur de l'écran de jeu
- */
-#define SCREEN_HEIGHT 480
-
-
-/**
- * \brief Taille d'un vaisseau
- */
-
-#define SHIP_SIZE 32
-
-
-/**
- * \brief Taille d'un météorite
+ * \brief Largeur de l'écran
 */
 
-#define METEORITE_SIZE 32
 
-
-/**
- * \brief Hauteur de la ligne d'arrivée
- */
-
-
-#define FINISH_LINE_HEIGHT 10
-
+#define SCREEN_WIDTH 320
 
 /**
- * \brief Pas de déplacement horizontal du vaisseau
+ * \brief Hauteur de l'écran
 */
 
-#define MOVING_STEP 10
-
+#define SCREEN_HEIGHT 240
 
 /**
-  * \brief Vitesse initiale de déplacement vertical des éléments du jeu 
+ * \brief Taille du sprite
 */
 
-#define INITIAL_SPEED 2
+#define SPRITE_SIZE 32
 
+/**
+ * \brief Pas de déplacement du sprite
+*/
 
-
+#define MOVING_STEP 5
 
 /**
  * \brief Représentation pour stocker les textures nécessaires à l'affichage graphique
 */
 
 struct textures_s{
-    SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
-    /* A COMPLETER */
+  SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
+  SDL_Texture* sprite;
 };
 
 
@@ -80,11 +56,10 @@ typedef struct textures_s textures_t;
 */
 
 struct world_s{
-    /*
-      A COMPLETER
-     */
-    
-    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
+  
+  int sprite_x; /*!< Champ indiquant la position x du sprite */
+  int sprite_y; /*!< Champ indiquant la position y du sprite */
+  int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 
 };
 
@@ -105,9 +80,9 @@ typedef struct world_s world_t;
 
 
 void init_data(world_t * world){
-    
-    //on n'est pas à la fin du jeu
-    world->gameover = 0;
+  world->sprite_x=SCREEN_WIDTH/2; /*!< Initialisation de la position x du sprite dans le monde */
+  world->sprite_y=SCREEN_HEIGHT/2; /*!< Initialisation de la position y du sprite dans le monde */
+  world->gameover = 0; /*!< Initialisation de l'état de gameover (fin du jeu) à 0 */
     
 }
 
@@ -164,13 +139,29 @@ void handle_events(SDL_Event *event,world_t *world){
             world->gameover = 1;
         }
        
-         //si une touche est appuyée
-         if(event->type == SDL_KEYDOWN){
-             //si la touche appuyée est 'D'
-             if(event->key.keysym.sym == SDLK_d){
-                 printf("La touche D est appuyée\n");
-              }
-         }
+        //si une touche est appuyée
+        if(event->type == SDL_KEYDOWN){
+          // touche echap
+	        if (event->key.keysym.sym == SDLK_ESCAPE){
+	          world->gameover = 1;
+	        }
+          // touche droite/d
+	        if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
+	          world->sprite_x+=MOVING_STEP;
+	        }
+          // touche gauche/q
+	        if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
+	          world->sprite_x-=MOVING_STEP;
+          }
+          // haut/z
+	        if(event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z){
+	          world->sprite_y-=MOVING_STEP;
+	        }
+          // bas/s
+	        if(event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s){
+	          world->sprite_y+=MOVING_STEP;
+	        }     
+        }
     }
 }
 
@@ -182,47 +173,55 @@ void handle_events(SDL_Event *event,world_t *world){
 
 void clean_textures(textures_t *textures){
     clean_texture(textures->background);
-    /* A COMPLETER */
+    clean_texture(textures->sprite);
+   
 }
 
 
 
 /**
- * \brief La fonction initialise les textures nécessaires à l'affichage graphique du jeu
+ * \brief La fonction initialise les texures
  * \param screen la surface correspondant à l'écran de jeu
  * \param textures les textures du jeu
 */
 
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
-    textures->background = load_image( "ressources/background.bmp",renderer);
-    
-    /* A COMPLETER */
+    textures->background = load_image( "ressources/space-background.bmp",renderer);
+    textures->sprite=load_image("ressources/sprite.bmp",renderer);   
+}
 
-    
+
+/**
+ * \brief La fonction applique la texture du sprite sur le renderer lié à l'écran de jeus
+ * \param renderer le renderer
+ * \param textures les textures du jeu
+ * \param world le monde du jeu
+*/
+void apply_sprite(SDL_Renderer *renderer , textures_t *textures , world_t * world ){
+  if(textures ->sprite != NULL){
+    apply_texture(textures->sprite, renderer, world->sprite_x-SPRITE_SIZE /2, world->sprite_y-SPRITE_SIZE /2);
+  }
 }
 
 
 /**
  * \brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu
  * \param renderer le renderer
- * \param texture la texture liée au fond
+ * \param textures les textures du jeu
 */
 
-void apply_background(SDL_Renderer *renderer, SDL_Texture *texture){
-    if(texture != NULL){
-      apply_texture(texture, renderer, 0, 0);
+void apply_background(SDL_Renderer *renderer, textures_t *textures){
+    if(textures->background != NULL){
+      apply_texture(textures->background, renderer, 0, 0);
     }
 }
 
 
-
-
-
 /**
  * \brief La fonction rafraichit l'écran en fonction de l'état des données du monde
- * \param renderer le renderer lié à l'écran de jeu
+ * \param renderer le renderer
  * \param world les données du monde
- * \param textures les textures
+ * \param textures les textures du jeu
  */
 
 void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures){
@@ -231,9 +230,8 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *texture
     clear_renderer(renderer);
     
     //application des textures dans le renderer
-    apply_background(renderer, textures->background);
-    /* A COMPLETER */
-    
+    apply_background(renderer, textures);
+    apply_sprite(renderer, textures, world);
     // on met à jour l'écran
     update_screen(renderer);
 }
@@ -261,7 +259,7 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
  * \param window la fenêtre du jeu
  * \param renderer le renderer
  * \param textures les textures
- * \param world le monde
+ * \param wordl le monde
  */
 
 void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world){
