@@ -23,17 +23,40 @@
 #define SCREEN_HEIGHT 480
 
 /**
- * \brief Taille du sprite
-*/
+ * \brief Taille d'un vaisseau
+ */
 
-#define SPRITE_SIZE 32
+ #define SHIP_SIZE 32
+
 
 /**
- * \brief Pas de déplacement du sprite
+ * \brief Taille d'un météorite
 */
 
-#define MOVING_STEP 5
+ #define METEORITE_SIZE 32
 
+
+ /**
+  * \brief Hauteur de la ligne d'arrivée
+  */
+ 
+ 
+ #define FINISH_LINE_HEIGHT 10
+ 
+ 
+ /**
+  * \brief Pas de déplacement horizontal du vaisseau
+ */
+ 
+ #define MOVING_STEP 10
+ 
+ 
+ /**
+   * \brief Vitesse initiale de déplacement vertical des éléments du jeu 
+ */
+ 
+ #define INITIAL_SPEED 2
+ 
 /**
  * \brief Représentation pour stocker les textures nécessaires à l'affichage graphique
 */
@@ -42,7 +65,7 @@ struct textures_s{
   SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
   SDL_Texture* sprite;
 };
-
+Projet
 
 /**
  * \brief Type qui correspond aux textures du jeu
@@ -57,8 +80,7 @@ typedef struct textures_s textures_t;
 
 struct world_s{
   
-  int sprite_x; /*!< Champ indiquant la position x du sprite */
-  int sprite_y; /*!< Champ indiquant la position y du sprite */
+  sprite_t sprite; /*!< Champ représentant le sprite*/
   int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 
 };
@@ -69,8 +91,14 @@ struct world_s{
 
 typedef struct world_s world_t;
 
+struct sprite_s{
+  int x; /*!< Champ indiquant la position x du sprite */
+  int y; /*!< Champ indiquant la position y du sprite */
+  int w; /*!< Champ indiquant la largeur w du sprite */
+  int h; /*!< Champ indiquant la hauteur h du sprite */
+} 
 
-
+typedef struct sprite_s sprite_t;
 
 
 /**
@@ -80,8 +108,8 @@ typedef struct world_s world_t;
 
 
 void init_data(world_t * world){
-  world->sprite_x=SCREEN_WIDTH/2; /*!< Initialisation de la position x du sprite dans le monde */
-  world->sprite_y=SCREEN_HEIGHT/2; /*!< Initialisation de la position y du sprite dans le monde */
+  world->sprite->x=SCREEN_WIDTH/2; /*!< Initialisation de la position x du sprite dans le monde */
+  world->sprite->y=SHIP_SIZE; /*!< Initialisation de la position y du sprite dans le monde */
   world->gameover = 0; /*!< Initialisation de l'état de gameover (fin du jeu) à 0 */
     
 }
@@ -188,6 +216,15 @@ void clean_textures(textures_t *textures){
 void  init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
     textures->sprite=load_image("ressources/sprite.bmp",renderer);   
+}
+
+
+void init_sprite( sprite_t *sprite, int x, int y, int w, int h){
+  sprite->x=x;
+  sprite->y=y;
+  sprite->w=w;
+  sprite->h=h;
+
 }
 
 
