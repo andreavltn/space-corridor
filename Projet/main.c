@@ -63,14 +63,17 @@ typedef struct sprite_s{
  */
 typedef struct textures_s{
   SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
-  SDL_Texture* sprite;
+  SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau. */
+  SDL_Texture* ligne_arrivee; /*!< Texture liée à l'image de la ligne d'arrivée */
 } textures_t;
  
 /**
  * \brief Représentation du monde du jeu
  */
 typedef struct world_s{
-  sprite_t sprite; /*!< Champ représentant le sprite */
+  sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
+  sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
+  int vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
   int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 } world_t;
 
@@ -94,12 +97,24 @@ void print_sprite(sprite_t *sprite){
   * \param world les données du monde
   */
 void init_data(world_t * world){
-  world->sprite.x=SCREEN_WIDTH/2; /*!< Initialisation de la position x du sprite dans le monde */
-  world->sprite.y=SCREEN_HEIGHT-SHIP_SIZE; /*!< Initialisation de la position y du sprite dans le monde */
-  world->sprite.w=SHIP_SIZE; /*!< Initialisation de la largeur du sprite dans le monde */
-  world->sprite.h=SHIP_SIZE; /*!< Initialisation de la hauteur du sprite dans le monde */
+  
+  // initialisation du vaisseau
+  world->vaisseau.x=SCREEN_WIDTH/2; /*!< Initialisation de la position x du sprite dans le monde */
+  world->vaisseau.y=SCREEN_HEIGHT-SHIP_SIZE; /*!< Initialisation de la position y du sprite dans le monde */
+  world->vaisseau.w=SHIP_SIZE; /*!< Initialisation de la largeur du sprite dans le monde */
+  world->vaisseau.h=SHIP_SIZE; /*!< Initialisation de la hauteur du sprite dans le monde */
+
+  // initialisation de la ligne d'arrivée
+  world->ligne_arrivee.x=SCREEN_WIDTH/2;
+  world->ligne_arrivee.y=FINISH_LINE_HEIGHT;
+  world->ligne_arrivee.w=SCREEN_WIDTH;
+
+  // vitesse de la ligne d'arrivée
+  world->vy = INITIAL_SPEED;
+
+  // gameover
   world->gameover = 0; /*!< Initialisation de l'état de gameover (fin du jeu) à 0 */
-  print_sprite(&(world->sprite));
+  print_sprite(&(world->vaisseau));
 }
  
  
@@ -153,19 +168,19 @@ void handle_events(SDL_Event *event,world_t *world){
       }
       // touche droite/d
       if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
-        world->sprite.x+=MOVING_STEP;
+        world->vaisseau.x+=MOVING_STEP;
       }
       // touche gauche/q
       if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
-        world->sprite.x-=MOVING_STEP;
+        world->vaisseau.x-=MOVING_STEP;
       }
       // haut/z
       if(event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z){
-        world->sprite.y-=MOVING_STEP;
+        world->vaisseau.y-=MOVING_STEP;
       }
       // bas/s
       if(event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s){
-        world->sprite.y+=MOVING_STEP;
+        world->vaisseau.y+=MOVING_STEP;
       }     
     }        
   }
@@ -178,7 +193,8 @@ void handle_events(SDL_Event *event,world_t *world){
  */
 void clean_textures(textures_t *textures){
   clean_texture(textures->background);
-  clean_texture(textures->sprite); 
+  clean_texture(textures->vaisseau);
+  clean_texture(textures->ligne_arrivee); 
 }
 
 
@@ -205,7 +221,8 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
  */
 void init_textures(SDL_Renderer *renderer, textures_t *textures){
   textures->background = load_image( "ressources/space-background.bmp",renderer);
-  textures->sprite=load_image("ressources/spaceship.bmp",renderer);   
+  textures->vaisseau=load_image("ressources/spaceship.bmp",renderer);
+  textures->ligne_arrivee=load_image("ressources/finish_line.bmp",renderer);     
 }
  
 
@@ -216,8 +233,11 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures){
  * \param world le monde du jeu
  */
 void apply_sprite(SDL_Renderer *renderer , textures_t *textures , world_t * world ){
-  if(textures ->sprite != NULL){
-    apply_texture(textures->sprite, renderer, world->sprite.x-SHIP_SIZE /2, world->sprite.y-SHIP_SIZE /2);
+  if(textures->vaisseau != NULL){
+    apply_texture(textures->vaisseau,renderer,world->vaisseau.x-SHIP_SIZE/2,world->vaisseau.y-SHIP_SIZE/2);
+  }
+  if(textures->ligne_arrivee != NULL){
+    apply_texture(textures->ligne_arrivee,renderer,world->ligne_arrivee.x-SCREEN_WIDTH/2,world->ligne_arrivee.y-FINISH_LINE_HEIGHT/2);
   }
 }
  
@@ -240,12 +260,13 @@ void apply_background(SDL_Renderer *renderer, textures_t *textures){
  * \param world les données du monde
  * \param textures les textures du jeu
  */
-void refresh_graphics(SDL_Renderer *renderer, world_t *world,textures_t *textures){
+void refresh_graphics(SDL_Renderer *renderer, world_t *world, textures_t *textures){
   //on vide le renderer
   clear_renderer(renderer);
      
   //application des textures dans le renderer
   apply_background(renderer, textures);
+  apply_sprite(renderer, textures, world);
   apply_sprite(renderer, textures, world);
 
   // on met à jour l'écran
