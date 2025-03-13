@@ -139,10 +139,10 @@ int is_game_over(world_t *world){
 
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde
- * \param les données du monde
+ * \param world les données du monde
  */
 void update_data(world_t *world){
-  /* A COMPLETER */
+  world->ligne_arrivee.y += world->vy; /*!< la ligne d'arrivée descend de vy */
 }
  
 
@@ -155,7 +155,7 @@ void handle_events(SDL_Event *event,world_t *world){
   Uint8 *keystates;
   while(SDL_PollEvent(event)){
     // si l'utilisateur a cliqué sur le X de la fenêtre
-    if( event->type == SDL_QUIT ) {
+    if(event->type == SDL_QUIT ) {
       //On indique la fin du jeu
       world->gameover = 1;
     }
@@ -266,7 +266,6 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world, textures_t *textur
      
   //application des textures dans le renderer
   apply_background(renderer, textures);
-  apply_sprite(renderer, textures, world);
   apply_sprite(renderer, textures, world);
 
   // on met à jour l'écran
