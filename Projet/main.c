@@ -85,7 +85,7 @@ typedef struct world_s{
   sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
   sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
   sprite_t mur_meteorite; /*!< Champ représentant le sprite du mur de météorites */
-  int vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
+  float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
   int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 } world_t;
 
@@ -113,10 +113,10 @@ typedef struct world_s{
  * \brief Fonction de test des coordonnées du sprite
  */
 void print_sprite(sprite_t *sprite){
-  printf("x : %d\n",sprite->x); /*!< Affichage de la position x du sprite */
-  printf("y : %d\n",sprite->y); /*!< Affichage de la position y du sprite */
-  printf("w : %d\n",sprite->w); /*!< Affichage de la largeur du sprite */
-  printf("h : %d\n",sprite->h); /*!< Affichage de la hauteur du sprite */
+  printf("x : %d\n",sprite->x); // Affichage de la position x du sprite
+  printf("y : %d\n",sprite->y); // Affichage de la position y du sprite 
+  printf("w : %d\n",sprite->w); // Affichage de la largeur du sprite
+  printf("h : %d\n",sprite->h); // Affichage de la hauteur du sprite
 }
 
 
@@ -126,13 +126,14 @@ void print_sprite(sprite_t *sprite){
   */
 void init_data(world_t * world){
   
-  // initialisation du vaisseau
+  // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32x32)
   init_sprite(&(world->vaisseau), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
 
-  // initialisation de la ligne d'arrivée
+  // initialisation de la ligne d'arrivée (milieu de l'écran, à 10 pixels du haut, LARGEUR_ECRANx100)
   init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 100);
 
-  // initialisation du mur de météorites
+  // initialisation du mur de météorites -> position de la météorite en haut à droite
+  // (pour que le mur soit centré verticalement et horizontalement, avec le nombre de météorites choisi)
   init_sprite(&(world->mur_meteorite), 
   SCREEN_WIDTH/2-(METEORITE_SIZE*NBR_METEORITE_WIDTH)/2, 
   SCREEN_HEIGHT/2-(METEORITE_SIZE*NBR_METEORITE_HEIGHT)/2, 
@@ -143,7 +144,7 @@ void init_data(world_t * world){
   world->vy = INITIAL_SPEED;
 
   // gameover
-  world->gameover = 0; /*!< Initialisation de l'état de gameover (fin du jeu) à 0 */
+  world->gameover = 0; 
 }
  
  
@@ -171,8 +172,11 @@ int is_game_over(world_t *world){
  * \param world les données du monde
  */
 void update_data(world_t *world){
-  world->ligne_arrivee.y += world->vy; /*!< la ligne d'arrivée descend de vy */
-  world->mur_meteorite.y += world->vy; /*!< le mur de météorites descend de vy */
+  // la ligne d'arrivée descend de vy
+  world->ligne_arrivee.y += world->vy;
+
+  // le mur de météorites descend de vy
+  world->mur_meteorite.y += world->vy;
 }
  
 
@@ -207,10 +211,20 @@ void handle_events(SDL_Event *event,world_t *world){
       // haut/z
       if(event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z){
         world->vaisseau.y-=MOVING_STEP;
+        // si la vitesse est inférieure à 4 (3.9 pour la précision des flottants)
+        if(world->vy < 3.9){
+          // augmentation de la vitesse du jeu
+          world->vy+=0.1;
+        }
       }
       // bas/s
       if(event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s){
         world->vaisseau.y+=MOVING_STEP;
+        // si la vitesse est supérieure à 2
+        if(world->vy > 2){
+          // réduction de la vitesse du jeu
+          world->vy-=0.1;
+        }
       }     
     }        
   }
@@ -256,10 +270,10 @@ void apply_sprite(SDL_Renderer *renderer , textures_t *textures , world_t * worl
   // texture de la ligne d'arrivée
   apply_texture(textures->ligne_arrivee, renderer, world->ligne_arrivee.x, world->ligne_arrivee.y);
 
-  // texture du mur de météorites
-  for(int i=0; i<NBR_METEORITE_HEIGHT; i++){
+  // texture du mur de météorites (quadrillage de météorites)
+  for(int i=0; i<NBR_METEORITE_HEIGHT; i++){ 
     for(int j=0; j<NBR_METEORITE_WIDTH; j++){
-      apply_texture(textures->meteorite, renderer, world->mur_meteorite.x + 32*j, world->mur_meteorite.y + 32*i);
+      apply_texture(textures->meteorite, renderer, world->mur_meteorite.x + (32*j), world->mur_meteorite.y + (32*i));
     }
   }
 }
@@ -284,10 +298,10 @@ void apply_background(SDL_Renderer *renderer, textures_t *textures){
  * \param textures les textures du jeu
  */
 void refresh_graphics(SDL_Renderer *renderer, world_t *world, textures_t *textures){
-  //on vide le renderer
+  // on vide le renderer
   clear_renderer(renderer);
      
-  //application des textures dans le renderer
+  // application des textures dans le renderer
   apply_background(renderer, textures);
   apply_sprite(renderer, textures, world);
 
@@ -336,7 +350,7 @@ int main( int argc, char* args[] ){
 
   //initialisation du jeu
   init(&window,&renderer,&textures,&world);
-  while(!is_game_over(&world)){ //tant que le jeu n'est pas fini
+  while(!is_game_over(&world)){ // tant que le jeu n'est pas fini
          
     //gestion des évènements
     handle_events(&event,&world);
