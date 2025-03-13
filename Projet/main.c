@@ -29,6 +29,16 @@
 #define METEORITE_SIZE 32
 
 /**
+ * \brief Nombre de météorites en largeur
+ */
+#define NBR_METEORITE_WIDTH 3
+
+/**
+ * \brief Nombre de météorites en hauteur
+ */
+#define NBR_METEORITE_HEIGHT 7
+
+/**
  * \brief Hauteur de la ligne d'arrivée
  */
 #define FINISH_LINE_HEIGHT 10
@@ -65,6 +75,7 @@ typedef struct textures_s{
   SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
   SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau. */
   SDL_Texture* ligne_arrivee; /*!< Texture liée à l'image de la ligne d'arrivée */
+  SDL_Texture* meteorite; /*!< Texture liée à l'image d'une météorite */
 } textures_t;
  
 /**
@@ -73,12 +84,29 @@ typedef struct textures_s{
 typedef struct world_s{
   sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
   sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
+  sprite_t mur_meteorite; /*!< Champ représentant le sprite du mur de météorites */
   int vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
   int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 } world_t;
 
 
 
+
+
+/**
+ * \brief La fonction initialise la position du sprite
+ * \param sprite le sprite du jeu
+ * \param x la position x du sprite
+ * \param y la position y du sprite
+ * \param w la largeur du sprite
+ * \param h la hauteur du sprite
+ */
+ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
+  sprite->x = x;
+  sprite->y = y;
+  sprite->w = w;
+  sprite->h = h;
+}
 
 
 /**
@@ -99,22 +127,23 @@ void print_sprite(sprite_t *sprite){
 void init_data(world_t * world){
   
   // initialisation du vaisseau
-  world->vaisseau.x=SCREEN_WIDTH/2; /*!< Initialisation de la position x du sprite dans le monde */
-  world->vaisseau.y=SCREEN_HEIGHT-SHIP_SIZE; /*!< Initialisation de la position y du sprite dans le monde */
-  world->vaisseau.w=SHIP_SIZE; /*!< Initialisation de la largeur du sprite dans le monde */
-  world->vaisseau.h=SHIP_SIZE; /*!< Initialisation de la hauteur du sprite dans le monde */
+  init_sprite(&(world->vaisseau), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
 
   // initialisation de la ligne d'arrivée
-  world->ligne_arrivee.x=SCREEN_WIDTH/2;
-  world->ligne_arrivee.y=FINISH_LINE_HEIGHT;
-  world->ligne_arrivee.w=SCREEN_WIDTH;
+  init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 100);
+
+  // initialisation du mur de météorites
+  init_sprite(&(world->mur_meteorite), 
+  SCREEN_WIDTH/2-(METEORITE_SIZE*NBR_METEORITE_WIDTH)/2, 
+  SCREEN_HEIGHT/2-(METEORITE_SIZE*NBR_METEORITE_HEIGHT)/2, 
+  METEORITE_SIZE, 
+  METEORITE_SIZE);
 
   // vitesse de la ligne d'arrivée
   world->vy = INITIAL_SPEED;
 
   // gameover
   world->gameover = 0; /*!< Initialisation de l'état de gameover (fin du jeu) à 0 */
-  print_sprite(&(world->vaisseau));
 }
  
  
@@ -143,6 +172,7 @@ int is_game_over(world_t *world){
  */
 void update_data(world_t *world){
   world->ligne_arrivee.y += world->vy; /*!< la ligne d'arrivée descend de vy */
+  world->mur_meteorite.y += world->vy; /*!< le mur de météorites descend de vy */
 }
  
 
@@ -194,23 +224,8 @@ void handle_events(SDL_Event *event,world_t *world){
 void clean_textures(textures_t *textures){
   clean_texture(textures->background);
   clean_texture(textures->vaisseau);
-  clean_texture(textures->ligne_arrivee); 
-}
-
-
-/**
- * \brief La fonction initialise la position du sprite
- * \param sprite le sprite du jeu
- * \param x la position x du sprite
- * \param y la position y du sprite
- * \param w la largeur du sprite
- * \param h la hauteur du sprite
- */
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
-  sprite->x = x;
-  sprite->y = y;
-  sprite->w = w;
-  sprite->h = h;
+  clean_texture(textures->ligne_arrivee);
+  clean_texture(textures->meteorite);  
 }
 
 
@@ -222,7 +237,8 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
 void init_textures(SDL_Renderer *renderer, textures_t *textures){
   textures->background = load_image( "ressources/space-background.bmp",renderer);
   textures->vaisseau=load_image("ressources/spaceship.bmp",renderer);
-  textures->ligne_arrivee=load_image("ressources/finish_line.bmp",renderer);     
+  textures->ligne_arrivee=load_image("ressources/finish_line.bmp",renderer);
+  textures->meteorite=load_image("ressources/meteorite.bmp",renderer);     
 }
  
 
@@ -233,11 +249,18 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures){
  * \param world le monde du jeu
  */
 void apply_sprite(SDL_Renderer *renderer , textures_t *textures , world_t * world ){
-  if(textures->vaisseau != NULL){
-    apply_texture(textures->vaisseau,renderer,world->vaisseau.x-SHIP_SIZE/2,world->vaisseau.y-SHIP_SIZE/2);
-  }
-  if(textures->ligne_arrivee != NULL){
-    apply_texture(textures->ligne_arrivee,renderer,world->ligne_arrivee.x-SCREEN_WIDTH/2,world->ligne_arrivee.y-FINISH_LINE_HEIGHT/2);
+  
+  // texture du vaisseau
+  apply_texture(textures->vaisseau, renderer, world->vaisseau.x, world->vaisseau.y);
+  
+  // texture de la ligne d'arrivée
+  apply_texture(textures->ligne_arrivee, renderer, world->ligne_arrivee.x, world->ligne_arrivee.y);
+
+  // texture du mur de météorites
+  for(int i=0; i<NBR_METEORITE_HEIGHT; i++){
+    for(int j=0; j<NBR_METEORITE_WIDTH; j++){
+      apply_texture(textures->meteorite, renderer, world->mur_meteorite.x + 32*j, world->mur_meteorite.y + 32*i);
+    }
   }
 }
  
