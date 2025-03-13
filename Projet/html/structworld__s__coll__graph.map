@@ -1,0 +1,4 @@
+<map id="world_s" name="world_s">
+<area shape="rect" id="node1" title="Représentation du monde du jeu." alt="" coords="6,95,78,121"/>
+<area shape="rect" id="node2" href="$structsprite__s.html" title="Type qui correspond au sprite." alt="" coords="5,5,79,32"/>
+</map>
