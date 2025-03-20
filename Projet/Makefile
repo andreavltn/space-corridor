@@ -3,7 +3,6 @@ LDFLAGS = `sdl2-config --libs` -lSDL2_ttf -lm
 
 INC = sdl2-light.h
 SRC = main.c sdl2-light.c
-OBJ = $(SRC:%.c=%.o)
 
 PROG = spacecorridor
 
