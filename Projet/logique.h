@@ -8,6 +8,7 @@
 #define LOGIQUE_JEU_H
 
 #include "sdl2-light.h"
+#include "constantes.h"
 #include "structures.h"
 
 /**

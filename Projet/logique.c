@@ -4,8 +4,7 @@
  * \author Valentini Andréa & Viale Romain
  */
 
-#include "constantes.h"
-#include "logique_jeu.h"
+#include "logique.h"
 
 void handle_events(SDL_Event *event, world_t *world){
     Uint8 *keystates;

@@ -4,11 +4,8 @@
  * \author Valentini Andréa & Viale Romain
  */
 
-#include "sdl2-light.h"
-#include "structures.h"
-#include "logique_jeu.h"
-#include "affichage_jeu.h"
-
+#include "logique.h"
+#include "affichage.h"
 
 /**
  * \brief Fonction de test des coordonnées du sprite
