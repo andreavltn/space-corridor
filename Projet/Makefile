@@ -1,8 +1,8 @@
 CFLAGS = -O3 `sdl2-config --cflags`
 LDFLAGS = `sdl2-config --libs` -lSDL2_ttf -lm
 
-INC = sdl2-light.h
-SRC = main.c affichage.c logique.c sdl2-light.c
+INC = sdl2-light.h constantes.h affichage.h logique.h
+SRC = main.c sdl2-light.c affichage.c logique.c
 
 PROG = spacecorridor
 

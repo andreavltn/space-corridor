@@ -4,12 +4,11 @@
  * \author Valentini Andréa & Viale Romain
  */
 
-#ifndef LOGIQUE_JEU_H
-#define LOGIQUE_JEU_H
+#ifndef LOGIQUE_H
+#define LOGIQUE_H
 
 #include "sdl2-light.h"
 #include "constantes.h"
-#include "structures.h"
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités

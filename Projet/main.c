@@ -20,7 +20,7 @@ void print_sprite(sprite_t *sprite){
 /**
  *  \brief programme principal qui implémente la boucle du jeu
  */
-int main( int argc, char* args[] ){
+int main(int argc, char* args[] ){
   SDL_Event event;
   world_t world;
   textures_t textures;
