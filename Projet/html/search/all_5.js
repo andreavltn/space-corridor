@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['h_12',['h',['../structsprite__s.html#a250576ab7266fe09f3c573677507aacf',1,'sprite_s']]],
-  ['handle_5fevents_13',['handle_events',['../main_8c.html#a947b9f8960b2202788f43c71fbaa9d67',1,'main.c']]]
+  ['h_9',['h',['../structsprite__s.html#a250576ab7266fe09f3c573677507aacf',1,'sprite_s']]]
 ];

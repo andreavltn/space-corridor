@@ -5,33 +5,8 @@
  */
 
 #include "affichage.h"
-
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
-    sprite->x = x;
-    sprite->y = y;
-    sprite->w = w;
-    sprite->h = h;
-}
-
-void init_data(world_t * world){
-    // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32x32)
-    init_sprite(&(world->vaisseau), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
-  
-    // initialisation de la ligne d'arrivée (milieu de l'écran, à 10 pixels du haut, LARGEUR_ECRANx100)
-    init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 100);
-  
-    // initialisation du mur de météorites -> position de la météorite en haut à droite
-    // (pour que le mur soit centré verticalement et horizontalement, avec le nombre de météorites choisi)
-    init_sprite(&(world->mur_meteorite), 
-    SCREEN_WIDTH/2-(METEORITE_SIZE*NBR_METEORITE_WIDTH)/2, SCREEN_HEIGHT/2-(METEORITE_SIZE*NBR_METEORITE_HEIGHT)/2, 
-    METEORITE_SIZE, METEORITE_SIZE);
-  
-    // vitesse de la ligne d'arrivée
-    world->vy = INITIAL_SPEED;
-  
-    // gameover
-    world->gameover = 0; 
-}
+#include "logique.h"
+#include "constantes.h"
 
 void init_textures(SDL_Renderer *renderer, textures_t *textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
@@ -89,10 +64,4 @@ void clean_textures(textures_t *textures){
     clean_texture(textures->vaisseau);
     clean_texture(textures->ligne_arrivee);
     clean_texture(textures->meteorite);  
-}
-
-void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, world_t * world){
-    clean_data(world);
-    clean_textures(textures);
-    clean_sdl(renderer,window);
 }

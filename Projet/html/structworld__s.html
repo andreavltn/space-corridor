@@ -71,20 +71,28 @@ $(function() {
 
 <p>Représentation du monde du jeu.  
  <a href="structworld__s.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="affichage_8h_source.html">affichage.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for world_s:</div>
 <div class="dyncontent">
 <div class="center"><img src="structworld__s__coll__graph.png" border="0" usemap="#world__s_coll__map" alt="Collaboration graph"/></div>
 <map name="world__s_coll__map" id="world__s_coll__map">
-<area shape="rect" title="Représentation du monde du jeu." alt="" coords="6,95,78,121"/>
+<area shape="rect" title="Représentation du monde du jeu." alt="" coords="6,124,78,151"/>
 <area shape="rect" href="structsprite__s.html" title="Type qui correspond au sprite." alt="" coords="5,5,79,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a6b6b0be9f1bed0b7de7564c21cb3484e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8c.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structworld__s.html#a6b6b0be9f1bed0b7de7564c21cb3484e">sprite</a></td></tr>
-<tr class="separator:a6b6b0be9f1bed0b7de7564c21cb3484e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3911065b6b0167b0cd6c67d2d5f369ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsprite__s.html">sprite_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structworld__s.html#a3911065b6b0167b0cd6c67d2d5f369ed">vaisseau</a></td></tr>
+<tr class="separator:a3911065b6b0167b0cd6c67d2d5f369ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b3b6ff699d94441755e56d6a089461e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsprite__s.html">sprite_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structworld__s.html#a3b3b6ff699d94441755e56d6a089461e">ligne_arrivee</a></td></tr>
+<tr class="separator:a3b3b6ff699d94441755e56d6a089461e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ef887054fb343d61335dcfe7484541f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsprite__s.html">sprite_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structworld__s.html#a8ef887054fb343d61335dcfe7484541f">mur_meteorite</a></td></tr>
+<tr class="separator:a8ef887054fb343d61335dcfe7484541f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63348b29918eaa37a31aca8d4747b5a8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structworld__s.html#a63348b29918eaa37a31aca8d4747b5a8">vy</a></td></tr>
+<tr class="separator:a63348b29918eaa37a31aca8d4747b5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a693aa82d082fe3467969094559b9bc0f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structworld__s.html#a693aa82d082fe3467969094559b9bc0f">gameover</a></td></tr>
 <tr class="separator:a693aa82d082fe3467969094559b9bc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -106,23 +114,68 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6b6b0be9f1bed0b7de7564c21cb3484e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b6b0be9f1bed0b7de7564c21cb3484e">&#9670;&nbsp;</a></span>sprite</h2>
+<a id="a3b3b6ff699d94441755e56d6a089461e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b3b6ff699d94441755e56d6a089461e">&#9670;&nbsp;</a></span>ligne_arrivee</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="main_8c.html#a5371414b10358aeda7c6bcec8196342f">sprite_t</a> world_s::sprite</td>
+          <td class="memname"><a class="el" href="structsprite__s.html">sprite_t</a> world_s::ligne_arrivee</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Champ représentant le sprite </p>
+<p>Champ représentant le sprite de la ligne d'arrivée </p>
+
+</div>
+</div>
+<a id="a8ef887054fb343d61335dcfe7484541f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ef887054fb343d61335dcfe7484541f">&#9670;&nbsp;</a></span>mur_meteorite</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsprite__s.html">sprite_t</a> world_s::mur_meteorite</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Champ représentant le sprite du mur de météorites </p>
+
+</div>
+</div>
+<a id="a3911065b6b0167b0cd6c67d2d5f369ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3911065b6b0167b0cd6c67d2d5f369ed">&#9670;&nbsp;</a></span>vaisseau</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsprite__s.html">sprite_t</a> world_s::vaisseau</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Champ représentant le sprite du vaisseau </p>
+
+</div>
+</div>
+<a id="a63348b29918eaa37a31aca8d4747b5a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63348b29918eaa37a31aca8d4747b5a8">&#9670;&nbsp;</a></span>vy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float world_s::vy</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Champ représentant la vitesse de déplacement de la ligne d'arrivée </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="main_8c.html">main.c</a></li>
+<li><a class="el" href="affichage_8h_source.html">affichage.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

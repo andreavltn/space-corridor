@@ -8,17 +8,6 @@
 #define CONSTANTES_H
 
 /**
- * \brief Représentation du monde du jeu
- */
-typedef struct world_s{
-    sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
-    sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
-    sprite_t mur_meteorite; /*!< Champ représentant le sprite du mur de météorites */
-    float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
-    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
-} world_t;
-
-/**
  * \brief Largeur de l'écran de jeu
  */
 #define SCREEN_WIDTH 300

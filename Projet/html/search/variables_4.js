@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['w_79',['w',['../structsprite__s.html#af2389d89553f12884d2b690dcc458e28',1,'sprite_s']]]
+  ['meteorite_60',['meteorite',['../structtextures__s.html#acfa030c57c19f6fb26ae979bfabfd252',1,'textures_s']]],
+  ['mur_5fmeteorite_61',['mur_meteorite',['../structworld__s.html#a8ef887054fb343d61335dcfe7484541f',1,'world_s']]]
 ];

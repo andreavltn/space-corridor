@@ -8,7 +8,23 @@
 #define LOGIQUE_H
 
 #include "sdl2-light.h"
-#include "constantes.h"
+#include "affichage.h"
+
+/**
+ * \brief La fonction initialise la position du sprite
+ * \param sprite le sprite du jeu
+ * \param x la position x du sprite
+ * \param y la position y du sprite
+ * \param w la largeur du sprite
+ * \param h la hauteur du sprite
+ */
+void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
+
+/**
+ * \brief La fonction initialise les données du monde du jeu
+ * \param world les données du monde
+ */
+void init_data(world_t * world);
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités

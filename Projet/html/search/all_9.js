@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pause_26',['pause',['../sdl2-light_8c.html#a381e2d58c3d6a1f0fd8129bcc4726804',1,'pause(int time):&#160;sdl2-light.c'],['../sdl2-light_8h.html#a381e2d58c3d6a1f0fd8129bcc4726804',1,'pause(int time):&#160;sdl2-light.c']]],
-  ['print_5fsprite_27',['print_sprite',['../main_8c.html#a242b29f702d42f06f3cdf3843ee7f930',1,'main.c']]]
+  ['nbr_5fmeteorite_5fheight_20',['NBR_METEORITE_HEIGHT',['../constantes_8h.html#ac41db16da3a6bf48587768049c9db42f',1,'constantes.h']]],
+  ['nbr_5fmeteorite_5fwidth_21',['NBR_METEORITE_WIDTH',['../constantes_8h.html#a2d7d8408438082bf3a7174166c3e4d13',1,'constantes.h']]]
 ];

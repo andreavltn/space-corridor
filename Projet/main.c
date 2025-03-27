@@ -8,6 +8,19 @@
 #include "affichage.h"
 
 /**
+ * \brief fonction qui nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des textures, nettoyage des données
+ * \param window la fenêtre du jeu
+ * \param renderer le renderer
+ * \param textures les textures
+ * \param world le monde
+ */
+void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, world_t * world){
+  clean_data(world);
+  clean_textures(textures);
+  clean_sdl(renderer,window);
+}
+
+/**
  * \brief Fonction de test des coordonnées du sprite
  */
 void print_sprite(sprite_t *sprite){

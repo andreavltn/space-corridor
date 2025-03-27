@@ -1,5 +1,7 @@
 <map id="sdl2&#45;light.h" name="sdl2&#45;light.h">
-<area shape="rect" id="node1" title="en&#45;tête du module correspondant à une sur&#45;couche de SDL2 pour simplifier son utilisation pour le proj..." alt="" coords="43,5,138,32"/>
-<area shape="rect" id="node2" href="$main_8c.html" title="Programme principal initial du niveau 0." alt="" coords="5,80,72,107"/>
-<area shape="rect" id="node3" href="$sdl2-light_8c.html" title="sur&#45;couche de SDL2 pour simplifier son utilisation pour le projet" alt="" coords="97,80,191,107"/>
+<area shape="rect" id="node1" title="en&#45;tête du module correspondant à une sur&#45;couche de SDL2 pour simplifier son utilisation pour le proj..." alt="" coords="78,5,173,32"/>
+<area shape="rect" id="node2" href="$affichage_8h_source.html" title=" " alt="" coords="78,80,173,107"/>
+<area shape="rect" id="node3" href="$logique_8h_source.html" title=" " alt="" coords="5,155,88,181"/>
+<area shape="rect" id="node5" href="$sdl2-light_8c.html" title="sur&#45;couche de SDL2 pour simplifier son utilisation pour le projet" alt="" coords="197,80,291,107"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Programme principal du jeu." alt="" coords="52,229,119,256"/>
 </map>

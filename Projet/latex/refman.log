@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.15)  13 MAR 2025 14:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.2.29)  27 MAR 2025 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -886,203 +886,191 @@ LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 
 ]
 Chapter 2.
-(./files.tex) [3] [4
+(./files.tex
+
+LaTeX Warning: Reference `affichage_8h' on page 3 undefined on input line 3.
+
+
+LaTeX Warning: Reference `logique_8h' on page 3 undefined on input line 5.
+
+) [3] [4
 
 ]
 Chapter 3.
 (./structsprite__s.tex
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 8.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 29.
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 29
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
 .
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [5]) (./structtextures__s.tex) (./structworld__s.tex <./structworld__s__coll_
-_graph.pdf
+)
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 12.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.19995pt on input line 33.
+ [5]) (./structtextures__s.tex [6]) (./structworld__s.tex <./structworld__s__co
+ll__graph.pdf
 
 pdfTeX warning: pdflatex (file ./structworld__s__coll__graph.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >
-<structworld__s__coll__graph.pdf, id=385, 139.52126pt x 167.62625pt>
+<structworld__s__coll__graph.pdf, id=376, 181.67876pt x 189.70876pt>
 File: structworld__s__coll__graph.pdf Graphic file (type pdf)
 <use structworld__s__coll__graph.pdf>
-Package pdftex.def Info: structworld__s__coll__graph.pdf  used on input line 15
+Package pdftex.def Info: structworld__s__coll__graph.pdf  used on input line 19
 .
-(pdftex.def)             Requested size: 139.0pt x 167.00427pt.
- [6]) [7] [8
-
-]
+(pdftex.def)             Requested size: 181.0pt x 189.00485pt.
+ [7]) [8]
 Chapter 4.
-(./main_8c.tex <./main_8c__incl.pdf
-
-pdfTeX warning: pdflatex (file ./main_8c__incl.pdf): PDF inclusion: multiple pd
-fs with page group included in a single page
->
-<main_8c__incl.pdf, id=421, 152.57pt x 212.795pt>
-File: main_8c__incl.pdf Graphic file (type pdf)
-<use main_8c__incl.pdf>
-Package pdftex.def Info: main_8c__incl.pdf  used on input line 14.
-(pdftex.def)             Requested size: 152.0pt x 212.00868pt.
+(./constantes_8h.tex
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 21.
+(Font)              scaled to size 8.09995pt on input line 13.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 21.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 13.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 21.
+(Font)              scaled to size 8.09995pt on input line 13.
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
-(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 23.
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 13.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 23.
- [9]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 90.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 90.
- [10]
+(Font)              scaled to size 8.09995pt on input line 13.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 101.
+(Font)              scaled to size 8.99994pt on input line 43.
 
-Underfull \hbox (badness 10000) detected at line 101
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 104
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 107
-[][][]
- []
-
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 117.
-
-Underfull \vbox (badness 1365) has occurred while \output is active []
-
- [11]
-[12]
-Underfull \vbox (badness 1248) has occurred while \output is active []
-
- [13]
-[14]
-Underfull \hbox (badness 10000) detected at line 316
-[][][]
- []
-
-[15]) (./sdl2-light_8c.tex <./sdl2-light_8c__incl.pdf
-
-pdfTeX warning: pdflatex (file ./sdl2-light_8c__incl.pdf): PDF inclusion: multi
-ple pdfs with page group included in a single page
->
-<sdl2-light_8c__incl.pdf, id=572, 293.095pt x 212.795pt>
-File: sdl2-light_8c__incl.pdf Graphic file (type pdf)
-<use sdl2-light_8c__incl.pdf>
-Package pdftex.def Info: sdl2-light_8c__incl.pdf  used on input line 16.
-(pdftex.def)             Requested size: 292.0pt x 211.99895pt.
- [16]
 Underfull \hbox (badness 10000) detected at line 43
 [][][]
  []
 
+) (./main_8c.tex <./main_8c__incl.pdf
 
-Underfull \hbox (badness 10000) detected at line 46
+pdfTeX warning: pdflatex (file ./main_8c__incl.pdf): PDF inclusion: multiple pd
+fs with page group included in a single page
+>
+<main_8c__incl.pdf, id=420, 206.7725pt x 325.215pt>
+File: main_8c__incl.pdf Graphic file (type pdf)
+<use main_8c__incl.pdf>
+Package pdftex.def Info: main_8c__incl.pdf  used on input line 15.
+(pdftex.def)             Requested size: 206.0pt x 324.00833pt.
+ [9
+
+]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 22.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 6.29996pt on input line 22.
+
+Underfull \hbox (badness 10000) detected at line 34
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 44.
+[10]) (./sdl2-light_8c.tex <./sdl2-light_8c__incl.pdf>
+<sdl2-light_8c__incl.pdf, id=463, 293.095pt x 212.795pt>
+File: sdl2-light_8c__incl.pdf Graphic file (type pdf)
+<use sdl2-light_8c__incl.pdf>
+Package pdftex.def Info: sdl2-light_8c__incl.pdf  used on input line 15.
+(pdftex.def)             Requested size: 292.0pt x 211.99895pt.
+ [11]
+Underfull \hbox (badness 10000) detected at line 42
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 49
+Underfull \hbox (badness 10000) detected at line 45
 [][][]
  []
 
-[17]
+
+Underfull \hbox (badness 10000) detected at line 48
+[][][]
+ []
+
+[12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18]
-Underfull \hbox (badness 10000) detected at line 144
+ [13]
+Underfull \hbox (badness 10000) detected at line 143
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 164
+Underfull \hbox (badness 10000) detected at line 163
 [][][]
  []
 
-[19]) (./sdl2-light_8h.tex <./sdl2-light_8h__incl.pdf
+[14]) (./sdl2-light_8h.tex <./sdl2-light_8h__incl.pdf
 
 pdfTeX warning: pdflatex (file ./sdl2-light_8h__incl.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
 >
-<sdl2-light_8h__incl.pdf, id=623, 152.57pt x 156.585pt>
+<sdl2-light_8h__incl.pdf, id=514, 152.57pt x 156.585pt>
 File: sdl2-light_8h__incl.pdf Graphic file (type pdf)
 <use sdl2-light_8h__incl.pdf>
-Package pdftex.def Info: sdl2-light_8h__incl.pdf  used on input line 14.
+Package pdftex.def Info: sdl2-light_8h__incl.pdf  used on input line 13.
 (pdftex.def)             Requested size: 152.0pt x 156.0064pt.
  <./sdl2-light_8h__dep__incl.pdf
 
 pdfTeX warning: pdflatex (file ./sdl2-light_8h__dep__incl.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
 >
-<sdl2-light_8h__dep__incl.pdf, id=631, 220.825pt x 156.585pt>
+<sdl2-light_8h__dep__incl.pdf, id=523, 296.10625pt x 269.005pt>
 File: sdl2-light_8h__dep__incl.pdf Graphic file (type pdf)
 <use sdl2-light_8h__dep__incl.pdf>
-Package pdftex.def Info: sdl2-light_8h__dep__incl.pdf  used on input line 22.
-(pdftex.def)             Requested size: 220.0pt x 156.0064pt.
+Package pdftex.def Info: sdl2-light_8h__dep__incl.pdf  used on input line 21.
+(pdftex.def)             Requested size: 295.0pt x 268.00688pt.
 
 Underfull \vbox (badness 4181) has occurred while \output is active []
 
- [20]
-Underfull \hbox (badness 10000) detected at line 49
+ [15]
+Underfull \hbox (badness 10000) detected at line 48
+[][][]
+ []
+
+[16]
+Underfull \hbox (badness 10000) detected at line 51
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 52
+Underfull \hbox (badness 10000) detected at line 54
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 55
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+Underfull \hbox (badness 10000) detected at line 149
 [][][]
  []
 
-[21]
-Overfull \vbox (8.07802pt too high) has occurred while \output is active []
-
-
-[22]
-Underfull \hbox (badness 10000) detected at line 150
+[18]
+Underfull \hbox (badness 10000) detected at line 169
 [][][]
  []
 
-[23]
-Underfull \hbox (badness 10000) detected at line 170
-[][][]
- []
+) [19] [20
 
-) [24] (./refman.ind [25
+] (./refman.ind [21
 
-
-
-] [26
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 196.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 196.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 197.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 197.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 196.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 196.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 197.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 197.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 58F40F68FAA3F378042AB77FFAF41089;11233.
+(rerunfilecheck)             Checksum: 5080058F18642D3C54B00D845DDD51B5;10112.
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 16821 strings out of 481239
- 246717 string characters out of 5920377
- 534909 words of memory out of 5000000
- 31570 multiletter control sequences out of 15000+600000
+ 16769 strings out of 481239
+ 245799 string characters out of 5920377
+ 525943 words of memory out of 5000000
+ 31547 multiletter control sequences out of 15000+600000
  589627 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,15n,96p,938b,627s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1095,10 +1083,10 @@ rier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (30 pages, 162122 bytes).
+Output written on refman.pdf (25 pages, 155492 bytes).
 PDF statistics:
- 854 PDF objects out of 1000 (max. 8388607)
- 785 compressed objects within 8 object streams
- 188 named destinations out of 1000 (max. 500000)
- 522 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 727 PDF objects out of 1000 (max. 8388607)
+ 665 compressed objects within 7 object streams
+ 157 named destinations out of 1000 (max. 500000)
+ 482 words of extra memory for PDF output out of 10000 (max. 10000000)
 

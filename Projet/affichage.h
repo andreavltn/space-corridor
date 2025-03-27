@@ -8,7 +8,6 @@
 #define AFFICHAGE_H
 
 #include "sdl2-light.h"
-#include "constantes.h"
 
 /**
  * \brief Type qui correspond au sprite
@@ -29,23 +28,17 @@ typedef struct textures_s{
     SDL_Texture* ligne_arrivee; /*!< Texture liée à l'image de la ligne d'arrivée */
     SDL_Texture* meteorite; /*!< Texture liée à l'image d'une météorite */
 } textures_t;
-  
 
 /**
- * \brief La fonction initialise la position du sprite
- * \param sprite le sprite du jeu
- * \param x la position x du sprite
- * \param y la position y du sprite
- * \param w la largeur du sprite
- * \param h la hauteur du sprite
+ * \brief Représentation du monde du jeu
  */
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
-
-/**
- * \brief La fonction initialise les données du monde du jeu
- * \param world les données du monde
- */
-void init_data(world_t * world);
+ typedef struct world_s{
+    sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
+    sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
+    sprite_t mur_meteorite; /*!< Champ représentant le sprite du mur de météorites */
+    float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
+    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
+} world_t;
 
 /**
  * \brief La fonction initialise les texures
@@ -97,14 +90,5 @@ void clean_data(world_t *world);
  * \param textures les textures
  */
 void clean_textures(textures_t *textures);
-
-/**
- * \brief fonction qui nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des textures, nettoyage des données
- * \param window la fenêtre du jeu
- * \param renderer le renderer
- * \param textures les textures
- * \param world le monde
- */
-void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, world_t * world);
 
 #endif
