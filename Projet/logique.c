@@ -6,6 +6,7 @@
 
 #include "logique.h"
 #include "constantes.h"
+#include <stdlib.h>
 
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
     sprite->x = x;
@@ -18,14 +19,17 @@ void init_data(world_t * world){
     // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32x32)
     init_sprite(&(world->vaisseau), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
   
-    // initialisation de la ligne d'arrivée (milieu de l'écran, à 10 pixels du haut, LARGEUR_ECRANx100)
+    // initialisation de la ligne d'arrivée (milieu de l'écran, à 10 pixels du haut, LARGEUR_ECRANx100).
+    
     init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 100);
   
     // initialisation du mur de météorites -> position de la météorite en haut à droite
     // (pour que le mur soit centré verticalement et horizontalement, avec le nombre de météorites choisi)
     init_sprite(&(world->mur_meteorite), 
-    SCREEN_WIDTH/2-(METEORITE_SIZE*NBR_METEORITE_WIDTH)/2, SCREEN_HEIGHT/2-(METEORITE_SIZE*NBR_METEORITE_HEIGHT)/2, 
-    METEORITE_SIZE, METEORITE_SIZE);
+    SCREEN_WIDTH/2-(METEORITE_SIZE*NBR_METEORITE_WIDTH)/2, 
+    SCREEN_HEIGHT/2-(METEORITE_SIZE*NBR_METEORITE_HEIGHT)/2, 
+    METEORITE_SIZE*NBR_METEORITE_WIDTH, 
+    METEORITE_SIZE*NBR_METEORITE_HEIGHT);
   
     // vitesse de la ligne d'arrivée
     world->vy = INITIAL_SPEED;
@@ -34,6 +38,25 @@ void init_data(world_t * world){
     world->gameover = 0; 
 }
 
+
+int sprites_collide(sprite_t* sp1, sprite_t* sp2){
+    // déplacement au centre des coordonnées (qui étaient initialement dans le coin en haut à gauche)
+    int x1 = sp1->x + sp1->w/2;
+    int x2 = sp2->x + sp2->w/2;
+    int y1 = sp1->y + sp1->h/2;
+    int y2 = sp2->y + sp2->h/2;
+
+    if ((abs(x1 - x2) <= (sp1->w + sp2->w)/2) && (abs(y1 - y2) <= (sp1->h + sp2->h)/2)){
+        return 1;
+    }
+    return 0;
+}
+
+void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2){
+    if (sprites_collide(sp1,sp2)){
+        world->vy = 0;
+    } 
+}
 
 void handle_events(SDL_Event *event, world_t *world){
     Uint8 *keystates;
@@ -54,12 +77,16 @@ void handle_events(SDL_Event *event, world_t *world){
 
             // touche droite/d
             if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
-                world->vaisseau.x+=MOVING_STEP;
+                if(world->vaisseau.x + world->vaisseau.w + MOVING_STEP < SCREEN_WIDTH) {
+                    world->vaisseau.x+=MOVING_STEP;
+                }
             }
 
             // touche gauche/q
             if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
-                world->vaisseau.x-=MOVING_STEP;
+                if(world->vaisseau.x - MOVING_STEP > 0){
+                    world->vaisseau.x-=MOVING_STEP;
+                }
             }
 
             // haut/z
@@ -97,4 +124,7 @@ void update_data(world_t *world){
   
     // le mur de météorites descend de vy
     world->mur_meteorite.y += world->vy;
+
+    handle_sprites_collision(world,&(world->vaisseau),&(world->ligne_arrivee));
+    handle_sprites_collision(world,&(world->vaisseau),&(world->mur_meteorite));
 }

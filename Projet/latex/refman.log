@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.2.29)  27 MAR 2025 14:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.2.29)  27 MAR 2025 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,7 +916,7 @@ n: multiple pdfs with page group included in a single page
 <structworld__s__coll__graph.pdf, id=376, 181.67876pt x 189.70876pt>
 File: structworld__s__coll__graph.pdf Graphic file (type pdf)
 <use structworld__s__coll__graph.pdf>
-Package pdftex.def Info: structworld__s__coll__graph.pdf  used on input line 19
+Package pdftex.def Info: structworld__s__coll__graph.pdf  used on input line 18
 .
 (pdftex.def)             Requested size: 181.0pt x 189.00485pt.
  [7]) [8]
@@ -947,22 +947,22 @@ fs with page group included in a single page
 <main_8c__incl.pdf, id=420, 206.7725pt x 325.215pt>
 File: main_8c__incl.pdf Graphic file (type pdf)
 <use main_8c__incl.pdf>
-Package pdftex.def Info: main_8c__incl.pdf  used on input line 15.
+Package pdftex.def Info: main_8c__incl.pdf  used on input line 14.
 (pdftex.def)             Requested size: 206.0pt x 324.00833pt.
  [9
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 22.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 21.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 22.
+(Font)              scaled to size 6.29996pt on input line 21.
 
-Underfull \hbox (badness 10000) detected at line 34
+Underfull \hbox (badness 10000) detected at line 33
 [][][]
  []
 
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 44.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 43.
 [10]) (./sdl2-light_8c.tex <./sdl2-light_8c__incl.pdf>
 <sdl2-light_8c__incl.pdf, id=463, 293.095pt x 212.795pt>
 File: sdl2-light_8c__incl.pdf Graphic file (type pdf)
@@ -1015,23 +1015,23 @@ multiple pdfs with page group included in a single page
 <sdl2-light_8h__dep__incl.pdf, id=523, 296.10625pt x 269.005pt>
 File: sdl2-light_8h__dep__incl.pdf Graphic file (type pdf)
 <use sdl2-light_8h__dep__incl.pdf>
-Package pdftex.def Info: sdl2-light_8h__dep__incl.pdf  used on input line 21.
+Package pdftex.def Info: sdl2-light_8h__dep__incl.pdf  used on input line 20.
 (pdftex.def)             Requested size: 295.0pt x 268.00688pt.
 
 Underfull \vbox (badness 4181) has occurred while \output is active []
 
  [15]
-Underfull \hbox (badness 10000) detected at line 48
+Underfull \hbox (badness 10000) detected at line 47
 [][][]
  []
 
 [16]
-Underfull \hbox (badness 10000) detected at line 51
+Underfull \hbox (badness 10000) detected at line 50
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 54
+Underfull \hbox (badness 10000) detected at line 53
 [][][]
  []
 
@@ -1039,12 +1039,12 @@ Underfull \hbox (badness 10000) detected at line 54
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-Underfull \hbox (badness 10000) detected at line 149
+Underfull \hbox (badness 10000) detected at line 148
 [][][]
  []
 
 [18]
-Underfull \hbox (badness 10000) detected at line 169
+Underfull \hbox (badness 10000) detected at line 168
 [][][]
  []
 
@@ -1069,7 +1069,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  16769 strings out of 481239
  245799 string characters out of 5920377
- 525943 words of memory out of 5000000
+ 524943 words of memory out of 5000000
  31547 multiletter control sequences out of 15000+600000
  589627 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191

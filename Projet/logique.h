@@ -27,6 +27,21 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
 void init_data(world_t * world);
 
 /**
+ * \brief La fonction renvoie l'état de collision de 2 sprites (0 ou 1)
+ * \param sp1 le premier sprite
+ * \param sp2 le deuxième sprite
+ */
+int sprites_collide(sprite_t* sp1, sprite_t* sp2);
+
+/**
+ * \brief La fonction met la vitesse du jeu à 0 si les deux sprites sont en collision
+ * \param world les données du monde
+ * \param sp1 le premier sprite
+ * \param sp2 le deuxième sprite
+ */
+void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2);
+
+/**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
  * \param event paramètre qui contient les événements
  * \param world les données du monde

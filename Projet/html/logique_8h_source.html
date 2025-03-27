@@ -76,13 +76,17 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> init_data(<a class="code" href="structworld__s.html">world_t</a> * world);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> handle_events(SDL_Event *event, <a class="code" href="structworld__s.html">world_t</a> *world);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">int</span> sprites_collide(<a class="code" href="structsprite__s.html">sprite_t</a>* sp1, <a class="code" href="structsprite__s.html">sprite_t</a>* sp2);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">int</span> is_game_over(<a class="code" href="structworld__s.html">world_t</a> *world);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> update_data(<a class="code" href="structworld__s.html">world_t</a> *world);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> handle_sprites_collision(<a class="code" href="structworld__s.html">world_t</a>* world, <a class="code" href="structsprite__s.html">sprite_t</a>* sp1, <a class="code" href="structsprite__s.html">sprite_t</a>* sp2);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> handle_events(SDL_Event *event, <a class="code" href="structworld__s.html">world_t</a> *world);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">int</span> is_game_over(<a class="code" href="structworld__s.html">world_t</a> *world);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">void</span> update_data(<a class="code" href="structworld__s.html">world_t</a> *world);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructworld__s_html"><div class="ttname"><a href="structworld__s.html">world_s</a></div><div class="ttdoc">Représentation du monde du jeu.</div><div class="ttdef"><b>Definition:</b> affichage.h:35</div></div>
 <div class="ttc" id="asdl2-light_8h_html"><div class="ttname"><a href="sdl2-light_8h.html">sdl2-light.h</a></div><div class="ttdoc">en-tête du module correspondant à une sur-couche de SDL2 pour simplifier son utilisation pour le proj...</div></div>
