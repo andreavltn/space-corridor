@@ -20,16 +20,10 @@ void init_data(world_t * world){
     init_sprite(&(world->vaisseau), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
   
     // initialisation de la ligne d'arrivée (milieu de l'écran, à 10 pixels du haut, LARGEUR_ECRANx8).
-    
     init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 8);
   
-    // initialisation du mur de météorites -> position de la météorite en haut à droite
-    // (pour que le mur soit centré verticalement et horizontalement, avec le nombre de météorites choisi)
-    init_sprite(&(world->mur_meteorite), 
-    SCREEN_WIDTH/2-(METEORITE_SIZE*NBR_METEORITE_WIDTH)/2, 
-    SCREEN_HEIGHT/2-(METEORITE_SIZE*NBR_METEORITE_HEIGHT)/2, 
-    METEORITE_SIZE*NBR_METEORITE_WIDTH, 
-    METEORITE_SIZE*NBR_METEORITE_HEIGHT);
+    // initialisation du mur de météorites
+    init_sprite(&(world->mur_meteorite), 0, 48, 96 , 192);
   
     // vitesse de la ligne d'arrivée
     world->vy = INITIAL_SPEED;

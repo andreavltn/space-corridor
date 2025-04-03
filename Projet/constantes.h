@@ -28,16 +28,6 @@
 #define METEORITE_SIZE 32
  
 /**
- * \brief Nombre de météorites en largeur
- */
-#define NBR_METEORITE_WIDTH 1
- 
-/**
- * \brief Nombre de météorites en hauteur
- */
-#define NBR_METEORITE_HEIGHT 1
- 
-/**
  * \brief Hauteur de la ligne d'arrivée
  */
 #define FINISH_LINE_HEIGHT 10
