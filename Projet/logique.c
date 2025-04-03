@@ -14,6 +14,15 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
     sprite->w = w;
     sprite->h = h;
 }
+void init_walls(world_t* world){
+    init_sprite(&(world->mur_meteorite[0]),0,0,96,192);
+    init_sprite(&(world->mur_meteorite[1]),204,0,96,192);
+    init_sprite(&(world->mur_meteorite[2]),0,-352,32,160);
+    init_sprite(&(world->mur_meteorite[3]),74,-352,224,160);
+    init_sprite(&(world->mur_meteorite[4]),0,-672,96,192);
+    init_sprite(&(world->mur_meteorite[5]),204,-672,96,192);
+
+}
 
 void init_data(world_t * world){
     // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32x32)
@@ -23,7 +32,7 @@ void init_data(world_t * world){
     init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 8);
   
     // initialisation du mur de météorites
-    init_sprite(&(world->mur_meteorite), 0, 48, 96 , 192);
+    init_walls(world);
   
     // vitesse de la ligne d'arrivée
     world->vy = INITIAL_SPEED;
@@ -65,7 +74,7 @@ void handle_events(SDL_Event *event, world_t *world){
             world->gameover = 1;
         }
   
-        // si une touche est appuyée
+        // si une touche est appuyée48
         if(event->type == SDL_KEYDOWN){
 
             // touche echap
@@ -89,8 +98,8 @@ void handle_events(SDL_Event *event, world_t *world){
 
             // haut/z
             if(event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z){
-                // si la vitesse est inférieure à 4 (3.9 pour la précision des flottants)
-                if(world->vy < 3.9){
+                // si la vitesse est inférieure à 2 (1.9 pour la précision des flottants)
+                if(world->vy < 1.9){
                     // augmentation de la vitesse du jeu
                     world->vy+=0.1;
                 }
@@ -98,8 +107,8 @@ void handle_events(SDL_Event *event, world_t *world){
 
             // bas/s
             if(event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s){
-                // si la vitesse est supérieure à 2
-                if(world->vy > 2){
+                // si la vitesse est supérieure à 0.5
+                if(world->vy > 0.5){
                     // réduction de la vitesse du jeu
                     world->vy-=0.1;
                 }
@@ -119,10 +128,12 @@ int is_game_over(world_t *world){
 void update_data(world_t *world, textures_t* textures){
     // la ligne d'arrivée descend de vy
     world->ligne_arrivee.y += world->vy;
-  
-    // le mur de météorites descend de vy
-    world->mur_meteorite.y += world->vy;
+
 
     handle_sprites_collision(world,&(world->vaisseau),&(world->ligne_arrivee),0, textures);
-    handle_sprites_collision(world,&(world->vaisseau),&(world->mur_meteorite),1,textures);
+    for (int i=0;i<6;i++){
+        // le mur de météorites descend de vy
+        world->mur_meteorite[i].y += world->vy;
+        handle_sprites_collision(world,&(world->vaisseau),&(world->mur_meteorite[i]),1,textures);
+    }
 }

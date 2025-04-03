@@ -30,13 +30,14 @@ void apply_sprite(SDL_Renderer *renderer , textures_t *textures , world_t * worl
     apply_texture(textures->ligne_arrivee, renderer, world->ligne_arrivee.x, world->ligne_arrivee.y);
   
     // texture du mur de météorites (quadrillage de météorites)
-    for(int i=0; i<world->mur_meteorite.h; i+=32){ 
-        for(int j=0; j<world->mur_meteorite.w; j+=32){
-            apply_texture(textures->meteorite, renderer, world->mur_meteorite.x + j, world->mur_meteorite.y + i);
-        }
-    }
-}
-  
+    for (int h=0; h<6;h++){
+        for(int i=0; i<world->mur_meteorite[h].w; i+=32){ 
+            for(int j=0; j<world->mur_meteorite[h].h; j+=32){
+                apply_texture(textures->meteorite, renderer, world->mur_meteorite[h].x + i, world->mur_meteorite[h].y + j);
+            }
+        }   
+    }   
+} 
 void apply_background(SDL_Renderer *renderer, textures_t *textures){
     if(textures->background != NULL){
         apply_texture(textures->background, renderer, 0, 0);

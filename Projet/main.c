@@ -24,10 +24,10 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
  * \brief Fonction de test des coordonnées du sprite
  */
 void print_sprite(sprite_t *sprite){
-  printf("x : %d\n",sprite->x); // Affichage de la position x du sprite
-  printf("y : %d\n",sprite->y); // Affichage de la position y du sprite 
-  printf("w : %d\n",sprite->w); // Affichage de la largeur du sprite
-  printf("h : %d\n",sprite->h); // Affichage de la hauteur du sprite
+  printf("x : %f\n",sprite->x); // Affichage de la position x du sprite
+  printf("y : %f\n",sprite->y); // Affichage de la position y du sprite 
+  printf("w : %f\n",sprite->w); // Affichage de la largeur du sprite
+  printf("h : %f\n",sprite->h); // Affichage de la hauteur du sprite
 }
  
 /**

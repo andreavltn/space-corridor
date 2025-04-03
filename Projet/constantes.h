@@ -30,7 +30,7 @@
 /**
  * \brief Hauteur de la ligne d'arrivée
  */
-#define FINISH_LINE_HEIGHT 10
+#define FINISH_LINE_HEIGHT -1000
  
 /**
 * \brief Pas de déplacement horizontal du vaisseau
@@ -40,6 +40,6 @@
 /**
  * \brief Vitesse initiale de déplacement vertical des éléments du jeu 
  */
-#define INITIAL_SPEED 2
+#define INITIAL_SPEED 1
 
 #endif
