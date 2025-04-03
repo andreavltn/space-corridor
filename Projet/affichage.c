@@ -17,8 +17,18 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures){
 
 void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world){
     init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
-    init_data(-> position de la météorite en haut à droite
-        // (pour que le mur soit centré verticalement et horizontalement, avec le nombre de météorites choisi)
+    init_data(world);
+    init_textures(*renderer,textures);
+}
+
+void apply_sprite(SDL_Renderer *renderer , textures_t *textures , world_t * world ){
+  
+    // texture du vaisseau
+    apply_texture(textures->vaisseau, renderer, world->vaisseau.x, world->vaisseau.y);
+    
+    // texture de la ligne d'arrivée
+    apply_texture(textures->ligne_arrivee, renderer, world->ligne_arrivee.x, world->ligne_arrivee.y);
+  
     // texture du mur de météorites (quadrillage de météorites)
     for(int i=0; i<world->mur_meteorite.h; i+=32){ 
         for(int j=0; j<world->mur_meteorite.w; j+=32){
