@@ -30,12 +30,12 @@
 /**
  * \brief Nombre de météorites en largeur
  */
-#define NBR_METEORITE_WIDTH 3
+#define NBR_METEORITE_WIDTH 1
  
 /**
  * \brief Nombre de météorites en hauteur
  */
-#define NBR_METEORITE_HEIGHT 7
+#define NBR_METEORITE_HEIGHT 1
  
 /**
  * \brief Hauteur de la ligne d'arrivée
