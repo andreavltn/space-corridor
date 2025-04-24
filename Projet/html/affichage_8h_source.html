@@ -91,30 +91,33 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structworld__s.html#a53577de7fe90887d7e3dce28ae93bc20">   38</a></span>&#160;    <a class="code" href="structsprite__s.html">sprite_t</a> <a class="code" href="structworld__s.html#a53577de7fe90887d7e3dce28ae93bc20">wall</a>[6]; </div>
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structworld__s.html#a63348b29918eaa37a31aca8d4747b5a8">   39</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structworld__s.html#a63348b29918eaa37a31aca8d4747b5a8">vy</a>; </div>
 <div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structworld__s.html#a693aa82d082fe3467969094559b9bc0f">   40</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structworld__s.html#a693aa82d082fe3467969094559b9bc0f">gameover</a>; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;} <a class="code" href="structworld__s.html">world_t</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">void</span> init_textures(SDL_Renderer *renderer, <a class="code" href="structtextures__s.html">textures_t</a> *textures);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> init(SDL_Window **window, SDL_Renderer ** renderer, <a class="code" href="structtextures__s.html">textures_t</a> *textures, <a class="code" href="structworld__s.html">world_t</a> * world);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> apply_walls(<a class="code" href="structtextures__s.html">textures_t</a>* textures, SDL_Renderer* renderer, <a class="code" href="structworld__s.html">world_t</a>* world);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> apply_sprite(SDL_Renderer *renderer , <a class="code" href="structtextures__s.html">textures_t</a> *textures , <a class="code" href="structworld__s.html">world_t</a> * world);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> apply_background(SDL_Renderer *renderer, <a class="code" href="structtextures__s.html">textures_t</a> *textures);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">void</span> refresh_graphics(SDL_Renderer *renderer, <a class="code" href="structworld__s.html">world_t</a> *world, <a class="code" href="structtextures__s.html">textures_t</a> *textures);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">void</span> clean_data(<a class="code" href="structworld__s.html">world_t</a> *world);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">void</span> clean_textures(<a class="code" href="structtextures__s.html">textures_t</a> *textures);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structworld__s.html#a1fd30e5180da25592a903513acc3e680">   41</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structworld__s.html#a1fd30e5180da25592a903513acc3e680">win</a>; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structworld__s.html#adfa3a5795c845a5c772394639af47931">   42</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="structworld__s.html#adfa3a5795c845a5c772394639af47931">time</a>; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} <a class="code" href="structworld__s.html">world_t</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">void</span> init_textures(SDL_Renderer *renderer, <a class="code" href="structtextures__s.html">textures_t</a> *textures);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> init(SDL_Window **window, SDL_Renderer ** renderer, <a class="code" href="structtextures__s.html">textures_t</a> *textures, <a class="code" href="structworld__s.html">world_t</a> * world);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> apply_walls(<a class="code" href="structtextures__s.html">textures_t</a>* textures, SDL_Renderer* renderer, <a class="code" href="structworld__s.html">world_t</a>* world);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> apply_sprite(SDL_Renderer *renderer , <a class="code" href="structtextures__s.html">textures_t</a> *textures , <a class="code" href="structworld__s.html">world_t</a> * world);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">void</span> apply_background(SDL_Renderer *renderer, <a class="code" href="structtextures__s.html">textures_t</a> *textures);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">void</span> refresh_graphics(SDL_Renderer *renderer, <a class="code" href="structworld__s.html">world_t</a> *world, <a class="code" href="structtextures__s.html">textures_t</a> *textures);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordtype">void</span> clean_data(<a class="code" href="structworld__s.html">world_t</a> *world);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keywordtype">void</span> clean_textures(<a class="code" href="structtextures__s.html">textures_t</a> *textures);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructworld__s_html"><div class="ttname"><a href="structworld__s.html">world_s</a></div><div class="ttdoc">Représentation du monde du jeu.</div><div class="ttdef"><b>Definition:</b> affichage.h:35</div></div>
 <div class="ttc" id="asdl2-light_8h_html"><div class="ttname"><a href="sdl2-light_8h.html">sdl2-light.h</a></div><div class="ttdoc">en-tête du module correspondant à une sur-couche de SDL2 pour simplifier son utilisation pour le proj...</div></div>
 <div class="ttc" id="astructtextures__s_html_a2ae8824c6f9ee66a4cdf870db7d31d93"><div class="ttname"><a href="structtextures__s.html#a2ae8824c6f9ee66a4cdf870db7d31d93">textures_s::ligne_arrivee</a></div><div class="ttdeci">SDL_Texture * ligne_arrivee</div><div class="ttdef"><b>Definition:</b> affichage.h:28</div></div>
 <div class="ttc" id="astructtextures__s_html"><div class="ttname"><a href="structtextures__s.html">textures_s</a></div><div class="ttdoc">Représentation pour stocker les textures nécessaires à l'affichage graphique.</div><div class="ttdef"><b>Definition:</b> affichage.h:25</div></div>
+<div class="ttc" id="astructworld__s_html_adfa3a5795c845a5c772394639af47931"><div class="ttname"><a href="structworld__s.html#adfa3a5795c845a5c772394639af47931">world_s::time</a></div><div class="ttdeci">float time</div><div class="ttdef"><b>Definition:</b> affichage.h:42</div></div>
 <div class="ttc" id="astructworld__s_html_a53577de7fe90887d7e3dce28ae93bc20"><div class="ttname"><a href="structworld__s.html#a53577de7fe90887d7e3dce28ae93bc20">world_s::wall</a></div><div class="ttdeci">sprite_t wall[6]</div><div class="ttdef"><b>Definition:</b> affichage.h:38</div></div>
 <div class="ttc" id="astructworld__s_html_a63348b29918eaa37a31aca8d4747b5a8"><div class="ttname"><a href="structworld__s.html#a63348b29918eaa37a31aca8d4747b5a8">world_s::vy</a></div><div class="ttdeci">float vy</div><div class="ttdef"><b>Definition:</b> affichage.h:39</div></div>
 <div class="ttc" id="astructworld__s_html_a3b3b6ff699d94441755e56d6a089461e"><div class="ttname"><a href="structworld__s.html#a3b3b6ff699d94441755e56d6a089461e">world_s::ligne_arrivee</a></div><div class="ttdeci">sprite_t ligne_arrivee</div><div class="ttdef"><b>Definition:</b> affichage.h:37</div></div>
@@ -125,6 +128,7 @@ $(function() {
 <div class="ttc" id="astructsprite__s_html_a32e96a992490802c5562f7debdbfed60"><div class="ttname"><a href="structsprite__s.html#a32e96a992490802c5562f7debdbfed60">sprite_s::w</a></div><div class="ttdeci">float w</div><div class="ttdef"><b>Definition:</b> affichage.h:18</div></div>
 <div class="ttc" id="astructtextures__s_html_ac5a1f841b5f51e5cfd814aacae582e66"><div class="ttname"><a href="structtextures__s.html#ac5a1f841b5f51e5cfd814aacae582e66">textures_s::background</a></div><div class="ttdeci">SDL_Texture * background</div><div class="ttdef"><b>Definition:</b> affichage.h:26</div></div>
 <div class="ttc" id="astructworld__s_html_a3911065b6b0167b0cd6c67d2d5f369ed"><div class="ttname"><a href="structworld__s.html#a3911065b6b0167b0cd6c67d2d5f369ed">world_s::vaisseau</a></div><div class="ttdeci">sprite_t vaisseau</div><div class="ttdef"><b>Definition:</b> affichage.h:36</div></div>
+<div class="ttc" id="astructworld__s_html_a1fd30e5180da25592a903513acc3e680"><div class="ttname"><a href="structworld__s.html#a1fd30e5180da25592a903513acc3e680">world_s::win</a></div><div class="ttdeci">int win</div><div class="ttdef"><b>Definition:</b> affichage.h:41</div></div>
 <div class="ttc" id="astructworld__s_html_a693aa82d082fe3467969094559b9bc0f"><div class="ttname"><a href="structworld__s.html#a693aa82d082fe3467969094559b9bc0f">world_s::gameover</a></div><div class="ttdeci">int gameover</div><div class="ttdef"><b>Definition:</b> affichage.h:40</div></div>
 <div class="ttc" id="astructsprite__s_html_a19004a67cf1691362bb48644b58098d8"><div class="ttname"><a href="structsprite__s.html#a19004a67cf1691362bb48644b58098d8">sprite_s::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>Definition:</b> affichage.h:17</div></div>
 <div class="ttc" id="astructsprite__s_html_a637bc7b440147112fb1161afc39db3b7"><div class="ttname"><a href="structsprite__s.html#a637bc7b440147112fb1161afc39db3b7">sprite_s::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>Definition:</b> affichage.h:16</div></div>

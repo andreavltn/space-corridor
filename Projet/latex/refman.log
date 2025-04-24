@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.15)  24 APR 2025 14:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.15)  24 APR 2025 15:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -917,13 +917,15 @@ ll__graph.pdf
 pdfTeX warning: pdflatex (file ./structworld__s__coll__graph.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >
-<structworld__s__coll__graph.pdf, id=376, 172.645pt x 189.70876pt>
+<structworld__s__coll__graph.pdf, id=386, 172.645pt x 189.70876pt>
 File: structworld__s__coll__graph.pdf Graphic file (type pdf)
 <use structworld__s__coll__graph.pdf>
-Package pdftex.def Info: structworld__s__coll__graph.pdf  used on input line 19
+Package pdftex.def Info: structworld__s__coll__graph.pdf  used on input line 18
 .
 (pdftex.def)             Requested size: 172.0pt x 189.00197pt.
- [7]) [8]
+ [7] [8]) [9] [10
+
+]
 Chapter 4.
 (./constantes_8h.tex
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
@@ -948,14 +950,12 @@ Underfull \hbox (badness 10000) detected at line 37
 pdfTeX warning: pdflatex (file ./main_8c__incl.pdf): PDF inclusion: multiple pd
 fs with page group included in a single page
 >
-<main_8c__incl.pdf, id=418, 206.7725pt x 325.215pt>
+<main_8c__incl.pdf, id=442, 206.7725pt x 325.215pt>
 File: main_8c__incl.pdf Graphic file (type pdf)
 <use main_8c__incl.pdf>
 Package pdftex.def Info: main_8c__incl.pdf  used on input line 14.
 (pdftex.def)             Requested size: 206.0pt x 324.00833pt.
- [9
-
-]
+ [11]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 21.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
@@ -967,13 +967,13 @@ Underfull \hbox (badness 10000) detected at line 33
 
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 43.
-[10]) (./sdl2-light_8c.tex <./sdl2-light_8c__incl.pdf>
-<sdl2-light_8c__incl.pdf, id=459, 293.095pt x 212.795pt>
+[12]) (./sdl2-light_8c.tex <./sdl2-light_8c__incl.pdf>
+<sdl2-light_8c__incl.pdf, id=481, 293.095pt x 212.795pt>
 File: sdl2-light_8c__incl.pdf Graphic file (type pdf)
 <use sdl2-light_8c__incl.pdf>
 Package pdftex.def Info: sdl2-light_8c__incl.pdf  used on input line 15.
 (pdftex.def)             Requested size: 292.0pt x 211.99895pt.
- [11]
+ [13]
 Underfull \hbox (badness 10000) detected at line 42
 [][][]
  []
@@ -988,10 +988,10 @@ Underfull \hbox (badness 10000) detected at line 48
 [][][]
  []
 
-[12]
+[14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]
+ [15]
 Underfull \hbox (badness 10000) detected at line 143
 [][][]
  []
@@ -1001,12 +1001,12 @@ Underfull \hbox (badness 10000) detected at line 163
 [][][]
  []
 
-[14]) (./sdl2-light_8h.tex <./sdl2-light_8h__incl.pdf
+[16]) (./sdl2-light_8h.tex <./sdl2-light_8h__incl.pdf
 
 pdfTeX warning: pdflatex (file ./sdl2-light_8h__incl.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
 >
-<sdl2-light_8h__incl.pdf, id=510, 152.57pt x 156.585pt>
+<sdl2-light_8h__incl.pdf, id=534, 152.57pt x 156.585pt>
 File: sdl2-light_8h__incl.pdf Graphic file (type pdf)
 <use sdl2-light_8h__incl.pdf>
 Package pdftex.def Info: sdl2-light_8h__incl.pdf  used on input line 13.
@@ -1016,7 +1016,7 @@ Package pdftex.def Info: sdl2-light_8h__incl.pdf  used on input line 13.
 pdfTeX warning: pdflatex (file ./sdl2-light_8h__dep__incl.pdf): PDF inclusion: 
 multiple pdfs with page group included in a single page
 >
-<sdl2-light_8h__dep__incl.pdf, id=518, 296.10625pt x 269.005pt>
+<sdl2-light_8h__dep__incl.pdf, id=542, 296.10625pt x 269.005pt>
 File: sdl2-light_8h__dep__incl.pdf Graphic file (type pdf)
 <use sdl2-light_8h__dep__incl.pdf>
 Package pdftex.def Info: sdl2-light_8h__dep__incl.pdf  used on input line 20.
@@ -1024,12 +1024,12 @@ Package pdftex.def Info: sdl2-light_8h__dep__incl.pdf  used on input line 20.
 
 Underfull \vbox (badness 4181) has occurred while \output is active []
 
- [15]
+ [17]
 Underfull \hbox (badness 10000) detected at line 47
 [][][]
  []
 
-[16]
+[18]
 Underfull \hbox (badness 10000) detected at line 50
 [][][]
  []
@@ -1042,20 +1042,22 @@ Underfull \hbox (badness 10000) detected at line 53
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17]
+ [19]
 Underfull \hbox (badness 10000) detected at line 148
 [][][]
  []
 
-[18]
+[20]
 Underfull \hbox (badness 10000) detected at line 168
 [][][]
  []
 
-) [19] [20
+) [21] [22
 
-] (./refman.ind [21
+] (./refman.ind [23
 
+
+] [24
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 197.
@@ -1064,17 +1066,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 197.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 197.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 197.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 70115D8ED66DBD900BE50614760353F8;10064.
+(rerunfilecheck)             Checksum: 2E5573DB0EC23B8E12D5E7F0D19CB259;10329.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16766 strings out of 481239
- 245626 string characters out of 5920377
- 524830 words of memory out of 5000000
- 31546 multiletter control sequences out of 15000+600000
+ 16777 strings out of 481239
+ 245931 string characters out of 5920377
+ 525300 words of memory out of 5000000
+ 31550 multiletter control sequences out of 15000+600000
  589627 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,15n,96p,938b,627s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1087,10 +1089,10 @@ rier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (25 pages, 155144 bytes).
+Output written on refman.pdf (28 pages, 157578 bytes).
 PDF statistics:
- 722 PDF objects out of 1000 (max. 8388607)
- 660 compressed objects within 7 object streams
- 155 named destinations out of 1000 (max. 500000)
- 482 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 753 PDF objects out of 1000 (max. 8388607)
+ 688 compressed objects within 7 object streams
+ 162 named destinations out of 1000 (max. 500000)
+ 498 words of extra memory for PDF output out of 10000 (max. 10000000)
 

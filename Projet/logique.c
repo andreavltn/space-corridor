@@ -38,8 +38,12 @@ void init_data(world_t* world){
     // vitesse de la ligne d'arrivée
     world->vy = INITIAL_SPEED;
   
-    // gameover
-    world->gameover = 0; 
+    // gameover et win
+    world->gameover = 0;
+    world->win = 0;  
+
+    // temps écoulé
+    world->time = 0; 
 }
 
 
@@ -57,13 +61,21 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2){
     return 0;
 }
 
-void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, textures_t* textures){
+void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, textures_t* textures){
     // si les deux sprites sont en collision
     if (sprites_collide(sp1,sp2)){
         world->vy = 0; // arret du jeu
+
         // si le parametre make_disappear est à 1
         if (make_disappear==1){
             clean_texture(textures->vaisseau); // rend invisible le vaisseau
+        }
+
+        // si le parametre make_win est à 1
+        if(make_win){
+            world->win = 1; // gagné
+        } else {
+            world->gameover = 1; // perdu
         }
     } 
 
@@ -122,10 +134,16 @@ void handle_events(SDL_Event* event, world_t* world){
     }
 }
 
+int is_finished(world_t* world){
+    return world->gameover || world->win;
+}
 
-
-int is_game_over(world_t* world){
-    return world->gameover;
+void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTime){
+    // si on a passé 0.1s depuis le dernier check
+    if (currentTime > *lastTime + 100) {
+      world->time = (float)currentTime / 1000;  // met à jour le temps (conversion ms en s), cast en float
+      *lastTime = currentTime; // met à jour le "dernier check" par pointeur
+    }
 }
 
 void update_walls(world_t* world, textures_t* textures){
@@ -133,8 +151,8 @@ void update_walls(world_t* world, textures_t* textures){
     for (int i=0;i<6;i++){
         // le mur de météorites descend de vy
         world->wall[i].y += world->vy;
-        // gestion des collisions entre le vaisseau et le mur
-        handle_sprites_collision(world,&(world->vaisseau),&(world->wall[i]),1,textures);
+        // gestion des collisions entre le vaisseau et le mur (disparition + pas de victoire)
+        handle_sprites_collision(world,&(world->vaisseau),&(world->wall[i]),1,0,textures);
     }
 
 }
@@ -144,7 +162,7 @@ void update_data(world_t* world, textures_t* textures){
     world->ligne_arrivee.y += world->vy;
 
     // gestion des collisions entre le vaisseau et la ligne d'arrivée
-    handle_sprites_collision(world,&(world->vaisseau),&(world->ligne_arrivee),0, textures);
+    handle_sprites_collision(world,&(world->vaisseau),&(world->ligne_arrivee),0,1,textures);
 
     // mise à jour de la position des murs + gestion des collisions entre le vaisseau et les murs
     update_walls(world, textures);

@@ -11,8 +11,7 @@ Représentation du monde du jeu.
 
 
 
-Collaboration diagram for world\+\_\+s\+:
-\nopagebreak
+Collaboration diagram for world\+\_\+s\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,6 +30,10 @@ Collaboration diagram for world\+\_\+s\+:
 float \mbox{\hyperlink{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}{vy}}
 \item 
 int \mbox{\hyperlink{structworld__s_a693aa82d082fe3467969094559b9bc0f}{gameover}}
+\item 
+int \mbox{\hyperlink{structworld__s_a1fd30e5180da25592a903513acc3e680}{win}}
+\item 
+float \mbox{\hyperlink{structworld__s_adfa3a5795c845a5c772394639af47931}{time}}
 \end{DoxyCompactItemize}
 
 
@@ -44,13 +47,19 @@ Représentation du monde du jeu.
 \doxysubsubsection{\texorpdfstring{gameover}{gameover}}
 {\footnotesize\ttfamily int world\+\_\+s\+::gameover}
 
-Champ indiquant si l\textquotesingle{}on est à la fin du jeu \mbox{\Hypertarget{structworld__s_a3b3b6ff699d94441755e56d6a089461e}\label{structworld__s_a3b3b6ff699d94441755e56d6a089461e}} 
+Champ indiquant si on a perdu \mbox{\Hypertarget{structworld__s_a3b3b6ff699d94441755e56d6a089461e}\label{structworld__s_a3b3b6ff699d94441755e56d6a089461e}} 
 \index{world\_s@{world\_s}!ligne\_arrivee@{ligne\_arrivee}}
 \index{ligne\_arrivee@{ligne\_arrivee}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{ligne\_arrivee}{ligne\_arrivee}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structsprite__s}{sprite\+\_\+t}} world\+\_\+s\+::ligne\+\_\+arrivee}
 
-Champ représentant le sprite de la ligne d\textquotesingle{}arrivée \mbox{\Hypertarget{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}\label{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}} 
+Champ représentant le sprite de la ligne d\textquotesingle{}arrivée \mbox{\Hypertarget{structworld__s_adfa3a5795c845a5c772394639af47931}\label{structworld__s_adfa3a5795c845a5c772394639af47931}} 
+\index{world\_s@{world\_s}!time@{time}}
+\index{time@{time}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily float world\+\_\+s\+::time}
+
+Champ représentant le temps écoulé depuis le début du jeu \mbox{\Hypertarget{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}\label{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}} 
 \index{world\_s@{world\_s}!vaisseau@{vaisseau}}
 \index{vaisseau@{vaisseau}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{vaisseau}{vaisseau}}
@@ -68,7 +77,13 @@ Champ représentant la vitesse de déplacement de la ligne d\textquotesingle{}ar
 \doxysubsubsection{\texorpdfstring{wall}{wall}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structsprite__s}{sprite\+\_\+t}} world\+\_\+s\+::wall\mbox{[}6\mbox{]}}
 
-Champ représentant le tableau du sprite des murs de météorites 
+Champ représentant le tableau du sprite des murs de météorites \mbox{\Hypertarget{structworld__s_a1fd30e5180da25592a903513acc3e680}\label{structworld__s_a1fd30e5180da25592a903513acc3e680}} 
+\index{world\_s@{world\_s}!win@{win}}
+\index{win@{win}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{win}{win}}
+{\footnotesize\ttfamily int world\+\_\+s\+::win}
+
+Champ indiquant si on a gagné 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

@@ -40,21 +40,34 @@ int main(int argc, char* args[] ){
   SDL_Renderer *renderer;
   SDL_Window *window;
 
+  unsigned int lastTime = 0;
+  unsigned int currentTime;
+
   // initialisation du jeu
   init(&window,&renderer,&textures,&world);
-  while(!is_game_over(&world)){ // tant que le jeu n'est pas fini
+  while(!is_finished(&world)){ // tant que le jeu n'est pas fini
+    currentTime = SDL_GetTicks();
          
     // gestion des évènements
     handle_events(&event,&world);
          
     // mise à jour des données liée à la physique du monde
     update_data(&world,&textures);
-         
+    
+    // mise à jour du temps écoulé
+    update_time(&world, currentTime, &lastTime);
+
     // rafraichissement de l'écran
     refresh_graphics(renderer,&world,&textures);
-         
+    
     // pause de 10 ms pour controler la vitesse de rafraichissement
     pause(10);
+  }
+
+  if (world.win) {
+    printf("You won in %.1f seconds!\n", world.time);
+  } else {
+    printf("You lost!\n");
   }
      
   // nettoyage final

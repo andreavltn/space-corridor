@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['w_61',['w',['../structsprite__s.html#a32e96a992490802c5562f7debdbfed60',1,'sprite_s']]],
-  ['wall_62',['wall',['../structworld__s.html#a53577de7fe90887d7e3dce28ae93bc20',1,'world_s']]]
+  ['vaisseau_62',['vaisseau',['../structtextures__s.html#aa0061f7ca74c08f30824d71795455c88',1,'textures_s::vaisseau()'],['../structworld__s.html#a3911065b6b0167b0cd6c67d2d5f369ed',1,'world_s::vaisseau()']]],
+  ['vy_63',['vy',['../structworld__s.html#a63348b29918eaa37a31aca8d4747b5a8',1,'world_s']]]
 ];

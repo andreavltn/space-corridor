@@ -38,10 +38,11 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2);
  * \param world les données du monde
  * \param sp1 le premier sprite
  * \param sp2 le deuxième sprite
- * \param make_disappear 1 si sp1 doit disparaitre (si collision), 0 sinon 
+ * \param make_disappear 1 si sp1 doit disparaitre en cas de collision, 0 sinon
+ * \param make_win 1 si la collision déclenche la victoire, 0 sinon 
  * \param textures les textures du jeu
  */
-void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, textures_t* textures);
+void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, textures_t* textures);
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
@@ -51,10 +52,18 @@ void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int 
 void handle_events(SDL_Event *event, world_t *world);
 
 /**
- * \brief Renvoie l'état de fin du jeu (0 ou 1)
+ * \brief Renvoie l'état de fin du jeu (jeu gagné/jeu perdu)
  * \param world les données du monde
  */   
-int is_game_over(world_t *world);
+int is_finished(world_t *world);
+
+/**
+ * \brief Met à jour le temps écoulé
+ * \param world les données du monde
+ * \param currentTime le temps écoulé actuel
+ * \param lastTime le temps écoulé à la dernière mise à jour
+ */   
+void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTime);
 
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde

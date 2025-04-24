@@ -37,7 +37,9 @@ typedef struct textures_s{
     sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
     sprite_t wall[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
     float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
-    int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
+    int gameover; /*!< Champ indiquant si on a perdu */
+    int win; /*!< Champ indiquant si on a gagné */
+    float time; /*!< Champ représentant le temps écoulé depuis le début du jeu */
 } world_t;
 
 /**
