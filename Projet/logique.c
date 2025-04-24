@@ -61,7 +61,7 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2){
     return 0;
 }
 
-void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, textures_t* textures){
+void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, ressources_t* textures){
     // si les deux sprites sont en collision
     if (sprites_collide(sp1,sp2)){
         world->vy = 0; // arret du jeu
@@ -146,7 +146,7 @@ void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTim
     }
 }
 
-void update_walls(world_t* world, textures_t* textures){
+void update_walls(world_t* world, ressources_t* textures){
     // pour chaque mur
     for (int i=0;i<6;i++){
         // le mur de météorites descend de vy
@@ -157,7 +157,7 @@ void update_walls(world_t* world, textures_t* textures){
 
 }
 
-void update_data(world_t* world, textures_t* textures){
+void update_data(world_t* world, ressources_t* textures){
     // la ligne d'arrivée descend de vy
     world->ligne_arrivee.y += world->vy;
 

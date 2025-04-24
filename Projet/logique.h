@@ -42,7 +42,7 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2);
  * \param make_win 1 si la collision déclenche la victoire, 0 sinon 
  * \param textures les textures du jeu
  */
-void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, textures_t* textures);
+void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, ressources_t* textures);
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
@@ -70,6 +70,6 @@ void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTim
  * \param world les données du monde
  * \param textures les textures du jeu
  */
-void update_data(world_t *world, textures_t* textures);
+void update_data(world_t *world, ressources_t* textures);
 
 #endif

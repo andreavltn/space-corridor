@@ -8,20 +8,22 @@
 #include "logique.h"
 #include "constantes.h"
 
-void init_textures(SDL_Renderer* renderer, textures_t* textures){
+void init_textures(SDL_Renderer* renderer, ressources_t* textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
     textures->vaisseau=load_image("ressources/spaceship.bmp",renderer);
     textures->ligne_arrivee=load_image("ressources/finish_line.bmp",renderer);
-    textures->meteorite=load_image("ressources/meteorite.bmp",renderer);     
+    textures->meteorite=load_image("ressources/meteorite.bmp",renderer);
+    textures->font = load_font("ressources/arial.ttf",14); 
 }
 
-void init(SDL_Window** window, SDL_Renderer** renderer, textures_t* textures, world_t* world){
+void init(SDL_Window** window, SDL_Renderer** renderer, ressources_t* textures, world_t* world){
     init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
+    init_ttf();
     init_data(world);
     init_textures(*renderer,textures);
 }
 
-void apply_walls(textures_t* textures, SDL_Renderer* renderer, world_t* world){
+void apply_walls(ressources_t* textures, SDL_Renderer* renderer, world_t* world){
     // pour chaque mur
     for (int h=0; h<6;h++){
         // pour chaque spot horizontal de météorite
@@ -34,7 +36,7 @@ void apply_walls(textures_t* textures, SDL_Renderer* renderer, world_t* world){
     } 
 }
 
-void apply_sprite(SDL_Renderer* renderer, textures_t* textures, world_t* world){
+void apply_sprite(SDL_Renderer* renderer, ressources_t* textures, world_t* world){
   
     // texture du vaisseau
     apply_texture(textures->vaisseau, renderer, world->vaisseau.x, world->vaisseau.y);
@@ -47,13 +49,13 @@ void apply_sprite(SDL_Renderer* renderer, textures_t* textures, world_t* world){
   
 } 
 
-void apply_background(SDL_Renderer* renderer, textures_t* textures){
+void apply_background(SDL_Renderer* renderer, ressources_t* textures){
     if(textures->background != NULL){
         apply_texture(textures->background, renderer, 0, 0);
     }
 }
 
-void refresh_graphics(SDL_Renderer *renderer, world_t* world, textures_t* textures){
+void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* textures){
     // on vide le renderer
     clear_renderer(renderer);
        
@@ -69,9 +71,10 @@ void clean_data(world_t* world){
     /* utile uniquement si vous avez fait de l'allocation dynamique (malloc); la fonction ici doit permettre de libérer la mémoire (free) */
 }
     
-void clean_textures(textures_t* textures){
+void clean_textures(ressources_t* textures){
     clean_texture(textures->background);
     clean_texture(textures->vaisseau);
     clean_texture(textures->ligne_arrivee);
-    clean_texture(textures->meteorite);  
+    clean_texture(textures->meteorite);
+    clean_font(textures->font);    
 }

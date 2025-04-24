@@ -14,7 +14,7 @@
  * \param textures les textures
  * \param world le monde
  */
-void clean(SDL_Window* window, SDL_Renderer* renderer, textures_t* textures, world_t* world){
+void clean(SDL_Window* window, SDL_Renderer* renderer, ressources_t* textures, world_t* world){
   clean_data(world);
   clean_textures(textures);
   clean_sdl(renderer,window);
@@ -36,7 +36,7 @@ void print_sprite(sprite_t* sprite){
 int main(int argc, char* args[] ){
   SDL_Event event;
   world_t world;
-  textures_t textures;
+  ressources_t textures;
   SDL_Renderer *renderer;
   SDL_Window *window;
 
