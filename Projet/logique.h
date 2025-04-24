@@ -34,11 +34,11 @@ void init_data(world_t * world);
 int sprites_collide(sprite_t* sp1, sprite_t* sp2);
 
 /**
- * \brief La fonction met la vitesse du jeu à 0 si les deux sprites sont en collision
+ * \brief La fonction gère les collisions entre deux sprites
  * \param world les données du monde
  * \param sp1 le premier sprite
  * \param sp2 le deuxième sprite
- * \param make_disappear 1 si sp1 doit disparaitre 0 sinon 
+ * \param make_disappear 1 si sp1 doit disparaitre (si collision), 0 sinon 
  * \param textures les textures du jeu
  */
 void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, textures_t* textures);

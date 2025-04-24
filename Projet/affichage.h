@@ -35,7 +35,7 @@ typedef struct textures_s{
  typedef struct world_s{
     sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
     sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
-    sprite_t mur_meteorite[6]; /*!< Champ représentant le sprite du mur de météorites */
+    sprite_t wall[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
     float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
     int gameover; /*!< Champ indiquant si l'on est à la fin du jeu */
 } world_t;
@@ -51,10 +51,18 @@ void init_textures(SDL_Renderer *renderer, textures_t *textures);
  * \brief fonction qui initialise le jeu: initialisation de la partie graphique (SDL), chargement des textures, initialisation des données
  * \param window la fenêtre du jeu
  * \param renderer le renderer
- * \param textures les textures
- * \param wordl le monde
+ * \param textures les textures du jeu
+ * \param world le monde
  */
 void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world);
+
+/**
+ * \brief fonction qui applique la texture des murs de météorites
+ * \param textures les textures du jeu
+ * \param renderer le renderer
+ * \param world le monde
+ */
+void apply_walls(textures_t* textures, SDL_Renderer* renderer, world_t* world);
 
 /**
  * \brief La fonction applique la texture du sprite sur le renderer lié à l'écran de jeus

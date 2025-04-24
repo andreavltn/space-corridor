@@ -11,11 +11,12 @@ Représentation du monde du jeu.
 
 
 
-Collaboration diagram for world\+\_\+s\+:\nopagebreak
+Collaboration diagram for world\+\_\+s\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=181pt]{structworld__s__coll__graph}
+\includegraphics[width=172pt]{structworld__s__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Attributes}
@@ -25,7 +26,7 @@ Collaboration diagram for world\+\_\+s\+:\nopagebreak
 \item 
 \mbox{\hyperlink{structsprite__s}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a3b3b6ff699d94441755e56d6a089461e}{ligne\+\_\+arrivee}}
 \item 
-\mbox{\hyperlink{structsprite__s}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a8ef887054fb343d61335dcfe7484541f}{mur\+\_\+meteorite}}
+\mbox{\hyperlink{structsprite__s}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a53577de7fe90887d7e3dce28ae93bc20}{wall}} \mbox{[}6\mbox{]}
 \item 
 float \mbox{\hyperlink{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}{vy}}
 \item 
@@ -49,13 +50,7 @@ Champ indiquant si l\textquotesingle{}on est à la fin du jeu \mbox{\Hypertarget
 \doxysubsubsection{\texorpdfstring{ligne\_arrivee}{ligne\_arrivee}}
 {\footnotesize\ttfamily \mbox{\hyperlink{structsprite__s}{sprite\+\_\+t}} world\+\_\+s\+::ligne\+\_\+arrivee}
 
-Champ représentant le sprite de la ligne d\textquotesingle{}arrivée \mbox{\Hypertarget{structworld__s_a8ef887054fb343d61335dcfe7484541f}\label{structworld__s_a8ef887054fb343d61335dcfe7484541f}} 
-\index{world\_s@{world\_s}!mur\_meteorite@{mur\_meteorite}}
-\index{mur\_meteorite@{mur\_meteorite}!world\_s@{world\_s}}
-\doxysubsubsection{\texorpdfstring{mur\_meteorite}{mur\_meteorite}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__s}{sprite\+\_\+t}} world\+\_\+s\+::mur\+\_\+meteorite}
-
-Champ représentant le sprite du mur de météorites \mbox{\Hypertarget{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}\label{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}} 
+Champ représentant le sprite de la ligne d\textquotesingle{}arrivée \mbox{\Hypertarget{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}\label{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}} 
 \index{world\_s@{world\_s}!vaisseau@{vaisseau}}
 \index{vaisseau@{vaisseau}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{vaisseau}{vaisseau}}
@@ -67,7 +62,13 @@ Champ représentant le sprite du vaisseau \mbox{\Hypertarget{structworld__s_a633
 \doxysubsubsection{\texorpdfstring{vy}{vy}}
 {\footnotesize\ttfamily float world\+\_\+s\+::vy}
 
-Champ représentant la vitesse de déplacement de la ligne d\textquotesingle{}arrivée 
+Champ représentant la vitesse de déplacement de la ligne d\textquotesingle{}arrivée \mbox{\Hypertarget{structworld__s_a53577de7fe90887d7e3dce28ae93bc20}\label{structworld__s_a53577de7fe90887d7e3dce28ae93bc20}} 
+\index{world\_s@{world\_s}!wall@{wall}}
+\index{wall@{wall}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{wall}{wall}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsprite__s}{sprite\+\_\+t}} world\+\_\+s\+::wall\mbox{[}6\mbox{]}}
+
+Champ représentant le tableau du sprite des murs de météorites 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

@@ -21,12 +21,12 @@
 \indexentry{gameover@{gameover}!world\_s@{world\_s}|hyperpage}{8}
 \indexentry{world\_s@{world\_s}!ligne\_arrivee@{ligne\_arrivee}|hyperpage}{8}
 \indexentry{ligne\_arrivee@{ligne\_arrivee}!world\_s@{world\_s}|hyperpage}{8}
-\indexentry{world\_s@{world\_s}!mur\_meteorite@{mur\_meteorite}|hyperpage}{8}
-\indexentry{mur\_meteorite@{mur\_meteorite}!world\_s@{world\_s}|hyperpage}{8}
 \indexentry{world\_s@{world\_s}!vaisseau@{vaisseau}|hyperpage}{8}
 \indexentry{vaisseau@{vaisseau}!world\_s@{world\_s}|hyperpage}{8}
 \indexentry{world\_s@{world\_s}!vy@{vy}|hyperpage}{8}
 \indexentry{vy@{vy}!world\_s@{world\_s}|hyperpage}{8}
+\indexentry{world\_s@{world\_s}!wall@{wall}|hyperpage}{8}
+\indexentry{wall@{wall}!world\_s@{world\_s}|hyperpage}{8}
 \indexentry{constantes.h@{constantes.h}|hyperpage}{9}
 \indexentry{main.c@{main.c}|hyperpage}{10}
 \indexentry{main.c@{main.c}!clean@{clean}|hyperpage}{11}

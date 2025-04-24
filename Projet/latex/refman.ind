@@ -55,8 +55,6 @@
     \subitem {clean}, \hyperpage{11}
   \item {meteorite}
     \subitem {textures\_s}, \hyperpage{7}
-  \item {mur\_meteorite}
-    \subitem {world\_s}, \hyperpage{8}
 
   \indexspace
 
@@ -116,12 +114,14 @@
 
   \item {w}
     \subitem {sprite\_s}, \hyperpage{5}
+  \item {wall}
+    \subitem {world\_s}, \hyperpage{8}
   \item {world\_s}, \hyperpage{7}
     \subitem {gameover}, \hyperpage{8}
     \subitem {ligne\_arrivee}, \hyperpage{8}
-    \subitem {mur\_meteorite}, \hyperpage{8}
     \subitem {vaisseau}, \hyperpage{8}
     \subitem {vy}, \hyperpage{8}
+    \subitem {wall}, \hyperpage{8}
 
   \indexspace
 

@@ -8,43 +8,52 @@
 #include "logique.h"
 #include "constantes.h"
 
-void init_textures(SDL_Renderer *renderer, textures_t *textures){
+void init_textures(SDL_Renderer* renderer, textures_t* textures){
     textures->background = load_image( "ressources/space-background.bmp",renderer);
     textures->vaisseau=load_image("ressources/spaceship.bmp",renderer);
     textures->ligne_arrivee=load_image("ressources/finish_line.bmp",renderer);
     textures->meteorite=load_image("ressources/meteorite.bmp",renderer);     
 }
 
-void init(SDL_Window **window, SDL_Renderer ** renderer, textures_t *textures, world_t * world){
+void init(SDL_Window** window, SDL_Renderer** renderer, textures_t* textures, world_t* world){
     init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
     init_data(world);
     init_textures(*renderer,textures);
 }
 
-void apply_sprite(SDL_Renderer *renderer , textures_t *textures , world_t * world ){
+void apply_walls(textures_t* textures, SDL_Renderer* renderer, world_t* world){
+    // pour chaque mur
+    for (int h=0; h<6;h++){
+        // pour chaque spot horizontal de météorite
+        for(int i=0; i<world->wall[h].w; i+=32){
+            // pour chaque spot vertical de météorite 
+            for(int j=0; j<world->wall[h].h; j+=32){
+                apply_texture(textures->meteorite, renderer, world->wall[h].x + i, world->wall[h].y + j);
+            }
+        }   
+    } 
+}
+
+void apply_sprite(SDL_Renderer* renderer, textures_t* textures, world_t* world){
   
     // texture du vaisseau
     apply_texture(textures->vaisseau, renderer, world->vaisseau.x, world->vaisseau.y);
     
     // texture de la ligne d'arrivée
     apply_texture(textures->ligne_arrivee, renderer, world->ligne_arrivee.x, world->ligne_arrivee.y);
-  
+    
     // texture du mur de météorites (quadrillage de météorites)
-    for (int h=0; h<6;h++){
-        for(int i=0; i<world->mur_meteorite[h].w; i+=32){ 
-            for(int j=0; j<world->mur_meteorite[h].h; j+=32){
-                apply_texture(textures->meteorite, renderer, world->mur_meteorite[h].x + i, world->mur_meteorite[h].y + j);
-            }
-        }   
-    }   
+    apply_walls(textures, renderer, world);
+  
 } 
-void apply_background(SDL_Renderer *renderer, textures_t *textures){
+
+void apply_background(SDL_Renderer* renderer, textures_t* textures){
     if(textures->background != NULL){
         apply_texture(textures->background, renderer, 0, 0);
     }
 }
 
-void refresh_graphics(SDL_Renderer *renderer, world_t *world, textures_t *textures){
+void refresh_graphics(SDL_Renderer *renderer, world_t* world, textures_t* textures){
     // on vide le renderer
     clear_renderer(renderer);
        
@@ -56,11 +65,11 @@ void refresh_graphics(SDL_Renderer *renderer, world_t *world, textures_t *textur
     update_screen(renderer);
 }
 
-void clean_data(world_t *world){
+void clean_data(world_t* world){
     /* utile uniquement si vous avez fait de l'allocation dynamique (malloc); la fonction ici doit permettre de libérer la mémoire (free) */
 }
     
-void clean_textures(textures_t *textures){
+void clean_textures(textures_t* textures){
     clean_texture(textures->background);
     clean_texture(textures->vaisseau);
     clean_texture(textures->ligne_arrivee);

@@ -8,23 +8,24 @@
 #include "constantes.h"
 #include <stdlib.h>
 
-void init_sprite(sprite_t *sprite, int x, int y, int w, int h){
+void init_sprite(sprite_t* sprite, int x, int y, int w, int h){
     sprite->x = x;
     sprite->y = y;
     sprite->w = w;
     sprite->h = h;
 }
+
 void init_walls(world_t* world){
-    init_sprite(&(world->mur_meteorite[0]),0,0,96,192);
-    init_sprite(&(world->mur_meteorite[1]),204,0,96,192);
-    init_sprite(&(world->mur_meteorite[2]),0,-352,32,160);
-    init_sprite(&(world->mur_meteorite[3]),74,-352,224,160);
-    init_sprite(&(world->mur_meteorite[4]),0,-672,96,192);
-    init_sprite(&(world->mur_meteorite[5]),204,-672,96,192);
+    init_sprite(&(world->wall[0]),0,0,96,192);
+    init_sprite(&(world->wall[1]),204,0,96,192);
+    init_sprite(&(world->wall[2]),0,-352,32,160);
+    init_sprite(&(world->wall[3]),74,-352,224,160);
+    init_sprite(&(world->wall[4]),0,-672,96,192);
+    init_sprite(&(world->wall[5]),204,-672,96,192);
 
 }
 
-void init_data(world_t * world){
+void init_data(world_t* world){
     // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32x32)
     init_sprite(&(world->vaisseau), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
   
@@ -49,6 +50,7 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2){
     int y1 = sp1->y + sp1->h/2;
     int y2 = sp2->y + sp2->h/2;
 
+    // si les deux sprites sont en collisions
     if ((abs(x1 - x2) <= (sp1->w + sp2->w)/2) && (abs(y1 - y2) <= (sp1->h + sp2->h)/2)){
         return 1;
     }
@@ -56,17 +58,20 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2){
 }
 
 void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, textures_t* textures){
+    // si les deux sprites sont en collision
     if (sprites_collide(sp1,sp2)){
-        world->vy = 0;
+        world->vy = 0; // arret du jeu
+        // si le parametre make_disappear est à 1
         if (make_disappear==1){
-            clean_texture(textures->vaisseau);
+            clean_texture(textures->vaisseau); // rend invisible le vaisseau
         }
     } 
 
 }
 
-void handle_events(SDL_Event *event, world_t *world){
+void handle_events(SDL_Event* event, world_t* world){
     Uint8 *keystates;
+
     while(SDL_PollEvent(event)){
         // si l'utilisateur a cliqué sur le X de la fenêtre
         if(event->type == SDL_QUIT ) {
@@ -119,21 +124,28 @@ void handle_events(SDL_Event *event, world_t *world){
 
 
 
-int is_game_over(world_t *world){
+int is_game_over(world_t* world){
     return world->gameover;
 }
 
+void update_walls(world_t* world, textures_t* textures){
+    // pour chaque mur
+    for (int i=0;i<6;i++){
+        // le mur de météorites descend de vy
+        world->wall[i].y += world->vy;
+        // gestion des collisions entre le vaisseau et le mur
+        handle_sprites_collision(world,&(world->vaisseau),&(world->wall[i]),1,textures);
+    }
 
+}
 
-void update_data(world_t *world, textures_t* textures){
+void update_data(world_t* world, textures_t* textures){
     // la ligne d'arrivée descend de vy
     world->ligne_arrivee.y += world->vy;
 
-
+    // gestion des collisions entre le vaisseau et la ligne d'arrivée
     handle_sprites_collision(world,&(world->vaisseau),&(world->ligne_arrivee),0, textures);
-    for (int i=0;i<6;i++){
-        // le mur de météorites descend de vy
-        world->mur_meteorite[i].y += world->vy;
-        handle_sprites_collision(world,&(world->vaisseau),&(world->mur_meteorite[i]),1,textures);
-    }
+
+    // mise à jour de la position des murs + gestion des collisions entre le vaisseau et les murs
+    update_walls(world, textures);
 }

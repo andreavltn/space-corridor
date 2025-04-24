@@ -14,7 +14,7 @@
  * \param textures les textures
  * \param world le monde
  */
-void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, world_t * world){
+void clean(SDL_Window* window, SDL_Renderer* renderer, textures_t* textures, world_t* world){
   clean_data(world);
   clean_textures(textures);
   clean_sdl(renderer,window);
@@ -23,7 +23,7 @@ void clean(SDL_Window *window, SDL_Renderer * renderer, textures_t *textures, wo
 /**
  * \brief Fonction de test des coordonnées du sprite
  */
-void print_sprite(sprite_t *sprite){
+void print_sprite(sprite_t* sprite){
   printf("x : %f\n",sprite->x); // Affichage de la position x du sprite
   printf("y : %f\n",sprite->y); // Affichage de la position y du sprite 
   printf("w : %f\n",sprite->w); // Affichage de la largeur du sprite
@@ -40,24 +40,24 @@ int main(int argc, char* args[] ){
   SDL_Renderer *renderer;
   SDL_Window *window;
 
-  //initialisation du jeu
+  // initialisation du jeu
   init(&window,&renderer,&textures,&world);
   while(!is_game_over(&world)){ // tant que le jeu n'est pas fini
          
-    //gestion des évènements
+    // gestion des évènements
     handle_events(&event,&world);
          
-    //mise à jour des données liée à la physique du monde
+    // mise à jour des données liée à la physique du monde
     update_data(&world,&textures);
          
-    //rafraichissement de l'écran
+    // rafraichissement de l'écran
     refresh_graphics(renderer,&world,&textures);
          
     // pause de 10 ms pour controler la vitesse de rafraichissement
     pause(10);
   }
      
-  //nettoyage final
+  // nettoyage final
   clean(window,renderer,&textures,&world);
     
   return 0;
