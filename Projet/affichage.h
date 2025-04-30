@@ -84,20 +84,12 @@ void apply_sprite(SDL_Renderer *renderer , ressources_t *textures , world_t * wo
 void apply_background(SDL_Renderer *renderer, ressources_t *textures);
 
 /**
- * \brief La fonction applique le timer sur le renderer lié à l'écran de jeu
+ * \brief La fonction affiche le timer et les messages de fin sur le renderer lié à l'écran de jeu
  * \param renderer le renderer
  * \param world le monde du jeu
  * \param textures les textures du jeu
  */
-void apply_timer(SDL_Renderer *renderer, world_t *world, ressources_t *textures);
-
- /**
- * \brief La fonction applique un message à la fin du jeu sur le renderer lié à l'écran de jeu
- * \param renderer le renderer
- * \param world le monde du jeu
- * \param textures les textures du jeu
- */
-void apply_msg_end(SDL_Renderer *renderer, world_t *world, ressources_t *textures);
+void apply_texts(SDL_Renderer *renderer, world_t *world, ressources_t *textures);
 
 /**
  * \brief La fonction rafraichit l'écran en fonction de l'état des données du monde
@@ -106,12 +98,6 @@ void apply_msg_end(SDL_Renderer *renderer, world_t *world, ressources_t *texture
  * \param textures les textures du jeu
  */
 void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *textures);
-
-/**
- * \brief La fonction nettoie les données du monde
- * \param world les données du monde
- */
-void clean_data(world_t *world);
 
 /**
  * \brief La fonction nettoie les textures

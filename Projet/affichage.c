@@ -55,13 +55,11 @@ void apply_background(SDL_Renderer* renderer, ressources_t* textures){
     }
 }
 
-void apply_timer(SDL_Renderer *renderer, world_t* world, ressources_t* textures){
+void apply_texts(SDL_Renderer *renderer, world_t* world, ressources_t* textures){
     char texte[15];
     sprintf(texte, "Time: %.1f", world->time); 
     apply_text(renderer,10,10,90,50,texte,textures->font);
-}
 
-void apply_msg_end(SDL_Renderer *renderer, world_t* world, ressources_t* textures){
     if(is_finished(world)){
         if(world->gameover){// Si on perd message de lose
             apply_text(renderer,SCREEN_WIDTH/2-50,SCREEN_HEIGHT/2-25,100,50,"You lost !",textures->font);
@@ -81,19 +79,13 @@ void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* text
     apply_background(renderer, textures);
     apply_sprite(renderer, textures, world);
 
-    // application du temps en haut à gauche
-   apply_timer(renderer,world,textures);
-
-    apply_msg_end(renderer,world,textures);
+    // affichage du timer en haut à gauche, et du message de fin en cas de win/lose
+    apply_texts(renderer,world,textures);
   
     // on met à jour l'écran
     update_screen(renderer);
 }
-
-void clean_data(world_t* world){
-    /* utile uniquement si vous avez fait de l'allocation dynamique (malloc); la fonction ici doit permettre de libérer la mémoire (free) */
-}
-    
+ 
 void clean_textures(ressources_t* textures){
     clean_texture(textures->background);
     clean_texture(textures->vaisseau);

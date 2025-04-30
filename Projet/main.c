@@ -15,7 +15,6 @@
  * \param world le monde
  */
 void clean(SDL_Window* window, SDL_Renderer* renderer, ressources_t* textures, world_t* world){
-  clean_data(world);
   clean_textures(textures);
   clean_sdl(renderer,window);
 }
@@ -69,7 +68,7 @@ int main(int argc, char* args[] ){
      
   // nettoyage final
   clean(window,renderer,&textures,&world);
-    
+  
   return 0;
 }
  
