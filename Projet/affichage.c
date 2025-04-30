@@ -62,6 +62,21 @@ void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* text
     // application des textures dans le renderer
     apply_background(renderer, textures);
     apply_sprite(renderer, textures, world);
+
+    // application du temps en haut à gauche
+    char texte[10];
+    sprintf(texte, "Time: %.1f", world->time); 
+    apply_text(renderer,10,10,90,50,texte,textures->font);
+
+    if(is_finished(world)){
+        if(world->gameover){
+            apply_text(renderer,SCREEN_WIDTH/2-50,SCREEN_HEIGHT/2-25,100,50,"You lost !",textures->font);
+        } else if(world->win){
+            char texte_win[50];
+            sprintf(texte_win, "You finished in %.1fs !", world->time); 
+            apply_text(renderer,SCREEN_WIDTH/2-100,SCREEN_HEIGHT/2-25,200,50,texte_win,textures->font);
+        }
+    }
   
     // on met à jour l'écran
     update_screen(renderer);

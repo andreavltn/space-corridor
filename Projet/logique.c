@@ -91,7 +91,7 @@ void handle_events(SDL_Event* event, world_t* world){
             world->gameover = 1;
         }
   
-        // si une touche est appuyée48
+        // si une touche est appuyée
         if(event->type == SDL_KEYDOWN){
 
             // touche echap

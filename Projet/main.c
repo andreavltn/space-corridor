@@ -64,11 +64,8 @@ int main(int argc, char* args[] ){
     pause(10);
   }
 
-  if (world.win) {
-    printf("You won in %.1f seconds!\n", world.time);
-  } else {
-    printf("You lost!\n");
-  }
+  // pause de 3s a la fin du jeu
+  pause(3000);
      
   // nettoyage final
   clean(window,renderer,&textures,&world);
