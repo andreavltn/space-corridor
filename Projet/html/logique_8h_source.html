@@ -78,7 +78,7 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">int</span> sprites_collide(<a class="code" href="structsprite__s.html">sprite_t</a>* sp1, <a class="code" href="structsprite__s.html">sprite_t</a>* sp2);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> handle_sprites_collision(<a class="code" href="structworld__s.html">world_t</a>* world, <a class="code" href="structsprite__s.html">sprite_t</a>* sp1, <a class="code" href="structsprite__s.html">sprite_t</a>* sp2, <span class="keywordtype">int</span> make_disappear, <span class="keywordtype">int</span> make_win, <a class="code" href="structtextures__s.html">textures_t</a>* textures);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> handle_sprites_collision(<a class="code" href="structworld__s.html">world_t</a>* world, <a class="code" href="structsprite__s.html">sprite_t</a>* sp1, <a class="code" href="structsprite__s.html">sprite_t</a>* sp2, <span class="keywordtype">int</span> make_disappear, <span class="keywordtype">int</span> make_win, <a class="code" href="structressources__s.html">ressources_t</a>* textures);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> handle_events(SDL_Event *event, <a class="code" href="structworld__s.html">world_t</a> *world);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
@@ -86,14 +86,14 @@ $(function() {
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> update_time(<a class="code" href="structworld__s.html">world_t</a>* world, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> currentTime, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>* lastTime);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> update_data(<a class="code" href="structworld__s.html">world_t</a> *world, <a class="code" href="structtextures__s.html">textures_t</a>* textures);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> update_data(<a class="code" href="structworld__s.html">world_t</a> *world, <a class="code" href="structressources__s.html">ressources_t</a>* textures);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructworld__s_html"><div class="ttname"><a href="structworld__s.html">world_s</a></div><div class="ttdoc">Représentation du monde du jeu.</div><div class="ttdef"><b>Definition:</b> affichage.h:35</div></div>
+<div class="ttc" id="astructworld__s_html"><div class="ttname"><a href="structworld__s.html">world_s</a></div><div class="ttdoc">Représentation du monde du jeu.</div><div class="ttdef"><b>Definition:</b> affichage.h:37</div></div>
 <div class="ttc" id="asdl2-light_8h_html"><div class="ttname"><a href="sdl2-light_8h.html">sdl2-light.h</a></div><div class="ttdoc">en-tête du module correspondant à une sur-couche de SDL2 pour simplifier son utilisation pour le proj...</div></div>
-<div class="ttc" id="astructtextures__s_html"><div class="ttname"><a href="structtextures__s.html">textures_s</a></div><div class="ttdoc">Représentation pour stocker les textures nécessaires à l'affichage graphique.</div><div class="ttdef"><b>Definition:</b> affichage.h:25</div></div>
-<div class="ttc" id="astructsprite__s_html"><div class="ttname"><a href="structsprite__s.html">sprite_s</a></div><div class="ttdoc">Type qui correspond au sprite.</div><div class="ttdef"><b>Definition:</b> affichage.h:15</div></div>
+<div class="ttc" id="astructsprite__s_html"><div class="ttname"><a href="structsprite__s.html">sprite_s</a></div><div class="ttdoc">Type qui correspond au sprite.</div><div class="ttdef"><b>Definition:</b> affichage.h:16</div></div>
+<div class="ttc" id="astructressources__s_html"><div class="ttname"><a href="structressources__s.html">ressources_s</a></div><div class="ttdoc">Représentation pour stocker les textures nécessaires à l'affichage graphique.</div><div class="ttdef"><b>Definition:</b> affichage.h:26</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

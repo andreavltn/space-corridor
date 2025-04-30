@@ -56,7 +56,7 @@ void init_textures(SDL_Renderer *renderer, ressources_t *textures);
  * \param window la fenêtre du jeu
  * \param renderer le renderer
  * \param textures les textures du jeu
- * \param world le monde
+ * \param world le monde du jeu 
  */
 void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *textures, world_t * world);
 
@@ -64,7 +64,7 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *textures,
  * \brief fonction qui applique la texture des murs de météorites
  * \param textures les textures du jeu
  * \param renderer le renderer
- * \param world le monde
+ * \param world le monde du jeu
  */
 void apply_walls(ressources_t* textures, SDL_Renderer* renderer, world_t* world);
 
@@ -84,9 +84,25 @@ void apply_sprite(SDL_Renderer *renderer , ressources_t *textures , world_t * wo
 void apply_background(SDL_Renderer *renderer, ressources_t *textures);
 
 /**
+ * \brief La fonction applique le timer sur le renderer lié à l'écran de jeu
+ * \param renderer le renderer
+ * \param world le monde du jeu
+ * \param textures les textures du jeu
+ */
+void apply_timer(SDL_Renderer *renderer, world_t *world, ressources_t *textures);
+
+ /**
+ * \brief La fonction applique un message à la fin du jeu sur le renderer lié à l'écran de jeu
+ * \param renderer le renderer
+ * \param world le monde du jeu
+ * \param textures les textures du jeu
+ */
+void apply_msg_end(SDL_Renderer *renderer, world_t *world, ressources_t *textures);
+
+/**
  * \brief La fonction rafraichit l'écran en fonction de l'état des données du monde
  * \param renderer le renderer
- * \param world les données du monde
+ * \param world le monde du jeu
  * \param textures les textures du jeu
  */
 void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *textures);

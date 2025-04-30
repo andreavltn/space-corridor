@@ -4,20 +4,21 @@
 \contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
 \contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}sprite\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}s Struct Reference}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.1}ressources\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}s Struct Reference}{5}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Member Data Documentation}{5}{subsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.2.1}h}{5}{subsubsection.3.1.2.1}%
-\contentsline {subsubsection}{\numberline {3.1.2.2}w}{5}{subsubsection.3.1.2.2}%
-\contentsline {subsubsection}{\numberline {3.1.2.3}x}{6}{subsubsection.3.1.2.3}%
-\contentsline {subsubsection}{\numberline {3.1.2.4}y}{6}{subsubsection.3.1.2.4}%
-\contentsline {section}{\numberline {3.2}textures\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}s Struct Reference}{6}{section.3.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.1}background}{5}{subsubsection.3.1.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.2.2}font}{6}{subsubsection.3.1.2.2}%
+\contentsline {subsubsection}{\numberline {3.1.2.3}ligne\_arrivee}{6}{subsubsection.3.1.2.3}%
+\contentsline {subsubsection}{\numberline {3.1.2.4}meteorite}{6}{subsubsection.3.1.2.4}%
+\contentsline {subsubsection}{\numberline {3.1.2.5}vaisseau}{6}{subsubsection.3.1.2.5}%
+\contentsline {section}{\numberline {3.2}sprite\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}s Struct Reference}{6}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Detailed Description}{6}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Member Data Documentation}{6}{subsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.2.1}background}{6}{subsubsection.3.2.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2.2}ligne\_arrivee}{7}{subsubsection.3.2.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.2.3}meteorite}{7}{subsubsection.3.2.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.2.4}vaisseau}{7}{subsubsection.3.2.2.4}%
+\contentsline {subsection}{\numberline {3.2.2}Member Data Documentation}{7}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}h}{7}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}w}{7}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}x}{7}{subsubsection.3.2.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.2.4}y}{7}{subsubsection.3.2.2.4}%
 \contentsline {section}{\numberline {3.3}world\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}s Struct Reference}{7}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Detailed Description}{8}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Member Data Documentation}{8}{subsection.3.3.2}%

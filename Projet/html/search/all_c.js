@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update_5fscreen_29',['update_screen',['../sdl2-light_8c.html#adaf353d9ae01b52dd37cd0adf2d5c9ee',1,'update_screen(SDL_Renderer *renderer):&#160;sdl2-light.c'],['../sdl2-light_8h.html#adaf353d9ae01b52dd37cd0adf2d5c9ee',1,'update_screen(SDL_Renderer *renderer):&#160;sdl2-light.c']]]
+  ['time_29',['time',['../structworld__s.html#adfa3a5795c845a5c772394639af47931',1,'world_s']]]
 ];

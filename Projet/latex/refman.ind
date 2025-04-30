@@ -7,7 +7,7 @@
   \indexspace
 
   \item {background}
-    \subitem {textures\_s}, \hyperpage{6}
+    \subitem {ressources\_s}, \hyperpage{5}
 
   \indexspace
 
@@ -26,13 +26,18 @@
 
   \indexspace
 
+  \item {font}
+    \subitem {ressources\_s}, \hyperpage{5}
+
+  \indexspace
+
   \item {gameover}
     \subitem {world\_s}, \hyperpage{8}
 
   \indexspace
 
   \item {h}
-    \subitem {sprite\_s}, \hyperpage{5}
+    \subitem {sprite\_s}, \hyperpage{7}
 
   \indexspace
 
@@ -43,7 +48,7 @@
   \indexspace
 
   \item {ligne\_arrivee}
-    \subitem {textures\_s}, \hyperpage{6}
+    \subitem {ressources\_s}, \hyperpage{6}
     \subitem {world\_s}, \hyperpage{8}
   \item {load\_image}
     \subitem {sdl2-\/light.c}, \hyperpage{16}
@@ -54,13 +59,22 @@
   \item {main.c}, \hyperpage{12}
     \subitem {clean}, \hyperpage{13}
   \item {meteorite}
-    \subitem {textures\_s}, \hyperpage{7}
+    \subitem {ressources\_s}, \hyperpage{6}
 
   \indexspace
 
   \item {pause}
     \subitem {sdl2-\/light.c}, \hyperpage{16}
     \subitem {sdl2-\/light.h}, \hyperpage{21}
+
+  \indexspace
+
+  \item {ressources\_s}, \hyperpage{5}
+    \subitem {background}, \hyperpage{5}
+    \subitem {font}, \hyperpage{5}
+    \subitem {ligne\_arrivee}, \hyperpage{6}
+    \subitem {meteorite}, \hyperpage{6}
+    \subitem {vaisseau}, \hyperpage{6}
 
   \indexspace
 
@@ -82,19 +96,14 @@
     \subitem {load\_image}, \hyperpage{21}
     \subitem {pause}, \hyperpage{21}
     \subitem {update\_screen}, \hyperpage{21}
-  \item {sprite\_s}, \hyperpage{5}
-    \subitem {h}, \hyperpage{5}
-    \subitem {w}, \hyperpage{5}
-    \subitem {x}, \hyperpage{5}
-    \subitem {y}, \hyperpage{6}
+  \item {sprite\_s}, \hyperpage{6}
+    \subitem {h}, \hyperpage{7}
+    \subitem {w}, \hyperpage{7}
+    \subitem {x}, \hyperpage{7}
+    \subitem {y}, \hyperpage{7}
 
   \indexspace
 
-  \item {textures\_s}, \hyperpage{6}
-    \subitem {background}, \hyperpage{6}
-    \subitem {ligne\_arrivee}, \hyperpage{6}
-    \subitem {meteorite}, \hyperpage{7}
-    \subitem {vaisseau}, \hyperpage{7}
   \item {time}
     \subitem {world\_s}, \hyperpage{8}
 
@@ -107,7 +116,7 @@
   \indexspace
 
   \item {vaisseau}
-    \subitem {textures\_s}, \hyperpage{7}
+    \subitem {ressources\_s}, \hyperpage{6}
     \subitem {world\_s}, \hyperpage{8}
   \item {vy}
     \subitem {world\_s}, \hyperpage{8}
@@ -115,7 +124,7 @@
   \indexspace
 
   \item {w}
-    \subitem {sprite\_s}, \hyperpage{5}
+    \subitem {sprite\_s}, \hyperpage{7}
   \item {wall}
     \subitem {world\_s}, \hyperpage{8}
   \item {win}
@@ -132,11 +141,11 @@
   \indexspace
 
   \item {x}
-    \subitem {sprite\_s}, \hyperpage{5}
+    \subitem {sprite\_s}, \hyperpage{7}
 
   \indexspace
 
   \item {y}
-    \subitem {sprite\_s}, \hyperpage{6}
+    \subitem {sprite\_s}, \hyperpage{7}
 
 \end{theindex}

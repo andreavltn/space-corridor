@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['w_32',['w',['../structsprite__s.html#a32e96a992490802c5562f7debdbfed60',1,'sprite_s']]],
-  ['wall_33',['wall',['../structworld__s.html#a53577de7fe90887d7e3dce28ae93bc20',1,'world_s']]],
-  ['win_34',['win',['../structworld__s.html#a1fd30e5180da25592a903513acc3e680',1,'world_s']]],
-  ['world_5fs_35',['world_s',['../structworld__s.html',1,'']]]
+  ['vaisseau_31',['vaisseau',['../structressources__s.html#a6ee1b24fc949d31eb57451c076b37dc7',1,'ressources_s::vaisseau()'],['../structworld__s.html#a3911065b6b0167b0cd6c67d2d5f369ed',1,'world_s::vaisseau()']]],
+  ['vy_32',['vy',['../structworld__s.html#a63348b29918eaa37a31aca8d4747b5a8',1,'world_s']]]
 ];
