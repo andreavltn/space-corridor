@@ -8,14 +8,14 @@
 #include "affichage.h"
 
 /**
- * \brief fonction qui nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des textures, nettoyage des données
+ * \brief fonction qui nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des ressources, nettoyage des données
  * \param window la fenêtre du jeu
  * \param renderer le renderer
- * \param textures les textures
+ * \param ressources les ressources
  * \param world le monde
  */
-void clean(SDL_Window* window, SDL_Renderer* renderer, ressources_t* textures, world_t* world){
-  clean_textures(textures);
+void clean(SDL_Window* window, SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
+  clean_ressources(ressources);
   clean_sdl(renderer,window);
 }
 
@@ -35,7 +35,7 @@ void print_sprite(sprite_t* sprite){
 int main(int argc, char* args[] ){
   SDL_Event event;
   world_t world;
-  ressources_t textures;
+  ressources_t ressources;
   SDL_Renderer *renderer;
   SDL_Window *window;
 
@@ -43,7 +43,7 @@ int main(int argc, char* args[] ){
   unsigned int currentTime;
 
   // initialisation du jeu
-  init(&window,&renderer,&textures,&world);
+  init(&window,&renderer,&ressources,&world);
   while(!is_finished(&world)){ // tant que le jeu n'est pas fini
     currentTime = SDL_GetTicks();
          
@@ -51,13 +51,13 @@ int main(int argc, char* args[] ){
     handle_events(&event,&world);
          
     // mise à jour des données liée à la physique du monde
-    update_data(&world,&textures);
+    update_data(&world,&ressources);
     
     // mise à jour du temps écoulé
     update_time(&world, currentTime, &lastTime);
 
     // rafraichissement de l'écran
-    refresh_graphics(renderer,&world,&textures);
+    refresh_graphics(renderer,&world,&ressources);
     
     // pause de 10 ms pour controler la vitesse de rafraichissement
     pause(10);
@@ -67,7 +67,7 @@ int main(int argc, char* args[] ){
   pause(3000);
      
   // nettoyage final
-  clean(window,renderer,&textures,&world);
+  clean(window,renderer,&ressources,&world);
   
   return 0;
 }

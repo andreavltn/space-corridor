@@ -1,30 +1,24 @@
-\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
-\label{main_8c}\index{main.c@{main.c}}
+\doxysection{main.\+c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
 
 
 Programme principal du jeu.  
 
 
-{\ttfamily \#include \char`\"{}logique.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}affichage.\+h\char`\"{}}\newline
+{\ttfamily \#include "{}logique.\+h"{}}\newline
+{\ttfamily \#include "{}affichage.\+h"{}}\newline
 Include dependency graph for main.\+c\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=258pt]{main_8c__incl}
-\end{center}
-\end{figure}
-\doxysubsection*{Functions}
+% FIG 0
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{main_8c_ab922c8689affd5a890ac014c6cd48969}{clean}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structressources__s}{ressources\+\_\+t}} $\ast$textures, \mbox{\hyperlink{structworld__s}{world\+\_\+t}} $\ast$world)
-\begin{DoxyCompactList}\small\item\em fonction qui nettoie le jeu\+: nettoyage de la partie graphique (S\+DL), nettoyage des textures, nettoyage des données \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8c_a242b29f702d42f06f3cdf3843ee7f930}\label{main_8c_a242b29f702d42f06f3cdf3843ee7f930}} 
-void \mbox{\hyperlink{main_8c_a242b29f702d42f06f3cdf3843ee7f930}{print\+\_\+sprite}} (\mbox{\hyperlink{structsprite__s}{sprite\+\_\+t}} $\ast$sprite)
+void \mbox{\hyperlink{main_8c_ac85be0e7c38bc0563c69e8e6eec1b911}{clean}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, \mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+\begin{DoxyCompactList}\small\item\em fonction qui nettoie le jeu\+: nettoyage de la partie graphique (SDL), nettoyage des ressources, nettoyage des données \end{DoxyCompactList}\item 
+\Hypertarget{main_8c_a242b29f702d42f06f3cdf3843ee7f930}\label{main_8c_a242b29f702d42f06f3cdf3843ee7f930} 
+void {\bfseries print\+\_\+sprite} (\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}sprite)
 \begin{DoxyCompactList}\small\item\em Fonction de test des coordonnées du sprite. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{main_8c_a700a0caa5b70a06d1064e576f9f3cf65}\label{main_8c_a700a0caa5b70a06d1064e576f9f3cf65}} 
-int \mbox{\hyperlink{main_8c_a700a0caa5b70a06d1064e576f9f3cf65}{main}} (int argc, char $\ast$args\mbox{[}$\,$\mbox{]})
+\Hypertarget{main_8c_a700a0caa5b70a06d1064e576f9f3cf65}\label{main_8c_a700a0caa5b70a06d1064e576f9f3cf65} 
+int {\bfseries main} (int argc, char \texorpdfstring{$\ast$}{*}args\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em programme principal qui implémente la boucle du jeu \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -37,15 +31,15 @@ Valentini Andréa \& Viale Romain
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{main_8c_ab922c8689affd5a890ac014c6cd48969}\label{main_8c_ab922c8689affd5a890ac014c6cd48969}} 
+\Hypertarget{main_8c_ac85be0e7c38bc0563c69e8e6eec1b911}\label{main_8c_ac85be0e7c38bc0563c69e8e6eec1b911} 
 \index{main.c@{main.c}!clean@{clean}}
 \index{clean@{clean}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{clean()}{clean()}}
-{\footnotesize\ttfamily void clean (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structressources__s}{ressources\+\_\+t}} $\ast$}]{textures,  }\item[{\mbox{\hyperlink{structworld__s}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void clean (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
 
 
 
-fonction qui nettoie le jeu\+: nettoyage de la partie graphique (S\+DL), nettoyage des textures, nettoyage des données 
+fonction qui nettoie le jeu\+: nettoyage de la partie graphique (SDL), nettoyage des ressources, nettoyage des données 
 
 
 \begin{DoxyParams}{Parameters}
@@ -53,7 +47,7 @@ fonction qui nettoie le jeu\+: nettoyage de la partie graphique (S\+DL), nettoya
 \hline
 {\em renderer} & le renderer \\
 \hline
-{\em textures} & les textures \\
+{\em ressources} & les ressources \\
 \hline
 {\em world} & le monde \\
 \hline

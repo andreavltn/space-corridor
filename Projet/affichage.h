@@ -1,6 +1,6 @@
 /**
- * \file affichage_jeu.h
- * \brief Header de affichage_jeu.c
+ * \file affichage.h
+ * \brief Header de affichage.c
  * \author Valentini Andréa & Viale Romain
  */
 
@@ -21,7 +21,7 @@ typedef struct sprite_s{
 } sprite_t;
 
 /**
- * \brief Représentation pour stocker les textures nécessaires à l'affichage graphique
+ * \brief Représentation pour stocker les ressources nécessaires à l'affichage graphique
  */
 typedef struct ressources_s{
     SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
@@ -47,62 +47,62 @@ typedef struct ressources_s{
 /**
  * \brief La fonction initialise les texures
  * \param screen la surface correspondant à l'écran de jeu
- * \param textures les textures du jeu
+ * \param ressources les ressources du jeu
  */
-void init_textures(SDL_Renderer *renderer, ressources_t *textures);
+void init_textures(SDL_Renderer *renderer, ressources_t *ressources);
 
 /**
- * \brief fonction qui initialise le jeu: initialisation de la partie graphique (SDL), chargement des textures, initialisation des données
+ * \brief fonction qui initialise le jeu: initialisation de la partie graphique (SDL), chargement des ressources, initialisation des données
  * \param window la fenêtre du jeu
  * \param renderer le renderer
- * \param textures les textures du jeu
+ * \param ressources les ressources du jeu
  * \param world le monde du jeu 
  */
-void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *textures, world_t * world);
+void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *ressources, world_t * world);
 
 /**
  * \brief fonction qui applique la texture des murs de météorites
- * \param textures les textures du jeu
+ * \param ressources les ressources du jeu
  * \param renderer le renderer
  * \param world le monde du jeu
  */
-void apply_walls(ressources_t* textures, SDL_Renderer* renderer, world_t* world);
+void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
 
 /**
- * \brief La fonction applique la texture du sprite sur le renderer lié à l'écran de jeus
+ * \brief La fonction applique la texture du sprite sur le renderer lié à l'écran de jeu
  * \param renderer le renderer
- * \param textures les textures du jeu
+ * \param ressources les ressources du jeu
  * \param world le monde du jeu
  */
-void apply_sprite(SDL_Renderer *renderer , ressources_t *textures , world_t * world);
+void apply_sprite(SDL_Renderer *renderer , ressources_t *ressources , world_t * world);
 
 /**
  * \brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu
  * \param renderer le renderer
- * \param textures les textures du jeu
+ * \param ressources les ressources du jeu
  */
-void apply_background(SDL_Renderer *renderer, ressources_t *textures);
+void apply_background(SDL_Renderer *renderer, ressources_t *ressources);
 
 /**
  * \brief La fonction affiche le timer et les messages de fin sur le renderer lié à l'écran de jeu
  * \param renderer le renderer
  * \param world le monde du jeu
- * \param textures les textures du jeu
+ * \param ressources les ressources du jeu
  */
-void apply_texts(SDL_Renderer *renderer, world_t *world, ressources_t *textures);
+void apply_texts(SDL_Renderer *renderer, world_t *world, ressources_t *ressources);
 
 /**
  * \brief La fonction rafraichit l'écran en fonction de l'état des données du monde
  * \param renderer le renderer
  * \param world le monde du jeu
- * \param textures les textures du jeu
+ * \param ressources les ressources du jeu
  */
-void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *textures);
+void refresh_graphics(SDL_Renderer *renderer, world_t *world, ressources_t *ressources);
 
 /**
- * \brief La fonction nettoie les textures
- * \param textures les textures
+ * \brief La fonction nettoie les ressources
+ * \param ressources les ressources
  */
-void clean_textures(ressources_t *textures);
+void clean_ressources(ressources_t *ressources);
 
 #endif

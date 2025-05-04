@@ -1,5 +1,5 @@
 /**
- * \file logique_jeu.c
+ * \file logique.c
  * \brief Contient l'ensemble des fonctions relatives à la logique du jeu
  * \author Valentini Andréa & Viale Romain
  */
@@ -22,7 +22,6 @@ void init_walls(world_t* world){
     init_sprite(&(world->wall[3]),74,-352,224,160);
     init_sprite(&(world->wall[4]),0,-672,96,192);
     init_sprite(&(world->wall[5]),204,-672,96,192);
-
 }
 
 void init_data(world_t* world){
@@ -61,14 +60,14 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2){
     return 0;
 }
 
-void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, ressources_t* textures){
+void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, ressources_t* ressources){
     // si les deux sprites sont en collision
     if (sprites_collide(sp1,sp2)){
         world->vy = 0; // arret du jeu
 
         // si le parametre make_disappear est à 1
         if (make_disappear==1){
-            clean_texture(textures->vaisseau); // rend invisible le vaisseau
+            clean_texture(ressources->vaisseau); // rend invisible le vaisseau
         }
 
         // si le parametre make_win est à 1
@@ -146,24 +145,23 @@ void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTim
     }
 }
 
-void update_walls(world_t* world, ressources_t* textures){
+void update_walls(world_t* world, ressources_t* ressources){
     // pour chaque mur
     for (int i=0;i<6;i++){
         // le mur de météorites descend de vy
         world->wall[i].y += world->vy;
         // gestion des collisions entre le vaisseau et le mur (disparition + pas de victoire)
-        handle_sprites_collision(world,&(world->vaisseau),&(world->wall[i]),1,0,textures);
+        handle_sprites_collision(world,&(world->vaisseau),&(world->wall[i]),1,0,ressources);
     }
-
 }
 
-void update_data(world_t* world, ressources_t* textures){
+void update_data(world_t* world, ressources_t* ressources){
     // la ligne d'arrivée descend de vy
     world->ligne_arrivee.y += world->vy;
 
     // gestion des collisions entre le vaisseau et la ligne d'arrivée
-    handle_sprites_collision(world,&(world->vaisseau),&(world->ligne_arrivee),0,1,textures);
+    handle_sprites_collision(world,&(world->vaisseau),&(world->ligne_arrivee),0,1,ressources);
 
     // mise à jour de la position des murs + gestion des collisions entre le vaisseau et les murs
-    update_walls(world, textures);
+    update_walls(world, ressources);
 }

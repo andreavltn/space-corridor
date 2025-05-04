@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['update_5fscreen_56',['update_screen',['../sdl2-light_8c.html#adaf353d9ae01b52dd37cd0adf2d5c9ee',1,'update_screen(SDL_Renderer *renderer):&#160;sdl2-light.c'],['../sdl2-light_8h.html#adaf353d9ae01b52dd37cd0adf2d5c9ee',1,'update_screen(SDL_Renderer *renderer):&#160;sdl2-light.c']]]
+  ['pause_0',['pause',['../sdl2-light_8c.html#a381e2d58c3d6a1f0fd8129bcc4726804',1,'pause(int time):&#160;sdl2-light.c'],['../sdl2-light_8h.html#a381e2d58c3d6a1f0fd8129bcc4726804',1,'pause(int time):&#160;sdl2-light.c']]],
+  ['print_5fsprite_1',['print_sprite',['../main_8c.html#a242b29f702d42f06f3cdf3843ee7f930',1,'main.c']]]
 ];

@@ -1,0 +1,33 @@
+\doxysection{logique.\+h}
+\hypertarget{logique_8h_source}{}\label{logique_8h_source}\mbox{\hyperlink{logique_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ LOGIQUE\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ LOGIQUE\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sdl2-light_8h}{sdl2-\/light.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{affichage_8h}{affichage.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a7edf5248c9929108f571836fb92f204a}{init\_sprite}}(\mbox{\hyperlink{structsprite__s}{sprite\_t}}\ *sprite,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a4e842a72a730dd3d5ce299ac082bbed9}{init\_walls}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a5676e72ded3c1a993c4c975ef9958288}{init\_data}}(\mbox{\hyperlink{structworld__s}{world\_t}}\ *\ world);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{logique_8h_aa35f099a7e2fcb62d60f44d7a061f151}{sprites\_collide}}(\mbox{\hyperlink{structsprite__s}{sprite\_t}}*\ sp1,\ \mbox{\hyperlink{structsprite__s}{sprite\_t}}*\ sp2);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a7a13342187e593f508fd807c8c7de3e7}{handle\_sprites\_collision}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world,\ \mbox{\hyperlink{structsprite__s}{sprite\_t}}*\ sp1,\ \mbox{\hyperlink{structsprite__s}{sprite\_t}}*\ sp2,\ \textcolor{keywordtype}{int}\ make\_disappear,\ \textcolor{keywordtype}{int}\ make\_win,\ \mbox{\hyperlink{structressources__s}{ressources\_t}}*\ ressources);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a947b9f8960b2202788f43c71fbaa9d67}{handle\_events}}(SDL\_Event\ *event,\ \mbox{\hyperlink{structworld__s}{world\_t}}\ *world);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{logique_8h_aa59cfdacc2b13cdda0a7c11876c0ece6}{is\_finished}}(\mbox{\hyperlink{structworld__s}{world\_t}}\ *world);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a120a24bca68e3952e41b03abac0fe6a0}{update\_time}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ currentTime,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ lastTime);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_ad88648301ea747b45559550c2ae27e6e}{update\_walls}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world,\ \mbox{\hyperlink{structressources__s}{ressources\_t}}*\ ressources);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_ae1571bcd0e0ff6b5477e7d67335488fc}{update\_data}}(\mbox{\hyperlink{structworld__s}{world\_t}}\ *world,\ \mbox{\hyperlink{structressources__s}{ressources\_t}}*\ ressources);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

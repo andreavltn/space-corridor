@@ -1,6 +1,6 @@
 /**
- * \file logique_jeu.h
- * \brief Header de logique_jeu.c
+ * \file logique.h
+ * \brief Header de logique.c
  * \author Valentini Andréa & Viale Romain
  */
 
@@ -19,6 +19,12 @@
  * \param h la hauteur du sprite
  */
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
+
+/**
+ * \brief La fonction initialise la position des murs de météorites
+ *  \param world les données du monde
+ */
+void init_walls(world_t* world);
 
 /**
  * \brief La fonction initialise les données du monde du jeu
@@ -40,9 +46,9 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2);
  * \param sp2 le deuxième sprite
  * \param make_disappear 1 si sp1 doit disparaitre en cas de collision, 0 sinon
  * \param make_win 1 si la collision déclenche la victoire, 0 sinon 
- * \param textures les textures du jeu
+ * \param ressources les ressources du jeu
  */
-void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, ressources_t* textures);
+void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, ressources_t* ressources);
 
 /**
  * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
@@ -66,10 +72,17 @@ int is_finished(world_t *world);
 void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTime);
 
 /**
+ * \brief Met à jour la positions des murs de météorites
+ * \param world les données du monde
+ * \param ressources les ressources du jeu
+ */   
+void update_walls(world_t* world, ressources_t* ressources);
+
+/**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde
  * \param world les données du monde
- * \param textures les textures du jeu
+ * \param ressources les ressources du jeu
  */
-void update_data(world_t *world, ressources_t* textures);
+void update_data(world_t *world, ressources_t* ressources);
 
 #endif
