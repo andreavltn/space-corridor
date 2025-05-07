@@ -6,6 +6,79 @@
 
 #include "logique.h"
 #include "affichage.h"
+#include "constantes.h"
+
+/**
+ * \brief fonction qui initialise le jeu: initialisation de la partie graphique (SDL), chargement des ressources, initialisation des données
+ * \param window la fenêtre du jeu
+ * \param renderer le renderer
+ * \param ressources les ressources du jeu
+ * \param world le monde du jeu 
+ */
+void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *ressources, world_t * world){
+  init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
+  init_ttf();
+  init_data(world);
+  init_textures(*renderer,ressources);
+}
+
+/**
+ * \brief fonction qui gère les évènements ayant eu lieu et qui n'ont pas encore été traités
+ * \param event paramètre qui contient les événements
+ * \param world les données du monde
+ */
+void handle_events(SDL_Event* event, world_t* world){
+  Uint8 *keystates;
+
+  while(SDL_PollEvent(event)){
+      // si l'utilisateur a cliqué sur le X de la fenêtre
+      if(event->type == SDL_QUIT ) {
+          // On indique la fin du jeu
+          world->gameover = 1;
+      }
+
+      // si une touche est appuyée
+      if(event->type == SDL_KEYDOWN){
+
+          // touche echap
+          if (event->key.keysym.sym == SDLK_ESCAPE){
+              world->gameover = 1;
+          }
+
+          // touche droite/d
+          if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
+              if(world->vaisseau.x + world->vaisseau.w + MOVING_STEP < SCREEN_WIDTH) {
+                  world->vaisseau.x+=MOVING_STEP;
+              }
+          }
+
+          // touche gauche/q
+          if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
+              if(world->vaisseau.x - MOVING_STEP > 0){
+                  world->vaisseau.x-=MOVING_STEP;
+              }
+          }
+
+          // haut/z
+          if(event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z){
+              // si la vitesse est inférieure à 2 (1.9 pour la précision des flottants)
+              if(world->vy < 1.9){
+                  // augmentation de la vitesse du jeu
+                  world->vy+=0.1;
+              }
+          }
+
+          // bas/s
+          if(event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s){
+              // si la vitesse est supérieure à 0.5
+              if(world->vy > 0.5){
+                  // réduction de la vitesse du jeu
+                  world->vy-=0.1;
+              }
+          }     
+      }        
+  }
+}
 
 /**
  * \brief fonction qui nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des ressources, nettoyage des données

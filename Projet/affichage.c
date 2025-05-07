@@ -16,13 +16,6 @@ void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
     ressources->font = load_font("ressources/arial.ttf",14); 
 }
 
-void init(SDL_Window** window, SDL_Renderer** renderer, ressources_t* ressources, world_t* world){
-    init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
-    init_ttf();
-    init_data(world);
-    init_textures(*renderer,ressources);
-}
-
 void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* world){
     // pour chaque mur
     for (int h=0; h<6;h++){

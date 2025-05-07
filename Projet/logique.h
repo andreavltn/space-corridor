@@ -8,7 +8,31 @@
 #define LOGIQUE_H
 
 #include "sdl2-light.h"
-#include "affichage.h"
+
+/**
+ * \brief Type qui correspond au sprite
+ */
+typedef struct sprite_s{
+    float x; /*!< Champ indiquant la position x du sprite */
+    float y; /*!< Champ indiquant la position y du sprite */
+    float w; /*!< Champ indiquant la largeur w du sprite */
+    float h; /*!< Champ indiquant la hauteur h du sprite */
+} sprite_t;
+
+/**
+ * \brief Représentation du monde du jeu
+ */
+ typedef struct world_s{
+    sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
+    sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
+    sprite_t wall[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
+    float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
+    int gameover; /*!< Champ indiquant si on a perdu */
+    int win; /*!< Champ indiquant si on a gagné */
+    float time; /*!< Champ représentant le temps écoulé depuis le début du jeu */
+} world_t;
+
+#include "affichage.h" // plus bas pour éviter les dépendances circulaires
 
 /**
  * \brief La fonction initialise la position du sprite
@@ -49,13 +73,6 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2);
  * \param ressources les ressources du jeu
  */
 void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, ressources_t* ressources);
-
-/**
- * \brief La fonction gère les évènements ayant eu lieu et qui n'ont pas encore été traités
- * \param event paramètre qui contient les événements
- * \param world les données du monde
- */
-void handle_events(SDL_Event *event, world_t *world);
 
 /**
  * \brief Renvoie l'état de fin du jeu (jeu gagné/jeu perdu)
