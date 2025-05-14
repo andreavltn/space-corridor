@@ -10,7 +10,7 @@
 
 void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
     ressources->background = load_image( "ressources/space-background.bmp",renderer);
-    ressources->vaisseau=load_image("ressources/missile.bmp",renderer);
+    ressources->vaisseau=load_image("ressources/spaceship.bmp",renderer);
     ressources->ligne_arrivee=load_image("ressources/finish_line.bmp",renderer);
     ressources->meteorite=load_image("ressources/meteorite.bmp",renderer);
     ressources->missile=load_image("ressources/missile.bmp",renderer);
@@ -21,10 +21,10 @@ void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* worl
     // pour chaque mur
     for (int h=0; h<6;h++){
         // pour chaque spot horizontal de météorite
-        for(int i=0; i<world->wall[h].w; i+=32){
+        for(int i=0; i<world->walls[h].w; i+=32){
             // pour chaque spot vertical de météorite 
-            for(int j=0; j<world->wall[h].h; j+=32){
-                apply_texture(ressources->meteorite, renderer, world->wall[h].x + i, world->wall[h].y + j);
+            for(int j=0; j<world->walls[h].h; j+=32){
+                apply_texture(ressources->meteorite, renderer, world->walls[h].x + i, world->walls[h].y + j);
             }
         }   
     } 
@@ -40,6 +40,9 @@ void apply_sprite(SDL_Renderer* renderer, ressources_t* ressources, world_t* wor
     
     // texture du mur de météorites (quadrillage de météorites)
     apply_walls(ressources, renderer, world);
+
+    // texture du missile
+    apply_texture(ressources->missile, renderer, world->missile.x, world->missile.y);
   
 } 
 

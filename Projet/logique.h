@@ -25,13 +25,12 @@ typedef struct sprite_s{
  typedef struct world_s{
     sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
     sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
-    sprite_t wall[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
-    sprite_t missiles[6]; /*!< Champ représentants le tableau des missiles tirés par le vaisseau */
+    sprite_t walls[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
+    sprite_t missile; /*!< Champ représentants le tableau des missiles tirés par le vaisseau */
     float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
     int gameover; /*!< Champ indiquant si on a perdu */
     int win; /*!< Champ indiquant si on a gagné */
     float time; /*!< Champ représentant le temps écoulé depuis le début du jeu */
-    unsigned int missileCooldown; /*!< Champ représentant le cooldown avant le prochain tir de missile (en ms) */
 } world_t;
 
 #include "affichage.h" // plus bas pour éviter les dépendances circulaires
@@ -71,10 +70,10 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2);
  * \param sp1 le premier sprite
  * \param sp2 le deuxième sprite
  * \param make_disappear 1 si sp1 doit disparaitre en cas de collision, 0 sinon
- * \param make_win 1 si la collision déclenche la victoire, 0 sinon 
+ * \param make_win 1 si la collision déclenche la victoire, 0 si défaite, tout autre valeur si ca ne doit rien faire 
  * \param ressources les ressources du jeu
  */
-void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win, ressources_t* ressources);
+void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win);
 
 /**
  * \brief Renvoie l'état de fin du jeu (jeu gagné/jeu perdu)
@@ -91,11 +90,19 @@ int is_finished(world_t *world);
 void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTimeCheck);
 
 /**
- * \brief Met à jour la position des murs de météorites
+ * \brief Met à jour la position de la ligne d'arrivée + gère les collisions
+ * \param world les données du monde
+ * \param currentTime le temps écoulé actuel
+ * \param lastTimeCheck le temps écoulé au dernier check
+ */   
+void update_finishline(world_t* world);
+
+/**
+ * \brief Met à jour la position des murs de météorites + gère les collisions
  * \param world les données du monde
  * \param ressources les ressources du jeu
- */   
-void update_walls(world_t* world, ressources_t* ressources);
+ */
+void update_walls(world_t* world);
 
 /**
  * \brief Tire un missile à partir du vaisseau
@@ -104,11 +111,10 @@ void update_walls(world_t* world, ressources_t* ressources);
 void shoot_missile(world_t* world);
 
 /**
- * \brief Met à jour la position des missiles 
+ * \brief Met à jour la position du missile + gère les collisions
  * \param world les données du monde
- * \param ressources les ressources du jeu
  */   
-void update_missiles(world_t* world, ressources_t* ressources);
+void update_missile(world_t* world);
 
 /**
  * \brief Met à jour le cooldown du tir de missile

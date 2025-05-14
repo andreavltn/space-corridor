@@ -135,14 +135,13 @@ int main(int argc, char* args[] ){
     // mise à jour du temps écoulé
     update_time(&world, currentTime, &lastTimeCheck);
 
-    // mise à jour du cooldown du tir de missile
-    update_missileCooldown(&world,currentTime, &lastMissileCheck);
-
     // rafraichissement de l'écran
     refresh_graphics(renderer,&world,&ressources);
     
     // pause de 10 ms pour controler la vitesse de rafraichissement
     pause(10);
+
+    print_sprite(&(world.vaisseau));
   }
 
   // pause de 3s a la fin du jeu
