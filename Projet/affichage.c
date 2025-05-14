@@ -10,9 +10,10 @@
 
 void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
     ressources->background = load_image( "ressources/space-background.bmp",renderer);
-    ressources->vaisseau=load_image("ressources/spaceship.bmp",renderer);
+    ressources->vaisseau=load_image("ressources/missile.bmp",renderer);
     ressources->ligne_arrivee=load_image("ressources/finish_line.bmp",renderer);
     ressources->meteorite=load_image("ressources/meteorite.bmp",renderer);
+    ressources->missile=load_image("ressources/missile.bmp",renderer);
     ressources->font = load_font("ressources/arial.ttf",14); 
 }
 
@@ -86,5 +87,6 @@ void clean_ressources(ressources_t* ressources){
     clean_texture(ressources->vaisseau);
     clean_texture(ressources->ligne_arrivee);
     clean_texture(ressources->meteorite);
+    clean_texture(ressources->missile);
     clean_font(ressources->font);    
 }

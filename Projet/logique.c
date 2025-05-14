@@ -33,6 +33,11 @@ void init_data(world_t* world){
   
     // initialisation du mur de météorites
     init_walls(world);
+
+    // initialisation d'un tableau de missiles "nuls" (pas encore actifs)
+    for(int i=0; i<5; i++){
+        init_sprite(&(world->missiles[i]), 0, 0, 0, 0);
+    }
   
     // vitesse de la ligne d'arrivée
     world->vy = INITIAL_SPEED;
@@ -42,7 +47,10 @@ void init_data(world_t* world){
     world->win = 0;  
 
     // temps écoulé
-    world->time = 0; 
+    world->time = 0;
+
+    // cooldown a zéro
+    world->missileCooldown = 0; 
 }
 
 
@@ -67,7 +75,7 @@ void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int 
 
         // si le parametre make_disappear est à 1
         if (make_disappear==1){
-            clean_texture(ressources->vaisseau); // rend invisible le vaisseau
+            sp1->w = 0; // met la largeur du sprite à 0 (inactif)
         }
 
         // si le parametre make_win est à 1
@@ -84,22 +92,69 @@ int is_finished(world_t* world){
     return world->gameover || world->win;
 }
 
-void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTime){
+void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTimeCheck){
     // si on a passé 0.1s depuis le dernier check
-    if (currentTime > *lastTime + 100) {
+    if(currentTime > *lastTimeCheck + 100) {
       world->time = (float)currentTime / 1000;  // met à jour le temps (conversion ms en s), cast en float
-      *lastTime = currentTime; // met à jour le "dernier check" par pointeur
+      *lastTimeCheck = currentTime; // met à jour le "dernier check" par pointeur
     }
 }
 
 void update_walls(world_t* world, ressources_t* ressources){
     // pour chaque mur
-    for (int i=0;i<6;i++){
+    for(int i=0;i<6;i++){
         // le mur de météorites descend de vy
         world->wall[i].y += world->vy;
         // gestion des collisions entre le vaisseau et le mur (disparition + pas de victoire)
         handle_sprites_collision(world,&(world->vaisseau),&(world->wall[i]),1,0,ressources);
     }
+}
+
+void shoot_missile(world_t* world){
+    // si on a passé le cooldown 
+    if(world->missileCooldown<=0){
+
+        // création d'un missile + initialisation au bon emplacement sur l'écran
+        sprite_t missile; 
+        init_sprite(&(missile), world->vaisseau.x+MISSILE_WIDTH/2, world->vaisseau.y-MISSILE_HEIGHT, MISSILE_WIDTH, MISSILE_HEIGHT);
+
+        // recherche du premier emplacement libre dans le tableau de missiles (le premier missile inactif)
+        int i=0;
+        while(i<5 && world->missiles[i].w != 0){
+            i++;
+        }
+
+        // remplace ce missile par le nouveau
+        world->missiles[i] = missile;
+
+        // maj du cooldown pour le prochain missile
+        world->missileCooldown = MISSILE_COOLDOWN;
+    }
+}
+
+void update_missiles(world_t* world, ressources_t* ressources){
+    // pour chaque missile
+    for(int i=0;i<6;i++){
+        // si le missile sort de l'écran, on met sa largeur à 0 (inactif)
+        if (world->missiles[i].y < world->vaisseau.y-SCREEN_HEIGHT) {
+            world->missiles[i].w = 0;
+        }
+        // les missiles montent de MISSILE_SPEED
+        world->missiles[i].y -= MISSILE_SPEED;
+        // gestion des collisions entre chaque missile et chaque mur
+        for(int j=0;j<6;j++){
+            handle_sprites_collision(world,&(world->missiles[i]),&(world->wall[j]),1,0,ressources);
+        }
+    }
+}
+
+void update_missileCooldown(world_t* world, unsigned int currentTime, unsigned int* lastMissileCheck){
+    // si le cooldown n'est pas encore à 0
+    if(world->missileCooldown > 0){
+        // met à jour le cooldown
+        world->missileCooldown -= (float)(currentTime - *lastMissileCheck);
+    }
+    *lastMissileCheck = currentTime; // met à jour le "dernier check" par pointeur
 }
 
 void update_data(world_t* world, ressources_t* ressources){
@@ -111,4 +166,7 @@ void update_data(world_t* world, ressources_t* ressources){
 
     // mise à jour de la position des murs + gestion des collisions entre le vaisseau et les murs
     update_walls(world, ressources);
+
+    // mise à jour de la position des missiles + gestion des collisions entre les murs et les vaisseaux
+    update_missiles(world,ressources);
 }

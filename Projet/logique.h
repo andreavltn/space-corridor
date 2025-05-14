@@ -26,10 +26,12 @@ typedef struct sprite_s{
     sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
     sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
     sprite_t wall[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
+    sprite_t missiles[6]; /*!< Champ représentants le tableau des missiles tirés par le vaisseau */
     float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
     int gameover; /*!< Champ indiquant si on a perdu */
     int win; /*!< Champ indiquant si on a gagné */
     float time; /*!< Champ représentant le temps écoulé depuis le début du jeu */
+    unsigned int missileCooldown; /*!< Champ représentant le cooldown avant le prochain tir de missile (en ms) */
 } world_t;
 
 #include "affichage.h" // plus bas pour éviter les dépendances circulaires
@@ -84,16 +86,37 @@ int is_finished(world_t *world);
  * \brief Met à jour le temps écoulé
  * \param world les données du monde
  * \param currentTime le temps écoulé actuel
- * \param lastTime le temps écoulé à la dernière mise à jour
+ * \param lastTimeCheck le temps écoulé au dernier check
  */   
-void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTime);
+void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTimeCheck);
 
 /**
- * \brief Met à jour la positions des murs de météorites
+ * \brief Met à jour la position des murs de météorites
  * \param world les données du monde
  * \param ressources les ressources du jeu
  */   
 void update_walls(world_t* world, ressources_t* ressources);
+
+/**
+ * \brief Tire un missile à partir du vaisseau
+ * \param world les données du monde
+ */   
+void shoot_missile(world_t* world);
+
+/**
+ * \brief Met à jour la position des missiles 
+ * \param world les données du monde
+ * \param ressources les ressources du jeu
+ */   
+void update_missiles(world_t* world, ressources_t* ressources);
+
+/**
+ * \brief Met à jour le cooldown du tir de missile
+ * \param world les données du monde
+ * \param currentTime le temps écoulé actuel
+ * \param lastMissileCheck le temps écoulé au dernier check
+ */  
+void update_missileCooldown(world_t* world, unsigned int currentTime, unsigned int* lastMissileCheck);
 
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde

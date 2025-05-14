@@ -18,6 +18,7 @@ typedef struct ressources_s{
     SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau. */
     SDL_Texture* ligne_arrivee; /*!< Texture liée à l'image de la ligne d'arrivée */
     SDL_Texture* meteorite; /*!< Texture liée à l'image d'une météorite */
+    SDL_Texture* missile; /*!< Texture liée à l'image d'une missile */
     TTF_Font* font; /*!< Texture liée à la police du texte */
 } ressources_t;
 

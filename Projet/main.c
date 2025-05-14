@@ -75,7 +75,12 @@ void handle_events(SDL_Event* event, world_t* world){
                   // réduction de la vitesse du jeu
                   world->vy-=0.1;
               }
-          }     
+          }
+          
+          // barre espace
+          if(event->key.keysym.sym == SDLK_SPACE){
+            shoot_missile(world);
+          }    
       }        
   }
 }
@@ -112,7 +117,8 @@ int main(int argc, char* args[] ){
   SDL_Renderer *renderer;
   SDL_Window *window;
 
-  unsigned int lastTime = 0;
+  unsigned int lastTimeCheck = 0;
+  unsigned int lastMissileCheck = 0;
   unsigned int currentTime;
 
   // initialisation du jeu
@@ -127,7 +133,10 @@ int main(int argc, char* args[] ){
     update_data(&world,&ressources);
     
     // mise à jour du temps écoulé
-    update_time(&world, currentTime, &lastTime);
+    update_time(&world, currentTime, &lastTimeCheck);
+
+    // mise à jour du cooldown du tir de missile
+    update_missileCooldown(&world,currentTime, &lastMissileCheck);
 
     // rafraichissement de l'écran
     refresh_graphics(renderer,&world,&ressources);
