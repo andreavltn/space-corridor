@@ -9,7 +9,7 @@
 #include "constantes.h"
 
 /**
- * \brief fonction qui initialise le jeu: initialisation de la partie graphique (SDL), chargement des ressources, initialisation des données
+ * \brief Fonction qui initialise le jeu: initialisation de la partie graphique (SDL), chargement des ressources, initialisation des données
  * \param window la fenêtre du jeu
  * \param renderer le renderer
  * \param ressources les ressources du jeu
@@ -23,7 +23,7 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *ressource
 }
 
 /**
- * \brief fonction qui gère les évènements ayant eu lieu et qui n'ont pas encore été traités
+ * \brief Fonction qui gère les évènements ayant eu lieu et qui n'ont pas encore été traités
  * \param event paramètre qui contient les événements
  * \param world les données du monde
  */
@@ -79,15 +79,18 @@ void handle_events(SDL_Event* event, world_t* world){
           
       // barre espace
       if(event->key.keysym.sym == SDLK_SPACE){
-        // tirer
-        shoot_missile(world);
-      }    
-    }        
+        // si il n'y a pas de cooldown au tir de missile
+        if(world->missileCooldown == 0){
+          shoot_missile(world); // tirer un missile
+          world->missileCooldown = MISSILE_COOLDOWN; // maj du cooldown
+        }    
+      }        
+    }
   }
 }
 
 /**
- * \brief fonction qui nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des ressources, nettoyage des données
+ * \brief Fonction qui nettoie le jeu: nettoyage de la partie graphique (SDL), nettoyage des ressources, nettoyage des données
  * \param window la fenêtre du jeu
  * \param renderer le renderer
  * \param ressources les ressources
@@ -109,17 +112,18 @@ void print_sprite(sprite_t* sprite){
 }
  
 /**
- *  \brief programme principal qui implémente la boucle du jeu
+ *  \brief Le programme principal qui lance et gère le déroulement du jeu
  */
-int main(int argc, char* args[] ){
+int main(int argc, char* args[]){
   SDL_Event event;
   world_t world;
   ressources_t ressources;
   SDL_Renderer *renderer;
   SDL_Window *window;
 
-  unsigned int lastTimeCheck = 0;
-  unsigned int currentTime;
+  unsigned int lastTimeCheck = 0; // dernier check du temps pour le timer
+  unsigned int lastMissileCooldownCheck = 0; // dernier check du temps pour le cooldown du missile
+  unsigned int currentTime; // temps actuel (ms passées depuis le lancement du jeu)
 
   // initialisation du jeu
   init(&window,&renderer,&ressources,&world);
@@ -134,6 +138,9 @@ int main(int argc, char* args[] ){
     
     // mise à jour du temps écoulé
     update_time(&world, currentTime, &lastTimeCheck);
+    
+    // mise à jour du cooldown restant du tir de missile
+    update_missileCooldown(&world, currentTime, &lastMissileCooldownCheck);
 
     // rafraichissement de l'écran
     refresh_graphics(renderer,&world,&ressources);

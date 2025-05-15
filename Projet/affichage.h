@@ -18,15 +18,15 @@ typedef struct ressources_s{
     SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau. */
     SDL_Texture* ligne_arrivee; /*!< Texture liée à l'image de la ligne d'arrivée */
     SDL_Texture* meteorite; /*!< Texture liée à l'image d'une météorite */
-    SDL_Texture* missile; /*!< Texture liée à l'image d'une missile */
+    SDL_Texture* missile; /*!< Texture liée à l'image d'un missile */
     TTF_Font* font; /*!< Texture liée à la police du texte */
 } ressources_t;
 
 #include "logique.h" // plus bas pour éviter les dépendances circulaires
 
 /**
- * \brief La fonction initialise les texures
- * \param screen la surface correspondant à l'écran de jeu
+ * \brief La fonction initialise les textures
+ * \param renderer la surface correspondant à l'écran de jeu
  * \param ressources les ressources du jeu
  */
 void init_textures(SDL_Renderer *renderer, ressources_t *ressources);

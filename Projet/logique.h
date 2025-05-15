@@ -31,6 +31,7 @@ typedef struct sprite_s{
     int gameover; /*!< Champ indiquant si on a perdu */
     int win; /*!< Champ indiquant si on a gagné */
     float time; /*!< Champ représentant le temps écoulé depuis le début du jeu */
+    unsigned int missileCooldown; /*!< Champ représentant le cooldown restant du tir de missile */ 
 } world_t;
 
 #include "affichage.h" // plus bas pour éviter les dépendances circulaires
@@ -69,8 +70,8 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2);
  * \param world les données du monde
  * \param sp1 le premier sprite
  * \param sp2 le deuxième sprite
- * \param make_disappear 1 si sp1 doit disparaitre en cas de collision, 0 sinon
- * \param make_win 1 si la collision déclenche la victoire, 0 si défaite, tout autre valeur si ca ne doit rien faire 
+ * \param make_disappear 1 si sp1 doit disparaître en cas de collision, 0 sinon
+ * \param make_win 1 si la collision déclenche la victoire, 0 si défaite, autre valeur entière si ça ne doit rien faire 
  * \param ressources les ressources du jeu
  */
 void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win);
@@ -115,6 +116,8 @@ void shoot_missile(world_t* world);
  * \param world les données du monde
  */   
 void update_missiles(world_t* world);
+
+void update_missileCooldown(world_t* world, unsigned int currentTime, unsigned int* lastMissileCooldownCheck);
 
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde

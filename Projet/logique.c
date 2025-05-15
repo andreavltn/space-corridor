@@ -48,6 +48,9 @@ void init_data(world_t* world){
 
     // temps écoulé
     world->time = 0;
+
+    // cooldown du tir de missile
+    world->missileCooldown = 0;
 }
 
 
@@ -75,14 +78,14 @@ void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int 
 
         // si victoire ou défaite
         if(make_win==1 || make_win==0){
-            world->vy = 0; // arret du jeu
+            world->vy = 0; // arrêt du jeu
            if(make_win==1){
             world->win = 1;
            } else {
             world->gameover = 1; // perdu
            }
         }
-        // sinon rien ne se passe pour tout autre valeur 
+        // sinon rien ne se passe pour toute autre valeur 
     }
 }
 
@@ -122,6 +125,7 @@ void shoot_missile(world_t* world){
         if(world->missiles[i].x == -10000){
             // apparition du missile juste au dessus du vaisseau
             init_sprite(&(world->missiles[i]), world->vaisseau.x+(SHIP_SIZE/2 - MISSILE_WIDTH/2), world->vaisseau.y-MISSILE_HEIGHT, MISSILE_WIDTH, MISSILE_HEIGHT);
+            world->missileCooldown = MISSILE_COOLDOWN;
             break;
         }
     }
@@ -140,6 +144,21 @@ void update_missiles(world_t* world){
         }
     }
 }
+
+void update_missileCooldown(world_t* world, unsigned int currentTime, unsigned int* lastMissileCooldownCheck) {
+    unsigned int elapsed = currentTime - *lastMissileCooldownCheck; // temps écoulé depuis le dernier check
+    if (elapsed > 0) { // si du temmps s'est passé
+        if (world->missileCooldown > 0) { // si le cooldown n'est tjrs pas égal à 0
+            if (elapsed < world->missileCooldown) { // si le temps écoulé est inférieur au cooldown restant (donc la soustraction >0)
+                world->missileCooldown -= elapsed; // maj du temps
+            } else {
+                world->missileCooldown = 0; // sinon on met à 0 (plafond inférieur)
+            }
+        }
+        *lastMissileCooldownCheck = currentTime; // maj du dernier check
+    }
+}
+
 
 void update_data(world_t* world, ressources_t* ressources){
     // mise à jour de la position de la ligne d'arrivée + gestion de la collision entre le vaisseau et celle-ci

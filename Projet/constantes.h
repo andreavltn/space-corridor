@@ -23,7 +23,7 @@
 #define SHIP_SIZE 32
  
 /**
- * \brief Taille d'un météorite
+ * \brief Taille d'une météorite
  */
 #define METEORITE_SIZE 32
 
@@ -43,19 +43,19 @@
 #define FINISH_LINE_HEIGHT -960
  
 /**
-* \brief Pas de déplacement horizontal du vaisseau
-*/
+ * \brief Pas de déplacement horizontal du vaisseau
+ */
 #define MOVING_STEP 10
 
 /**
-* \brief Vitesse d'un missile 
-*/
+ * \brief Vitesse d'un missile 
+ */
 #define MISSILE_SPEED 2
 
 /**
-* \brief Cooldown d'un missile (en ms)
-*/
-#define MISSILE_COOLDOWN 300
+ * \brief Cooldown d'un missile (en ms)
+ */
+#define MISSILE_COOLDOWN 1000
  
 /**
  * \brief Vitesse initiale de déplacement vertical des éléments du jeu 
