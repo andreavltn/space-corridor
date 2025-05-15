@@ -28,8 +28,8 @@ void init_data(world_t* world){
     // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32px*32px)
     init_sprite(&(world->vaisseau), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
   
-    // initialisation de la ligne d'arrivée (milieu de l'écran, à la hauteur définie, LARGEUR_ECRAN*8px).
-    init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 8);
+    // initialisation de la ligne d'arrivée (milieu de l'écran, à la hauteur définie, LARGEUR_ECRAN*20px).
+    init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 20);
   
     // initialisation du mur de météorites
     init_walls(world);
@@ -119,7 +119,7 @@ void shoot_missile(world_t* world){
     // pour chaque indice de missile possible dans le tableau
     for(int i=0; i<10; i++){
         // si le spot est disponible
-        if(world->missiles[i].x != -10000){
+        if(world->missiles[i].x == -10000){
             // apparition du missile juste au dessus du vaisseau
             init_sprite(&(world->missiles[i]), world->vaisseau.x+(SHIP_SIZE/2 - MISSILE_WIDTH/2), world->vaisseau.y-MISSILE_HEIGHT, MISSILE_WIDTH, MISSILE_HEIGHT);
             break;
