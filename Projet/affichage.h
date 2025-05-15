@@ -26,7 +26,7 @@ typedef struct ressources_s{
 
 /**
  * \brief La fonction initialise les textures
- * \param renderer la surface correspondant à l'écran de jeu
+ * \param renderer le renderer
  * \param ressources les ressources du jeu
  */
 void init_textures(SDL_Renderer *renderer, ressources_t *ressources);

@@ -34,6 +34,9 @@ void init_data(world_t* world){
     // initialisation du mur de météorites
     init_walls(world);
 
+    // initialisation de la limite invisible (juste au dessus du visible de l'écran, LARGEUR_ECRAN*20px)
+    init_sprite(&(world->limite_invisible), 0, INVISIBLE_LIMIT_HEIGHT, SCREEN_WIDTH, 20);
+
     // initialisation des missiles en dehors de l'écran (pas encore actifs)
     for(int i=0; i<10; i++){
         init_sprite(&(world->missiles[i]), -10000, 0, MISSILE_WIDTH, MISSILE_HEIGHT);
@@ -142,6 +145,12 @@ void update_missiles(world_t* world){
             // gestion de la collision entre le missile et le mur (disparition)
             handle_sprites_collision(world,&(world->missiles[i]),&(world->walls[j]),1,-1);
         }
+
+        // gestion de la collision entre le missile et la limite invisible (disparition)
+        handle_sprites_collision(world,&(world->missiles[i]),&(world->limite_invisible),1,-1);
+
+        // gestion de la collision entre le missile et la ligne d'arrivée (disparition)
+        handle_sprites_collision(world,&(world->missiles[i]),&(world->ligne_arrivee),1,-1);
     }
 }
 

@@ -41,6 +41,11 @@
  * \brief Hauteur de la ligne d'arrivée
  */
 #define FINISH_LINE_HEIGHT -960
+
+/**
+ * \brief Hauteur de la limite verticale invisible du jeu
+ */
+#define INVISIBLE_LIMIT_HEIGHT -20
  
 /**
  * \brief Pas de déplacement horizontal du vaisseau
