@@ -1,0 +1,8 @@
+<map id="affichage.h" name="affichage.h">
+<area shape="rect" id="node1" title="Header de affichage.c." alt="" coords="35,5,129,32"/>
+<area shape="rect" id="node2" href="$sdl2-light_8h.html" title="en&#45;tête du module correspondant à une sur&#45;couche de SDL2 pour simplifier son utilisation pour le proj..." alt="" coords="5,155,100,181"/>
+<area shape="rect" id="node4" href="$sdl2-ttf-light_8h_source.html" title=" " alt="" coords="148,80,261,107"/>
+<area shape="rect" id="node6" href="$logique_8h.html" title="Header de logique.c." alt="" coords="41,80,123,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="47,229,143,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="175,155,293,181"/>
+</map>

@@ -28,14 +28,16 @@ void init_data(world_t* world){
     // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32px*32px)
     init_sprite(&(world->vaisseau), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
   
-    // initialisation de la ligne d'arrivée (milieu de l'écran, à 10 pixels du haut, LARGEUR_ECRAN*8px).
+    // initialisation de la ligne d'arrivée (milieu de l'écran, à la hauteur définie, LARGEUR_ECRAN*8px).
     init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 8);
   
     // initialisation du mur de météorites
     init_walls(world);
 
-    // initialisation d'un missile en dehors de l'écran (pas encore actif)
-    init_sprite(&(world->missile), -10000, 0, MISSILE_WIDTH, MISSILE_HEIGHT);
+    // initialisation des missiles en dehors de l'écran (pas encore actifs)
+    for(int i=0; i<10; i++){
+        init_sprite(&(world->missiles[i]), -10000, 0, MISSILE_WIDTH, MISSILE_HEIGHT);
+    }
 
     // vitesse de la ligne d'arrivée
     world->vy = INITIAL_SPEED;
@@ -114,17 +116,28 @@ void update_walls(world_t* world){
 }
 
 void shoot_missile(world_t* world){
-    // apparition du missile juste au dessus du vaisseau
-    init_sprite(&(world->missile), world->vaisseau.x+(SHIP_SIZE/2 - MISSILE_WIDTH/2), world->vaisseau.y-MISSILE_HEIGHT, MISSILE_WIDTH, MISSILE_HEIGHT);
+    // pour chaque indice de missile possible dans le tableau
+    for(int i=0; i<10; i++){
+        // si le spot est disponible
+        if(world->missiles[i].x != -10000){
+            // apparition du missile juste au dessus du vaisseau
+            init_sprite(&(world->missiles[i]), world->vaisseau.x+(SHIP_SIZE/2 - MISSILE_WIDTH/2), world->vaisseau.y-MISSILE_HEIGHT, MISSILE_WIDTH, MISSILE_HEIGHT);
+            break;
+        }
+    }
 }
 
-void update_missile(world_t* world){
-    // le missile monte de la vitesse associée
-    world->missile.y -= MISSILE_SPEED;
-    // pour chaque mur
-    for(int i=0; i<6; i++){
-        // gestion des collisions entre le missile et les murs (disparition + ni victoire ni défaite)
-        handle_sprites_collision(world,&(world->missile),&(world->walls[i]),1,-1);
+void update_missiles(world_t* world){
+    // pour chaque missile du tableau
+    for(int i=0; i<10; i++){
+        // le missile monte de la vitesse associée
+        world->missiles[i].y -= MISSILE_SPEED;
+
+        // pour chaque mur
+        for(int j=0; j<6; j++){
+            // gestion de la collision entre le missile et le mur (disparition)
+            handle_sprites_collision(world,&(world->missiles[i]),&(world->walls[j]),1,-1);
+        }
     }
 }
 
@@ -136,5 +149,5 @@ void update_data(world_t* world, ressources_t* ressources){
     update_walls(world);
 
     // mise à jour de la position du missile + gestion des collisions avec les murs
-    update_missile(world);
+    update_missiles(world);
 }

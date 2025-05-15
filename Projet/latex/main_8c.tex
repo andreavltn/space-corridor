@@ -1,24 +1,35 @@
-\doxysection{main.\+c File Reference}
-\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
 
 
 Programme principal du jeu.  
 
 
-{\ttfamily \#include "{}logique.\+h"{}}\newline
-{\ttfamily \#include "{}affichage.\+h"{}}\newline
+{\ttfamily \#include \char`\"{}logique.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}affichage.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}constantes.\+h\char`\"{}}\newline
 Include dependency graph for main.\+c\+:
-% FIG 0
-\doxysubsubsection*{Functions}
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{main_8c_ac85be0e7c38bc0563c69e8e6eec1b911}{clean}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, \mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
-\begin{DoxyCompactList}\small\item\em fonction qui nettoie le jeu\+: nettoyage de la partie graphique (SDL), nettoyage des ressources, nettoyage des données \end{DoxyCompactList}\item 
-\Hypertarget{main_8c_a242b29f702d42f06f3cdf3843ee7f930}\label{main_8c_a242b29f702d42f06f3cdf3843ee7f930} 
-void {\bfseries print\+\_\+sprite} (\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}sprite)
+void \mbox{\hyperlink{main_8c_a93ddd8176f148b2bea094ea6c7087848}{init}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em fonction qui initialise le jeu\+: initialisation de la partie graphique (S\+DL), chargement des ressources, initialisation des données \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a947b9f8960b2202788f43c71fbaa9d67}{handle\+\_\+events}} (S\+D\+L\+\_\+\+Event $\ast$event, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em fonction qui gère les évènements ayant eu lieu et qui n\textquotesingle{}ont pas encore été traités \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ac85be0e7c38bc0563c69e8e6eec1b911}{clean}} (S\+D\+L\+\_\+\+Window $\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em fonction qui nettoie le jeu\+: nettoyage de la partie graphique (S\+DL), nettoyage des ressources, nettoyage des données \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_a242b29f702d42f06f3cdf3843ee7f930}\label{main_8c_a242b29f702d42f06f3cdf3843ee7f930}} 
+void \mbox{\hyperlink{main_8c_a242b29f702d42f06f3cdf3843ee7f930}{print\+\_\+sprite}} (\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite)
 \begin{DoxyCompactList}\small\item\em Fonction de test des coordonnées du sprite. \end{DoxyCompactList}\item 
-\Hypertarget{main_8c_a700a0caa5b70a06d1064e576f9f3cf65}\label{main_8c_a700a0caa5b70a06d1064e576f9f3cf65} 
-int {\bfseries main} (int argc, char \texorpdfstring{$\ast$}{*}args\mbox{[}$\,$\mbox{]})
+\mbox{\Hypertarget{main_8c_a700a0caa5b70a06d1064e576f9f3cf65}\label{main_8c_a700a0caa5b70a06d1064e576f9f3cf65}} 
+int \mbox{\hyperlink{main_8c_a700a0caa5b70a06d1064e576f9f3cf65}{main}} (int argc, char $\ast$args\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em programme principal qui implémente la boucle du jeu \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -31,15 +42,15 @@ Valentini Andréa \& Viale Romain
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{main_8c_ac85be0e7c38bc0563c69e8e6eec1b911}\label{main_8c_ac85be0e7c38bc0563c69e8e6eec1b911} 
+\mbox{\Hypertarget{main_8c_ac85be0e7c38bc0563c69e8e6eec1b911}\label{main_8c_ac85be0e7c38bc0563c69e8e6eec1b911}} 
 \index{main.c@{main.c}!clean@{clean}}
 \index{clean@{clean}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{clean()}{clean()}}
-{\footnotesize\ttfamily void clean (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void clean (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
 
 
 
-fonction qui nettoie le jeu\+: nettoyage de la partie graphique (SDL), nettoyage des ressources, nettoyage des données 
+fonction qui nettoie le jeu\+: nettoyage de la partie graphique (S\+DL), nettoyage des ressources, nettoyage des données 
 
 
 \begin{DoxyParams}{Parameters}
@@ -50,5 +61,43 @@ fonction qui nettoie le jeu\+: nettoyage de la partie graphique (SDL), nettoyage
 {\em ressources} & les ressources \\
 \hline
 {\em world} & le monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a947b9f8960b2202788f43c71fbaa9d67}\label{main_8c_a947b9f8960b2202788f43c71fbaa9d67}} 
+\index{main.c@{main.c}!handle\_events@{handle\_events}}
+\index{handle\_events@{handle\_events}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{handle\_events()}{handle\_events()}}
+{\footnotesize\ttfamily void handle\+\_\+events (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Event $\ast$}]{event,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+fonction qui gère les évènements ayant eu lieu et qui n\textquotesingle{}ont pas encore été traités 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & paramètre qui contient les événements \\
+\hline
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8c_a93ddd8176f148b2bea094ea6c7087848}\label{main_8c_a93ddd8176f148b2bea094ea6c7087848}} 
+\index{main.c@{main.c}!init@{init}}
+\index{init@{init}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void init (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+fonction qui initialise le jeu\+: initialisation de la partie graphique (S\+DL), chargement des ressources, initialisation des données 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & la fenêtre du jeu \\
+\hline
+{\em renderer} & le renderer \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em world} & le monde du jeu \\
 \hline
 \end{DoxyParams}

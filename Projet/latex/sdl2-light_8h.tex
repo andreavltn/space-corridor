@@ -1,38 +1,49 @@
-\doxysection{sdl2-\/light.h File Reference}
-\hypertarget{sdl2-light_8h}{}\label{sdl2-light_8h}\index{sdl2-\/light.h@{sdl2-\/light.h}}
+\hypertarget{sdl2-light_8h}{}\doxysection{sdl2-\/light.h File Reference}
+\label{sdl2-light_8h}\index{sdl2-\/light.h@{sdl2-\/light.h}}
 
 
-en-\/tête du module correspondant à une sur-\/couche de SDL2 pour simplifier son utilisation pour le projet  
+en-\/tête du module correspondant à une sur-\/couche de S\+D\+L2 pour simplifier son utilisation pour le projet  
 
 
-{\ttfamily \#include $<$SDL2/\+SDL.\+h$>$}\newline
-Include dependency graph for sdl2-\/light.h\+:
-% FIG 0
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+Include dependency graph for sdl2-\/light.h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{sdl2-light_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\+:
-% FIG 1
-\doxysubsubsection*{Functions}
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sdl2-light_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{sdl2-light_8h_a69f5b063948b40b1bac5bb2518ed9e52}{clean\+\_\+sdl}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}window)
+void \mbox{\hyperlink{sdl2-light_8h_a69f5b063948b40b1bac5bb2518ed9e52}{clean\+\_\+sdl}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Window $\ast$window)
 \begin{DoxyCompactList}\small\item\em La fonction nettoie le renderer et la fenêtre du jeu en mémoire. \end{DoxyCompactList}\item 
-SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{sdl2-light_8h_a506433ce183d5aa2b0bf551533fafee3}{load\+\_\+image}} (const char path\mbox{[}$\,$\mbox{]}, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
-\begin{DoxyCompactList}\small\item\em La fonction charge une image et renvoie la texture correspondante où la couleur RGB (255, 0, 255) est rendue transparente. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{sdl2-light_8h_a7307299b4ef47feaa1a4e95341a04c7a}{init\+\_\+sdl}} (SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}renderer, int width, int height)
-\begin{DoxyCompactList}\small\item\em La fonction initialise la SDL. Elle crée la fenêtre du jeu ainsi que le renderer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{sdl2-light_8h_a6be5ef20bb308cf4f73ab911b33705e8}{clean\+\_\+texture}} (SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture)
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{sdl2-light_8h_a85a3dc2aec2bf7ee942b5761ed9e4b35}{load\+\_\+image}} (const char path\mbox{[}$\,$\mbox{]}, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em La fonction charge une image et renvoie la texture correspondante où la couleur R\+GB (255, 0, 255) est rendue transparente. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sdl2-light_8h_a7307299b4ef47feaa1a4e95341a04c7a}{init\+\_\+sdl}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, int width, int height)
+\begin{DoxyCompactList}\small\item\em La fonction initialise la S\+DL. Elle crée la fenêtre du jeu ainsi que le renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sdl2-light_8h_a6be5ef20bb308cf4f73ab911b33705e8}{clean\+\_\+texture}} (S\+D\+L\+\_\+\+Texture $\ast$texture)
 \begin{DoxyCompactList}\small\item\em La fonction nettoie une texture en mémoire. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{sdl2-light_8h_aa94de38ff23c16e13439cbe9cea15256}{apply\+\_\+texture}} (SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}texture, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, int x, int y)
+void \mbox{\hyperlink{sdl2-light_8h_aa94de38ff23c16e13439cbe9cea15256}{apply\+\_\+texture}} (S\+D\+L\+\_\+\+Texture $\ast$texture, S\+D\+L\+\_\+\+Renderer $\ast$renderer, int x, int y)
 \begin{DoxyCompactList}\small\item\em La fonction permet d\textquotesingle{}appliquer une texture sur le renderer à une position donnée. La hauteur et la largeur est la même que celle de la texture. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{sdl2-light_8h_a572bf07064fc55f12238e71ba2930f5f}{clear\+\_\+renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+void \mbox{\hyperlink{sdl2-light_8h_a572bf07064fc55f12238e71ba2930f5f}{clear\+\_\+renderer}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
 \begin{DoxyCompactList}\small\item\em La fonction vide le contenu graphique du renderer lié à l\textquotesingle{}écran de jeu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{sdl2-light_8h_adaf353d9ae01b52dd37cd0adf2d5c9ee}{update\+\_\+screen}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+void \mbox{\hyperlink{sdl2-light_8h_adaf353d9ae01b52dd37cd0adf2d5c9ee}{update\+\_\+screen}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer)
 \begin{DoxyCompactList}\small\item\em La fonction met à jour l\textquotesingle{}écran avec le contenu du renderer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{sdl2-light_8h_a381e2d58c3d6a1f0fd8129bcc4726804}{pause}} (int time)
 \begin{DoxyCompactList}\small\item\em La fonction met le programme en pause pendant un laps de temps. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-en-\/tête du module correspondant à une sur-\/couche de SDL2 pour simplifier son utilisation pour le projet 
+en-\/tête du module correspondant à une sur-\/couche de S\+D\+L2 pour simplifier son utilisation pour le projet 
 
 \begin{DoxyAuthor}{Author}
 Mathieu Constant 
@@ -46,11 +57,11 @@ Mathieu Constant
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{sdl2-light_8h_aa94de38ff23c16e13439cbe9cea15256}\label{sdl2-light_8h_aa94de38ff23c16e13439cbe9cea15256} 
+\mbox{\Hypertarget{sdl2-light_8h_aa94de38ff23c16e13439cbe9cea15256}\label{sdl2-light_8h_aa94de38ff23c16e13439cbe9cea15256}} 
 \index{sdl2-\/light.h@{sdl2-\/light.h}!apply\_texture@{apply\_texture}}
 \index{apply\_texture@{apply\_texture}!sdl2-\/light.h@{sdl2-\/light.h}}
 \doxysubsubsection{\texorpdfstring{apply\_texture()}{apply\_texture()}}
-{\footnotesize\ttfamily void apply\+\_\+texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void apply\+\_\+texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
 
 
 
@@ -67,11 +78,11 @@ La fonction permet d\textquotesingle{}appliquer une texture sur le renderer à u
 {\em y} & l\textquotesingle{}ordonnée sur le renderer de l\textquotesingle{}endroit où est appliquée texture (point en haut à gauche de la surface) \\
 \hline
 \end{DoxyParams}
-\Hypertarget{sdl2-light_8h_a69f5b063948b40b1bac5bb2518ed9e52}\label{sdl2-light_8h_a69f5b063948b40b1bac5bb2518ed9e52} 
+\mbox{\Hypertarget{sdl2-light_8h_a69f5b063948b40b1bac5bb2518ed9e52}\label{sdl2-light_8h_a69f5b063948b40b1bac5bb2518ed9e52}} 
 \index{sdl2-\/light.h@{sdl2-\/light.h}!clean\_sdl@{clean\_sdl}}
 \index{clean\_sdl@{clean\_sdl}!sdl2-\/light.h@{sdl2-\/light.h}}
 \doxysubsubsection{\texorpdfstring{clean\_sdl()}{clean\_sdl()}}
-{\footnotesize\ttfamily void clean\+\_\+sdl (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}}]{window }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void clean\+\_\+sdl (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Window $\ast$}]{window }\end{DoxyParamCaption})}
 
 
 
@@ -84,11 +95,11 @@ La fonction nettoie le renderer et la fenêtre du jeu en mémoire.
 {\em window} & la fenêtre à nettoyer \\
 \hline
 \end{DoxyParams}
-\Hypertarget{sdl2-light_8h_a6be5ef20bb308cf4f73ab911b33705e8}\label{sdl2-light_8h_a6be5ef20bb308cf4f73ab911b33705e8} 
+\mbox{\Hypertarget{sdl2-light_8h_a6be5ef20bb308cf4f73ab911b33705e8}\label{sdl2-light_8h_a6be5ef20bb308cf4f73ab911b33705e8}} 
 \index{sdl2-\/light.h@{sdl2-\/light.h}!clean\_texture@{clean\_texture}}
 \index{clean\_texture@{clean\_texture}!sdl2-\/light.h@{sdl2-\/light.h}}
 \doxysubsubsection{\texorpdfstring{clean\_texture()}{clean\_texture()}}
-{\footnotesize\ttfamily void clean\+\_\+texture (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*}}]{texture }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void clean\+\_\+texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture }\end{DoxyParamCaption})}
 
 
 
@@ -99,11 +110,11 @@ La fonction nettoie une texture en mémoire.
 {\em texture} & la texture à nettoyer \\
 \hline
 \end{DoxyParams}
-\Hypertarget{sdl2-light_8h_a572bf07064fc55f12238e71ba2930f5f}\label{sdl2-light_8h_a572bf07064fc55f12238e71ba2930f5f} 
+\mbox{\Hypertarget{sdl2-light_8h_a572bf07064fc55f12238e71ba2930f5f}\label{sdl2-light_8h_a572bf07064fc55f12238e71ba2930f5f}} 
 \index{sdl2-\/light.h@{sdl2-\/light.h}!clear\_renderer@{clear\_renderer}}
 \index{clear\_renderer@{clear\_renderer}!sdl2-\/light.h@{sdl2-\/light.h}}
 \doxysubsubsection{\texorpdfstring{clear\_renderer()}{clear\_renderer()}}
-{\footnotesize\ttfamily void clear\+\_\+renderer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void clear\+\_\+renderer (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
 
 
 
@@ -114,15 +125,15 @@ La fonction vide le contenu graphique du renderer lié à l\textquotesingle{}éc
 {\em renderer} & le renderer de l\textquotesingle{}écran \\
 \hline
 \end{DoxyParams}
-\Hypertarget{sdl2-light_8h_a7307299b4ef47feaa1a4e95341a04c7a}\label{sdl2-light_8h_a7307299b4ef47feaa1a4e95341a04c7a} 
+\mbox{\Hypertarget{sdl2-light_8h_a7307299b4ef47feaa1a4e95341a04c7a}\label{sdl2-light_8h_a7307299b4ef47feaa1a4e95341a04c7a}} 
 \index{sdl2-\/light.h@{sdl2-\/light.h}!init\_sdl@{init\_sdl}}
 \index{init\_sdl@{init\_sdl}!sdl2-\/light.h@{sdl2-\/light.h}}
 \doxysubsubsection{\texorpdfstring{init\_sdl()}{init\_sdl()}}
-{\footnotesize\ttfamily int init\+\_\+sdl (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{window,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int init\+\_\+sdl (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
 
 
 
-La fonction initialise la SDL. Elle crée la fenêtre du jeu ainsi que le renderer. 
+La fonction initialise la S\+DL. Elle crée la fenêtre du jeu ainsi que le renderer. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -138,27 +149,27 @@ La fonction initialise la SDL. Elle crée la fenêtre du jeu ainsi que le render
 \begin{DoxyReturn}{Returns}
 -\/1 en cas d\textquotesingle{}erreur, 0 sinon 
 \end{DoxyReturn}
-\Hypertarget{sdl2-light_8h_a506433ce183d5aa2b0bf551533fafee3}\label{sdl2-light_8h_a506433ce183d5aa2b0bf551533fafee3} 
+\mbox{\Hypertarget{sdl2-light_8h_a85a3dc2aec2bf7ee942b5761ed9e4b35}\label{sdl2-light_8h_a85a3dc2aec2bf7ee942b5761ed9e4b35}} 
 \index{sdl2-\/light.h@{sdl2-\/light.h}!load\_image@{load\_image}}
 \index{load\_image@{load\_image}!sdl2-\/light.h@{sdl2-\/light.h}}
 \doxysubsubsection{\texorpdfstring{load\_image()}{load\_image()}}
-{\footnotesize\ttfamily SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} load\+\_\+image (\begin{DoxyParamCaption}\item[{const char}]{path\mbox{[}$\,$\mbox{]},  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture$\ast$ load\+\_\+image (\begin{DoxyParamCaption}\item[{const char}]{path\mbox{[}$\,$\mbox{]},  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
 
 
 
-La fonction charge une image et renvoie la texture correspondante où la couleur RGB (255, 0, 255) est rendue transparente. 
+La fonction charge une image et renvoie la texture correspondante où la couleur R\+GB (255, 0, 255) est rendue transparente. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em path} & est le chemin du fichier image. Le fichier doit être obligatoirement du BMP. \\
+{\em path} & est le chemin du fichier image. Le fichier doit être obligatoirement du B\+MP. \\
 \hline
 {\em renderer} & le renderer \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-la surface SDL contenant l\textquotesingle{}image avec la couleur RGB (255,0,255) rendue transparente. Elle renvoie NULL si le chargement a échoué (ex. le fichier path n\textquotesingle{}existe pas) 
+la surface S\+DL contenant l\textquotesingle{}image avec la couleur R\+GB (255,0,255) rendue transparente. Elle renvoie N\+U\+LL si le chargement a échoué (ex. le fichier path n\textquotesingle{}existe pas) 
 \end{DoxyReturn}
-\Hypertarget{sdl2-light_8h_a381e2d58c3d6a1f0fd8129bcc4726804}\label{sdl2-light_8h_a381e2d58c3d6a1f0fd8129bcc4726804} 
+\mbox{\Hypertarget{sdl2-light_8h_a381e2d58c3d6a1f0fd8129bcc4726804}\label{sdl2-light_8h_a381e2d58c3d6a1f0fd8129bcc4726804}} 
 \index{sdl2-\/light.h@{sdl2-\/light.h}!pause@{pause}}
 \index{pause@{pause}!sdl2-\/light.h@{sdl2-\/light.h}}
 \doxysubsubsection{\texorpdfstring{pause()}{pause()}}
@@ -173,11 +184,11 @@ La fonction met le programme en pause pendant un laps de temps.
 {\em time} & ce laps de temps en milliseconde \\
 \hline
 \end{DoxyParams}
-\Hypertarget{sdl2-light_8h_adaf353d9ae01b52dd37cd0adf2d5c9ee}\label{sdl2-light_8h_adaf353d9ae01b52dd37cd0adf2d5c9ee} 
+\mbox{\Hypertarget{sdl2-light_8h_adaf353d9ae01b52dd37cd0adf2d5c9ee}\label{sdl2-light_8h_adaf353d9ae01b52dd37cd0adf2d5c9ee}} 
 \index{sdl2-\/light.h@{sdl2-\/light.h}!update\_screen@{update\_screen}}
 \index{update\_screen@{update\_screen}!sdl2-\/light.h@{sdl2-\/light.h}}
 \doxysubsubsection{\texorpdfstring{update\_screen()}{update\_screen()}}
-{\footnotesize\ttfamily void update\+\_\+screen (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void update\+\_\+screen (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
 
 
 

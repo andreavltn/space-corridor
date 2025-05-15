@@ -1,43 +1,75 @@
-\doxysection{logique.\+h File Reference}
-\hypertarget{logique_8h}{}\label{logique_8h}\index{logique.h@{logique.h}}
+\hypertarget{logique_8h}{}\doxysection{logique.\+h File Reference}
+\label{logique_8h}\index{logique.h@{logique.h}}
 
 
-Header de \doxylink{logique_8c}{logique.\+c}.  
+Header de \mbox{\hyperlink{logique_8c}{logique.\+c}}.  
 
 
-{\ttfamily \#include "{}sdl2-\/light.\+h"{}}\newline
-{\ttfamily \#include "{}affichage.\+h"{}}\newline
+{\ttfamily \#include \char`\"{}sdl2-\/light.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}affichage.\+h\char`\"{}}\newline
 Include dependency graph for logique.\+h\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{logique_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\+:
-% FIG 1
-\doxysubsubsection*{Functions}
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{logique_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{logique_8h_a7edf5248c9929108f571836fb92f204a}{init\+\_\+sprite}} (\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}sprite, int x, int y, int w, int h)
+struct \mbox{\hyperlink{structsprite__s}{sprite\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Type qui correspond au sprite. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structworld__s}{world\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Représentation du monde du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{logique_8h_a5371414b10358aeda7c6bcec8196342f}\label{logique_8h_a5371414b10358aeda7c6bcec8196342f}} 
+typedef struct \mbox{\hyperlink{structsprite__s}{sprite\+\_\+s}} \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Type qui correspond au sprite. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{logique_8h_ad55869c5e54f717062ec699d20fa8886}\label{logique_8h_ad55869c5e54f717062ec699d20fa8886}} 
+typedef struct \mbox{\hyperlink{structworld__s}{world\+\_\+s}} \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Représentation du monde du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{logique_8h_a7edf5248c9929108f571836fb92f204a}{init\+\_\+sprite}} (\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sprite, int x, int y, int w, int h)
 \begin{DoxyCompactList}\small\item\em La fonction initialise la position du sprite. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{logique_8h_a4e842a72a730dd3d5ce299ac082bbed9}{init\+\_\+walls}} (\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+void \mbox{\hyperlink{logique_8h_a4e842a72a730dd3d5ce299ac082bbed9}{init\+\_\+walls}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
 \begin{DoxyCompactList}\small\item\em La fonction initialise la position des murs de météorites. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{logique_8h_a5676e72ded3c1a993c4c975ef9958288}{init\+\_\+data}} (\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+void \mbox{\hyperlink{logique_8h_a5676e72ded3c1a993c4c975ef9958288}{init\+\_\+data}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
 \begin{DoxyCompactList}\small\item\em La fonction initialise les données du monde du jeu. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{logique_8h_aa35f099a7e2fcb62d60f44d7a061f151}{sprites\+\_\+collide}} (\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}sp1, \mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}sp2)
+int \mbox{\hyperlink{logique_8h_aa35f099a7e2fcb62d60f44d7a061f151}{sprites\+\_\+collide}} (\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sp1, \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sp2)
 \begin{DoxyCompactList}\small\item\em La fonction renvoie l\textquotesingle{}état de collision de 2 sprites (0 ou 1) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{logique_8h_a7a13342187e593f508fd807c8c7de3e7}{handle\+\_\+sprites\+\_\+collision}} (\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world, \mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}sp1, \mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}sp2, int make\+\_\+disappear, int make\+\_\+win, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+void \mbox{\hyperlink{logique_8h_a287fe4d8bed3be8d351696eb6ec6f8ae}{handle\+\_\+sprites\+\_\+collision}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sp1, \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$sp2, int make\+\_\+disappear, int make\+\_\+win)
 \begin{DoxyCompactList}\small\item\em La fonction gère les collisions entre deux sprites. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{logique_8h_a947b9f8960b2202788f43c71fbaa9d67}{handle\+\_\+events}} (SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}event, \mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
-\begin{DoxyCompactList}\small\item\em La fonction gère les évènements ayant eu lieu et qui n\textquotesingle{}ont pas encore été traités. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{logique_8h_aa59cfdacc2b13cdda0a7c11876c0ece6}{is\+\_\+finished}} (\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+int \mbox{\hyperlink{logique_8h_aa59cfdacc2b13cdda0a7c11876c0ece6}{is\+\_\+finished}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
 \begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}état de fin du jeu (jeu gagné/jeu perdu) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{logique_8h_a120a24bca68e3952e41b03abac0fe6a0}{update\+\_\+time}} (\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world, unsigned int current\+Time, unsigned int \texorpdfstring{$\ast$}{*}last\+Time)
+void \mbox{\hyperlink{logique_8h_afc18cdd41a718ac2ea17dfd3ca38a10b}{update\+\_\+time}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, unsigned int current\+Time, unsigned int $\ast$last\+Time\+Check)
 \begin{DoxyCompactList}\small\item\em Met à jour le temps écoulé \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{logique_8h_ad88648301ea747b45559550c2ae27e6e}{update\+\_\+walls}} (\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
-\begin{DoxyCompactList}\small\item\em Met à jour la positions des murs de météorites. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{logique_8h_ae1571bcd0e0ff6b5477e7d67335488fc}{update\+\_\+data}} (\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+void \mbox{\hyperlink{logique_8h_acd290f2c136157e8f338bcf3e0823b48}{update\+\_\+finishline}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Met à jour la position de la ligne d\textquotesingle{}arrivée + gère les collisions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logique_8h_a1127cba1580be54784247f3c1afb562f}{update\+\_\+walls}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Met à jour la position des murs de météorites + gère les collisions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logique_8h_aada7875093fa53129cfe7d23c2835148}{shoot\+\_\+missile}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Tire un missile à partir du vaisseau. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logique_8h_a9a35da0e693e8e333ae472d4a20eecb4}{update\+\_\+missiles}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world)
+\begin{DoxyCompactList}\small\item\em Met à jour la position du missile + gère les collisions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{logique_8h_ae1571bcd0e0ff6b5477e7d67335488fc}{update\+\_\+data}} (\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$world, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$ressources)
 \begin{DoxyCompactList}\small\item\em La fonction met à jour les données en tenant compte de la physique du monde. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Header de \doxylink{logique_8c}{logique.\+c}. 
+Header de \mbox{\hyperlink{logique_8c}{logique.\+c}}. 
 
 \begin{DoxyAuthor}{Author}
 Valentini Andréa \& Viale Romain 
@@ -45,28 +77,11 @@ Valentini Andréa \& Viale Romain
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{logique_8h_a947b9f8960b2202788f43c71fbaa9d67}\label{logique_8h_a947b9f8960b2202788f43c71fbaa9d67} 
-\index{logique.h@{logique.h}!handle\_events@{handle\_events}}
-\index{handle\_events@{handle\_events}!logique.h@{logique.h}}
-\doxysubsubsection{\texorpdfstring{handle\_events()}{handle\_events()}}
-{\footnotesize\ttfamily void handle\+\_\+events (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Event \texorpdfstring{$\ast$}{*}}]{event,  }\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
-
-
-
-La fonction gère les évènements ayant eu lieu et qui n\textquotesingle{}ont pas encore été traités. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em event} & paramètre qui contient les événements \\
-\hline
-{\em world} & les données du monde \\
-\hline
-\end{DoxyParams}
-\Hypertarget{logique_8h_a7a13342187e593f508fd807c8c7de3e7}\label{logique_8h_a7a13342187e593f508fd807c8c7de3e7} 
+\mbox{\Hypertarget{logique_8h_a287fe4d8bed3be8d351696eb6ec6f8ae}\label{logique_8h_a287fe4d8bed3be8d351696eb6ec6f8ae}} 
 \index{logique.h@{logique.h}!handle\_sprites\_collision@{handle\_sprites\_collision}}
 \index{handle\_sprites\_collision@{handle\_sprites\_collision}!logique.h@{logique.h}}
 \doxysubsubsection{\texorpdfstring{handle\_sprites\_collision()}{handle\_sprites\_collision()}}
-{\footnotesize\ttfamily void handle\+\_\+sprites\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world,  }\item[{\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{sp1,  }\item[{\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{sp2,  }\item[{int}]{make\+\_\+disappear,  }\item[{int}]{make\+\_\+win,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void handle\+\_\+sprites\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sp1,  }\item[{\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sp2,  }\item[{int}]{make\+\_\+disappear,  }\item[{int}]{make\+\_\+win }\end{DoxyParamCaption})}
 
 
 
@@ -82,16 +97,16 @@ La fonction gère les collisions entre deux sprites.
 \hline
 {\em make\+\_\+disappear} & 1 si sp1 doit disparaitre en cas de collision, 0 sinon \\
 \hline
-{\em make\+\_\+win} & 1 si la collision déclenche la victoire, 0 sinon \\
+{\em make\+\_\+win} & 1 si la collision déclenche la victoire, 0 si défaite, tout autre valeur si ca ne doit rien faire \\
 \hline
 {\em ressources} & les ressources du jeu \\
 \hline
 \end{DoxyParams}
-\Hypertarget{logique_8h_a5676e72ded3c1a993c4c975ef9958288}\label{logique_8h_a5676e72ded3c1a993c4c975ef9958288} 
+\mbox{\Hypertarget{logique_8h_a5676e72ded3c1a993c4c975ef9958288}\label{logique_8h_a5676e72ded3c1a993c4c975ef9958288}} 
 \index{logique.h@{logique.h}!init\_data@{init\_data}}
 \index{init\_data@{init\_data}!logique.h@{logique.h}}
 \doxysubsubsection{\texorpdfstring{init\_data()}{init\_data()}}
-{\footnotesize\ttfamily void init\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
 
 
 
@@ -102,11 +117,11 @@ La fonction initialise les données du monde du jeu.
 {\em world} & les données du monde \\
 \hline
 \end{DoxyParams}
-\Hypertarget{logique_8h_a7edf5248c9929108f571836fb92f204a}\label{logique_8h_a7edf5248c9929108f571836fb92f204a} 
+\mbox{\Hypertarget{logique_8h_a7edf5248c9929108f571836fb92f204a}\label{logique_8h_a7edf5248c9929108f571836fb92f204a}} 
 \index{logique.h@{logique.h}!init\_sprite@{init\_sprite}}
 \index{init\_sprite@{init\_sprite}!logique.h@{logique.h}}
 \doxysubsubsection{\texorpdfstring{init\_sprite()}{init\_sprite()}}
-{\footnotesize\ttfamily void init\+\_\+sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{sprite,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+\_\+sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sprite,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h }\end{DoxyParamCaption})}
 
 
 
@@ -125,11 +140,11 @@ La fonction initialise la position du sprite.
 {\em h} & la hauteur du sprite \\
 \hline
 \end{DoxyParams}
-\Hypertarget{logique_8h_a4e842a72a730dd3d5ce299ac082bbed9}\label{logique_8h_a4e842a72a730dd3d5ce299ac082bbed9} 
+\mbox{\Hypertarget{logique_8h_a4e842a72a730dd3d5ce299ac082bbed9}\label{logique_8h_a4e842a72a730dd3d5ce299ac082bbed9}} 
 \index{logique.h@{logique.h}!init\_walls@{init\_walls}}
 \index{init\_walls@{init\_walls}!logique.h@{logique.h}}
 \doxysubsubsection{\texorpdfstring{init\_walls()}{init\_walls()}}
-{\footnotesize\ttfamily void init\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void init\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
 
 
 
@@ -140,11 +155,11 @@ La fonction initialise la position des murs de météorites.
 {\em world} & les données du monde \\
 \hline
 \end{DoxyParams}
-\Hypertarget{logique_8h_aa59cfdacc2b13cdda0a7c11876c0ece6}\label{logique_8h_aa59cfdacc2b13cdda0a7c11876c0ece6} 
+\mbox{\Hypertarget{logique_8h_aa59cfdacc2b13cdda0a7c11876c0ece6}\label{logique_8h_aa59cfdacc2b13cdda0a7c11876c0ece6}} 
 \index{logique.h@{logique.h}!is\_finished@{is\_finished}}
 \index{is\_finished@{is\_finished}!logique.h@{logique.h}}
 \doxysubsubsection{\texorpdfstring{is\_finished()}{is\_finished()}}
-{\footnotesize\ttfamily int is\+\_\+finished (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int is\+\_\+finished (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
 
 
 
@@ -155,11 +170,26 @@ Renvoie l\textquotesingle{}état de fin du jeu (jeu gagné/jeu perdu)
 {\em world} & les données du monde \\
 \hline
 \end{DoxyParams}
-\Hypertarget{logique_8h_aa35f099a7e2fcb62d60f44d7a061f151}\label{logique_8h_aa35f099a7e2fcb62d60f44d7a061f151} 
+\mbox{\Hypertarget{logique_8h_aada7875093fa53129cfe7d23c2835148}\label{logique_8h_aada7875093fa53129cfe7d23c2835148}} 
+\index{logique.h@{logique.h}!shoot\_missile@{shoot\_missile}}
+\index{shoot\_missile@{shoot\_missile}!logique.h@{logique.h}}
+\doxysubsubsection{\texorpdfstring{shoot\_missile()}{shoot\_missile()}}
+{\footnotesize\ttfamily void shoot\+\_\+missile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+Tire un missile à partir du vaisseau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logique_8h_aa35f099a7e2fcb62d60f44d7a061f151}\label{logique_8h_aa35f099a7e2fcb62d60f44d7a061f151}} 
 \index{logique.h@{logique.h}!sprites\_collide@{sprites\_collide}}
 \index{sprites\_collide@{sprites\_collide}!logique.h@{logique.h}}
 \doxysubsubsection{\texorpdfstring{sprites\_collide()}{sprites\_collide()}}
-{\footnotesize\ttfamily int sprites\+\_\+collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{sp1,  }\item[{\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{sp2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int sprites\+\_\+collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sp1,  }\item[{\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} $\ast$}]{sp2 }\end{DoxyParamCaption})}
 
 
 
@@ -172,11 +202,11 @@ La fonction renvoie l\textquotesingle{}état de collision de 2 sprites (0 ou 1)
 {\em sp2} & le deuxième sprite \\
 \hline
 \end{DoxyParams}
-\Hypertarget{logique_8h_ae1571bcd0e0ff6b5477e7d67335488fc}\label{logique_8h_ae1571bcd0e0ff6b5477e7d67335488fc} 
+\mbox{\Hypertarget{logique_8h_ae1571bcd0e0ff6b5477e7d67335488fc}\label{logique_8h_ae1571bcd0e0ff6b5477e7d67335488fc}} 
 \index{logique.h@{logique.h}!update\_data@{update\_data}}
 \index{update\_data@{update\_data}!logique.h@{logique.h}}
 \doxysubsubsection{\texorpdfstring{update\_data()}{update\_data()}}
-{\footnotesize\ttfamily void update\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void update\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} $\ast$}]{ressources }\end{DoxyParamCaption})}
 
 
 
@@ -189,11 +219,45 @@ La fonction met à jour les données en tenant compte de la physique du monde.
 {\em ressources} & les ressources du jeu \\
 \hline
 \end{DoxyParams}
-\Hypertarget{logique_8h_a120a24bca68e3952e41b03abac0fe6a0}\label{logique_8h_a120a24bca68e3952e41b03abac0fe6a0} 
+\mbox{\Hypertarget{logique_8h_acd290f2c136157e8f338bcf3e0823b48}\label{logique_8h_acd290f2c136157e8f338bcf3e0823b48}} 
+\index{logique.h@{logique.h}!update\_finishline@{update\_finishline}}
+\index{update\_finishline@{update\_finishline}!logique.h@{logique.h}}
+\doxysubsubsection{\texorpdfstring{update\_finishline()}{update\_finishline()}}
+{\footnotesize\ttfamily void update\+\_\+finishline (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+Met à jour la position de la ligne d\textquotesingle{}arrivée + gère les collisions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+{\em current\+Time} & le temps écoulé actuel \\
+\hline
+{\em last\+Time\+Check} & le temps écoulé au dernier check \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logique_8h_a9a35da0e693e8e333ae472d4a20eecb4}\label{logique_8h_a9a35da0e693e8e333ae472d4a20eecb4}} 
+\index{logique.h@{logique.h}!update\_missiles@{update\_missiles}}
+\index{update\_missiles@{update\_missiles}!logique.h@{logique.h}}
+\doxysubsubsection{\texorpdfstring{update\_missiles()}{update\_missiles()}}
+{\footnotesize\ttfamily void update\+\_\+missiles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
+
+
+
+Met à jour la position du missile + gère les collisions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & les données du monde \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logique_8h_afc18cdd41a718ac2ea17dfd3ca38a10b}\label{logique_8h_afc18cdd41a718ac2ea17dfd3ca38a10b}} 
 \index{logique.h@{logique.h}!update\_time@{update\_time}}
 \index{update\_time@{update\_time}!logique.h@{logique.h}}
 \doxysubsubsection{\texorpdfstring{update\_time()}{update\_time()}}
-{\footnotesize\ttfamily void update\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world,  }\item[{unsigned int}]{current\+Time,  }\item[{unsigned int \texorpdfstring{$\ast$}{*}}]{last\+Time }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void update\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world,  }\item[{unsigned int}]{current\+Time,  }\item[{unsigned int $\ast$}]{last\+Time\+Check }\end{DoxyParamCaption})}
 
 
 
@@ -205,18 +269,18 @@ Met à jour le temps écoulé
 \hline
 {\em current\+Time} & le temps écoulé actuel \\
 \hline
-{\em last\+Time} & le temps écoulé à la dernière mise à jour \\
+{\em last\+Time\+Check} & le temps écoulé au dernier check \\
 \hline
 \end{DoxyParams}
-\Hypertarget{logique_8h_ad88648301ea747b45559550c2ae27e6e}\label{logique_8h_ad88648301ea747b45559550c2ae27e6e} 
+\mbox{\Hypertarget{logique_8h_a1127cba1580be54784247f3c1afb562f}\label{logique_8h_a1127cba1580be54784247f3c1afb562f}} 
 \index{logique.h@{logique.h}!update\_walls@{update\_walls}}
 \index{update\_walls@{update\_walls}!logique.h@{logique.h}}
 \doxysubsubsection{\texorpdfstring{update\_walls()}{update\_walls()}}
-{\footnotesize\ttfamily void update\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void update\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} $\ast$}]{world }\end{DoxyParamCaption})}
 
 
 
-Met à jour la positions des murs de météorites. 
+Met à jour la position des murs de météorites + gère les collisions. 
 
 
 \begin{DoxyParams}{Parameters}

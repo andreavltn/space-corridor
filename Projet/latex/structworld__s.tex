@@ -1,5 +1,5 @@
-\doxysection{world\+\_\+s Struct Reference}
-\hypertarget{structworld__s}{}\label{structworld__s}\index{world\_s@{world\_s}}
+\hypertarget{structworld__s}{}\doxysection{world\+\_\+s Struct Reference}
+\label{structworld__s}\index{world\_s@{world\_s}}
 
 
 Représentation du monde du jeu.  
@@ -7,20 +7,28 @@ Représentation du monde du jeu.
 
 
 
-{\ttfamily \#include $<$affichage.\+h$>$}
+{\ttfamily \#include $<$logique.\+h$>$}
 
 
 
 Collaboration diagram for world\+\_\+s\+:
-% FIG 0
-\doxysubsubsection*{Public Attributes}
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{structworld__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}{vaisseau}}
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}{vaisseau}}
 \item 
-\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a3b3b6ff699d94441755e56d6a089461e}{ligne\+\_\+arrivee}}
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a3b3b6ff699d94441755e56d6a089461e}{ligne\+\_\+arrivee}}
 \item 
-\mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a53577de7fe90887d7e3dce28ae93bc20}{wall}} \mbox{[}6\mbox{]}
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_ad3ba685b078bd4cbe4e50a58359ee880}{walls}} \mbox{[}6\mbox{]}
+\item 
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a929af6d04ca39ac4b639e582ca9b1e43}{missiles}} \mbox{[}10\mbox{]}
 \item 
 float \mbox{\hyperlink{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}{vy}}
 \item 
@@ -36,43 +44,49 @@ float \mbox{\hyperlink{structworld__s_adfa3a5795c845a5c772394639af47931}{time}}
 Représentation du monde du jeu. 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{structworld__s_a693aa82d082fe3467969094559b9bc0f}\label{structworld__s_a693aa82d082fe3467969094559b9bc0f} 
+\mbox{\Hypertarget{structworld__s_a693aa82d082fe3467969094559b9bc0f}\label{structworld__s_a693aa82d082fe3467969094559b9bc0f}} 
 \index{world\_s@{world\_s}!gameover@{gameover}}
 \index{gameover@{gameover}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{gameover}{gameover}}
 {\footnotesize\ttfamily int world\+\_\+s\+::gameover}
 
-Champ indiquant si on a perdu \Hypertarget{structworld__s_a3b3b6ff699d94441755e56d6a089461e}\label{structworld__s_a3b3b6ff699d94441755e56d6a089461e} 
+Champ indiquant si on a perdu \mbox{\Hypertarget{structworld__s_a3b3b6ff699d94441755e56d6a089461e}\label{structworld__s_a3b3b6ff699d94441755e56d6a089461e}} 
 \index{world\_s@{world\_s}!ligne\_arrivee@{ligne\_arrivee}}
 \index{ligne\_arrivee@{ligne\_arrivee}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{ligne\_arrivee}{ligne\_arrivee}}
-{\footnotesize\ttfamily \mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::ligne\+\_\+arrivee}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::ligne\+\_\+arrivee}
 
-Champ représentant le sprite de la ligne d\textquotesingle{}arrivée \Hypertarget{structworld__s_adfa3a5795c845a5c772394639af47931}\label{structworld__s_adfa3a5795c845a5c772394639af47931} 
+Champ représentant le sprite de la ligne d\textquotesingle{}arrivée \mbox{\Hypertarget{structworld__s_a929af6d04ca39ac4b639e582ca9b1e43}\label{structworld__s_a929af6d04ca39ac4b639e582ca9b1e43}} 
+\index{world\_s@{world\_s}!missiles@{missiles}}
+\index{missiles@{missiles}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{missiles}{missiles}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::missiles\mbox{[}10\mbox{]}}
+
+Champ représentant le tableau des missiles tirés par le vaisseau \mbox{\Hypertarget{structworld__s_adfa3a5795c845a5c772394639af47931}\label{structworld__s_adfa3a5795c845a5c772394639af47931}} 
 \index{world\_s@{world\_s}!time@{time}}
 \index{time@{time}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{time}{time}}
 {\footnotesize\ttfamily float world\+\_\+s\+::time}
 
-Champ représentant le temps écoulé depuis le début du jeu \Hypertarget{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}\label{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed} 
+Champ représentant le temps écoulé depuis le début du jeu \mbox{\Hypertarget{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}\label{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}} 
 \index{world\_s@{world\_s}!vaisseau@{vaisseau}}
 \index{vaisseau@{vaisseau}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{vaisseau}{vaisseau}}
-{\footnotesize\ttfamily \mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::vaisseau}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::vaisseau}
 
-Champ représentant le sprite du vaisseau \Hypertarget{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}\label{structworld__s_a63348b29918eaa37a31aca8d4747b5a8} 
+Champ représentant le sprite du vaisseau \mbox{\Hypertarget{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}\label{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}} 
 \index{world\_s@{world\_s}!vy@{vy}}
 \index{vy@{vy}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{vy}{vy}}
 {\footnotesize\ttfamily float world\+\_\+s\+::vy}
 
-Champ représentant la vitesse de déplacement de la ligne d\textquotesingle{}arrivée \Hypertarget{structworld__s_a53577de7fe90887d7e3dce28ae93bc20}\label{structworld__s_a53577de7fe90887d7e3dce28ae93bc20} 
-\index{world\_s@{world\_s}!wall@{wall}}
-\index{wall@{wall}!world\_s@{world\_s}}
-\doxysubsubsection{\texorpdfstring{wall}{wall}}
-{\footnotesize\ttfamily \mbox{\hyperlink{affichage_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::wall\mbox{[}6\mbox{]}}
+Champ représentant la vitesse de déplacement de la ligne d\textquotesingle{}arrivée \mbox{\Hypertarget{structworld__s_ad3ba685b078bd4cbe4e50a58359ee880}\label{structworld__s_ad3ba685b078bd4cbe4e50a58359ee880}} 
+\index{world\_s@{world\_s}!walls@{walls}}
+\index{walls@{walls}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{walls}{walls}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::walls\mbox{[}6\mbox{]}}
 
-Champ représentant le tableau du sprite des murs de météorites \Hypertarget{structworld__s_a1fd30e5180da25592a903513acc3e680}\label{structworld__s_a1fd30e5180da25592a903513acc3e680} 
+Champ représentant le tableau du sprite des murs de météorites \mbox{\Hypertarget{structworld__s_a1fd30e5180da25592a903513acc3e680}\label{structworld__s_a1fd30e5180da25592a903513acc3e680}} 
 \index{world\_s@{world\_s}!win@{win}}
 \index{win@{win}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{win}{win}}
@@ -82,4 +96,4 @@ Champ indiquant si on a gagné
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{affichage_8h}{affichage.\+h}}\end{DoxyCompactItemize}
+\mbox{\hyperlink{logique_8h}{logique.\+h}}\end{DoxyCompactItemize}

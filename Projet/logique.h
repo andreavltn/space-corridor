@@ -26,7 +26,7 @@ typedef struct sprite_s{
     sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
     sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
     sprite_t walls[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
-    sprite_t missile; /*!< Champ représentants le tableau des missiles tirés par le vaisseau */
+    sprite_t missiles[10]; /*!< Champ représentant le tableau des missiles tirés par le vaisseau */
     float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
     int gameover; /*!< Champ indiquant si on a perdu */
     int win; /*!< Champ indiquant si on a gagné */
@@ -114,15 +114,7 @@ void shoot_missile(world_t* world);
  * \brief Met à jour la position du missile + gère les collisions
  * \param world les données du monde
  */   
-void update_missile(world_t* world);
-
-/**
- * \brief Met à jour le cooldown du tir de missile
- * \param world les données du monde
- * \param currentTime le temps écoulé actuel
- * \param lastMissileCheck le temps écoulé au dernier check
- */  
-void update_missileCooldown(world_t* world, unsigned int currentTime, unsigned int* lastMissileCheck);
+void update_missiles(world_t* world);
 
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde

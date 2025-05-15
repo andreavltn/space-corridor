@@ -55,7 +55,7 @@
 /**
 * \brief Cooldown d'un missile (en ms)
 */
-#define MISSILE_COOLDOWN 500
+#define MISSILE_COOLDOWN 300
  
 /**
  * \brief Vitesse initiale de déplacement vertical des éléments du jeu 

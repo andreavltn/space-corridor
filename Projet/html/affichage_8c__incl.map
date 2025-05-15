@@ -1,0 +1,10 @@
+<map id="affichage.c" name="affichage.c">
+<area shape="rect" id="node1" title="Contient l&#39;ensemble des fonctions relatives à l&#39;affichage des éléments du jeu." alt="" coords="78,5,173,32"/>
+<area shape="rect" id="node2" href="$affichage_8h.html" title="Header de affichage.c." alt="" coords="78,80,173,107"/>
+<area shape="rect" id="node7" href="$logique_8h.html" title="Header de logique.c." alt="" coords="5,155,88,181"/>
+<area shape="rect" id="node8" href="$constantes_8h.html" title="Contient l&#39;ensemble des constantes du jeu." alt="" coords="197,80,302,107"/>
+<area shape="rect" id="node3" href="$sdl2-light_8h.html" title="en&#45;tête du module correspondant à une sur&#45;couche de SDL2 pour simplifier son utilisation pour le proj..." alt="" coords="38,229,133,256"/>
+<area shape="rect" id="node5" href="$sdl2-ttf-light_8h_source.html" title=" " alt="" coords="163,155,277,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="80,304,176,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="208,229,325,256"/>
+</map>

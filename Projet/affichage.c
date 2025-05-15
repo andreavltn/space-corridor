@@ -19,7 +19,7 @@ void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
 
 void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* world){
     // pour chaque mur
-    for (int h=0; h<6;h++){
+    for(int h=0; h<6;h++){
         // pour chaque spot horizontal de météorite
         for(int i=0; i<world->walls[h].w; i+=32){
             // pour chaque spot vertical de météorite 
@@ -41,8 +41,10 @@ void apply_sprite(SDL_Renderer* renderer, ressources_t* ressources, world_t* wor
     // texture du mur de météorites (quadrillage de météorites)
     apply_walls(ressources, renderer, world);
 
-    // texture du missile
-    apply_texture(ressources->missile, renderer, world->missile.x, world->missile.y);
+    // texture des missiles
+    for(int i=0; i<10; i++){
+        apply_texture(ressources->missile, renderer, world->missiles[i].x, world->missiles[i].y);
+    }
   
 } 
 

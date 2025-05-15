@@ -1,7 +1,9 @@
 <map id="sdl2&#45;light.h" name="sdl2&#45;light.h">
-<area shape="rect" id="node1" title="en&#45;tête du module correspondant à une sur&#45;couche de SDL2 pour simplifier son utilisation pour le proj..." alt="" coords="78,5,173,32"/>
-<area shape="rect" id="node2" href="$affichage_8h_source.html" title=" " alt="" coords="78,80,173,107"/>
-<area shape="rect" id="node3" href="$logique_8h_source.html" title=" " alt="" coords="5,155,88,181"/>
-<area shape="rect" id="node5" href="$sdl2-light_8c.html" title="sur&#45;couche de SDL2 pour simplifier son utilisation pour le projet" alt="" coords="197,80,291,107"/>
-<area shape="rect" id="node4" href="$main_8c.html" title="Programme principal du jeu." alt="" coords="52,229,119,256"/>
+<area shape="rect" id="node1" title="en&#45;tête du module correspondant à une sur&#45;couche de SDL2 pour simplifier son utilisation pour le proj..." alt="" coords="165,5,260,32"/>
+<area shape="rect" id="node2" href="$affichage_8h.html" title="Header de affichage.c." alt="" coords="165,80,260,107"/>
+<area shape="rect" id="node4" href="$logique_8h.html" title="Header de logique.c." alt="" coords="93,155,175,181"/>
+<area shape="rect" id="node7" href="$sdl2-light_8c.html" title="sur&#45;couche de SDL2 pour simplifier son utilisation pour le projet" alt="" coords="284,80,379,107"/>
+<area shape="rect" id="node3" href="$affichage_8c.html" title="Contient l&#39;ensemble des fonctions relatives à l&#39;affichage des éléments du jeu." alt="" coords="111,229,205,256"/>
+<area shape="rect" id="node6" href="$main_8c.html" title="Programme principal du jeu." alt="" coords="230,229,297,256"/>
+<area shape="rect" id="node5" href="$logique_8c.html" title="Contient l&#39;ensemble des fonctions relatives à la logique du jeu." alt="" coords="5,229,87,256"/>
 </map>

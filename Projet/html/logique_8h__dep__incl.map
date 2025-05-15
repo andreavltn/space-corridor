@@ -1,0 +1,7 @@
+<map id="logique.h" name="logique.h">
+<area shape="rect" id="node1" title="Header de logique.c." alt="" coords="65,5,147,32"/>
+<area shape="rect" id="node2" href="$affichage_8h.html" title="Header de affichage.c." alt="" coords="59,80,153,107"/>
+<area shape="rect" id="node3" href="$affichage_8c.html" title="Contient l&#39;ensemble des fonctions relatives à l&#39;affichage des éléments du jeu." alt="" coords="5,155,100,181"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Programme principal du jeu." alt="" coords="141,155,207,181"/>
+<area shape="rect" id="node5" href="$logique_8c.html" title="Contient l&#39;ensemble des fonctions relatives à la logique du jeu." alt="" coords="229,80,311,107"/>
+</map>

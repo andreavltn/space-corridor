@@ -31,57 +31,58 @@ void handle_events(SDL_Event* event, world_t* world){
   Uint8 *keystates;
 
   while(SDL_PollEvent(event)){
-      // si l'utilisateur a cliqué sur le X de la fenêtre
-      if(event->type == SDL_QUIT ) {
-          // On indique la fin du jeu
-          world->gameover = 1;
+    // si l'utilisateur a cliqué sur le X de la fenêtre
+    if(event->type == SDL_QUIT ) {
+      // On indique la fin du jeu
+      world->gameover = 1;
+    }
+
+    // si une touche est appuyée
+    if(event->type == SDL_KEYDOWN){
+
+      // touche echap
+      if(event->key.keysym.sym == SDLK_ESCAPE){
+        world->gameover = 1;
       }
 
-      // si une touche est appuyée
-      if(event->type == SDL_KEYDOWN){
+      // touche droite/d
+      if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
+        if(world->vaisseau.x + world->vaisseau.w + MOVING_STEP < SCREEN_WIDTH) {
+          world->vaisseau.x+=MOVING_STEP;
+        }
+      }
 
-          // touche echap
-          if (event->key.keysym.sym == SDLK_ESCAPE){
-              world->gameover = 1;
-          }
+      // touche gauche/q
+      if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
+        if(world->vaisseau.x - MOVING_STEP > 0){
+          world->vaisseau.x-=MOVING_STEP;
+        }
+      }
 
-          // touche droite/d
-          if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
-              if(world->vaisseau.x + world->vaisseau.w + MOVING_STEP < SCREEN_WIDTH) {
-                  world->vaisseau.x+=MOVING_STEP;
-              }
-          }
+      // haut/z
+      if(event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z){
+        // si la vitesse est inférieure à 2 (1.9 pour la précision des flottants)
+        if(world->vy < 1.9){
+          // augmentation de la vitesse du jeu
+          world->vy+=0.1;
+        }
+      }
 
-          // touche gauche/q
-          if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
-              if(world->vaisseau.x - MOVING_STEP > 0){
-                  world->vaisseau.x-=MOVING_STEP;
-              }
-          }
-
-          // haut/z
-          if(event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z){
-              // si la vitesse est inférieure à 2 (1.9 pour la précision des flottants)
-              if(world->vy < 1.9){
-                  // augmentation de la vitesse du jeu
-                  world->vy+=0.1;
-              }
-          }
-
-          // bas/s
-          if(event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s){
-              // si la vitesse est supérieure à 0.5
-              if(world->vy > 0.5){
-                  // réduction de la vitesse du jeu
-                  world->vy-=0.1;
-              }
-          }
+      // bas/s
+      if(event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s){
+        // si la vitesse est supérieure à 0.5
+        if(world->vy > 0.5){
+          // réduction de la vitesse du jeu
+          world->vy-=0.1;
+        }
+      }
           
-          // barre espace
-          if(event->key.keysym.sym == SDLK_SPACE){
-            shoot_missile(world);
-          }    
-      }        
+      // barre espace
+      if(event->key.keysym.sym == SDLK_SPACE){
+        // tirer
+        shoot_missile(world);
+      }    
+    }        
   }
 }
 
@@ -118,7 +119,6 @@ int main(int argc, char* args[] ){
   SDL_Window *window;
 
   unsigned int lastTimeCheck = 0;
-  unsigned int lastMissileCheck = 0;
   unsigned int currentTime;
 
   // initialisation du jeu
@@ -140,8 +140,6 @@ int main(int argc, char* args[] ){
     
     // pause de 10 ms pour controler la vitesse de rafraichissement
     pause(10);
-
-    print_sprite(&(world.vaisseau));
   }
 
   // pause de 3s a la fin du jeu
