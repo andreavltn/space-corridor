@@ -9,12 +9,14 @@
 #include "constantes.h"
 
 void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
-    ressources->background = load_image( "ressources/space-background.bmp",renderer);
-    ressources->vaisseau=load_image("ressources/spaceship.bmp",renderer);
-    ressources->ligne_arrivee=load_image("ressources/finish_line.bmp",renderer);
-    ressources->meteorite=load_image("ressources/meteorite.bmp",renderer);
-    ressources->missile=load_image("ressources/missile.bmp",renderer);
-    ressources->ovni=load_image("ressources/ovni.bmp",renderer);
+    ressources->start_screen = load_image("ressources/start_screen.bmp",renderer);
+    ressources->splash_text = load_image("ressources/splash_text.bmp",renderer);
+    ressources->background = load_image("ressources/space-background.bmp",renderer);
+    ressources->vaisseau = load_image("ressources/spaceship.bmp",renderer);
+    ressources->ligne_arrivee = load_image("ressources/finish_line.bmp",renderer);
+    ressources->meteorite = load_image("ressources/meteorite.bmp",renderer);
+    ressources->missile = load_image("ressources/missile.bmp",renderer);
+    ressources->ovni = load_image("ressources/ovni.bmp",renderer);
     ressources->font = load_font("ressources/arial.ttf",14); 
 }
 

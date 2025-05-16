@@ -14,8 +14,10 @@
  * \brief Représentation pour stocker les ressources nécessaires à l'affichage graphique
  */
 typedef struct ressources_s{
-    SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran. */
-    SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau. */
+    SDL_Texture* start_screen; /*!< Texture liée à l'image de l'écran de départ */
+    SDL_Texture* splash_text; /*!< Texture liée au texte "PRESS SPACE TO START" */
+    SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran */
+    SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau */
     SDL_Texture* ligne_arrivee; /*!< Texture liée à l'image de la ligne d'arrivée */
     SDL_Texture* meteorite; /*!< Texture liée à l'image d'une météorite */
     SDL_Texture* missile; /*!< Texture liée à l'image d'un missile */
