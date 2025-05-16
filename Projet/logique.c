@@ -25,6 +25,17 @@ void init_walls(world_t* world){
 }
 
 void init_data(world_t* world){
+
+    world->game_started = 0;
+    init_sprite(&(world->splash_text), 0, SCREEN_HEIGHT/2 - 50, SCREEN_WIDTH, 100);
+
+    while(!world->game_started){
+        pause(1000);
+        world->splash_text.x = -10000;
+        pause(500);
+        world->splash_text.x = SCREEN_HEIGHT/2 - 50;
+    }
+
     // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32px*32px)
     init_sprite(&(world->vaisseau), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
   

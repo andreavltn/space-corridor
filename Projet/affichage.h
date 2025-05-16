@@ -15,7 +15,7 @@
  */
 typedef struct ressources_s{
     SDL_Texture* start_screen; /*!< Texture liée à l'image de l'écran de départ */
-    SDL_Texture* splash_text; /*!< Texture liée au texte "PRESS SPACE TO START" */
+    SDL_Texture* splash_text; /*!< Texture liée au texte PRESS SPACE TO START */
     SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran */
     SDL_Texture* vaisseau; /*!< Texture liée à l'image du vaisseau */
     SDL_Texture* ligne_arrivee; /*!< Texture liée à l'image de la ligne d'arrivée */
@@ -48,7 +48,14 @@ void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* worl
  * \param ressources les ressources du jeu
  * \param world le monde du jeu
  */
-void apply_sprite(SDL_Renderer *renderer , ressources_t *ressources , world_t * world);
+void apply_sprites(SDL_Renderer *renderer , ressources_t *ressources , world_t * world);
+
+/**
+ * \brief La fonction applique la texture de l'écran de démarrage syr le renderer lié à l'écran de jeu
+ * \param renderer le renderer
+ * \param ressources les ressources du jeu
+ */
+void apply_startscreen(SDL_Renderer* renderer, ressources_t* ressources);
 
 /**
  * \brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu

@@ -33,8 +33,8 @@ void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* worl
     } 
 }
 
-void apply_sprite(SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
-  
+void apply_sprites(SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
+    
     // texture du vaisseau
     apply_texture(ressources->vaisseau, renderer, world->vaisseau.x, world->vaisseau.y);
     
@@ -49,7 +49,13 @@ void apply_sprite(SDL_Renderer* renderer, ressources_t* ressources, world_t* wor
         apply_texture(ressources->missile, renderer, world->missiles[i].x, world->missiles[i].y);
     }
   
-} 
+}
+
+void apply_startscreen(SDL_Renderer* renderer, ressources_t* ressources){
+    if(ressources->start_screen != NULL){
+        apply_texture(ressources->start_screen, renderer, 0, 0);
+    }
+}
 
 void apply_background(SDL_Renderer* renderer, ressources_t* ressources){
     if(ressources->background != NULL){
@@ -78,10 +84,20 @@ void apply_texts(SDL_Renderer* renderer, world_t* world, ressources_t* ressource
 void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* ressources){
     // on vide le renderer
     clear_renderer(renderer);
-       
+    
+    // tant que le jeu n'a pas commencé
+    if(!world->game_started){
+        // affiche l'écran de démarrage
+        apply_startscreen(renderer, ressources);
+        // affiche le texte PRESS SPACE TO START
+        apply_texture(ressources->splash_text, renderer, world->splash_text.x, world->splash_text.y);
+    }
+
+    // maintenant le jeu a commencé
+
     // application des ressources dans le renderer
     apply_background(renderer, ressources);
-    apply_sprite(renderer, ressources, world);
+    apply_sprites(renderer, ressources, world);
 
     // affichage du timer en haut à gauche, et du message de fin en cas de win/lose
     apply_texts(renderer,world,ressources);

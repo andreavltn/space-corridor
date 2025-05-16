@@ -31,8 +31,19 @@ void handle_events(SDL_Event* event, world_t* world){
   Uint8 *keystates;
 
   while(SDL_PollEvent(event)){
+
+    // si le jeu n'a pas encore commencé
+    if(!world->game_started){
+
+      // barre espace
+      if(event->key.keysym.sym == SDLK_SPACE){
+        // lancer le jeu
+        world->game_started = 1;  
+      }
+    }
+
     // si l'utilisateur a cliqué sur le X de la fenêtre
-    if(event->type == SDL_QUIT ) {
+    if(event->type == SDL_QUIT) {
       // On indique la fin du jeu
       world->gameover = 1;
     }
@@ -127,6 +138,7 @@ int main(int argc, char* args[]){
 
   // initialisation du jeu
   init(&window,&renderer,&ressources,&world);
+
   while(!is_finished(&world)){ // tant que le jeu n'est pas fini
     currentTime = SDL_GetTicks();
          

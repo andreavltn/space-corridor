@@ -23,11 +23,13 @@ typedef struct sprite_s{
  * \brief Représentation du monde du jeu
  */
  typedef struct world_s{
+    sprite_t splash_text; /*!< Champ représentant le sprite du texte PRESS SPACE TO START */
     sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
     sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
     sprite_t walls[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
     sprite_t missiles[10]; /*!< Champ représentant le tableau des sprites des missiles tirés par le vaisseau */
     sprite_t limite_invisible; /*!< Champ représentant le sprite de la limite invisible (pour stopper les missiles) */
+    int game_started; /*!< Champ représentant si oui ou non, le jeu a commencé */
     float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
     int gameover; /*!< Champ indiquant si on a perdu */
     int win; /*!< Champ indiquant si on a gagné */
