@@ -14,6 +14,7 @@ void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
     ressources->ligne_arrivee=load_image("ressources/finish_line.bmp",renderer);
     ressources->meteorite=load_image("ressources/meteorite.bmp",renderer);
     ressources->missile=load_image("ressources/missile.bmp",renderer);
+    ressources->ovni=load_image("ressources/ovni.bmp",renderer);
     ressources->font = load_font("ressources/arial.ttf",14); 
 }
 
