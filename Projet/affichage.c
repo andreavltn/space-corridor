@@ -84,33 +84,34 @@ void apply_texts(SDL_Renderer* renderer, world_t* world, ressources_t* ressource
 void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* ressources){
     // on vide le renderer
     clear_renderer(renderer);
-    
-    // tant que le jeu n'a pas commencé
-    if(!world->game_started){
-        // affiche l'écran de démarrage
+
+    // si le jeu n'a pas commencé, on affiche l'écran de titre
+    if(!world->game_started) {
+        // affichage de l'écran titre
         apply_startscreen(renderer, ressources);
-        // affiche le texte PRESS SPACE TO START
+        // affichage du texte "PRESS SPACE TO START!"
         apply_texture(ressources->splash_text, renderer, world->splash_text.x, world->splash_text.y);
+    } else {
+        // application des ressources dans le renderer
+        apply_background(renderer, ressources);
+        apply_sprites(renderer, ressources, world);
+
+        // affichage du timer en haut à gauche, et du message de fin en cas de win/lose
+        apply_texts(renderer,world,ressources);
     }
-
-    // maintenant le jeu a commencé
-
-    // application des ressources dans le renderer
-    apply_background(renderer, ressources);
-    apply_sprites(renderer, ressources, world);
-
-    // affichage du timer en haut à gauche, et du message de fin en cas de win/lose
-    apply_texts(renderer,world,ressources);
   
     // on met à jour l'écran
     update_screen(renderer);
 }
  
 void clean_ressources(ressources_t* ressources){
+    clean_texture(ressources->start_screen);
+    clean_texture(ressources->splash_text);
     clean_texture(ressources->background);
     clean_texture(ressources->vaisseau);
     clean_texture(ressources->ligne_arrivee);
     clean_texture(ressources->meteorite);
     clean_texture(ressources->missile);
+    clean_texture(ressources->ovni);
     clean_font(ressources->font);    
 }
