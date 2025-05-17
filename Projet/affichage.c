@@ -12,7 +12,7 @@ void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
     ressources->start_screen = load_image("ressources/start_screen.bmp",renderer);
     ressources->splash_text = load_image("ressources/splash_text.bmp",renderer);
     ressources->background = load_image("ressources/space-background.bmp",renderer);
-    ressources->vaisseau = load_image("ressources/spaceship.bmp",renderer);
+    ressources->spacecraft = load_image("ressources/spaceship.bmp",renderer);
     ressources->ligne_arrivee = load_image("ressources/finish_line.bmp",renderer);
     ressources->meteorite = load_image("ressources/meteorite.bmp",renderer);
     ressources->missile = load_image("ressources/missile.bmp",renderer);
@@ -36,7 +36,7 @@ void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* worl
 void apply_sprites(SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
     
     // texture du vaisseau
-    apply_texture(ressources->vaisseau, renderer, world->vaisseau.x, world->vaisseau.y);
+    apply_texture(ressources->spacecraft, renderer, world->spacecraft.x, world->spacecraft.y);
     
     // texture de la ligne d'arrivée
     apply_texture(ressources->ligne_arrivee, renderer, world->ligne_arrivee.x, world->ligne_arrivee.y);
@@ -108,7 +108,7 @@ void clean_ressources(ressources_t* ressources){
     clean_texture(ressources->start_screen);
     clean_texture(ressources->splash_text);
     clean_texture(ressources->background);
-    clean_texture(ressources->vaisseau);
+    clean_texture(ressources->spacecraft);
     clean_texture(ressources->ligne_arrivee);
     clean_texture(ressources->meteorite);
     clean_texture(ressources->missile);

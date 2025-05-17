@@ -24,17 +24,17 @@ typedef struct sprite_s{
  */
  typedef struct world_s{
     sprite_t splash_text; /*!< Champ représentant le sprite du texte PRESS SPACE TO START */
-    sprite_t vaisseau; /*!< Champ représentant le sprite du vaisseau */
+    sprite_t spacecraft; /*!< Champ représentant le sprite du vaisseau */
     sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
     sprite_t walls[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
     sprite_t missiles[10]; /*!< Champ représentant le tableau des sprites des missiles tirés par le vaisseau */
-    sprite_t limite_invisible; /*!< Champ représentant le sprite de la limite invisible (pour stopper les missiles) */
+    sprite_t invisible_limit; /*!< Champ représentant le sprite de la limite invisible (pour stopper les missiles) */
     int game_started; /*!< Champ indiquant si le jeu a démarré ou non */
     float vy; /*!< Champ représentant la vitesse de déplacement de la ligne d'arrivée */
     int gameover; /*!< Champ indiquant si on a perdu */
     int win; /*!< Champ indiquant si on a gagné */
     float time; /*!< Champ représentant le temps écoulé depuis le début du jeu */
-    unsigned int missileCooldown; /*!< Champ représentant le cooldown restant du tir de missile */ 
+    unsigned int missileCooldown; /*!< Champ représentant le cooldown restant du tir de missile (en ms) */
 } world_t;
 
 #include "affichage.h" // plus bas pour éviter les dépendances circulaires
@@ -60,6 +60,13 @@ void init_walls(world_t* world);
  * \param world les données du monde
  */
 void init_data(world_t * world);
+
+/**
+ * \brief Fait clignoter le texte "PRESS SPACE TO START!" en fonction de la constante SPLASH_TEXT_TIME
+ * \param world les données du monde
+ * \param timeSinceLaunch la durée depuis laquelle le jeu est lancé (en ms)
+ */
+void blink_splash_text(world_t* world, unsigned int timeSinceLaunch);
 
 /**
  * \brief La fonction renvoie l'état de collision de 2 sprites (0 ou 1)
@@ -88,15 +95,15 @@ int is_finished(world_t *world);
 /**
  * \brief Met à jour le temps écoulé
  * \param world les données du monde
- * \param currentTime le temps écoulé actuel
- * \param lastTimeCheck le temps écoulé au dernier check
+ * \param actualTime le temps écoulé depuis le lancement du jeu (en ms)
+ * \param lastTimeCheck le temps écoulé au dernier check (en ms)
  */   
-void update_time(world_t* world, unsigned int currentTime, unsigned int* lastTimeCheck);
+void update_time(world_t* world, unsigned int actualTime, unsigned int* lastTimeCheck);
 
 /**
  * \brief Met à jour la position de la ligne d'arrivée + gère les collisions
  * \param world les données du monde
- * \param currentTime le temps écoulé actuel
+ * \param actualTime le temps écoulé actuel
  * \param lastTimeCheck le temps écoulé au dernier check
  */   
 void update_finishline(world_t* world);
@@ -120,7 +127,13 @@ void shoot_missile(world_t* world);
  */   
 void update_missiles(world_t* world);
 
-void update_missileCooldown(world_t* world, unsigned int currentTime, unsigned int* lastMissileCooldownCheck);
+/**
+ * \brief Met à jour le temps restant au cooldown du tir de missile du vaisseau
+ * \param world les données du monde
+ * \param actualTime le temps écoulé depuis le lancement du jeu (en ms)
+ * \param lastMissileCooldownCheck le temps écoulé au dernier check (en ms)
+ */   
+void update_missileCooldown(world_t* world, unsigned int actualTime, unsigned int* lastMissileCooldownCheck);
 
 /**
  * \brief La fonction met à jour les données en tenant compte de la physique du monde

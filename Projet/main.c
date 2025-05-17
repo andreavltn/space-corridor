@@ -1,4 +1,4 @@
-/*
+/**
  * \file main.c
  * \brief Programme principal du jeu
  * \author Valentini Andréa & Viale Romain
@@ -57,15 +57,15 @@ void handle_events(SDL_Event* event, world_t* world){
 
           // touche droite/d
           if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
-            if(world->vaisseau.x + world->vaisseau.w + MOVING_STEP < SCREEN_WIDTH) {
-              world->vaisseau.x+=MOVING_STEP;
+            if(world->spacecraft.x + world->spacecraft.w + MOVING_STEP < SCREEN_WIDTH) {
+              world->spacecraft.x+=MOVING_STEP;
             }
           }
 
           // touche gauche/q
           if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
-            if(world->vaisseau.x - MOVING_STEP > 0){
-              world->vaisseau.x-=MOVING_STEP;
+            if(world->spacecraft.x - MOVING_STEP > 0){
+              world->spacecraft.x-=MOVING_STEP;
             }
           }
 
@@ -147,8 +147,13 @@ int main(int argc, char* args[]){
     // gestion des évènements
     handle_events(&event,&world);
 
-    // si le jeu a commencé
-    if(world.game_started) {
+    // si le jeu n'a pas commencé
+    if(!world.game_started) {
+
+      // fait clignoter le texte "PRESS SPACE TO START!"
+      blink_splash_text(&world,timeSinceLaunch);
+
+    } else { // sinon le jeu a commencé
 
       // stocke le tick auquel le jeu a commencé (pour démarrer le timer à 0s une fois qu'on a appuyé sur start)
       if(gameStartTick==0){ // condition pour ne le faire qu'une seule fois
