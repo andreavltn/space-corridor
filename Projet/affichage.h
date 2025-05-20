@@ -88,6 +88,7 @@ void apply_level_1_screen(SDL_Renderer* renderer, ressources_t* ressources);
  */
 void apply_level_2_screen(SDL_Renderer* renderer, ressources_t* ressources);
 
+
 /**
  * \brief La fonction affiche le timer et les messages de fin sur le renderer lié à l'écran de jeu
  * \param renderer le renderer
