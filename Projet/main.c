@@ -151,7 +151,7 @@ int main(int argc, char* args[]){
     if(!world.game_started) {
 
       // fait clignoter le texte "PRESS SPACE TO START!"
-      // blink_splash_text(&world,timeSinceLaunch); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      blink_splash_text(&world,timeSinceLaunch); 
 
     } else { // sinon le jeu a commencé
 

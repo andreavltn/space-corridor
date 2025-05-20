@@ -18,7 +18,7 @@
 #define SCREEN_HEIGHT 480
 
 /**
- * \brief Durée d'apparition à l'écran du texte "PRESS SPACE TO START!"
+ * \brief Durée visible/caché à l'écran du texte "PRESS SPACE TO START!"
  */
 #define SPLASH_TEXT_TIME 1000
  
