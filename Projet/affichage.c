@@ -89,7 +89,7 @@ void apply_texts(SDL_Renderer* renderer, world_t* world, ressources_t* ressource
     sprintf(texte, "Time: %.1f", world->time); 
     apply_text(renderer,10,10,90,50,texte,ressources->font);
 
-    if(is_finished(world)){
+    if(is_finished_level(world)){
         if(world->gameover){// si on perd -> message de lose
             // le texte "You lost !" fait 100x50, placé au milieu de l'écran 
             apply_text(renderer,SCREEN_WIDTH/2-50,SCREEN_HEIGHT/2-25,100,50,"You lost !",ressources->font);
@@ -106,20 +106,37 @@ void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* ress
     // on vide le renderer
     clear_renderer(renderer);
 
-    // si le jeu n'a pas commencé, on affiche l'écran de titre
-    if(!world->game_started) {
-        // affichage de l'écran titre
-        apply_startscreen(renderer, ressources);
-        // affichage du texte "PRESS SPACE TO START!"
-        apply_texture(ressources->splash_text, renderer, world->splash_text.x, world->splash_text.y);
-    } else {
-        // application des ressources dans le renderer
-        apply_background(renderer, ressources);
-        apply_sprites(renderer, ressources, world);
+    switch(world->game_status){ // en fonction du "stage actuel" du jeu
+        case 0: // ECRAN TITRE
+            
+            apply_startscreen(renderer, ressources); // le background avec le titre
+            apply_texture(ressources->splash_text, renderer, world->splash_text.x, world->splash_text.y); // le splash_text
+            break;
 
-        // affichage du timer en haut à gauche, et du message de fin en cas de win/lose
-        apply_texts(renderer,world,ressources);
+        case 1: // ECRAN NIVEAU 1
+
+            apply_level_1_screen(renderer,ressources); // ecran titre niveau 1
+            break;
+
+        case 2: // GAMEPLAY NIVEAU 1
+
+            apply_background(renderer, ressources); // background bleu
+            apply_sprites(renderer, ressources, world); // les sprites du niv1
+            apply_texts(renderer,world,ressources); // timer + msg win/gameover
+            break;
+
+        case 3: // ECRAN NIVEAU 2
+
+            apply_level_2_screen(renderer,ressources);
+            break;
+
+        case 4: // GAMEPLAY NIVEAU 2
+
+            // PLACEHOLDER
+            break;
     }
+
+
   
     // on met à jour l'écran
     update_screen(renderer);

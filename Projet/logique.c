@@ -26,7 +26,7 @@ void init_walls(world_t* world){
 
 void init_data(world_t* world){
 
-    world->game_started = 0; // le jeu n'a pas commencé au début (écran titre)
+    world->game_status = 0; // le jeu n'a pas commencé au début (écran titre)
 
     // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32px*32px)
     init_sprite(&(world->spacecraft), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
@@ -104,7 +104,7 @@ void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int 
     }
 }
 
-int is_finished(world_t* world){
+int is_finished_level(world_t* world){
     return world->gameover || world->win;
 }
 
@@ -179,7 +179,6 @@ void update_missileCooldown(world_t* world, unsigned int actualTime, unsigned in
         *lastMissileCooldownCheck = actualTime; // maj du dernier check
     }
 }
-
 
 void update_data(world_t* world, ressources_t* ressources){
     // mise à jour de la position de la ligne d'arrivée + gestion de la collision entre le vaisseau et celle-ci

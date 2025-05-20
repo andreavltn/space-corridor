@@ -23,6 +23,14 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *ressource
 }
 
 /**
+ * \brief Fait passer le jeu au niveau suivant
+ * \param world les données du monde
+ */   
+void skip_to_next_stage(world_t* world){
+  world->game_status++;
+}
+
+/**
  * \brief Fonction qui gère les évènements ayant eu lieu et qui n'ont pas encore été traités
  * \param event paramètre qui contient les événements
  * \param world les données du monde
@@ -35,7 +43,7 @@ void handle_events(SDL_Event* event, world_t* world){
     // si l'utilisateur a cliqué sur le X de la fenêtre
     if(event->type == SDL_QUIT) {
       // fin du jeu
-      world->gameover = 1;
+      world->game_status = -1;
     }
 
     // si une touche est appuyée
@@ -43,17 +51,17 @@ void handle_events(SDL_Event* event, world_t* world){
 
       // touche echap
       if(event->key.keysym.sym == SDLK_ESCAPE){
-        world->gameover = 1;
+        exit(1); // PLACEHOLDER A CHANGER
       }
 
-      // si le jeu n'a pas encore commencé, espace pour lancer le jeu
-      if (!world->game_started) {
+      switch(world->game_status){
+        case 0: // ECRAN TITRE
           if(event->key.keysym.sym == SDLK_SPACE){
-              world->game_started = 1; 
+            skip_to_next_stage(world);
+            break;
           }
 
-      // sinon, contrôle normal des touches
-      } else {
+        case 2,4: // GAMEPLAY NIVEAU 1 
 
           // touche droite/d
           if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
@@ -95,7 +103,8 @@ void handle_events(SDL_Event* event, world_t* world){
               world->missileCooldown = MISSILE_COOLDOWN; // maj du cooldown
             }
           }
-      }
+          break;
+      }    
     }
   }
 }
@@ -131,8 +140,9 @@ int main(int argc, char* args[]){
   ressources_t ressources;
   SDL_Renderer *renderer;
   SDL_Window *window;
-
+  
   unsigned int gameStartTick = 0; // tick auquel le jeu a commencé
+  unsigned int levelSwapTick = 0; // dernier check du temps pour le changement de stage
   unsigned int lastTimeCheck = 0; // dernier check du temps pour le timer
   unsigned int lastMissileCooldownCheck = 0; // dernier check du temps pour le cooldown du missile
   unsigned int timeSinceLaunch; // temps actuel (ms passées depuis le lancement du jeu)
@@ -141,36 +151,78 @@ int main(int argc, char* args[]){
   // initialisation du jeu
   init(&window,&renderer,&ressources,&world);
 
-  while(!is_finished(&world)){ // tant que le jeu n'est pas fini
+  while(world.game_status!=-1){ // tant que le jeu n'est pas fini
     timeSinceLaunch = SDL_GetTicks();
 
     // gestion des évènements
     handle_events(&event,&world);
 
-    // si le jeu n'a pas commencé
-    if(!world.game_started) {
+    switch(world.game_status){
+        case 0: // ECRAN TITRE
+          
+          // fait clignoter le texte "PRESS SPACE TO START!"
+          blink_splash_text(&world,timeSinceLaunch);
+          break; 
 
-      // fait clignoter le texte "PRESS SPACE TO START!"
-      blink_splash_text(&world,timeSinceLaunch); 
+        case 1: // ECRAN NIVEAU 1
 
-    } else { // sinon le jeu a commencé
+          // pause de 3s a ne rien faire
+          if(levelSwapTick == 0){ // pour ne le faire qu'une fois
+            levelSwapTick = timeSinceLaunch; // stockage du tick au debut
+          }
+   
+          if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si il s'est passé + de 3s depuis le check
+            skip_to_next_stage(&(world)); // passe au prochain stage
+            levelSwapTick = 0; // reset pour le prochain niveau
+          }
+          break;
 
-      // stocke le tick auquel le jeu a commencé (pour démarrer le timer à 0s une fois qu'on a appuyé sur start)
-      if(gameStartTick==0){ // condition pour ne le faire qu'une seule fois
-        gameStartTick = SDL_GetTicks();
-      }
+        case 2: // GAMEPLAY NIVEAU 1
 
-      // calcul du temps réel
-      actualTime = timeSinceLaunch - gameStartTick;
+          // stocke le tick auquel le jeu a commencé (pour démarrer le timer à 0s une fois que le jeu est lancé)
+          if(gameStartTick==0){ // condition pour ne le faire qu'une seule fois
+            gameStartTick = timeSinceLaunch;
+          }
 
-      // mise à jour des données liées à la physique du monde
-      update_data(&world,&ressources);
+          // calcul du temps réel
+          actualTime = timeSinceLaunch - gameStartTick;
 
-      // mise à jour du temps écoulé
-      update_time(&world, actualTime, &lastTimeCheck);
+          if(!is_finished_level(&(world))){
+            // mise à jour des données liées à la physique du monde
+            update_data(&world,&ressources);
 
-      // mise à jour du cooldown restant du tir de missile
-      update_missileCooldown(&world, actualTime, &lastMissileCooldownCheck);
+            // mise à jour du temps écoulé
+            update_time(&world, actualTime, &lastTimeCheck);
+
+            // mise à jour du cooldown restant du tir de missile
+            update_missileCooldown(&world, actualTime, &lastMissileCooldownCheck);
+          } else {
+            pause(3000);
+            skip_to_next_stage(&(world));
+          }
+          break;
+
+        case 3: // ECRAN NIVEAU 2
+
+          if(levelSwapTick == 0){ // pour ne le faire qu'une fois
+            levelSwapTick = timeSinceLaunch; // stockage du tick
+          }
+    
+          if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si il s'est passé + de 3s 
+            skip_to_next_stage(&(world)); // passe au prochain stage
+            levelSwapTick = 0; // reset pour le prochain niveau
+          }
+          break;
+
+        case 4: // GAMEPLAY NIVEAU 2
+
+          skip_to_next_stage(&(world)); // PLACEHOLDER
+          break;
+
+        case -1: // QUITTER LE JEU/ FIN DU JEU
+
+          pause(3000);
+          break;
     }
 
     // rafraichissement de l'écran 
@@ -178,11 +230,6 @@ int main(int argc, char* args[]){
 
     // pause de 10 ms pour controler la vitesse de rafraichissement
     pause(10);
-  }
-
-  // pause de 3s a la fin du jeu (si le jeu a été lancé)
-  if(world.game_started){
-    pause(3000);
   }
 
   // nettoyage final

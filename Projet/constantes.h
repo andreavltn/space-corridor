@@ -21,6 +21,11 @@
  * \brief Durée visible/caché à l'écran du texte "PRESS SPACE TO START!"
  */
 #define SPLASH_TEXT_TIME 1000
+
+/**
+ * \brief Durée de pause entre les niveaux, pendant la transition
+ */
+#define TRANSITION_TIME 2000
  
 /**
  * \brief Taille d'un vaisseau
