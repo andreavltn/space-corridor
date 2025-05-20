@@ -12,6 +12,9 @@ void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
     ressources->start_screen = load_image("ressources/start_screen.bmp",renderer);
     ressources->splash_text = load_image("ressources/splash_text.bmp",renderer);
     ressources->background = load_image("ressources/space-background.bmp",renderer);
+    ressources->background2 = load_image("ressources/space-background_2.bmp",renderer);
+    ressources->level_1_screen = load_image("ressources/level_1_screen.bmp",renderer);
+    ressources->level_2_screen = load_image("ressources/level_2_screen.bmp",renderer);
     ressources->spacecraft = load_image("ressources/spaceship.bmp",renderer);
     ressources->ligne_arrivee = load_image("ressources/finish_line.bmp",renderer);
     ressources->meteorite = load_image("ressources/meteorite.bmp",renderer);
@@ -63,6 +66,24 @@ void apply_background(SDL_Renderer* renderer, ressources_t* ressources){
     }
 }
 
+void apply_background2(SDL_Renderer* renderer, ressources_t* ressources){
+    if(ressources->background2 != NULL){
+        apply_texture(ressources->background2, renderer, 0, 0);
+    }
+}
+
+void apply_level_1_screen(SDL_Renderer* renderer, ressources_t* ressources){
+    if(ressources->level_1_screen != NULL){
+        apply_texture(ressources->level_1_screen, renderer, 0, 0);
+    }
+}
+
+void apply_level_2_screen(SDL_Renderer* renderer, ressources_t* ressources){
+    if(ressources->level_2_screen != NULL){
+        apply_texture(ressources->level_2_screen, renderer, 0, 0);
+    }
+}
+
 void apply_texts(SDL_Renderer* renderer, world_t* world, ressources_t* ressources){
     char texte[15];
     sprintf(texte, "Time: %.1f", world->time); 
@@ -108,6 +129,9 @@ void clean_ressources(ressources_t* ressources){
     clean_texture(ressources->start_screen);
     clean_texture(ressources->splash_text);
     clean_texture(ressources->background);
+    clean_texture(ressources->background2);
+    clean_texture(ressources->level_1_screen);
+    clean_texture(ressources->level_2_screen);
     clean_texture(ressources->spacecraft);
     clean_texture(ressources->ligne_arrivee);
     clean_texture(ressources->meteorite);

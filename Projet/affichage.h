@@ -14,9 +14,12 @@
  * \brief Représentation pour stocker les ressources nécessaires à l'affichage graphique
  */
 typedef struct ressources_s{
-    SDL_Texture* start_screen; /*!< Texture liée à l'image de l'écran de départ */
+    SDL_Texture* start_screen; /*!< Texture liée à l'image de l'écran titre */
     SDL_Texture* splash_text; /*!< Texture liée au texte PRESS SPACE TO START */
-    SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran */
+    SDL_Texture* background; /*!< Texture liée à l'image du fond de l'écran du niveau 1*/
+    SDL_Texture* background2; /*!< Texture liée à l'image du fond de l'écran du niveau 2 */
+    SDL_Texture* level_1_screen; /*!< Texture liée à l'image de l'écran titre du niveau 1 */
+    SDL_Texture* level_2_screen; /*!< Texture liée à l'image de l'écran titre du niveau 2 */
     SDL_Texture* spacecraft; /*!< Texture liée à l'image du vaisseau */
     SDL_Texture* ligne_arrivee; /*!< Texture liée à l'image de la ligne d'arrivée */
     SDL_Texture* meteorite; /*!< Texture liée à l'image d'une météorite */
@@ -58,11 +61,32 @@ void apply_sprites(SDL_Renderer *renderer , ressources_t *ressources , world_t *
 void apply_startscreen(SDL_Renderer* renderer, ressources_t* ressources);
 
 /**
- * \brief La fonction applique la texture du fond sur le renderer lié à l'écran de jeu
+ * \brief La fonction applique la texture du fond du niveau 1 sur le renderer lié à l'écran du jeu
  * \param renderer le renderer
  * \param ressources les ressources du jeu
  */
 void apply_background(SDL_Renderer *renderer, ressources_t *ressources);
+
+/**
+ * \brief La fonction applique la texture du fond du niveau 2 sur le renderer lié à l'écran du jeu
+ * \param renderer le renderer
+ * \param ressources les ressources du jeu
+ */
+void apply_background_2(SDL_Renderer* renderer, ressources_t* ressources);
+
+/**
+ * \brief La fonction applique la texture de l'écran titre du niveau 1 sur le renderer lié à l'écran du jeu
+ * \param renderer le renderer
+ * \param ressources les ressources du jeu
+ */
+void apply_level_1_screen(SDL_Renderer* renderer, ressources_t* ressources);
+
+/**
+ * \brief La fonction applique la texture de l'écran titre du niveau 2 sur le renderer lié à l'écran du jeu
+ * \param renderer le renderer
+ * \param ressources les ressources du jeu
+ */
+void apply_level_2_screen(SDL_Renderer* renderer, ressources_t* ressources);
 
 /**
  * \brief La fonction affiche le timer et les messages de fin sur le renderer lié à l'écran de jeu
