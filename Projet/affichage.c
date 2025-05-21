@@ -23,31 +23,25 @@ void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
     ressources->font = load_font("ressources/arial.ttf",14); 
 }
 
-void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* world){
+void apply_walls_level_1(ressources_t* ressources, SDL_Renderer* renderer, world_t* world){
 
-    // en fonction du niveau
-    switch(world->game_status){
-
-        case 2: // niveau 1
-            // pour les 6 murs du niveau 1
-            for(int indice=0; indice<6; indice++){
-                // pour chaque spot horizontal de météorite
-                for(int i=0; i<world->walls_level_1[indice].w; i+=32){
-                    // pour chaque spot vertical de météorite 
-                    for(int j=0; j<world->walls_level_1[indice].h; j+=32){
-                        apply_texture(ressources->meteorite, renderer, world->walls_level_1[indice].x + i, world->walls_level_1[indice].y + j);
-                    }
-                }   
+    // pour les 6 murs du niveau 1
+    for(int indice=0; indice<6; indice++){
+        // pour chaque spot horizontal de météorite
+        for(int i=0; i<world->walls_level_1[indice].w; i+=32){
+            // pour chaque spot vertical de météorite 
+            for(int j=0; j<world->walls_level_1[indice].h; j+=32){
+                apply_texture(ressources->meteorite, renderer, world->walls_level_1[indice].x + i, world->walls_level_1[indice].y + j);
             }
-            break;
-        
-        case 4: // niveau 2
-
-            // PLACEHOLDER
+        }   
     }
 }
 
-void apply_sprites(SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
+void apply_walls_level_2(ressources_t* ressources, SDL_Renderer* renderer, world_t* world){
+    // PLACEHOLDER
+}
+
+void apply_sprites_level_1(SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
     
     // texture du vaisseau
     apply_texture(ressources->spacecraft, renderer, world->spacecraft.x, world->spacecraft.y);
@@ -56,7 +50,7 @@ void apply_sprites(SDL_Renderer* renderer, ressources_t* ressources, world_t* wo
     apply_texture(ressources->ligne_arrivee, renderer, world->ligne_arrivee.x, world->ligne_arrivee.y);
     
     // texture du mur de météorites (quadrillage de météorites)
-    apply_walls(ressources, renderer, world);
+    apply_walls_level_1(ressources, renderer, world);
 
     // texture des missiles
     for(int i=0; i<10; i++){
@@ -65,19 +59,23 @@ void apply_sprites(SDL_Renderer* renderer, ressources_t* ressources, world_t* wo
   
 }
 
+void apply_sprites_level_2(SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
+    // PLACEHOLDER
+}
+
 void apply_startscreen(SDL_Renderer* renderer, ressources_t* ressources){
     if(ressources->start_screen != NULL){
         apply_texture(ressources->start_screen, renderer, 0, 0);
     }
 }
 
-void apply_background(SDL_Renderer* renderer, ressources_t* ressources){
+void apply_background_level_1(SDL_Renderer* renderer, ressources_t* ressources){
     if(ressources->background != NULL){
         apply_texture(ressources->background, renderer, 0, 0);
     }
 }
 
-void apply_background2(SDL_Renderer* renderer, ressources_t* ressources){
+void apply_background_level_2(SDL_Renderer* renderer, ressources_t* ressources){
     if(ressources->background2 != NULL){
         apply_texture(ressources->background2, renderer, 0, 0);
     }
@@ -132,8 +130,8 @@ void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* ress
 
         case 2: // GAMEPLAY NIVEAU 1
 
-            apply_background(renderer, ressources); // background bleu
-            apply_sprites(renderer, ressources, world); // les sprites du niveau 1
+            apply_background_level_1(renderer, ressources); // background bleu
+            apply_sprites_level_1(renderer, ressources, world); // les sprites du niveau 1
             apply_texts(renderer,world,ressources); // timer + msg win/gameover
             break;
 
@@ -144,8 +142,8 @@ void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* ress
 
         case 4: // GAMEPLAY NIVEAU 2
 
-            apply_background2(renderer, ressources); // background rouge
-            apply_sprites(renderer, ressources, world); // les sprites du niveau 2
+            apply_background_level_2(renderer, ressources); // background rouge
+            apply_sprites_level_2(renderer, ressources, world); // les sprites du niveau 2
             apply_texts(renderer,world,ressources); // timer + msg win/gameover
             break;
     }

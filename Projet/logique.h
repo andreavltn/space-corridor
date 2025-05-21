@@ -26,8 +26,10 @@ typedef struct sprite_s{
     sprite_t splash_text; /*!< Champ représentant le sprite du texte PRESS SPACE TO START */
     sprite_t spacecraft; /*!< Champ représentant le sprite du vaisseau */
     sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
-    sprite_t walls_level_1[6]; /*!< Champ représentant le tableau du sprite des murs de météorites du niveau 1*/
-    sprite_t walls_level_2[50]; /*!< Champ représentant le tableau du sprite des murs de météorites du niveau 2*/
+    sprite_t walls_level_1[6]; /*!< Champ représentant le tableau du sprite des murs de météorites du niveau 1 */
+    sprite_t walls_level_2[50]; /*!< Champ représentant le tableau du sprite des murs de météorites du niveau 2 */
+    sprite_t ovnis_level_1[3]; /*!< Champ représentant le tableau du sprite des ovnis du niveau 1 */
+    sprite_t ovnis_level_2[30]; /*!< Champ représentant le tableau du sprite des ovnis du niveau 2 */
     sprite_t missiles[10]; /*!< Champ représentant le tableau des sprites des missiles tirés par le vaisseau */
     sprite_t invisible_limit; /*!< Champ représentant le sprite de la limite invisible (pour stopper les missiles) */
     int game_status; /*!< Champ indiquant si le statut actuel du jeu */
@@ -51,16 +53,28 @@ typedef struct sprite_s{
 void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
 
 /**
- * \brief La fonction initialise la position des murs de météorites
- *  \param world les données du monde
- */
-void init_walls(world_t* world);
-
-/**
- * \brief La fonction initialise les données du monde
+ * \brief La fonction initialise la position des murs du niveau 1
  * \param world les données du monde
  */
-void init_data(world_t * world);
+void init_walls_level_1(world_t* world);
+
+/**
+ * \brief La fonction initialise la position des murs du niveau 2
+ * \param world les données du monde
+ */
+void init_walls_level_2(world_t* world);
+
+/**
+ * \brief La fonction initialise les données du monde du niveau 1
+ * \param world les données du monde
+ */
+void init_data_level_1(world_t * world);
+
+/**
+ * \brief La fonction initialise les données du monde du niveau 2
+ * \param world les données du monde
+ */
+void init_data_level_2(world_t * world);
 
 /**
  * \brief Fait clignoter le texte "PRESS SPACE TO START!" en fonction de la constante SPLASH_TEXT_TIME
@@ -110,11 +124,18 @@ void update_time(world_t* world, unsigned int actualTime, unsigned int* lastTime
 void update_finishline(world_t* world);
 
 /**
- * \brief Met à jour la position des murs de météorites + gère les collisions
+ * \brief Met à jour la position des murs de météorites + gère les collisions (niveau 1)
  * \param world les données du monde
  * \param ressources les ressources du jeu
  */
-void update_walls(world_t* world);
+void update_walls_level_1(world_t* world);
+
+/**
+ * \brief Met à jour la position des murs de météorites + gère les collisions (niveau 2)
+ * \param world les données du monde
+ * \param ressources les ressources du jeu
+ */
+void update_walls_level_2(world_t* world);
 
 /**
  * \brief Tire un missile à partir du vaisseau
@@ -123,10 +144,16 @@ void update_walls(world_t* world);
 void shoot_missile(world_t* world);
 
 /**
- * \brief Met à jour la position du missile + gère les collisions
+ * \brief Met à jour la position du missile + gère les collisions (niveau 1)
  * \param world les données du monde
  */   
 void update_missiles(world_t* world);
+
+/**
+ * \brief Met à jour la position du missile + gère les collisions (niveau 2)
+ * \param world les données du monde
+ */   
+void update_missiles_level_2(world_t* world);
 
 /**
  * \brief Met à jour le temps restant au cooldown du tir de missile du vaisseau
@@ -137,10 +164,18 @@ void update_missiles(world_t* world);
 void update_missileCooldown(world_t* world, unsigned int actualTime, unsigned int* lastMissileCooldownCheck);
 
 /**
- * \brief La fonction met à jour les données en tenant compte de la physique du monde
+ * \brief La fonction met à jour les données en tenant compte de la physique du monde (niveau 1)
  * \param world les données du monde
  * \param ressources les ressources du jeu
  */
-void update_data(world_t *world, ressources_t* ressources);
+void update_data_level_1(world_t *world, ressources_t* ressources);
+
+
+/**
+ * \brief La fonction met à jour les données en tenant compte de la physique du monde (niveau 2)
+ * \param world les données du monde
+ * \param ressources les ressources du jeu
+ */
+void update_data_level_2(world_t* world, ressources_t* ressources);
 
 #endif

@@ -19,7 +19,7 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *ressource
   init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
   init_ttf();
   world->game_status = 0; // pour ne le faire qu'une seule fois
-  init_data(world);
+  init_data_level_1(world); // initialisation des données du niveau 1
   init_textures(*renderer,ressources);
 }
 
@@ -154,6 +154,7 @@ int main(int argc, char* args[]){
   init(&window,&renderer,&ressources,&world);
 
   while(world.game_status!=-1){ // tant que le jeu n'est pas fini
+    printf("%d\n",world.game_status);
     timeSinceLaunch = SDL_GetTicks();
 
     // gestion des évènements
@@ -194,7 +195,7 @@ int main(int argc, char* args[]){
           if(!is_finished_level(&(world))){
 
             // mise à jour des données liées à la physique du monde
-            update_data(&world,&ressources);
+            update_data_level_1(&world,&ressources);
 
             // mise à jour du temps écoulé
             update_time(&world, actualTime, &lastTimeCheck);
@@ -202,7 +203,7 @@ int main(int argc, char* args[]){
             // mise à jour du cooldown restant du tir de missile
             update_missileCooldown(&world, actualTime, &lastMissileCooldownCheck);
 
-          } else { // sinon le niveau est termi,é
+          } else { // sinon le niveau est terminé
 
             pause(3000); // pause de 3s avec le message de win/gameover affiché
             skip_to_next_stage(&(world)); // passe à l'écran du niveau 2
@@ -219,6 +220,7 @@ int main(int argc, char* args[]){
           if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si il s'est passé + de 3s 
             skip_to_next_stage(&(world)); // passe au gameplay du niveau 2
             levelSwapTick = 0; // reset pour le prochain niveau
+            init_data_level_2(&(world)); // initialisation des données pour le niveau 2
           }
           break;
 

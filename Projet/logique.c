@@ -15,51 +15,70 @@ void init_sprite(sprite_t* sprite, int x, int y, int w, int h){
     sprite->h = h;
 }
 
-void init_walls(world_t* world){
-
-    // en fonction du niveau
-    switch(world->game_status){
-
-        case 2: // niveau 1
-            init_sprite(&(world->walls_level_1[0]),0,0,96,192);
-            init_sprite(&(world->walls_level_1[1]),204,0,96,192);
-            init_sprite(&(world->walls_level_1[2]),0,-352,32,160);
-            init_sprite(&(world->walls_level_1[3]),74,-352,224,160);
-            init_sprite(&(world->walls_level_1[4]),0,-672,96,192);
-            init_sprite(&(world->walls_level_1[5]),204,-672,96,192);
-            break;
-
-        case 4: // niveau 2
-
-            // PLACEHOLDER
-    }
+void init_walls_level_1(world_t* world){
+    init_sprite(&(world->walls_level_1[0]),0,0,96,192);
+    init_sprite(&(world->walls_level_1[1]),204,0,96,192);
+    init_sprite(&(world->walls_level_1[2]),0,-352,32,160);
+    init_sprite(&(world->walls_level_1[3]),74,-352,224,160);
+    init_sprite(&(world->walls_level_1[4]),0,-672,96,192);
+    init_sprite(&(world->walls_level_1[5]),204,-672,96,192);
 }
 
-void init_data(world_t* world){
+void init_walls_level_2(world_t* world){
+    // PLACEHOLDER
+}
+
+void init_ovnis_level_1(world_t* world){
+    init_sprite(&(world->ovnis_level_1[0]),);
+    init_sprite(&(world->ovnis_level_1[0]),);
+    init_sprite(&(world->ovnis_level_1[0]),);
+}
+
+void init_data_level_1(world_t* world){
     
-    // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32px*32px)
+    // initialisation du vaisseau
     init_sprite(&(world->spacecraft), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
 
-    // en fonction du niveau
-    switch(world->game_status){
+    // initialisation de la ligne d'arrivée du niveau 1
+    init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_1, SCREEN_WIDTH, 20);
 
-        case 2: // niveau 1
+    // initialisation des murs de météorites du niveau 1
+    init_walls_level_1(world);
 
-        // initialisation de la ligne d'arrivée aux coordonnées du niveau 1
-        init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_1, SCREEN_WIDTH, 20);
-        break;
+    // initialisation de la limite invisible
+    init_sprite(&(world->invisible_limit), 0, INVISIBLE_LIMIT_HEIGHT, SCREEN_WIDTH, 20);
 
-        case 4:
-
-        // initialisation de la ligne d'arrivée aux coordonnées du niveau 2
-        init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_2, SCREEN_WIDTH, 20);
-        break;
+    // initialisation des missiles en dehors de l'écran (pas encore actifs)
+    for(int i=0; i<10; i++){
+        init_sprite(&(world->missiles[i]), -10000, 0, MISSILE_WIDTH, MISSILE_HEIGHT);
     }
 
-    // initialisation des murs de météorites 
-    init_walls(world);
+    // vitesse de la ligne d'arrivée
+    world->vy = INITIAL_SPEED;
+  
+    // gameover et win
+    world->gameover = 0;
+    world->win = 0;  
 
-    // initialisation de la limite invisible (juste au dessus du visible de l'écran, LARGEUR_ECRAN*20px)
+    // temps écoulé
+    world->time = 0;
+
+    // cooldown du tir de missile
+    world->missileCooldown = 0;
+}
+
+void init_data_level_2(world_t* world){
+
+    // initialisation du vaisseau
+    init_sprite(&(world->spacecraft), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
+
+    // initialisation de la ligne d'arrivée du niveau 2
+    init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_2, SCREEN_WIDTH, 20);
+
+    // initialisation des murs de météorites du niveau 2
+    init_walls_level_2(world);
+
+    // initialisation de la limite invisible
     init_sprite(&(world->invisible_limit), 0, INVISIBLE_LIMIT_HEIGHT, SCREEN_WIDTH, 20);
 
     // initialisation des missiles en dehors de l'écran (pas encore actifs)
@@ -147,27 +166,17 @@ void update_finishline(world_t* world){
     handle_sprites_collision(world,&(world->spacecraft),&(world->ligne_arrivee),0,1);
 }
 
-void update_walls(world_t* world){
-
-    // en fonction du niveau
-    switch(world->game_status){
-
-        case 2: // niveau 1
-
-            // pour chaque mur du niveau 1
-            for(int indice=0; indice<6; indice++){
-                // le mur de météorites descend de vy
-                world->walls_level_1[indice].y += world->vy;
-                // gestion des collisions entre le vaisseau et le mur (disparition + défaite)
-                handle_sprites_collision(world,&(world->spacecraft),&(world->walls_level_1[indice]),1,0);
-            }
-            break;
-        
-        case 4: // niveau 2
-
-            // PLACEHOLDER
-            break;
+void update_walls_level_1(world_t* world){
+    for(int indice=0; indice<6; indice++){
+        // le mur de météorites descend de vy
+        world->walls_level_1[indice].y += world->vy;
+        // gestion des collisions entre le vaisseau et le mur (disparition + défaite)
+        handle_sprites_collision(world,&(world->spacecraft),&(world->walls_level_1[indice]),1,0);
     }
+}
+
+void update_walls_level_2(world_t* world){
+    // PLACEHOLDER
 }
 
 void shoot_missile(world_t* world){
@@ -184,27 +193,36 @@ void shoot_missile(world_t* world){
     }
 }
 
-void update_missiles(world_t* world){
+void update_missiles_level_1(world_t* world){
 
     // pour chaque missile du tableau
     for(int i=0; i<10; i++){
         // le missile monte de la vitesse associée
         world->missiles[i].y -= MISSILE_SPEED;
+        // pour chaque mur du niveau 1
+        for(int j=0; j<6; j++){
+            // gestion de la collision entre le missile et le mur (disparition)
+            handle_sprites_collision(world,&(world->missiles[i]),&(world->walls_level_1[j]),1,-1);
+        }
 
-        switch(world->game_status){
-            case 2:
+        // gestion de la collision entre le missile et la limite invisible (disparition)
+        handle_sprites_collision(world,&(world->missiles[i]),&(world->invisible_limit),1,-1);
 
-                // pour chaque mur du niveau 1
-                for(int j=0; j<6; j++){
-                    // gestion de la collision entre le missile et le mur (disparition)
-                    handle_sprites_collision(world,&(world->missiles[i]),&(world->walls_level_1[j]),1,-1);
-                }
-                break;
+        // gestion de la collision entre le missile et la ligne d'arrivée (disparition)
+        handle_sprites_collision(world,&(world->missiles[i]),&(world->ligne_arrivee),1,-1);
+    }
+}
 
-            case 4:
+void update_missiles_level_2(world_t* world){
 
-                // PLACEHOLDER
-                break;
+    // pour chaque missile du tableau
+    for(int i=0; i<10; i++){
+        // le missile monte de la vitesse associée
+        world->missiles[i].y -= MISSILE_SPEED;
+        // pour chaque mur du niveau 1
+        for(int j=0; j<50; j++){
+            // gestion de la collision entre le missile et le mur (disparition)
+            handle_sprites_collision(world,&(world->missiles[i]),&(world->walls_level_2[j]),1,-1);
         }
 
         // gestion de la collision entre le missile et la limite invisible (disparition)
@@ -229,14 +247,26 @@ void update_missileCooldown(world_t* world, unsigned int actualTime, unsigned in
     }
 }
 
-void update_data(world_t* world, ressources_t* ressources){
+void update_data_level_1(world_t* world, ressources_t* ressources){
 
     // mise à jour de la position de la ligne d'arrivée + gestion de la collision entre le vaisseau et celle-ci
     update_finishline(world);
 
     // mise à jour de la position des murs + gestion des collisions entre le vaisseau et les murs
-    update_walls(world);
+    update_walls_level_1(world);
 
     // mise à jour de la position du missile + gestion des collisions avec les murs
-    update_missiles(world);
+    update_missiles_level_1(world);
+}
+
+void update_data_level_2(world_t* world, ressources_t* ressources){
+
+    // mise à jour de la position de la ligne d'arrivée + gestion de la collision entre le vaisseau et celle-ci
+    update_finishline(world);
+
+    // mise à jour de la position des murs + gestion des collisions entre le vaisseau et les murs
+    update_walls_level_2(world);
+
+    // mise à jour de la position du missile + gestion des collisions avec les murs
+    update_missiles_level_2(world);
 }
