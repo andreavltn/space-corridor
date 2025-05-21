@@ -20,8 +20,8 @@ void init_walls_level_1(world_t* world){
     init_sprite(&(world->walls_level_1[1]),204,0,96,192);
     init_sprite(&(world->walls_level_1[2]),0,-352,32,160);
     init_sprite(&(world->walls_level_1[3]),74,-352,224,160);
-    init_sprite(&(world->walls_level_1[4]),0,-672,96,192);
-    init_sprite(&(world->walls_level_1[5]),204,-672,96,192);
+    init_sprite(&(world->walls_level_1[4]),0,-704,96,192);
+    init_sprite(&(world->walls_level_1[5]),204,-704,96,192);
 }
 
 void init_walls_level_2(world_t* world){
@@ -29,9 +29,13 @@ void init_walls_level_2(world_t* world){
 }
 
 void init_ovnis_level_1(world_t* world){
-    init_sprite(&(world->ovnis_level_1[0]),);
-    init_sprite(&(world->ovnis_level_1[0]),);
-    init_sprite(&(world->ovnis_level_1[0]),);
+    init_sprite(&(world->ovnis_level_1[0]),110,-810,OVNI_WIDTH,OVNI_HEIGHT);
+    init_sprite(&(world->ovnis_level_1[1]),137,-810,OVNI_WIDTH,OVNI_HEIGHT);
+    init_sprite(&(world->ovnis_level_1[2]),164,-810,OVNI_WIDTH,OVNI_HEIGHT);
+}
+
+void init_ovnis_level_2(world_t* world){
+    // PLACEHOLDER
 }
 
 void init_data_level_1(world_t* world){
@@ -44,6 +48,9 @@ void init_data_level_1(world_t* world){
 
     // initialisation des murs de météorites du niveau 1
     init_walls_level_1(world);
+
+    // initialisation des ovnis du niveau 1
+    init_ovnis_level_1(world);
 
     // initialisation de la limite invisible
     init_sprite(&(world->invisible_limit), 0, INVISIBLE_LIMIT_HEIGHT, SCREEN_WIDTH, 20);
@@ -77,6 +84,9 @@ void init_data_level_2(world_t* world){
 
     // initialisation des murs de météorites du niveau 2
     init_walls_level_2(world);
+
+    // initialisation des ovnis du niveau 2
+    init_ovnis_level_2(world);
 
     // initialisation de la limite invisible
     init_sprite(&(world->invisible_limit), 0, INVISIBLE_LIMIT_HEIGHT, SCREEN_WIDTH, 20);
@@ -167,6 +177,7 @@ void update_finishline(world_t* world){
 }
 
 void update_walls_level_1(world_t* world){
+    // pour chaque indice du tableau de murs
     for(int indice=0; indice<6; indice++){
         // le mur de météorites descend de vy
         world->walls_level_1[indice].y += world->vy;
@@ -176,6 +187,20 @@ void update_walls_level_1(world_t* world){
 }
 
 void update_walls_level_2(world_t* world){
+    // PLACEHOLDER
+}
+
+void update_ovnis_level_1(world_t* world){
+    // pour chaque indice du tableau d'ovnis
+    for(int indice=0; indice<3; indice++){
+        // l'ovni descend de vy
+        world->ovnis_level_1[indice].y += world->vy;
+        // gestion des collisions entre le vaisseau et l'ovni (disparition + défaite)
+        handle_sprites_collision(world,&(world->spacecraft),&(world->ovnis_level_1[indice]),1,0);
+    }
+}
+
+void update_ovnis_level_2(world_t* world){
     // PLACEHOLDER
 }
 
@@ -197,12 +222,20 @@ void update_missiles_level_1(world_t* world){
 
     // pour chaque missile du tableau
     for(int i=0; i<10; i++){
+
         // le missile monte de la vitesse associée
         world->missiles[i].y -= MISSILE_SPEED;
+
         // pour chaque mur du niveau 1
         for(int j=0; j<6; j++){
             // gestion de la collision entre le missile et le mur (disparition)
             handle_sprites_collision(world,&(world->missiles[i]),&(world->walls_level_1[j]),1,-1);
+        }
+
+        // pour chaque ovni du niveau 1
+        for(int k=0; k<3; k++){
+            // gestion de la collision entre l'ovni et le missile (disparition)
+            handle_sprites_collision(world,&(world->ovnis_level_1[k]),&(world->missiles[i]),1,-1);
         }
 
         // gestion de la collision entre le missile et la limite invisible (disparition)
@@ -217,12 +250,20 @@ void update_missiles_level_2(world_t* world){
 
     // pour chaque missile du tableau
     for(int i=0; i<10; i++){
+
         // le missile monte de la vitesse associée
         world->missiles[i].y -= MISSILE_SPEED;
+
         // pour chaque mur du niveau 1
         for(int j=0; j<50; j++){
             // gestion de la collision entre le missile et le mur (disparition)
             handle_sprites_collision(world,&(world->missiles[i]),&(world->walls_level_2[j]),1,-1);
+        }
+
+        // pour chaque ovni du niveau 2
+        for(int k=0; k<30; k++){
+            // gestion de la collision entre l'ovni et le missile (disparition)
+            handle_sprites_collision(world,&(world->ovnis_level_2[k]),&(world->missiles[i]),1,-1);
         }
 
         // gestion de la collision entre le missile et la limite invisible (disparition)
@@ -249,13 +290,16 @@ void update_missileCooldown(world_t* world, unsigned int actualTime, unsigned in
 
 void update_data_level_1(world_t* world, ressources_t* ressources){
 
-    // mise à jour de la position de la ligne d'arrivée + gestion de la collision entre le vaisseau et celle-ci
+    // mise à jour de la position de la ligne d'arrivée + gestion des collisions
     update_finishline(world);
 
-    // mise à jour de la position des murs + gestion des collisions entre le vaisseau et les murs
+    // mise à jour de la position des murs + gestion des collisions
     update_walls_level_1(world);
 
-    // mise à jour de la position du missile + gestion des collisions avec les murs
+    // mise à jour de la position des ovnis + gestion des collisions
+    update_ovnis_level_1(world);
+
+    // mise à jour de la position du missile + gestion des collisions
     update_missiles_level_1(world);
 }
 
@@ -266,6 +310,9 @@ void update_data_level_2(world_t* world, ressources_t* ressources){
 
     // mise à jour de la position des murs + gestion des collisions entre le vaisseau et les murs
     update_walls_level_2(world);
+
+    // mise à jour de la position des ovnis + gestion des collisions
+    update_ovnis_level_2(world);
 
     // mise à jour de la position du missile + gestion des collisions avec les murs
     update_missiles_level_2(world);

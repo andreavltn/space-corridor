@@ -65,6 +65,18 @@ void init_walls_level_1(world_t* world);
 void init_walls_level_2(world_t* world);
 
 /**
+ * \brief La fonction initialise la position des ovnis du niveau 1
+ * \param world les données du monde
+ */
+void init_ovnis_level_1(world_t* world);
+
+/**
+ * \brief La fonction initialise la position des ovnis du niveau 2
+ * \param world les données du monde
+ */
+void init_ovnis_level_2(world_t* world);
+
+/**
  * \brief La fonction initialise les données du monde du niveau 1
  * \param world les données du monde
  */
@@ -118,24 +130,33 @@ void update_time(world_t* world, unsigned int actualTime, unsigned int* lastTime
 /**
  * \brief Met à jour la position de la ligne d'arrivée + gère les collisions
  * \param world les données du monde
- * \param actualTime le temps écoulé actuel
- * \param lastTimeCheck le temps écoulé au dernier check
  */   
 void update_finishline(world_t* world);
 
 /**
  * \brief Met à jour la position des murs de météorites + gère les collisions (niveau 1)
  * \param world les données du monde
- * \param ressources les ressources du jeu
  */
 void update_walls_level_1(world_t* world);
 
 /**
  * \brief Met à jour la position des murs de météorites + gère les collisions (niveau 2)
  * \param world les données du monde
- * \param ressources les ressources du jeu
  */
 void update_walls_level_2(world_t* world);
+
+
+/**
+ * \brief Met à jour la position des ovnis + gère les collisions (niveau 1)
+ * \param world les données du monde
+ */
+void update_ovnis_level_1(world_t* world);
+
+/**
+ * \brief Met à jour la position des ovnis + gère les collisions (niveau 2)
+ * \param world les données du monde
+ */
+void update_ovnis_level_2(world_t* world);
 
 /**
  * \brief Tire un missile à partir du vaisseau

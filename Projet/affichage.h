@@ -54,6 +54,22 @@ void apply_walls_level_1(ressources_t* ressources, SDL_Renderer* renderer, world
 void apply_walls_level_2(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
 
 /**
+ * \brief fonction qui applique la texture des ovnis du niveau 1
+ * \param ressources les ressources du jeu
+ * \param renderer le renderer
+ * \param world le monde du jeu
+ */
+void apply_ovnis_level_1(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
+
+/**
+ * \brief fonction qui applique la texture des ovnis du niveau 2
+ * \param ressources les ressources du jeu
+ * \param renderer le renderer
+ * \param world le monde du jeu
+ */
+void apply_ovnis_level_2(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
+
+/**
  * \brief La fonction applique la texture des sprites sur le renderer lié à l'écran de jeu (niveau 1)
  * \param renderer le renderer
  * \param ressources les ressources du jeu

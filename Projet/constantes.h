@@ -38,6 +38,16 @@
 #define METEORITE_SIZE 32
 
 /**
+ * \brief Largeur d'un ovni
+ */
+#define OVNI_WIDTH 27
+
+/**
+ * \brief Hauteur d'un ovni
+ */
+#define OVNI_HEIGHT 19
+
+/**
  * \brief Largeur d'un missile
  */
 #define MISSILE_WIDTH 9
