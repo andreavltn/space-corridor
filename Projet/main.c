@@ -18,6 +18,7 @@
 void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *ressources, world_t * world){
   init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
   init_ttf();
+  world->game_status = 0; // pour ne le faire qu'une seule fois
   init_data(world);
   init_textures(*renderer,ressources);
 }
@@ -61,7 +62,8 @@ void handle_events(SDL_Event* event, world_t* world){
             break;
           }
 
-        case 2,4: // GAMEPLAY NIVEAU 1 
+        case 2: // GAMEPLAY NIVEAU 1
+        case 4: // GAMEPLAY NIVEAU 2 (même code)
 
           // touche droite/d
           if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){

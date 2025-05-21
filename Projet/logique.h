@@ -26,7 +26,8 @@ typedef struct sprite_s{
     sprite_t splash_text; /*!< Champ représentant le sprite du texte PRESS SPACE TO START */
     sprite_t spacecraft; /*!< Champ représentant le sprite du vaisseau */
     sprite_t ligne_arrivee; /*!< Champ représentant le sprite de la ligne d'arrivée */
-    sprite_t walls[6]; /*!< Champ représentant le tableau du sprite des murs de météorites */
+    sprite_t walls_level_1[6]; /*!< Champ représentant le tableau du sprite des murs de météorites du niveau 1*/
+    sprite_t walls_level_2[50]; /*!< Champ représentant le tableau du sprite des murs de météorites du niveau 2*/
     sprite_t missiles[10]; /*!< Champ représentant le tableau des sprites des missiles tirés par le vaisseau */
     sprite_t invisible_limit; /*!< Champ représentant le sprite de la limite invisible (pour stopper les missiles) */
     int game_status; /*!< Champ indiquant si le statut actuel du jeu */
@@ -56,7 +57,7 @@ void init_sprite(sprite_t *sprite, int x, int y, int w, int h);
 void init_walls(world_t* world);
 
 /**
- * \brief La fonction initialise les données du monde du jeu
+ * \brief La fonction initialise les données du monde
  * \param world les données du monde
  */
 void init_data(world_t * world);

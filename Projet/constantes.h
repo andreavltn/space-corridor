@@ -48,9 +48,14 @@
 #define MISSILE_HEIGHT 17
  
 /**
- * \brief Hauteur de la ligne d'arrivée
+ * \brief Hauteur de la ligne d'arrivée du niveau 1
  */
-#define FINISH_LINE_HEIGHT -960
+#define FINISH_LINE_HEIGHT_1 -960
+
+/**
+ * \brief Hauteur de la ligne d'arrivée du niveau 2
+ */
+#define FINISH_LINE_HEIGHT_2 -5000
 
 /**
  * \brief Hauteur de la limite verticale invisible du jeu

@@ -24,16 +24,25 @@ void init_textures(SDL_Renderer* renderer, ressources_t* ressources){
 }
 
 void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* world){
-    // pour chaque mur
-    for(int h=0; h<6;h++){
-        // pour chaque spot horizontal de météorite
-        for(int i=0; i<world->walls[h].w; i+=32){
-            // pour chaque spot vertical de météorite 
-            for(int j=0; j<world->walls[h].h; j+=32){
-                apply_texture(ressources->meteorite, renderer, world->walls[h].x + i, world->walls[h].y + j);
+    switch(world->game_status){
+
+        case 2: // niveau 1
+            // pour chaque mur du niveau 1
+            for(int h=0; h<6;h++){
+                // pour chaque spot horizontal de météorite
+                for(int i=0; i<world->walls_level_1[h].w; i+=32){
+                    // pour chaque spot vertical de météorite 
+                    for(int j=0; j<world->walls_level_1[h].h; j+=32){
+                        apply_texture(ressources->meteorite, renderer, world->walls_level_1[h].x + i, world->walls_level_1[h].y + j);
+                    }
+                }   
             }
-        }   
-    } 
+            break;
+        
+        case 4: // niveau 2
+
+            // PLACEHOLDER
+    }
 }
 
 void apply_sprites(SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
@@ -121,7 +130,7 @@ void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* ress
         case 2: // GAMEPLAY NIVEAU 1
 
             apply_background(renderer, ressources); // background bleu
-            apply_sprites(renderer, ressources, world); // les sprites du niv1
+            apply_sprites(renderer, ressources, world); // les sprites du niveau 1
             apply_texts(renderer,world,ressources); // timer + msg win/gameover
             break;
 
@@ -132,7 +141,10 @@ void refresh_graphics(SDL_Renderer *renderer, world_t* world, ressources_t* ress
 
         case 4: // GAMEPLAY NIVEAU 2
 
-            // PLACEHOLDER
+            apply_background2(renderer, ressources); // background rouge
+            apply_sprites(renderer, ressources, world); // les sprites du niveau 2
+            apply_texts(renderer,world,ressources); // timer + msg win/gameover
+            // PLACEHOLDER -> A FIX
             break;
     }
 

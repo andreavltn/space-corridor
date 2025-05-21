@@ -16,25 +16,43 @@ void init_sprite(sprite_t* sprite, int x, int y, int w, int h){
 }
 
 void init_walls(world_t* world){
-    init_sprite(&(world->walls[0]),0,0,96,192);
-    init_sprite(&(world->walls[1]),204,0,96,192);
-    init_sprite(&(world->walls[2]),0,-352,32,160);
-    init_sprite(&(world->walls[3]),74,-352,224,160);
-    init_sprite(&(world->walls[4]),0,-672,96,192);
-    init_sprite(&(world->walls[5]),204,-672,96,192);
+    switch(world->game_status){
+
+        case 2: // si c'est le gameplay du niveau 1
+            init_sprite(&(world->walls_level_1[0]),0,0,96,192);
+            init_sprite(&(world->walls_level_1[1]),204,0,96,192);
+            init_sprite(&(world->walls_level_1[2]),0,-352,32,160);
+            init_sprite(&(world->walls_level_1[3]),74,-352,224,160);
+            init_sprite(&(world->walls_level_1[4]),0,-672,96,192);
+            init_sprite(&(world->walls_level_1[5]),204,-672,96,192);
+            break;
+            
+        case 4: // si c'est le gameplay du niveau 2
+
+            // PLACEHOLDER
+    }
 }
 
 void init_data(world_t* world){
-
-    world->game_status = 0; // le jeu n'a pas commencé au début (écran titre)
-
+    
     // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32px*32px)
     init_sprite(&(world->spacecraft), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
-  
-    // initialisation de la ligne d'arrivée (milieu de l'écran, à la hauteur définie, LARGEUR_ECRAN*20px).
-    init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT, SCREEN_WIDTH, 20);
-  
-    // initialisation du mur de météorites
+
+    switch(world->game_status){
+        case 2:
+
+        // initialisation de la ligne d'arrivée (milieu de l'écran, à la hauteur définie pour le niveau 1, LARGEUR_ECRAN*20px).
+        init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_1, SCREEN_WIDTH, 20);
+        break;
+
+        case 4:
+
+        // initialisation de la ligne d'arrivée (milieu de l'écran, à la hauteur définie pour le niveau 2, LARGEUR_ECRAN*20px).
+        init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_2, SCREEN_WIDTH, 20);
+        break;
+    }
+
+    // initialisation des murs de météorites 
     init_walls(world);
 
     // initialisation de la limite invisible (juste au dessus du visible de l'écran, LARGEUR_ECRAN*20px)
@@ -124,12 +142,23 @@ void update_finishline(world_t* world){
 }
 
 void update_walls(world_t* world){
-    // pour chaque mur
-    for(int i=0;i<6;i++){
-        // le mur de météorites descend de vy
-        world->walls[i].y += world->vy;
-        // gestion des collisions entre le vaisseau et le mur (disparition + défaite)
-        handle_sprites_collision(world,&(world->spacecraft),&(world->walls[i]),1,0);
+
+    switch(world->game_status){
+        case 2:
+
+            // pour chaque mur du niveau 1
+            for(int i=0;i<6;i++){
+                // le mur de météorites descend de vy
+                world->walls_level_1[i].y += world->vy;
+                // gestion des collisions entre le vaisseau et le mur (disparition + défaite)
+                handle_sprites_collision(world,&(world->spacecraft),&(world->walls_level_1[i]),1,0);
+            }
+            break;
+        
+        case 4:
+
+            // PLACEHOLDER
+            break;
     }
 }
 
@@ -147,15 +176,26 @@ void shoot_missile(world_t* world){
 }
 
 void update_missiles(world_t* world){
+
     // pour chaque missile du tableau
     for(int i=0; i<10; i++){
         // le missile monte de la vitesse associée
         world->missiles[i].y -= MISSILE_SPEED;
 
-        // pour chaque mur
-        for(int j=0; j<6; j++){
-            // gestion de la collision entre le missile et le mur (disparition)
-            handle_sprites_collision(world,&(world->missiles[i]),&(world->walls[j]),1,-1);
+        switch(world->game_status){
+            case 2:
+
+                // pour chaque mur du niveau 1
+                for(int j=0; j<6; j++){
+                    // gestion de la collision entre le missile et le mur (disparition)
+                    handle_sprites_collision(world,&(world->missiles[i]),&(world->walls_level_1[j]),1,-1);
+                }
+                break;
+
+            case 4:
+
+                // PLACEHOLDER
+                break;
         }
 
         // gestion de la collision entre le missile et la limite invisible (disparition)
