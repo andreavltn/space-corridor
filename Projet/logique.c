@@ -16,9 +16,11 @@ void init_sprite(sprite_t* sprite, int x, int y, int w, int h){
 }
 
 void init_walls(world_t* world){
+
+    // en fonction du niveau
     switch(world->game_status){
 
-        case 2: // si c'est le gameplay du niveau 1
+        case 2: // niveau 1
             init_sprite(&(world->walls_level_1[0]),0,0,96,192);
             init_sprite(&(world->walls_level_1[1]),204,0,96,192);
             init_sprite(&(world->walls_level_1[2]),0,-352,32,160);
@@ -26,8 +28,8 @@ void init_walls(world_t* world){
             init_sprite(&(world->walls_level_1[4]),0,-672,96,192);
             init_sprite(&(world->walls_level_1[5]),204,-672,96,192);
             break;
-            
-        case 4: // si c'est le gameplay du niveau 2
+
+        case 4: // niveau 2
 
             // PLACEHOLDER
     }
@@ -38,16 +40,18 @@ void init_data(world_t* world){
     // initialisation du vaisseau (milieu de l'écran, à 32 pixels du bas, en 32px*32px)
     init_sprite(&(world->spacecraft), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
 
+    // en fonction du niveau
     switch(world->game_status){
-        case 2:
 
-        // initialisation de la ligne d'arrivée (milieu de l'écran, à la hauteur définie pour le niveau 1, LARGEUR_ECRAN*20px).
+        case 2: // niveau 1
+
+        // initialisation de la ligne d'arrivée aux coordonnées du niveau 1
         init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_1, SCREEN_WIDTH, 20);
         break;
 
         case 4:
 
-        // initialisation de la ligne d'arrivée (milieu de l'écran, à la hauteur définie pour le niveau 2, LARGEUR_ECRAN*20px).
+        // initialisation de la ligne d'arrivée aux coordonnées du niveau 2
         init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_2, SCREEN_WIDTH, 20);
         break;
     }
@@ -78,8 +82,8 @@ void init_data(world_t* world){
 }
 
 void blink_splash_text(world_t* world, unsigned int timeSinceLaunch){
-    // en utilisant le modulo, le temps écoulé peut faire partie de deux intervalles, ce qui permet d'alterner 
-    // si temps écoulé compris dans (0,TIME/2)
+
+    // en utilisant le modulo, le temps écoulé peut faire partie de deux intervalles, ce qui permet d'alterner visible/caché
     if(timeSinceLaunch%(2*SPLASH_TEXT_TIME) <= SPLASH_TEXT_TIME){ 
         init_sprite(&(world->splash_text), 0, SCREEN_HEIGHT/2 + 50, 100, SCREEN_WIDTH); // -> texte affiché
     } else { // sinon le temps écoulé est compris dans (TIME/2,TIME)
@@ -88,13 +92,14 @@ void blink_splash_text(world_t* world, unsigned int timeSinceLaunch){
 }
 
 int sprites_collide(sprite_t* sp1, sprite_t* sp2){
+
     // déplacement au centre des coordonnées (qui étaient initialement dans le coin en haut à gauche)
     int x1 = sp1->x + sp1->w/2;
     int x2 = sp2->x + sp2->w/2;
     int y1 = sp1->y + sp1->h/2;
     int y2 = sp2->y + sp2->h/2;
 
-    // si les deux sprites sont en collisions
+    // si les deux sprites sont en collision
     if ((abs(x1 - x2) <= (sp1->w + sp2->w)/2) && (abs(y1 - y2) <= (sp1->h + sp2->h)/2)){
         return 1;
     }
@@ -102,6 +107,7 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2){
 }
 
 void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int make_disappear, int make_win){
+
     // si les deux sprites sont en collision
     if (sprites_collide(sp1,sp2)){
         // si le parametre make_disappear est à 1
@@ -143,19 +149,21 @@ void update_finishline(world_t* world){
 
 void update_walls(world_t* world){
 
+    // en fonction du niveau
     switch(world->game_status){
-        case 2:
+
+        case 2: // niveau 1
 
             // pour chaque mur du niveau 1
-            for(int i=0;i<6;i++){
+            for(int indice=0; indice<6; indice++){
                 // le mur de météorites descend de vy
-                world->walls_level_1[i].y += world->vy;
+                world->walls_level_1[indice].y += world->vy;
                 // gestion des collisions entre le vaisseau et le mur (disparition + défaite)
-                handle_sprites_collision(world,&(world->spacecraft),&(world->walls_level_1[i]),1,0);
+                handle_sprites_collision(world,&(world->spacecraft),&(world->walls_level_1[indice]),1,0);
             }
             break;
         
-        case 4:
+        case 4: // niveau 2
 
             // PLACEHOLDER
             break;
@@ -163,6 +171,7 @@ void update_walls(world_t* world){
 }
 
 void shoot_missile(world_t* world){
+
     // pour chaque indice de missile possible dans le tableau
     for(int i=0; i<10; i++){
         // si le spot est disponible
@@ -221,6 +230,7 @@ void update_missileCooldown(world_t* world, unsigned int actualTime, unsigned in
 }
 
 void update_data(world_t* world, ressources_t* ressources){
+
     // mise à jour de la position de la ligne d'arrivée + gestion de la collision entre le vaisseau et celle-ci
     update_finishline(world);
 

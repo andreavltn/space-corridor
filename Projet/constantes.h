@@ -60,7 +60,7 @@
 /**
  * \brief Hauteur de la limite verticale invisible du jeu
  */
-#define INVISIBLE_LIMIT_HEIGHT -20
+#define INVISIBLE_LIMIT_HEIGHT -100
  
 /**
  * \brief Pas de déplacement horizontal du vaisseau

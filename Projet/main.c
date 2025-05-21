@@ -150,7 +150,7 @@ int main(int argc, char* args[]){
   unsigned int timeSinceLaunch; // temps actuel (ms passées depuis le lancement du jeu)
   unsigned int actualTime; // temps réel
 
-  // initialisation du jeu
+  // initialisation du jeu initiale
   init(&window,&renderer,&ressources,&world);
 
   while(world.game_status!=-1){ // tant que le jeu n'est pas fini
@@ -159,6 +159,7 @@ int main(int argc, char* args[]){
     // gestion des évènements
     handle_events(&event,&world);
 
+    // en fonction du stage du jeu
     switch(world.game_status){
         case 0: // ECRAN TITRE
           
@@ -168,13 +169,13 @@ int main(int argc, char* args[]){
 
         case 1: // ECRAN NIVEAU 1
 
-          // pause de 3s a ne rien faire
+          // pause de 3s
           if(levelSwapTick == 0){ // pour ne le faire qu'une fois
             levelSwapTick = timeSinceLaunch; // stockage du tick au debut
           }
    
           if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si il s'est passé + de 3s depuis le check
-            skip_to_next_stage(&(world)); // passe au prochain stage
+            skip_to_next_stage(&(world)); // passe au gameplay du niveau 1
             levelSwapTick = 0; // reset pour le prochain niveau
           }
           break;
@@ -189,7 +190,9 @@ int main(int argc, char* args[]){
           // calcul du temps réel
           actualTime = timeSinceLaunch - gameStartTick;
 
+          // tant que le niveau n'est pas terminé
           if(!is_finished_level(&(world))){
+
             // mise à jour des données liées à la physique du monde
             update_data(&world,&ressources);
 
@@ -198,20 +201,23 @@ int main(int argc, char* args[]){
 
             // mise à jour du cooldown restant du tir de missile
             update_missileCooldown(&world, actualTime, &lastMissileCooldownCheck);
-          } else {
-            pause(3000);
-            skip_to_next_stage(&(world));
+
+          } else { // sinon le niveau est termi,é
+
+            pause(3000); // pause de 3s avec le message de win/gameover affiché
+            skip_to_next_stage(&(world)); // passe à l'écran du niveau 2
           }
           break;
 
         case 3: // ECRAN NIVEAU 2
 
+          // pause de 3s 
           if(levelSwapTick == 0){ // pour ne le faire qu'une fois
             levelSwapTick = timeSinceLaunch; // stockage du tick
           }
     
           if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si il s'est passé + de 3s 
-            skip_to_next_stage(&(world)); // passe au prochain stage
+            skip_to_next_stage(&(world)); // passe au gameplay du niveau 2
             levelSwapTick = 0; // reset pour le prochain niveau
           }
           break;
@@ -219,11 +225,6 @@ int main(int argc, char* args[]){
         case 4: // GAMEPLAY NIVEAU 2
 
           skip_to_next_stage(&(world)); // PLACEHOLDER
-          break;
-
-        case -1: // QUITTER LE JEU/ FIN DU JEU
-
-          pause(3000);
           break;
     }
 
