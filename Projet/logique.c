@@ -66,45 +66,45 @@ void init_walls_level_2(world_t* world){
     // ligne 15
     init_sprite(&(world->walls_level_2[21]), 0, -2900, 3*METEORITE_SIZE, 3*METEORITE_SIZE); // mur gauche 3x3
     init_sprite(&(world->walls_level_2[22]), 140, -2900, 5*METEORITE_SIZE, 3*METEORITE_SIZE); // mur droite 5x3
-    // ligne 17
-    init_sprite(&(world->walls_level_2[23]), 59, -3100, 6*METEORITE_SIZE, 3*METEORITE_SIZE); // mur centre 6x3
-    // lignes 18 - 19
+    // ligne 16
+    init_sprite(&(world->walls_level_2[23]), 55, -3100, 6*METEORITE_SIZE, 3*METEORITE_SIZE); // mur centre 6x3
+    // lignes 17 - 18
     init_sprite(&(world->walls_level_2[24]), 0, -3250, 3*METEORITE_SIZE, 2*METEORITE_SIZE); // mur gauche 3x2
     init_sprite(&(world->walls_level_2[25]), 188, -3300, 2* METEORITE_SIZE, 1*METEORITE_SIZE); // mur centre-droite 2x3
     init_sprite(&(world->walls_level_2[26]), 268, -3420, 1*METEORITE_SIZE, 2*METEORITE_SIZE); // mur droite 1x2
     init_sprite(&(world->walls_level_2[27]), 64, -3500, 4*METEORITE_SIZE, 4*METEORITE_SIZE); // mur centre-gauche 4x4
-    // ligne 20
+    // ligne 19
     init_sprite(&(world->walls_level_2[28]), 0, -3700, 8*METEORITE_SIZE, 3*METEORITE_SIZE); // mur gauche 8x2
-    // ligne 21 
+    // ligne 20 
     init_sprite(&(world->walls_level_2[29]), 0, -3900, 2*METEORITE_SIZE, 3*METEORITE_SIZE); // mur gauche 2x2
     init_sprite(&(world->walls_level_2[30]), 108, -3900, 6*METEORITE_SIZE, 2*METEORITE_SIZE); // mur droite 6x2
-    // ligne 22 
+    // ligne 21 
     init_sprite(&(world->walls_level_2[31]), 54, -4100, 6*METEORITE_SIZE, 1*METEORITE_SIZE); // mur centre 6x1
-    // ligne 23
+    // ligne 22
     init_sprite(&(world->walls_level_2[32]), 0, -4300, 7*METEORITE_SIZE, 2*METEORITE_SIZE); // mur gauche 7x2
-    // ligne 24
+    // ligne 23
     init_sprite(&(world->walls_level_2[33]), 0, -4600, 3*METEORITE_SIZE, 4*METEORITE_SIZE); // mur gauche 3x4
     init_sprite(&(world->walls_level_2[34]), 204, -4486, 3*METEORITE_SIZE, 2*METEORITE_SIZE); // mur droite 3x2
-    // ligne 25
+    // ligne 24
     init_sprite(&(world->walls_level_2[35]), 44, -4750, 8*METEORITE_SIZE, 2*METEORITE_SIZE); // mur droite 8x2
-    // ligne 26
+    // ligne 25
     init_sprite(&(world->walls_level_2[36]), 0, -5150, 3*METEORITE_SIZE, 6*METEORITE_SIZE); // mur gauche 3x6
     init_sprite(&(world->walls_level_2[37]), 236, -5150, 2*METEORITE_SIZE, 6*METEORITE_SIZE); // mur droite 2x6
-    // ligne 27
+    // ligne 26
     init_sprite(&(world->walls_level_2[38]), 0, -5350, 6*METEORITE_SIZE, 2*METEORITE_SIZE); // mur gauche 6x2
-    // ligne 28
+    // ligne 27
     init_sprite(&(world->walls_level_2[39]), 0, -5750, 2*METEORITE_SIZE, 5*METEORITE_SIZE); // mur gauche 2x5
     init_sprite(&(world->walls_level_2[40]), 140, -5750, 5*METEORITE_SIZE, 5*METEORITE_SIZE); // mur droite 5x5
-    // lignes 29-30-31
+    // lignes 28-29-30
     init_sprite(&(world->walls_level_2[41]), 130, -5900, 2*METEORITE_SIZE, 2*METEORITE_SIZE); // mur centre 2x2
     init_sprite(&(world->walls_level_2[42]), 204, -6000, 3*METEORITE_SIZE, 2*METEORITE_SIZE); // mur droite 3x2
     init_sprite(&(world->walls_level_2[43]), 0, -6100, 1*METEORITE_SIZE, 5*METEORITE_SIZE); // mur gauche 1x5
     init_sprite(&(world->walls_level_2[44]), 150, -6150, 4*METEORITE_SIZE, 4*METEORITE_SIZE); // mur centre-droite 4x4
     init_sprite(&(world->walls_level_2[45]), 50, -6300, 2*METEORITE_SIZE, 2*METEORITE_SIZE); // mur gauche 2x2
     init_sprite(&(world->walls_level_2[46]), 200, -6300, 1*METEORITE_SIZE, 1*METEORITE_SIZE); // mur droite 1x1
-    // ligne 32
+    // ligne 31
     init_sprite(&(world->walls_level_2[47]), 38, -6450, 7*METEORITE_SIZE, 2*METEORITE_SIZE); // mur centre 7x2
-    // ligne 33
+    // ligne 32
     init_sprite(&(world->walls_level_2[48]), 0, -6900, 3*METEORITE_SIZE, 8*METEORITE_SIZE); // mur gauche 3x8
     init_sprite(&(world->walls_level_2[49]), 204, -6900, 3*METEORITE_SIZE, 8*METEORITE_SIZE); // mur droite 3x8
 }
@@ -118,12 +118,53 @@ void init_ovnis_level_1(world_t* world){
 
 void init_ovnis_level_2(world_t* world){
     // ligne 1
-    init_sprite(&(world->ovnis_level_2[0]), 219, 80, OVNI_WIDTH, OVNI_HEIGHT);
-    init_sprite(&(world->ovnis_level_2[1]), 246, 80, OVNI_WIDTH, OVNI_HEIGHT);
-
-    for(int i=2; i<30; i++){ // PLACEHOLDER
-        init_sprite(&(world->ovnis_level_2[i]), -15000, 80, OVNI_WIDTH, OVNI_HEIGHT);
-    }
+    init_sprite(&(world->ovnis_level_2[0]), 219, 80, OVNI_WIDTH, OVNI_HEIGHT); // a droite
+    init_sprite(&(world->ovnis_level_2[1]), 246, 80, OVNI_WIDTH, OVNI_HEIGHT); // pareil
+    // ligne 3
+    init_sprite(&(world->ovnis_level_2[2]), 24, -360, OVNI_WIDTH, OVNI_HEIGHT); // a gauche
+    // ligne 5
+    init_sprite(&(world->ovnis_level_2[3]), 24, -790, OVNI_WIDTH, OVNI_HEIGHT); // a gauche
+    // ligne 6
+    init_sprite(&(world->ovnis_level_2[4]), 193, -960, OVNI_WIDTH, OVNI_HEIGHT); // a droite
+    init_sprite(&(world->ovnis_level_2[5]), 220, -960, OVNI_WIDTH, OVNI_HEIGHT); // pareil a coté
+    // ligne 8
+    init_sprite(&(world->ovnis_level_2[6]), 40, -1360, OVNI_WIDTH, OVNI_HEIGHT); // a gauche
+    // ligne 10
+    init_sprite(&(world->ovnis_level_2[7]), 91, -1750, OVNI_WIDTH, OVNI_HEIGHT); // au centre
+    init_sprite(&(world->ovnis_level_2[8]), 118, -1750, OVNI_WIDTH, OVNI_HEIGHT); // pareil a coté
+    // ligne 11
+    init_sprite(&(world->ovnis_level_2[9]), 203, -1960, OVNI_WIDTH, OVNI_HEIGHT); // a droite
+    init_sprite(&(world->ovnis_level_2[10]), 230, -1960, OVNI_WIDTH, OVNI_HEIGHT); // pareil
+    // ligne 13
+    init_sprite(&(world->ovnis_level_2[11]), 184, -2455, OVNI_WIDTH, OVNI_HEIGHT); // centre droite
+    // ligne 16
+    init_sprite(&(world->ovnis_level_2[12]), 14, -3060, OVNI_WIDTH, OVNI_HEIGHT); // gauche
+    init_sprite(&(world->ovnis_level_2[13]), 261, -3060, OVNI_WIDTH, OVNI_HEIGHT); // droite
+    // ligne 17-18
+    init_sprite(&(world->ovnis_level_2[14]), 18, -3450, OVNI_WIDTH, OVNI_HEIGHT); // gauche  
+    // ligne 20
+    init_sprite(&(world->ovnis_level_2[15]), 72, -3865, OVNI_WIDTH, OVNI_HEIGHT); // centre
+    // ligne 21
+    init_sprite(&(world->ovnis_level_2[16]), 13, -4095, OVNI_WIDTH, OVNI_HEIGHT); // gauche
+    init_sprite(&(world->ovnis_level_2[17]), 260, -4095, OVNI_WIDTH, OVNI_HEIGHT); // droite
+    // ligne 23
+    init_sprite(&(world->ovnis_level_2[18]), 136, -4530, OVNI_WIDTH, OVNI_HEIGHT); // centre
+    init_sprite(&(world->ovnis_level_2[19]), 136, -4550, OVNI_WIDTH, OVNI_HEIGHT); // pareil au dessus
+    // ligne 25
+    init_sprite(&(world->ovnis_level_2[20]), 152, -5000, OVNI_WIDTH, OVNI_HEIGHT); // centre
+    init_sprite(&(world->ovnis_level_2[21]), 152, -5063, OVNI_WIDTH, OVNI_HEIGHT); // pareil au dessus
+    init_sprite(&(world->ovnis_level_2[22]), 152, -5126, OVNI_WIDTH, OVNI_HEIGHT); // pareil au dessus
+    // ligne 27
+    init_sprite(&(world->ovnis_level_2[23]), 88, -5680, OVNI_WIDTH, OVNI_HEIGHT); // centre
+    // ligne 28-29-30
+    init_sprite(&(world->ovnis_level_2[24]), 49, -5985, OVNI_WIDTH, OVNI_HEIGHT); // gauche
+    init_sprite(&(world->ovnis_level_2[25]), 108, -6030, OVNI_WIDTH, OVNI_HEIGHT); // pareil en zigzag
+    init_sprite(&(world->ovnis_level_2[26]), 76, -6075, OVNI_WIDTH, OVNI_HEIGHT); // pareil en zigzag
+    // ligne 31
+    init_sprite(&(world->ovnis_level_2[27]), 5, -6425, OVNI_WIDTH, OVNI_HEIGHT); // gauche
+    init_sprite(&(world->ovnis_level_2[28]), 267, -6425, OVNI_WIDTH, OVNI_HEIGHT); // droite
+    // ligne 32 (fin)
+    init_sprite(&(world->ovnis_level_2[29]), 136, -6875, OVNI_WIDTH, OVNI_HEIGHT); // centre
 }
 
 void init_data_level_1(world_t* world){
