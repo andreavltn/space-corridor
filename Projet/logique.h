@@ -127,7 +127,6 @@ void update_finishline(world_t* world);
  */
 void update_walls(world_t* world);
 
-
 /**
  * \brief Met à jour la position des ovnis + gère les collisions (en fonction du niveau)
  * \param world les données du monde

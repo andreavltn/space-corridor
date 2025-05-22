@@ -16,7 +16,9 @@ void init_sprite(sprite_t* sprite, int x, int y, int w, int h){
 }
 
 void init_walls(world_t* world){
+
     switch(world->game_status){
+
         case 0: // au debut du jeu -> initialisation des murs du niveau 1
 
             // ligne 1
@@ -118,6 +120,7 @@ void init_walls(world_t* world){
 void init_ovnis(world_t* world){
 
     switch(world->game_status){
+        
         case 0: // au debut du jeu -> initialisation des ovnis du niveau 1
 
             // ligne de 3 ovnis avant la ligne d'arrivée
@@ -187,11 +190,11 @@ void init_data(world_t* world){
 
     switch(world->game_status){
 
-        case 0: // niveau 1
+        case 0: // initialisation du niveau 1
             init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_1, SCREEN_WIDTH, 20); // FINISH_LINE_HEIGHT_1
             break;
 
-        case 3: // niveau 2
+        case 3: // initialisation du niveau 2
             init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_2, SCREEN_WIDTH, 20); // FINISH_LINE_HEIGHT_2
             break;
     }
@@ -246,6 +249,8 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2){
     if ((abs(x1 - x2) <= (sp1->w + sp2->w)/2) && (abs(y1 - y2) <= (sp1->h + sp2->h)/2)){
         return 1;
     }
+
+    // sinon il ne sont pas en collision
     return 0;
 }
 
@@ -253,33 +258,35 @@ void handle_sprites_collision(world_t* world, sprite_t* sp1, sprite_t* sp2, int 
 
     // si les deux sprites sont en collision
     if (sprites_collide(sp1,sp2)){
+
         // si le parametre make_disappear est à 1
         if(make_disappear==1){
             sp1->x = -10000; // déplace le sprite en dehors de l'écran
-        } else if(make_disappear==2){ // si il est a 2
-            sp1->x = -10000; // déplace les deux sprites
-            sp2->x = -10000;
+        } else if(make_disappear==2){ // sinon si le paramètre est a 2
+            sp1->x = -10000; 
+            sp2->x = -10000; // déplace les deux sprites en dehors de l'écran
         }
+        // sinon si il est à 0 on ne fait rien
 
         // si victoire ou défaite
         if(make_win==1 || make_win==0){
             world->vy = 0; // arrêt du jeu
-           if(make_win==1){
-            world->win = 1;
-           } else {
-            world->gameover = 1; // perdu
-           }
+            if(make_win==1){ // si victoire
+                world->win = 1; // gagné
+            } else { // sinon
+                world->gameover = 1; // perdu
+            }
         }
         // sinon rien ne se passe pour toute autre valeur 
     }
 }
 
 int is_finished_level(world_t* world){
-    return world->gameover || world->win;
+    return world->gameover || world->win; // level fini si victoire ou défaite
 }
 
 int is_finished_game(world_t* world){
-    return world->game_status==-1;
+    return world->game_status==-1; // jeu fini si le champ stage est à -1
 }
 
 void update_time(world_t* world, unsigned int actualTime, unsigned int* lastTimeCheck){
@@ -298,11 +305,12 @@ void update_finishline(world_t* world){
 }
 
 void update_walls(world_t* world){
+
     switch(world->game_status){
 
         case 2: // gameplay du niveau 1
 
-            // pour chaque indice du tableau de murs
+            // pour chaque mur
             for(int indice=0; indice<6; indice++){
                 // le mur de météorites descend de vy
                 world->walls_level_1[indice].y += world->vy;
@@ -313,7 +321,7 @@ void update_walls(world_t* world){
 
         case 4: // gameplay du niveau 2
 
-            // pour chaque indice du tableau de murs
+            // pour chaque mur
             for(int indice=0; indice<50; indice++){
                 // le mur de météorites descend de vy
                 world->walls_level_2[indice].y += world->vy;
@@ -326,11 +334,12 @@ void update_walls(world_t* world){
 
 
 void update_ovnis(world_t* world){
+
     switch(world->game_status){
 
         case 2: // gameplay du niveau 1
 
-            // pour chaque indice du tableau d'ovnis
+            // pour chaque ovni
             for(int indice=0; indice<3; indice++){
                 // l'ovni descend de vy
                 world->ovnis_level_1[indice].y += world->vy;
@@ -341,7 +350,7 @@ void update_ovnis(world_t* world){
 
         case 4: // gameplay du niveau 2
 
-            // pour chaque indice du tableau d'ovnis
+            // pour chaque ovni
             for(int indice=0; indice<30; indice++){
                 // l'ovni descend de vy
                 world->ovnis_level_2[indice].y += world->vy;
@@ -358,11 +367,11 @@ void shoot_missile(world_t* world){
     for(int i=0; i<10; i++){
         // si le spot est disponible
         if(world->missiles[i].x == -10000){
-            // tir du missile
+            // tir de missile
             init_sprite(&(world->missiles[i]), world->spacecraft.x+(SHIP_SIZE/2 - MISSILE_WIDTH/2), world->spacecraft.y-MISSILE_HEIGHT, MISSILE_WIDTH, MISSILE_HEIGHT);
             // réinitialisation du cooldown
             world->missileCooldown = MISSILE_COOLDOWN; 
-            break; // le missile est tiré
+            break; // le missile est tiré, sort de la boucle
         }
     }
 }
@@ -371,7 +380,9 @@ void update_missiles(world_t* world){
 
     // pour chaque missile
     for(int i=0; i<10; i++){
-        world->missiles[i].y -= MISSILE_SPEED; // le missile monte de sa vitesse
+
+        // le missile monte de sa vitesse
+        world->missiles[i].y -= MISSILE_SPEED; 
 
         switch(world->game_status){
 
@@ -403,6 +414,7 @@ void update_missiles(world_t* world){
                     // gestion de la collision entre l'ovni et le missile (disparition des deux)
                     handle_sprites_collision(world,&(world->ovnis_level_2[k]),&(world->missiles[i]),2,-1);
                 }
+                break;
                 
         }
 

@@ -23,7 +23,7 @@
 #define SPLASH_TEXT_TIME 1000
 
 /**
- * \brief Durée de pause entre les niveaux, pendant la transition
+ * \brief Durée d'affichage de l'écran de titre des niveaux
  */
 #define TRANSITION_TIME 2000
  

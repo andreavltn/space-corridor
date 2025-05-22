@@ -28,28 +28,22 @@ typedef struct \mbox{\hyperlink{structressources__s}{ressources\+\_\+s}} {\bfser
 \item 
 void \mbox{\hyperlink{affichage_8h_af171b4645c47bd1cfcb411381ae81eb5}{init\+\_\+textures}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
 \begin{DoxyCompactList}\small\item\em La fonction initialise les textures. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{affichage_8h_a0527ca57b3193c4fd701e3a5d65f7bac}{apply\+\_\+walls\+\_\+level\+\_\+1}} (\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
-\begin{DoxyCompactList}\small\item\em fonction qui applique la texture des murs de météorites du niveau 1 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{affichage_8h_a26932807adc5b23da66001e829ec39e1}{apply\+\_\+walls\+\_\+level\+\_\+2}} (\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
-\begin{DoxyCompactList}\small\item\em fonction qui applique la texture des murs de météorites du niveau 2 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{affichage_8h_aa35651c71a1a99cd671e6fb2b15a29d8}{apply\+\_\+ovnis\+\_\+level\+\_\+1}} (\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
-\begin{DoxyCompactList}\small\item\em fonction qui applique la texture des ovnis du niveau 1 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{affichage_8h_a66576f54b05cb8c8837bef13dc9cd0aa}{apply\+\_\+ovnis\+\_\+level\+\_\+2}} (\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
-\begin{DoxyCompactList}\small\item\em fonction qui applique la texture des ovnis du niveau 2 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{affichage_8h_a66cca005db05128b09947ede91c76740}{apply\+\_\+sprites\+\_\+level\+\_\+1}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
-\begin{DoxyCompactList}\small\item\em La fonction applique la texture des sprites sur le renderer lié à l\textquotesingle{}écran de jeu (niveau 1) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{affichage_8h_a1b865a3cdd1765adc8f16f6d3227ca90}{apply\+\_\+sprites\+\_\+level\+\_\+2}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
-\begin{DoxyCompactList}\small\item\em La fonction applique la texture des sprites sur le renderer lié à l\textquotesingle{}écran de jeu (niveau 2) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a7c4633e37e8a2795d6e898c9c987d8fb}{apply\+\_\+walls}} (\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+\begin{DoxyCompactList}\small\item\em fonction qui applique la texture des murs de météorites (en fonction du niveau) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a1443326f61e72715716e620df416bc5c}{apply\+\_\+ovnis}} (\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+\begin{DoxyCompactList}\small\item\em fonction qui applique la texture des ovnis (en fonction du niveau) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a974dbab153f96f83b3f02efce0dcdb6e}{apply\+\_\+sprites1}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture des sprites sur le renderer lié à l\textquotesingle{}écran de jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage_8h_a9de91e1299465b45130b41833f1f1d47}{apply\+\_\+startscreen}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
 \begin{DoxyCompactList}\small\item\em La fonction applique la texture de l\textquotesingle{}écran de démarrage syr le renderer lié à l\textquotesingle{}écran de jeu. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{affichage_8h_af52110299200a8b0d001baca353508e5}{apply\+\_\+background\+\_\+level\+\_\+1}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
-\begin{DoxyCompactList}\small\item\em La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran du jeu (niveau 1) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{affichage_8h_a31d1ffedfa0c3ba97a11735bd3d9514b}{apply\+\_\+background\+\_\+level\+\_\+2}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
-\begin{DoxyCompactList}\small\item\em La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran du jeu (niveau 2) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage_8h_ac909e6b58ffb21e5b83c0b5d9f9b0c20}{apply\+\_\+level\+\_\+1\+\_\+screen}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
 \begin{DoxyCompactList}\small\item\em La fonction applique la texture de l\textquotesingle{}écran titre du niveau 1 sur le renderer lié à l\textquotesingle{}écran du jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage_8h_a1f2c8fef81a9c9dd3a4348fc72c5af34}{apply\+\_\+level\+\_\+2\+\_\+screen}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
 \begin{DoxyCompactList}\small\item\em La fonction applique la texture de l\textquotesingle{}écran titre du niveau 2 sur le renderer lié à l\textquotesingle{}écran du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_af52110299200a8b0d001baca353508e5}{apply\+\_\+background\+\_\+level\+\_\+1}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran du jeu (niveau 1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a31d1ffedfa0c3ba97a11735bd3d9514b}{apply\+\_\+background\+\_\+level\+\_\+2}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran du jeu (niveau 2) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage_8h_a55f948e139e683c894a7f8fb68f5907b}{apply\+\_\+texts}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
 \begin{DoxyCompactList}\small\item\em La fonction affiche le timer et les messages de fin sur le renderer lié à l\textquotesingle{}écran de jeu. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{affichage_8h_a30e1a19138e3709417178aa593d90e19}{refresh\+\_\+graphics}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
@@ -135,34 +129,15 @@ La fonction applique la texture de l\textquotesingle{}écran titre du niveau 2 s
 {\em ressources} & les ressources du jeu \\
 \hline
 \end{DoxyParams}
-\Hypertarget{affichage_8h_aa35651c71a1a99cd671e6fb2b15a29d8}\label{affichage_8h_aa35651c71a1a99cd671e6fb2b15a29d8} 
-\index{affichage.h@{affichage.h}!apply\_ovnis\_level\_1@{apply\_ovnis\_level\_1}}
-\index{apply\_ovnis\_level\_1@{apply\_ovnis\_level\_1}!affichage.h@{affichage.h}}
-\doxysubsubsection{\texorpdfstring{apply\_ovnis\_level\_1()}{apply\_ovnis\_level\_1()}}
-{\footnotesize\ttfamily void apply\+\_\+ovnis\+\_\+level\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+\Hypertarget{affichage_8h_a1443326f61e72715716e620df416bc5c}\label{affichage_8h_a1443326f61e72715716e620df416bc5c} 
+\index{affichage.h@{affichage.h}!apply\_ovnis@{apply\_ovnis}}
+\index{apply\_ovnis@{apply\_ovnis}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_ovnis()}{apply\_ovnis()}}
+{\footnotesize\ttfamily void apply\+\_\+ovnis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
 
 
 
-fonction qui applique la texture des ovnis du niveau 1 
-
-
-\begin{DoxyParams}{Parameters}
-{\em ressources} & les ressources du jeu \\
-\hline
-{\em renderer} & le renderer \\
-\hline
-{\em world} & le monde du jeu \\
-\hline
-\end{DoxyParams}
-\Hypertarget{affichage_8h_a66576f54b05cb8c8837bef13dc9cd0aa}\label{affichage_8h_a66576f54b05cb8c8837bef13dc9cd0aa} 
-\index{affichage.h@{affichage.h}!apply\_ovnis\_level\_2@{apply\_ovnis\_level\_2}}
-\index{apply\_ovnis\_level\_2@{apply\_ovnis\_level\_2}!affichage.h@{affichage.h}}
-\doxysubsubsection{\texorpdfstring{apply\_ovnis\_level\_2()}{apply\_ovnis\_level\_2()}}
-{\footnotesize\ttfamily void apply\+\_\+ovnis\+\_\+level\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
-
-
-
-fonction qui applique la texture des ovnis du niveau 2 
+fonction qui applique la texture des ovnis (en fonction du niveau) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -173,34 +148,15 @@ fonction qui applique la texture des ovnis du niveau 2
 {\em world} & le monde du jeu \\
 \hline
 \end{DoxyParams}
-\Hypertarget{affichage_8h_a66cca005db05128b09947ede91c76740}\label{affichage_8h_a66cca005db05128b09947ede91c76740} 
-\index{affichage.h@{affichage.h}!apply\_sprites\_level\_1@{apply\_sprites\_level\_1}}
-\index{apply\_sprites\_level\_1@{apply\_sprites\_level\_1}!affichage.h@{affichage.h}}
-\doxysubsubsection{\texorpdfstring{apply\_sprites\_level\_1()}{apply\_sprites\_level\_1()}}
-{\footnotesize\ttfamily void apply\+\_\+sprites\+\_\+level\+\_\+1 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+\Hypertarget{affichage_8h_a974dbab153f96f83b3f02efce0dcdb6e}\label{affichage_8h_a974dbab153f96f83b3f02efce0dcdb6e} 
+\index{affichage.h@{affichage.h}!apply\_sprites1@{apply\_sprites1}}
+\index{apply\_sprites1@{apply\_sprites1}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_sprites1()}{apply\_sprites1()}}
+{\footnotesize\ttfamily void apply\+\_\+sprites1 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
 
 
 
-La fonction applique la texture des sprites sur le renderer lié à l\textquotesingle{}écran de jeu (niveau 1) 
-
-
-\begin{DoxyParams}{Parameters}
-{\em renderer} & le renderer \\
-\hline
-{\em ressources} & les ressources du jeu \\
-\hline
-{\em world} & le monde du jeu \\
-\hline
-\end{DoxyParams}
-\Hypertarget{affichage_8h_a1b865a3cdd1765adc8f16f6d3227ca90}\label{affichage_8h_a1b865a3cdd1765adc8f16f6d3227ca90} 
-\index{affichage.h@{affichage.h}!apply\_sprites\_level\_2@{apply\_sprites\_level\_2}}
-\index{apply\_sprites\_level\_2@{apply\_sprites\_level\_2}!affichage.h@{affichage.h}}
-\doxysubsubsection{\texorpdfstring{apply\_sprites\_level\_2()}{apply\_sprites\_level\_2()}}
-{\footnotesize\ttfamily void apply\+\_\+sprites\+\_\+level\+\_\+2 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
-
-
-
-La fonction applique la texture des sprites sur le renderer lié à l\textquotesingle{}écran de jeu (niveau 2) 
+La fonction applique la texture des sprites sur le renderer lié à l\textquotesingle{}écran de jeu. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -247,34 +203,15 @@ La fonction affiche le timer et les messages de fin sur le renderer lié à l\te
 {\em ressources} & les ressources du jeu \\
 \hline
 \end{DoxyParams}
-\Hypertarget{affichage_8h_a0527ca57b3193c4fd701e3a5d65f7bac}\label{affichage_8h_a0527ca57b3193c4fd701e3a5d65f7bac} 
-\index{affichage.h@{affichage.h}!apply\_walls\_level\_1@{apply\_walls\_level\_1}}
-\index{apply\_walls\_level\_1@{apply\_walls\_level\_1}!affichage.h@{affichage.h}}
-\doxysubsubsection{\texorpdfstring{apply\_walls\_level\_1()}{apply\_walls\_level\_1()}}
-{\footnotesize\ttfamily void apply\+\_\+walls\+\_\+level\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+\Hypertarget{affichage_8h_a7c4633e37e8a2795d6e898c9c987d8fb}\label{affichage_8h_a7c4633e37e8a2795d6e898c9c987d8fb} 
+\index{affichage.h@{affichage.h}!apply\_walls@{apply\_walls}}
+\index{apply\_walls@{apply\_walls}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_walls()}{apply\_walls()}}
+{\footnotesize\ttfamily void apply\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
 
 
 
-fonction qui applique la texture des murs de météorites du niveau 1 
-
-
-\begin{DoxyParams}{Parameters}
-{\em ressources} & les ressources du jeu \\
-\hline
-{\em renderer} & le renderer \\
-\hline
-{\em world} & le monde du jeu \\
-\hline
-\end{DoxyParams}
-\Hypertarget{affichage_8h_a26932807adc5b23da66001e829ec39e1}\label{affichage_8h_a26932807adc5b23da66001e829ec39e1} 
-\index{affichage.h@{affichage.h}!apply\_walls\_level\_2@{apply\_walls\_level\_2}}
-\index{apply\_walls\_level\_2@{apply\_walls\_level\_2}!affichage.h@{affichage.h}}
-\doxysubsubsection{\texorpdfstring{apply\_walls\_level\_2()}{apply\_walls\_level\_2()}}
-{\footnotesize\ttfamily void apply\+\_\+walls\+\_\+level\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
-
-
-
-fonction qui applique la texture des murs de météorites du niveau 2 
+fonction qui applique la texture des murs de météorites (en fonction du niveau) 
 
 
 \begin{DoxyParams}{Parameters}

@@ -38,54 +38,28 @@ typedef struct ressources_s{
 void init_textures(SDL_Renderer *renderer, ressources_t *ressources);
 
 /**
- * \brief fonction qui applique la texture des murs de météorites du niveau 1
+ * \brief fonction qui applique la texture des murs de météorites (en fonction du niveau)
  * \param ressources les ressources du jeu
  * \param renderer le renderer
  * \param world le monde du jeu
  */
-void apply_walls_level_1(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
+void apply_walls(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
 
 /**
- * \brief fonction qui applique la texture des murs de météorites du niveau 2
+ * \brief fonction qui applique la texture des ovnis (en fonction du niveau)
  * \param ressources les ressources du jeu
  * \param renderer le renderer
  * \param world le monde du jeu
  */
-void apply_walls_level_2(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
+void apply_ovnis(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
 
 /**
- * \brief fonction qui applique la texture des ovnis du niveau 1
- * \param ressources les ressources du jeu
- * \param renderer le renderer
- * \param world le monde du jeu
- */
-void apply_ovnis_level_1(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
-
-/**
- * \brief fonction qui applique la texture des ovnis du niveau 2
- * \param ressources les ressources du jeu
- * \param renderer le renderer
- * \param world le monde du jeu
- */
-void apply_ovnis_level_2(ressources_t* ressources, SDL_Renderer* renderer, world_t* world);
-
-/**
- * \brief La fonction applique la texture des sprites sur le renderer lié à l'écran de jeu (niveau 1)
+ * \brief La fonction applique la texture des sprites sur le renderer lié à l'écran de jeu
  * \param renderer le renderer
  * \param ressources les ressources du jeu
  * \param world le monde du jeu
  */
-void apply_sprites_level_1(SDL_Renderer *renderer , ressources_t *ressources , world_t * world);
-
-/**
- * \brief La fonction applique la texture des sprites sur le renderer lié à l'écran de jeu (niveau 2)
- * \param renderer le renderer
- * \param ressources les ressources du jeu
- * \param world le monde du jeu
- */
-void apply_sprites_level_2(SDL_Renderer *renderer , ressources_t *ressources , world_t * world);
-
-
+void apply_sprites1(SDL_Renderer *renderer , ressources_t *ressources , world_t * world);
 
 /**
  * \brief La fonction applique la texture de l'écran de démarrage syr le renderer lié à l'écran de jeu
@@ -93,20 +67,6 @@ void apply_sprites_level_2(SDL_Renderer *renderer , ressources_t *ressources , w
  * \param ressources les ressources du jeu
  */
 void apply_startscreen(SDL_Renderer* renderer, ressources_t* ressources);
-
-/**
- * \brief La fonction applique la texture du fond sur le renderer lié à l'écran du jeu (niveau 1)
- * \param renderer le renderer
- * \param ressources les ressources du jeu
- */
-void apply_background_level_1(SDL_Renderer *renderer, ressources_t *ressources);
-
-/**
- * \brief La fonction applique la texture du fond sur le renderer lié à l'écran du jeu (niveau 2)
- * \param renderer le renderer
- * \param ressources les ressources du jeu
- */
-void apply_background_level_2(SDL_Renderer* renderer, ressources_t* ressources);
 
 /**
  * \brief La fonction applique la texture de l'écran titre du niveau 1 sur le renderer lié à l'écran du jeu
@@ -122,6 +82,19 @@ void apply_level_1_screen(SDL_Renderer* renderer, ressources_t* ressources);
  */
 void apply_level_2_screen(SDL_Renderer* renderer, ressources_t* ressources);
 
+/**
+ * \brief La fonction applique la texture du fond sur le renderer lié à l'écran du jeu (niveau 1)
+ * \param renderer le renderer
+ * \param ressources les ressources du jeu
+ */
+void apply_background_level_1(SDL_Renderer *renderer, ressources_t *ressources);
+
+/**
+ * \brief La fonction applique la texture du fond sur le renderer lié à l'écran du jeu (niveau 2)
+ * \param renderer le renderer
+ * \param ressources les ressources du jeu
+ */
+void apply_background_level_2(SDL_Renderer* renderer, ressources_t* ressources);
 
 /**
  * \brief La fonction affiche le timer et les messages de fin sur le renderer lié à l'écran de jeu

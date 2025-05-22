@@ -50,54 +50,56 @@ void handle_events(SDL_Event* event, world_t* world){
     // si une touche est appuyée
     if(event->type == SDL_KEYDOWN){
 
-      // touche echap
+      // ECHAP
       if(event->key.keysym.sym == SDLK_ESCAPE){
         world->game_status = -1; // on sort de la boucle de jeu
       }
 
       switch(world->game_status){
-        case 0: // ECRAN TITRE
+
+        case 0: // écran titre
+
           if(event->key.keysym.sym == SDLK_SPACE){ // si on appuie sur espace à l'écran titre
             skip_to_next_stage(world); // passe au stage suivant (titre du niveau 1)
             break;
           }
 
-        case 2: // GAMEPLAY NIVEAU 1
-        case 4: // GAMEPLAY NIVEAU 2 (même code)
+        case 2: // GAMEPLAY NIVEAU 1 et
+        case 4: // GAMEPLAY NIVEAU 2
 
-          // touche droite/d
+          // DROITE/D
           if(event->key.keysym.sym == SDLK_RIGHT || event->key.keysym.sym == SDLK_d){
             if(world->spacecraft.x + world->spacecraft.w + MOVING_STEP < SCREEN_WIDTH) {
               world->spacecraft.x+=MOVING_STEP;
             }
           }
 
-          // touche gauche/q
+          // GAUCHE/Q
           if(event->key.keysym.sym == SDLK_LEFT || event->key.keysym.sym == SDLK_q){
             if(world->spacecraft.x - MOVING_STEP > 0){
               world->spacecraft.x-=MOVING_STEP;
             }
           }
 
-          // haut/z
+          // HAUT/Z
           if(event->key.keysym.sym == SDLK_UP || event->key.keysym.sym == SDLK_z){
-            // si la vitesse est inférieure à 2 (1.9 pour la précision des flottants)
+            // si la vitesse est inférieure à 2 (borne supérieur, 1.9 pour la précision des flottants)
             if(world->vy < 1.9){
               // augmentation de la vitesse du jeu
               world->vy+=0.1;
             }
           }
 
-          // bas/s
+          // BAS/Q
           if(event->key.keysym.sym == SDLK_DOWN || event->key.keysym.sym == SDLK_s){
-            // si la vitesse est supérieure à 0.5
+            // si la vitesse est supérieure à 0.5 (borne inférieur)
             if(world->vy > 0.5){
               // réduction de la vitesse du jeu
               world->vy-=0.1;
             }
           }
 
-          // barre espace
+          // ESPACE
           if(event->key.keysym.sym == SDLK_SPACE){
             // si il n'y a pas de cooldown au tir de missile
             if(world->missileCooldown == 0){
@@ -119,18 +121,8 @@ void handle_events(SDL_Event* event, world_t* world){
  * \param world le monde
  */
 void clean(SDL_Window* window, SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
-  clean_ressources(ressources);
-  clean_sdl(renderer,window);
-}
-
-/**
- * \brief Fonction de test des coordonnées du sprite
- */
-void print_sprite(sprite_t* sprite){
-  printf("x : %f\n",sprite->x); // Affichage de la position x du sprite
-  printf("y : %f\n",sprite->y); // Affichage de la position y du sprite
-  printf("w : %f\n",sprite->w); // Affichage de la largeur du sprite
-  printf("h : %f\n",sprite->h); // Affichage de la hauteur du sprite
+  clean_ressources(ressources); // nettoyage des ressources
+  clean_sdl(renderer,window); // nettoyage de SDL
 }
 
 /**
@@ -154,8 +146,11 @@ int main(int argc, char* args[]){
   // initialisation du jeu (et des données du niveau 1 en avance)
   init(&window,&renderer,&ressources,&world);
 
-  while(!is_finished_game(&(world))){ // tant que le jeu n'est pas fini
-    timeSinceLaunch = SDL_GetTicks(); // initialisation du compteur de ticks depuis le lancement du jeu
+  // tant que le jeu n'est pas fini
+  while(!is_finished_game(&(world))){ 
+
+    // initialisation du compteur de ticks depuis le lancement du jeu
+    timeSinceLaunch = SDL_GetTicks(); 
 
     // gestion des évènements
     handle_events(&event,&world);
@@ -223,34 +218,34 @@ int main(int argc, char* args[]){
           }
           break;
 
-          case 4: // GAMEPLAY NIVEAU 2 -> mise à jour de tous les éléments et gestion de la logique du jeu
+        case 4: // GAMEPLAY NIVEAU 2 -> mise à jour de tous les éléments et gestion de la logique du jeu
 
-            // stocke le tick auquel le niveau 2 a commencé (pour démarrer le timer à 0s)
-            if(level_2_startTick==0){ // conditionnelle pour ne le faire qu'une seule fois
-              level_2_startTick = timeSinceLaunch; // stocke le tick auquel le niveau a commencé (pour que le timer démarre à 0s)
-            }
+          // stocke le tick auquel le niveau 2 a commencé (pour démarrer le timer à 0s)
+          if(level_2_startTick==0){ // conditionnelle pour ne le faire qu'une seule fois
+            level_2_startTick = timeSinceLaunch; // stocke le tick auquel le niveau a commencé (pour que le timer démarre à 0s)
+          }
 
-            // calcul du temps réel (ticks totaux - ticks écoulés entre le lancement du jeu et début du niveau 2)
-            actualTime = timeSinceLaunch - level_2_startTick;
+          // calcul du temps réel (ticks totaux - ticks écoulés entre le lancement du jeu et début du niveau 2)
+          actualTime = timeSinceLaunch - level_2_startTick;
 
-            // tant que le niveau n'est pas terminé
-            if(!is_finished_level(&(world))){
+          // tant que le niveau n'est pas terminé
+          if(!is_finished_level(&(world))){
               
-              // mise à jour des données liées à la physique du monde
-              update_data(&world, &ressources);
+            // mise à jour des données liées à la physique du monde
+            update_data(&world, &ressources);
 
-              // mise à jour du temps écoulé
-              update_time(&world, actualTime, &lastTimeCheck);
+            // mise à jour du temps écoulé
+            update_time(&world, actualTime, &lastTimeCheck);
 
-              // mise à jour du cooldown restant du tir de missile
-              update_missileCooldown(&world, actualTime, &lastMissileCooldownCheck);
+            // mise à jour du cooldown restant du tir de missile
+            update_missileCooldown(&world, actualTime, &lastMissileCooldownCheck);
 
-            } else { // sinon le niveau est terminé
+          } else{ // sinon le niveau est terminé
 
-              pause(3000); // pause de 3s avec le message de win/gameover affiché
-              world.game_status = -1; // sortie de la boucle de jeu
-            }
-            break;
+            pause(3000); // pause de 3s avec le message de win/gameover affiché
+            world.game_status = -1; // sortie de la boucle de jeu (FIN)
+          }
+          break;
     }
 
     // rafraichissement de l'écran 
