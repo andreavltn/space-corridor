@@ -1,0 +1,73 @@
+\doxysection{logique.\+h}
+\hypertarget{logique_8h_source}{}\label{logique_8h_source}\mbox{\hyperlink{logique_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ LOGIQUE\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ LOGIQUE\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sdl2-light_8h}{sdl2-\/light.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsprite__s}{sprite\_s}}\{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structsprite__s_a637bc7b440147112fb1161afc39db3b7}{x}};\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structsprite__s_a19004a67cf1691362bb48644b58098d8}{y}};\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structsprite__s_a32e96a992490802c5562f7debdbfed60}{w}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structsprite__s_a92701608a0bea8db9fbc8a3ba4a47cb7}{h}};\ }
+\DoxyCodeLine{00020\ \}\ \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\_t}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structworld__s}{world\_s}}\{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{structsprite__s}{sprite\_t}}\ \mbox{\hyperlink{structworld__s_ac4b4c678e32a26cd36f4c32338e94fed}{splash\_text}};\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structsprite__s}{sprite\_t}}\ \mbox{\hyperlink{structworld__s_a81fa2253df9fc75b50959e2e44d13445}{spacecraft}};\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{structsprite__s}{sprite\_t}}\ \mbox{\hyperlink{structworld__s_a3b3b6ff699d94441755e56d6a089461e}{ligne\_arrivee}};\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{structsprite__s}{sprite\_t}}\ \mbox{\hyperlink{structworld__s_a5a06092da9613601aac7bfbff3202296}{walls\_level\_1}}[6];\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{structsprite__s}{sprite\_t}}\ \mbox{\hyperlink{structworld__s_a2b30a9531b50b0d3be7a9843188a7a52}{walls\_level\_2}}[50];\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{structsprite__s}{sprite\_t}}\ \mbox{\hyperlink{structworld__s_a6daeb403b31e86b1964333b63a64268e}{ovnis\_level\_1}}[3];\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{structsprite__s}{sprite\_t}}\ \mbox{\hyperlink{structworld__s_a3b2f6d9da8f63b47965c92f934472c66}{ovnis\_level\_2}}[30];\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{structsprite__s}{sprite\_t}}\ \mbox{\hyperlink{structworld__s_a929af6d04ca39ac4b639e582ca9b1e43}{missiles}}[10];\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{structsprite__s}{sprite\_t}}\ \mbox{\hyperlink{structworld__s_a077d07e063e993f6b1145b8339a3be39}{invisible\_limit}};\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structworld__s_a2f8c6aae1d60a1cb78cd77fb69eec1d5}{game\_status}};\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}{vy}};\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structworld__s_a693aa82d082fe3467969094559b9bc0f}{gameover}};\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structworld__s_a1fd30e5180da25592a903513acc3e680}{win}};\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structworld__s_adfa3a5795c845a5c772394639af47931}{time}};\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structworld__s_aa580ce052dcee939fa5236d05ea952bd}{missileCooldown}};\ }
+\DoxyCodeLine{00041\ \}\ \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\_t}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{affichage_8h}{affichage.h}}"{}}\ \textcolor{comment}{//\ plus\ bas\ pour\ éviter\ les\ dépendances\ circulaires}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a7edf5248c9929108f571836fb92f204a}{init\_sprite}}(\mbox{\hyperlink{structsprite__s}{sprite\_t}}\ *sprite,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a4e842a72a730dd3d5ce299ac082bbed9}{init\_walls}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a306ba988048361e49fc97951a76d0167}{init\_ovnis}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a5676e72ded3c1a993c4c975ef9958288}{init\_data}}(\mbox{\hyperlink{structworld__s}{world\_t}}\ *\ world);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a2c04298fa44a5eb857817e880a6ee117}{blink\_splash\_text}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ timeSinceLaunch);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{logique_8h_aa35f099a7e2fcb62d60f44d7a061f151}{sprites\_collide}}(\mbox{\hyperlink{structsprite__s}{sprite\_t}}*\ sp1,\ \mbox{\hyperlink{structsprite__s}{sprite\_t}}*\ sp2);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a287fe4d8bed3be8d351696eb6ec6f8ae}{handle\_sprites\_collision}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world,\ \mbox{\hyperlink{structsprite__s}{sprite\_t}}*\ sp1,\ \mbox{\hyperlink{structsprite__s}{sprite\_t}}*\ sp2,\ \textcolor{keywordtype}{int}\ make\_disappear,\ \textcolor{keywordtype}{int}\ make\_win);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{logique_8h_abdff3667fa955b1158eb1947da9d4c55}{is\_finished\_level}}(\mbox{\hyperlink{structworld__s}{world\_t}}\ *world);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{logique_8h_a807c5e4285b941e8e299bc1970f00434}{is\_finished\_game}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a163234f95e6d779347179c0ba3618281}{update\_time}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ actualTime,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ lastTimeCheck);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_acd290f2c136157e8f338bcf3e0823b48}{update\_finishline}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a1127cba1580be54784247f3c1afb562f}{update\_walls}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a058f18c7f0f75a609c8656699a11f759}{update\_ovnis}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_aada7875093fa53129cfe7d23c2835148}{shoot\_missile}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a9a35da0e693e8e333ae472d4a20eecb4}{update\_missiles}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00154\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_a14faae85c6bd52809172b4a3e95b35d5}{update\_missileCooldown}}(\mbox{\hyperlink{structworld__s}{world\_t}}*\ world,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ actualTime,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ lastMissileCooldownCheck);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{logique_8h_ae1571bcd0e0ff6b5477e7d67335488fc}{update\_data}}(\mbox{\hyperlink{structworld__s}{world\_t}}\ *world,\ \mbox{\hyperlink{structressources__s}{ressources\_t}}*\ ressources);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

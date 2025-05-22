@@ -1,0 +1,275 @@
+\doxysection{affichage.\+h File Reference}
+\hypertarget{affichage_8h}{}\label{affichage_8h}\index{affichage.h@{affichage.h}}
+
+
+Header de \doxylink{affichage_8c}{affichage.\+c}.  
+
+
+{\ttfamily \#include "{}sdl2-\/light.\+h"{}}\newline
+{\ttfamily \#include "{}sdl2-\/ttf-\/light.\+h"{}}\newline
+{\ttfamily \#include "{}logique.\+h"{}}\newline
+Include dependency graph for affichage.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structressources__s}{ressources\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Représentation pour stocker les ressources nécessaires à l\textquotesingle{}affichage graphique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{affichage_8h_a862c07701d5753438e68dad515a0c1e4}\label{affichage_8h_a862c07701d5753438e68dad515a0c1e4} 
+typedef struct \mbox{\hyperlink{structressources__s}{ressources\+\_\+s}} {\bfseries ressources\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Représentation pour stocker les ressources nécessaires à l\textquotesingle{}affichage graphique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{affichage_8h_af171b4645c47bd1cfcb411381ae81eb5}{init\+\_\+textures}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction initialise les textures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a7c4633e37e8a2795d6e898c9c987d8fb}{apply\+\_\+walls}} (\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+\begin{DoxyCompactList}\small\item\em fonction qui applique la texture des murs de météorites (en fonction du niveau) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a1443326f61e72715716e620df416bc5c}{apply\+\_\+ovnis}} (\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+\begin{DoxyCompactList}\small\item\em fonction qui applique la texture des ovnis (en fonction du niveau) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a974dbab153f96f83b3f02efce0dcdb6e}{apply\+\_\+sprites1}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture des sprites sur le renderer lié à l\textquotesingle{}écran de jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a9de91e1299465b45130b41833f1f1d47}{apply\+\_\+startscreen}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture de l\textquotesingle{}écran de démarrage syr le renderer lié à l\textquotesingle{}écran de jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_ac909e6b58ffb21e5b83c0b5d9f9b0c20}{apply\+\_\+level\+\_\+1\+\_\+screen}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture de l\textquotesingle{}écran titre du niveau 1 sur le renderer lié à l\textquotesingle{}écran du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a1f2c8fef81a9c9dd3a4348fc72c5af34}{apply\+\_\+level\+\_\+2\+\_\+screen}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture de l\textquotesingle{}écran titre du niveau 2 sur le renderer lié à l\textquotesingle{}écran du jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_af52110299200a8b0d001baca353508e5}{apply\+\_\+background\+\_\+level\+\_\+1}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran du jeu (niveau 1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a31d1ffedfa0c3ba97a11735bd3d9514b}{apply\+\_\+background\+\_\+level\+\_\+2}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran du jeu (niveau 2) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a55f948e139e683c894a7f8fb68f5907b}{apply\+\_\+texts}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction affiche le timer et les messages de fin sur le renderer lié à l\textquotesingle{}écran de jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_a30e1a19138e3709417178aa593d90e19}{refresh\+\_\+graphics}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, \mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}world, \mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction rafraichit l\textquotesingle{}écran en fonction de l\textquotesingle{}état des données du monde. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{affichage_8h_ad85be3b8f701df32a50ba566b7c61125}{clean\+\_\+ressources}} (\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}ressources)
+\begin{DoxyCompactList}\small\item\em La fonction nettoie les ressources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header de \doxylink{affichage_8c}{affichage.\+c}. 
+
+\begin{DoxyAuthor}{Author}
+Valentini Andréa \& Viale Romain 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{affichage_8h_af52110299200a8b0d001baca353508e5}\label{affichage_8h_af52110299200a8b0d001baca353508e5} 
+\index{affichage.h@{affichage.h}!apply\_background\_level\_1@{apply\_background\_level\_1}}
+\index{apply\_background\_level\_1@{apply\_background\_level\_1}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_background\_level\_1()}{apply\_background\_level\_1()}}
+{\footnotesize\ttfamily void apply\+\_\+background\+\_\+level\+\_\+1 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran du jeu (niveau 1) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_a31d1ffedfa0c3ba97a11735bd3d9514b}\label{affichage_8h_a31d1ffedfa0c3ba97a11735bd3d9514b} 
+\index{affichage.h@{affichage.h}!apply\_background\_level\_2@{apply\_background\_level\_2}}
+\index{apply\_background\_level\_2@{apply\_background\_level\_2}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_background\_level\_2()}{apply\_background\_level\_2()}}
+{\footnotesize\ttfamily void apply\+\_\+background\+\_\+level\+\_\+2 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction applique la texture du fond sur le renderer lié à l\textquotesingle{}écran du jeu (niveau 2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_ac909e6b58ffb21e5b83c0b5d9f9b0c20}\label{affichage_8h_ac909e6b58ffb21e5b83c0b5d9f9b0c20} 
+\index{affichage.h@{affichage.h}!apply\_level\_1\_screen@{apply\_level\_1\_screen}}
+\index{apply\_level\_1\_screen@{apply\_level\_1\_screen}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_level\_1\_screen()}{apply\_level\_1\_screen()}}
+{\footnotesize\ttfamily void apply\+\_\+level\+\_\+1\+\_\+screen (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction applique la texture de l\textquotesingle{}écran titre du niveau 1 sur le renderer lié à l\textquotesingle{}écran du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_a1f2c8fef81a9c9dd3a4348fc72c5af34}\label{affichage_8h_a1f2c8fef81a9c9dd3a4348fc72c5af34} 
+\index{affichage.h@{affichage.h}!apply\_level\_2\_screen@{apply\_level\_2\_screen}}
+\index{apply\_level\_2\_screen@{apply\_level\_2\_screen}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_level\_2\_screen()}{apply\_level\_2\_screen()}}
+{\footnotesize\ttfamily void apply\+\_\+level\+\_\+2\+\_\+screen (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction applique la texture de l\textquotesingle{}écran titre du niveau 2 sur le renderer lié à l\textquotesingle{}écran du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_a1443326f61e72715716e620df416bc5c}\label{affichage_8h_a1443326f61e72715716e620df416bc5c} 
+\index{affichage.h@{affichage.h}!apply\_ovnis@{apply\_ovnis}}
+\index{apply\_ovnis@{apply\_ovnis}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_ovnis()}{apply\_ovnis()}}
+{\footnotesize\ttfamily void apply\+\_\+ovnis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+
+
+
+fonction qui applique la texture des ovnis (en fonction du niveau) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em renderer} & le renderer \\
+\hline
+{\em world} & le monde du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_a974dbab153f96f83b3f02efce0dcdb6e}\label{affichage_8h_a974dbab153f96f83b3f02efce0dcdb6e} 
+\index{affichage.h@{affichage.h}!apply\_sprites1@{apply\_sprites1}}
+\index{apply\_sprites1@{apply\_sprites1}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_sprites1()}{apply\_sprites1()}}
+{\footnotesize\ttfamily void apply\+\_\+sprites1 (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+
+
+
+La fonction applique la texture des sprites sur le renderer lié à l\textquotesingle{}écran de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em world} & le monde du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_a9de91e1299465b45130b41833f1f1d47}\label{affichage_8h_a9de91e1299465b45130b41833f1f1d47} 
+\index{affichage.h@{affichage.h}!apply\_startscreen@{apply\_startscreen}}
+\index{apply\_startscreen@{apply\_startscreen}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_startscreen()}{apply\_startscreen()}}
+{\footnotesize\ttfamily void apply\+\_\+startscreen (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction applique la texture de l\textquotesingle{}écran de démarrage syr le renderer lié à l\textquotesingle{}écran de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_a55f948e139e683c894a7f8fb68f5907b}\label{affichage_8h_a55f948e139e683c894a7f8fb68f5907b} 
+\index{affichage.h@{affichage.h}!apply\_texts@{apply\_texts}}
+\index{apply\_texts@{apply\_texts}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_texts()}{apply\_texts()}}
+{\footnotesize\ttfamily void apply\+\_\+texts (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction affiche le timer et les messages de fin sur le renderer lié à l\textquotesingle{}écran de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em world} & le monde du jeu \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_a7c4633e37e8a2795d6e898c9c987d8fb}\label{affichage_8h_a7c4633e37e8a2795d6e898c9c987d8fb} 
+\index{affichage.h@{affichage.h}!apply\_walls@{apply\_walls}}
+\index{apply\_walls@{apply\_walls}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{apply\_walls()}{apply\_walls()}}
+{\footnotesize\ttfamily void apply\+\_\+walls (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world }\end{DoxyParamCaption})}
+
+
+
+fonction qui applique la texture des murs de météorites (en fonction du niveau) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources du jeu \\
+\hline
+{\em renderer} & le renderer \\
+\hline
+{\em world} & le monde du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_ad85be3b8f701df32a50ba566b7c61125}\label{affichage_8h_ad85be3b8f701df32a50ba566b7c61125} 
+\index{affichage.h@{affichage.h}!clean\_ressources@{clean\_ressources}}
+\index{clean\_ressources@{clean\_ressources}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{clean\_ressources()}{clean\_ressources()}}
+{\footnotesize\ttfamily void clean\+\_\+ressources (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction nettoie les ressources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ressources} & les ressources \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_af171b4645c47bd1cfcb411381ae81eb5}\label{affichage_8h_af171b4645c47bd1cfcb411381ae81eb5} 
+\index{affichage.h@{affichage.h}!init\_textures@{init\_textures}}
+\index{init\_textures@{init\_textures}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{init\_textures()}{init\_textures()}}
+{\footnotesize\ttfamily void init\+\_\+textures (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction initialise les textures. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{affichage_8h_a30e1a19138e3709417178aa593d90e19}\label{affichage_8h_a30e1a19138e3709417178aa593d90e19} 
+\index{affichage.h@{affichage.h}!refresh\_graphics@{refresh\_graphics}}
+\index{refresh\_graphics@{refresh\_graphics}!affichage.h@{affichage.h}}
+\doxysubsubsection{\texorpdfstring{refresh\_graphics()}{refresh\_graphics()}}
+{\footnotesize\ttfamily void refresh\+\_\+graphics (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{\mbox{\hyperlink{logique_8h_ad55869c5e54f717062ec699d20fa8886}{world\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{world,  }\item[{\mbox{\hyperlink{affichage_8h_a862c07701d5753438e68dad515a0c1e4}{ressources\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ressources }\end{DoxyParamCaption})}
+
+
+
+La fonction rafraichit l\textquotesingle{}écran en fonction de l\textquotesingle{}état des données du monde. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em renderer} & le renderer \\
+\hline
+{\em world} & le monde du jeu \\
+\hline
+{\em ressources} & les ressources du jeu \\
+\hline
+\end{DoxyParams}
