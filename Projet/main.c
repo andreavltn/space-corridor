@@ -16,11 +16,11 @@
  * \param world le monde du jeu
  */
 void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *ressources, world_t * world){
-  init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT);
-  init_ttf();
-  world->game_status = 0; // pour ne le faire qu'une seule fois
-  init_data_level_1(world); // initialisation des données du niveau 1
-  init_textures(*renderer,ressources);
+  world->game_status = 0; // le jeu démarre au stage "0" (écran titre)
+  init_sdl(window,renderer,SCREEN_WIDTH, SCREEN_HEIGHT); // initialisation du SDL
+  init_ttf(); // initialisation de la police TTF
+  init_data(world); // initialisation des données (du niveau 1 ici)
+  init_textures(*renderer,ressources); // initialisation des textures
 }
 
 /**
@@ -28,7 +28,7 @@ void init(SDL_Window **window, SDL_Renderer ** renderer, ressources_t *ressource
  * \param world les données du monde
  */   
 void skip_to_next_stage(world_t* world){
-  world->game_status++;
+  world->game_status++; // passage au stage suivant
 }
 
 /**
@@ -52,13 +52,13 @@ void handle_events(SDL_Event* event, world_t* world){
 
       // touche echap
       if(event->key.keysym.sym == SDLK_ESCAPE){
-        exit(1); // PLACEHOLDER A CHANGER
+        world->game_status = -1; // on sort de la boucle de jeu
       }
 
       switch(world->game_status){
         case 0: // ECRAN TITRE
-          if(event->key.keysym.sym == SDLK_SPACE){
-            skip_to_next_stage(world);
+          if(event->key.keysym.sym == SDLK_SPACE){ // si on appuie sur espace à l'écran titre
+            skip_to_next_stage(world); // passe au stage suivant (titre du niveau 1)
             break;
           }
 
@@ -143,49 +143,48 @@ int main(int argc, char* args[]){
   SDL_Renderer *renderer;
   SDL_Window *window;
   
+  unsigned int timeSinceLaunch; // temps actuel (ms passées depuis le lancement du jeu)
+  unsigned int levelSwapTick = 0; // dernier check du temps pour le changement de stage
   unsigned int level_1_startTick = 0; // tick auquel le niveau 1 a commencé
   unsigned int level_2_startTick = 0; // tick auquel le niveau 2 a commencé
-  unsigned int levelSwapTick = 0; // dernier check du temps pour le changement de stage
-  unsigned int lastTimeCheck = 0; // dernier check du temps pour le timer
+  unsigned int lastTimeCheck = 0; // dernier check du temps pour le timer en haut à gauche
   unsigned int lastMissileCooldownCheck = 0; // dernier check du temps pour le cooldown du missile
-  unsigned int timeSinceLaunch; // temps actuel (ms passées depuis le lancement du jeu)
-  unsigned int actualTime; // temps réel
+  unsigned int actualTime; // temps réel du niveau en cours
 
-  // initialisation du jeu initiale
+  // initialisation du jeu (et des données du niveau 1 en avance)
   init(&window,&renderer,&ressources,&world);
 
-  while(world.game_status!=-1){ // tant que le jeu n'est pas fini
-    timeSinceLaunch = SDL_GetTicks(); // compteur de ticks depuis le lancement du jeu
+  while(!is_finished_game(&(world))){ // tant que le jeu n'est pas fini
+    timeSinceLaunch = SDL_GetTicks(); // initialisation du compteur de ticks depuis le lancement du jeu
 
     // gestion des évènements
     handle_events(&event,&world);
 
     // en fonction du stage du jeu
     switch(world.game_status){
-        case 0: // ECRAN TITRE
+
+        case 0: // ECRAN TITRE -> clignottement du sprite "PRESS SPACE TO START"
         
           // fait clignoter le texte "PRESS SPACE TO START!"
           blink_splash_text(&world,timeSinceLaunch);
           break; 
 
-        case 1: // ECRAN NIVEAU 1
+        case 1: // ECRAN NIVEAU 1 -> affichage pendant TRANSITION_TIME, puis on passe au gameplay du niveau 1
 
-          // pause de 3s
-          if(levelSwapTick == 0){ // pour ne le faire qu'une fois
-            levelSwapTick = timeSinceLaunch; // stockage du tick au debut
+          if(levelSwapTick == 0){ // conditionnelle pour ne le faire qu'une seule fois
+            levelSwapTick = timeSinceLaunch; // stockage du tick auquel on arrive ici (pour compter le temps écoulé)
           }
    
-          if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si il s'est passé + de 3s depuis le check
+          if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si le TRANSITION_TIME s'est écoulé depuis le tick sauvegardé
+            levelSwapTick = 0; // reset du tick pour le prochain écran titre
             skip_to_next_stage(&(world)); // passe au gameplay du niveau 1
-            levelSwapTick = 0; // reset pour le prochain niveau
           }
           break;
 
-        case 2: // GAMEPLAY NIVEAU 1
+        case 2: // GAMEPLAY NIVEAU 1 -> mise à jour de tous les éléments et gestion de la logique du jeu
 
-          // stocke le tick auquel le jeu a commencé (pour démarrer le timer à 0s)
-          if(level_1_startTick==0){ // condition pour ne le faire qu'une seule fois
-            level_1_startTick = timeSinceLaunch;
+          if(level_1_startTick==0){ // conditionnelle pour ne le faire qu'une seule fois
+            level_1_startTick = timeSinceLaunch; // stocke le tick auquel le niveau a commencé (pour que le timer démarre à 0s)
           }
 
           // calcul du temps réel (ticks totaux - ticks écoulés entre le lancement du jeu et début du niveau 1)
@@ -195,7 +194,7 @@ int main(int argc, char* args[]){
           if(!is_finished_level(&(world))){
 
             // mise à jour des données liées à la physique du monde
-            update_data_level_1(&world,&ressources);
+            update_data(&world,&ressources);
 
             // mise à jour du temps écoulé
             update_time(&world, actualTime, &lastTimeCheck);
@@ -206,30 +205,29 @@ int main(int argc, char* args[]){
           } else { // sinon le niveau est terminé
 
             pause(3000); // pause de 3s avec le message de win/gameover affiché
-            skip_to_next_stage(&(world)); // passe à l'écran du niveau 2
+            skip_to_next_stage(&(world)); // passe à l'écran du niveau 2 
           }
           break;
 
-        case 3: // ECRAN NIVEAU 2
+        case 3: // ECRAN NIVEAU 2 affichage pendant TRANSITION_TIME, puis on passe au gameplay du niveau 2
 
-          // pause de 3s 
-          if(levelSwapTick == 0){ // pour ne le faire qu'une fois
-            levelSwapTick = timeSinceLaunch; // stockage du tick
+          if(levelSwapTick == 0){ // conditionnelle pour ne le faire qu'une seule fois
+            levelSwapTick = timeSinceLaunch; // stockage du tick auquel on arrive ici (pour compter le temps écoulé)
           }
-    
-          if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si il s'est passé + de 3s 
-            init_data_level_2(&(world)); // initialisation des données pour le niveau 2
-            levelSwapTick = 0; // reset pour le prochain niveau
-            lastTimeCheck = 0; // pareil
+          
+
+          if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si le TRANSITION_TIME s'est écoulé depuis le tick sauvegardé
+            init_data(&(world)); // initialisation des données pour le niveau 2
+            lastTimeCheck = 0; // réinitialisation du checker de temps (pour le timer)
             skip_to_next_stage(&(world)); // passe au gameplay du niveau 2
           }
           break;
 
-          case 4: // GAMEPLAY NIVEAU 2
+          case 4: // GAMEPLAY NIVEAU 2 -> mise à jour de tous les éléments et gestion de la logique du jeu
 
             // stocke le tick auquel le niveau 2 a commencé (pour démarrer le timer à 0s)
-            if(level_2_startTick==0){ // condition pour ne le faire qu'une seule fois
-              level_2_startTick = timeSinceLaunch;
+            if(level_2_startTick==0){ // conditionnelle pour ne le faire qu'une seule fois
+              level_2_startTick = timeSinceLaunch; // stocke le tick auquel le niveau a commencé (pour que le timer démarre à 0s)
             }
 
             // calcul du temps réel (ticks totaux - ticks écoulés entre le lancement du jeu et début du niveau 2)
@@ -238,8 +236,8 @@ int main(int argc, char* args[]){
             // tant que le niveau n'est pas terminé
             if(!is_finished_level(&(world))){
               
-              // mise à jour des données liées à la physique du monde pour le niveau 2
-              update_data_level_2(&world, &ressources);
+              // mise à jour des données liées à la physique du monde
+              update_data(&world, &ressources);
 
               // mise à jour du temps écoulé
               update_time(&world, actualTime, &lastTimeCheck);
