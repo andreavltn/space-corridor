@@ -65,7 +65,7 @@
 /**
  * \brief Hauteur de la ligne d'arrivée du niveau 2
  */
-#define FINISH_LINE_HEIGHT_2 -5000
+#define FINISH_LINE_HEIGHT_2 -6900
 
 /**
  * \brief Hauteur de la limite verticale invisible du jeu
@@ -80,7 +80,7 @@
 /**
  * \brief Vitesse d'un missile 
  */
-#define MISSILE_SPEED 2
+#define MISSILE_SPEED 4
 
 /**
  * \brief Cooldown d'un missile (en ms)

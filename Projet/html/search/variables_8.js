@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['w_127',['w',['../structsprite__s.html#a32e96a992490802c5562f7debdbfed60',1,'sprite_s']]],
-  ['walls_128',['walls',['../structworld__s.html#ad3ba685b078bd4cbe4e50a58359ee880',1,'world_s']]],
-  ['win_129',['win',['../structworld__s.html#a1fd30e5180da25592a903513acc3e680',1,'world_s']]]
+  ['spacecraft_0',['spacecraft',['../structressources__s.html#abe18b8d81d117b0eb48904036c177331',1,'ressources_s::spacecraft'],['../structworld__s.html#a81fa2253df9fc75b50959e2e44d13445',1,'world_s::spacecraft']]],
+  ['splash_5ftext_1',['splash_text',['../structressources__s.html#a61ed7d73a475c93ce8c554610fb1d58c',1,'ressources_s::splash_text'],['../structworld__s.html#ac4b4c678e32a26cd36f4c32338e94fed',1,'world_s::splash_text']]],
+  ['start_5fscreen_2',['start_screen',['../structressources__s.html#aaca91a4df33e56d3692e5fea5aad47cc',1,'ressources_s']]]
 ];

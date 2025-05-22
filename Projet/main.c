@@ -143,7 +143,8 @@ int main(int argc, char* args[]){
   SDL_Renderer *renderer;
   SDL_Window *window;
   
-  unsigned int gameStartTick = 0; // tick auquel le jeu a commencé
+  unsigned int level_1_startTick = 0; // tick auquel le niveau 1 a commencé
+  unsigned int level_2_startTick = 0; // tick auquel le niveau 2 a commencé
   unsigned int levelSwapTick = 0; // dernier check du temps pour le changement de stage
   unsigned int lastTimeCheck = 0; // dernier check du temps pour le timer
   unsigned int lastMissileCooldownCheck = 0; // dernier check du temps pour le cooldown du missile
@@ -153,8 +154,11 @@ int main(int argc, char* args[]){
   // initialisation du jeu initiale
   init(&window,&renderer,&ressources,&world);
 
+  // --- AJOUT POUR TESTER LE NIVEAU 2 DIRECTEMENT ---
+  world.game_status = 4; // 4 = GAMEPLAY NIVEAU 2
+  init_data_level_2(&world);
+
   while(world.game_status!=-1){ // tant que le jeu n'est pas fini
-    printf("%d\n",world.game_status);
     timeSinceLaunch = SDL_GetTicks();
 
     // gestion des évènements
@@ -163,7 +167,7 @@ int main(int argc, char* args[]){
     // en fonction du stage du jeu
     switch(world.game_status){
         case 0: // ECRAN TITRE
-          
+        
           // fait clignoter le texte "PRESS SPACE TO START!"
           blink_splash_text(&world,timeSinceLaunch);
           break; 
@@ -183,13 +187,13 @@ int main(int argc, char* args[]){
 
         case 2: // GAMEPLAY NIVEAU 1
 
-          // stocke le tick auquel le jeu a commencé (pour démarrer le timer à 0s une fois que le jeu est lancé)
-          if(gameStartTick==0){ // condition pour ne le faire qu'une seule fois
-            gameStartTick = timeSinceLaunch;
+          // stocke le tick auquel le jeu a commencé (pour démarrer le timer à 0s)
+          if(level_1_startTick==0){ // condition pour ne le faire qu'une seule fois
+            level_1_startTick = timeSinceLaunch;
           }
 
           // calcul du temps réel
-          actualTime = timeSinceLaunch - gameStartTick;
+          actualTime = timeSinceLaunch - level_1_startTick;
 
           // tant que le niveau n'est pas terminé
           if(!is_finished_level(&(world))){
@@ -224,10 +228,34 @@ int main(int argc, char* args[]){
           }
           break;
 
-        case 4: // GAMEPLAY NIVEAU 2
+          case 4: // GAMEPLAY NIVEAU 2
 
-          skip_to_next_stage(&(world)); // PLACEHOLDER
-          break;
+            // stocke le tick auquel le niveau 2 a commencé (pour démarrer le timer à 0s)
+            if(level_2_startTick==0){ // condition pour ne le faire qu'une seule fois
+              level_2_startTick = timeSinceLaunch;
+            }
+
+            // calcul du temps réel
+            actualTime = timeSinceLaunch - level_2_startTick;
+
+            // tant que le niveau n'est pas terminé
+            if(!is_finished_level(&(world))){
+
+              // mise à jour des données liées à la physique du monde pour le niveau 2
+              update_data_level_2(&world, &ressources);
+
+              // mise à jour du temps écoulé
+              update_time(&world, actualTime, &lastTimeCheck);
+
+              // mise à jour du cooldown restant du tir de missile
+              update_missileCooldown(&world, actualTime, &lastMissileCooldownCheck);
+
+            } else { // sinon le niveau est terminé
+
+              pause(3000); // pause de 3s avec le message de win/gameover affiché
+              world.game_status = -1; // sortie de la boucle de jeu
+            }
+            break;
     }
 
     // rafraichissement de l'écran 

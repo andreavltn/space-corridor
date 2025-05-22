@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['vaisseau_125',['vaisseau',['../structressources__s.html#a6ee1b24fc949d31eb57451c076b37dc7',1,'ressources_s::vaisseau()'],['../structworld__s.html#a3911065b6b0167b0cd6c67d2d5f369ed',1,'world_s::vaisseau()']]],
-  ['vy_126',['vy',['../structworld__s.html#a63348b29918eaa37a31aca8d4747b5a8',1,'world_s']]]
+  ['ovni_0',['ovni',['../structressources__s.html#a4640adbeb5f8bf2cc6fcb6cdeed3b1e4',1,'ressources_s']]],
+  ['ovnis_5flevel_5f1_1',['ovnis_level_1',['../structworld__s.html#a6daeb403b31e86b1964333b63a64268e',1,'world_s']]],
+  ['ovnis_5flevel_5f2_2',['ovnis_level_2',['../structworld__s.html#a3b2f6d9da8f63b47965c92f934472c66',1,'world_s']]]
 ];

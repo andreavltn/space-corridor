@@ -107,7 +107,7 @@ int sprites_collide(sprite_t* sp1, sprite_t* sp2);
  * \param world les données du monde
  * \param sp1 le premier sprite
  * \param sp2 le deuxième sprite
- * \param make_disappear 1 si sp1 doit disparaître en cas de collision, 0 sinon
+ * \param make_disappear 1 si sp1 doit disparaître en cas de collision, 2 si sp1 et sp2 doivent disparaitre, 0 sinon
  * \param make_win 1 si la collision déclenche la victoire, 0 si défaite, autre valeur entière si ça ne doit rien faire 
  * \param ressources les ressources du jeu
  */

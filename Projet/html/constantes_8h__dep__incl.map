@@ -1,6 +1,0 @@
-<map id="constantes.h" name="constantes.h">
-<area shape="rect" id="node1" title="Contient l&#39;ensemble des constantes du jeu." alt="" coords="112,5,217,32"/>
-<area shape="rect" id="node2" href="$affichage_8c.html" title="Contient l&#39;ensemble des fonctions relatives à l&#39;affichage des éléments du jeu." alt="" coords="5,80,100,107"/>
-<area shape="rect" id="node3" href="$logique_8c.html" title="Contient l&#39;ensemble des fonctions relatives à la logique du jeu." alt="" coords="124,80,205,107"/>
-<area shape="rect" id="node4" href="$main_8c.html" title="Programme principal du jeu." alt="" coords="230,80,297,107"/>
-</map>

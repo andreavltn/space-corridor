@@ -38,7 +38,16 @@ void apply_walls_level_1(ressources_t* ressources, SDL_Renderer* renderer, world
 }
 
 void apply_walls_level_2(ressources_t* ressources, SDL_Renderer* renderer, world_t* world){
-    // PLACEHOLDER
+    // pour les 50 murs du niveau 2
+    for(int indice=0; indice<50; indice++){
+        // pour chaque spot horizontal de météorite
+        for(int i=0; i<world->walls_level_2[indice].w; i+=32){
+            // pour chaque spot vertical de météorite 
+            for(int j=0; j<world->walls_level_2[indice].h; j+=32){
+                apply_texture(ressources->meteorite, renderer, world->walls_level_2[indice].x + i, world->walls_level_2[indice].y + j);
+            }
+        }   
+    }
 }
 
 void apply_ovnis_level_1(ressources_t* ressources, SDL_Renderer* renderer, world_t* world){
@@ -77,7 +86,23 @@ void apply_sprites_level_1(SDL_Renderer* renderer, ressources_t* ressources, wor
 }
 
 void apply_sprites_level_2(SDL_Renderer* renderer, ressources_t* ressources, world_t* world){
-    // PLACEHOLDER
+
+    // texture du vaisseau
+    apply_texture(ressources->spacecraft, renderer, world->spacecraft.x, world->spacecraft.y);
+    
+    // texture de la ligne d'arrivée
+    apply_texture(ressources->ligne_arrivee, renderer, world->ligne_arrivee.x, world->ligne_arrivee.y);
+    
+    // texture des murs de météorites (quadrillage de météorites)
+    apply_walls_level_2(ressources, renderer, world);
+
+    // texture des ovnis
+    apply_ovnis_level_2(ressources, renderer, world);
+
+    // texture des missiles
+    for(int i=0; i<10; i++){
+        apply_texture(ressources->missile, renderer, world->missiles[i].x, world->missiles[i].y);
+    }
 }
 
 void apply_startscreen(SDL_Renderer* renderer, ressources_t* ressources){

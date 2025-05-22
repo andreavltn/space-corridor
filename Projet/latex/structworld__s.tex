@@ -1,5 +1,5 @@
-\hypertarget{structworld__s}{}\doxysection{world\+\_\+s Struct Reference}
-\label{structworld__s}\index{world\_s@{world\_s}}
+\doxysection{world\+\_\+s Struct Reference}
+\hypertarget{structworld__s}{}\label{structworld__s}\index{world\_s@{world\_s}}
 
 
 Représentation du monde du jeu.  
@@ -12,23 +12,29 @@ Représentation du monde du jeu.
 
 
 Collaboration diagram for world\+\_\+s\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=172pt]{structworld__s__coll__graph}
-\end{center}
-\end{figure}
-\doxysubsection*{Public Attributes}
+% FIG 0
+\doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}{vaisseau}}
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_ac4b4c678e32a26cd36f4c32338e94fed}{splash\+\_\+text}}
+\item 
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a81fa2253df9fc75b50959e2e44d13445}{spacecraft}}
 \item 
 \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a3b3b6ff699d94441755e56d6a089461e}{ligne\+\_\+arrivee}}
 \item 
-\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_ad3ba685b078bd4cbe4e50a58359ee880}{walls}} \mbox{[}6\mbox{]}
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a5a06092da9613601aac7bfbff3202296}{walls\+\_\+level\+\_\+1}} \mbox{[}6\mbox{]}
+\item 
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a2b30a9531b50b0d3be7a9843188a7a52}{walls\+\_\+level\+\_\+2}} \mbox{[}50\mbox{]}
+\item 
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a6daeb403b31e86b1964333b63a64268e}{ovnis\+\_\+level\+\_\+1}} \mbox{[}3\mbox{]}
+\item 
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a3b2f6d9da8f63b47965c92f934472c66}{ovnis\+\_\+level\+\_\+2}} \mbox{[}30\mbox{]}
 \item 
 \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a929af6d04ca39ac4b639e582ca9b1e43}{missiles}} \mbox{[}10\mbox{]}
+\item 
+\mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} \mbox{\hyperlink{structworld__s_a077d07e063e993f6b1145b8339a3be39}{invisible\+\_\+limit}}
+\item 
+int \mbox{\hyperlink{structworld__s_a2f8c6aae1d60a1cb78cd77fb69eec1d5}{game\+\_\+status}}
 \item 
 float \mbox{\hyperlink{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}{vy}}
 \item 
@@ -37,6 +43,8 @@ int \mbox{\hyperlink{structworld__s_a693aa82d082fe3467969094559b9bc0f}{gameover}
 int \mbox{\hyperlink{structworld__s_a1fd30e5180da25592a903513acc3e680}{win}}
 \item 
 float \mbox{\hyperlink{structworld__s_adfa3a5795c845a5c772394639af47931}{time}}
+\item 
+unsigned int \mbox{\hyperlink{structworld__s_aa580ce052dcee939fa5236d05ea952bd}{missile\+Cooldown}}
 \end{DoxyCompactItemize}
 
 
@@ -44,49 +52,91 @@ float \mbox{\hyperlink{structworld__s_adfa3a5795c845a5c772394639af47931}{time}}
 Représentation du monde du jeu. 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{structworld__s_a693aa82d082fe3467969094559b9bc0f}\label{structworld__s_a693aa82d082fe3467969094559b9bc0f}} 
+\Hypertarget{structworld__s_a2f8c6aae1d60a1cb78cd77fb69eec1d5}\label{structworld__s_a2f8c6aae1d60a1cb78cd77fb69eec1d5} 
+\index{world\_s@{world\_s}!game\_status@{game\_status}}
+\index{game\_status@{game\_status}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{game\_status}{game\_status}}
+{\footnotesize\ttfamily int world\+\_\+s\+::game\+\_\+status}
+
+Champ indiquant si le statut actuel du jeu \Hypertarget{structworld__s_a693aa82d082fe3467969094559b9bc0f}\label{structworld__s_a693aa82d082fe3467969094559b9bc0f} 
 \index{world\_s@{world\_s}!gameover@{gameover}}
 \index{gameover@{gameover}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{gameover}{gameover}}
 {\footnotesize\ttfamily int world\+\_\+s\+::gameover}
 
-Champ indiquant si on a perdu \mbox{\Hypertarget{structworld__s_a3b3b6ff699d94441755e56d6a089461e}\label{structworld__s_a3b3b6ff699d94441755e56d6a089461e}} 
+Champ indiquant si on a perdu \Hypertarget{structworld__s_a077d07e063e993f6b1145b8339a3be39}\label{structworld__s_a077d07e063e993f6b1145b8339a3be39} 
+\index{world\_s@{world\_s}!invisible\_limit@{invisible\_limit}}
+\index{invisible\_limit@{invisible\_limit}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{invisible\_limit}{invisible\_limit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::invisible\+\_\+limit}
+
+Champ représentant le sprite de la limite invisible (pour stopper les missiles) \Hypertarget{structworld__s_a3b3b6ff699d94441755e56d6a089461e}\label{structworld__s_a3b3b6ff699d94441755e56d6a089461e} 
 \index{world\_s@{world\_s}!ligne\_arrivee@{ligne\_arrivee}}
 \index{ligne\_arrivee@{ligne\_arrivee}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{ligne\_arrivee}{ligne\_arrivee}}
 {\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::ligne\+\_\+arrivee}
 
-Champ représentant le sprite de la ligne d\textquotesingle{}arrivée \mbox{\Hypertarget{structworld__s_a929af6d04ca39ac4b639e582ca9b1e43}\label{structworld__s_a929af6d04ca39ac4b639e582ca9b1e43}} 
+Champ représentant le sprite de la ligne d\textquotesingle{}arrivée \Hypertarget{structworld__s_aa580ce052dcee939fa5236d05ea952bd}\label{structworld__s_aa580ce052dcee939fa5236d05ea952bd} 
+\index{world\_s@{world\_s}!missileCooldown@{missileCooldown}}
+\index{missileCooldown@{missileCooldown}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{missileCooldown}{missileCooldown}}
+{\footnotesize\ttfamily unsigned int world\+\_\+s\+::missile\+Cooldown}
+
+Champ représentant le cooldown restant du tir de missile (en ms) \Hypertarget{structworld__s_a929af6d04ca39ac4b639e582ca9b1e43}\label{structworld__s_a929af6d04ca39ac4b639e582ca9b1e43} 
 \index{world\_s@{world\_s}!missiles@{missiles}}
 \index{missiles@{missiles}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{missiles}{missiles}}
 {\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::missiles\mbox{[}10\mbox{]}}
 
-Champ représentant le tableau des missiles tirés par le vaisseau \mbox{\Hypertarget{structworld__s_adfa3a5795c845a5c772394639af47931}\label{structworld__s_adfa3a5795c845a5c772394639af47931}} 
+Champ représentant le tableau des sprites des missiles tirés par le vaisseau \Hypertarget{structworld__s_a6daeb403b31e86b1964333b63a64268e}\label{structworld__s_a6daeb403b31e86b1964333b63a64268e} 
+\index{world\_s@{world\_s}!ovnis\_level\_1@{ovnis\_level\_1}}
+\index{ovnis\_level\_1@{ovnis\_level\_1}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{ovnis\_level\_1}{ovnis\_level\_1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::ovnis\+\_\+level\+\_\+1\mbox{[}3\mbox{]}}
+
+Champ représentant le tableau du sprite des ovnis du niveau 1 \Hypertarget{structworld__s_a3b2f6d9da8f63b47965c92f934472c66}\label{structworld__s_a3b2f6d9da8f63b47965c92f934472c66} 
+\index{world\_s@{world\_s}!ovnis\_level\_2@{ovnis\_level\_2}}
+\index{ovnis\_level\_2@{ovnis\_level\_2}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{ovnis\_level\_2}{ovnis\_level\_2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::ovnis\+\_\+level\+\_\+2\mbox{[}30\mbox{]}}
+
+Champ représentant le tableau du sprite des ovnis du niveau 2 \Hypertarget{structworld__s_a81fa2253df9fc75b50959e2e44d13445}\label{structworld__s_a81fa2253df9fc75b50959e2e44d13445} 
+\index{world\_s@{world\_s}!spacecraft@{spacecraft}}
+\index{spacecraft@{spacecraft}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{spacecraft}{spacecraft}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::spacecraft}
+
+Champ représentant le sprite du vaisseau \Hypertarget{structworld__s_ac4b4c678e32a26cd36f4c32338e94fed}\label{structworld__s_ac4b4c678e32a26cd36f4c32338e94fed} 
+\index{world\_s@{world\_s}!splash\_text@{splash\_text}}
+\index{splash\_text@{splash\_text}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{splash\_text}{splash\_text}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::splash\+\_\+text}
+
+Champ représentant le sprite du texte PRESS SPACE TO START \Hypertarget{structworld__s_adfa3a5795c845a5c772394639af47931}\label{structworld__s_adfa3a5795c845a5c772394639af47931} 
 \index{world\_s@{world\_s}!time@{time}}
 \index{time@{time}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{time}{time}}
 {\footnotesize\ttfamily float world\+\_\+s\+::time}
 
-Champ représentant le temps écoulé depuis le début du jeu \mbox{\Hypertarget{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}\label{structworld__s_a3911065b6b0167b0cd6c67d2d5f369ed}} 
-\index{world\_s@{world\_s}!vaisseau@{vaisseau}}
-\index{vaisseau@{vaisseau}!world\_s@{world\_s}}
-\doxysubsubsection{\texorpdfstring{vaisseau}{vaisseau}}
-{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::vaisseau}
-
-Champ représentant le sprite du vaisseau \mbox{\Hypertarget{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}\label{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}} 
+Champ représentant le temps écoulé depuis le début du jeu \Hypertarget{structworld__s_a63348b29918eaa37a31aca8d4747b5a8}\label{structworld__s_a63348b29918eaa37a31aca8d4747b5a8} 
 \index{world\_s@{world\_s}!vy@{vy}}
 \index{vy@{vy}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{vy}{vy}}
 {\footnotesize\ttfamily float world\+\_\+s\+::vy}
 
-Champ représentant la vitesse de déplacement de la ligne d\textquotesingle{}arrivée \mbox{\Hypertarget{structworld__s_ad3ba685b078bd4cbe4e50a58359ee880}\label{structworld__s_ad3ba685b078bd4cbe4e50a58359ee880}} 
-\index{world\_s@{world\_s}!walls@{walls}}
-\index{walls@{walls}!world\_s@{world\_s}}
-\doxysubsubsection{\texorpdfstring{walls}{walls}}
-{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::walls\mbox{[}6\mbox{]}}
+Champ représentant la vitesse de déplacement de la ligne d\textquotesingle{}arrivée \Hypertarget{structworld__s_a5a06092da9613601aac7bfbff3202296}\label{structworld__s_a5a06092da9613601aac7bfbff3202296} 
+\index{world\_s@{world\_s}!walls\_level\_1@{walls\_level\_1}}
+\index{walls\_level\_1@{walls\_level\_1}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{walls\_level\_1}{walls\_level\_1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::walls\+\_\+level\+\_\+1\mbox{[}6\mbox{]}}
 
-Champ représentant le tableau du sprite des murs de météorites \mbox{\Hypertarget{structworld__s_a1fd30e5180da25592a903513acc3e680}\label{structworld__s_a1fd30e5180da25592a903513acc3e680}} 
+Champ représentant le tableau du sprite des murs de météorites du niveau 1 \Hypertarget{structworld__s_a2b30a9531b50b0d3be7a9843188a7a52}\label{structworld__s_a2b30a9531b50b0d3be7a9843188a7a52} 
+\index{world\_s@{world\_s}!walls\_level\_2@{walls\_level\_2}}
+\index{walls\_level\_2@{walls\_level\_2}!world\_s@{world\_s}}
+\doxysubsubsection{\texorpdfstring{walls\_level\_2}{walls\_level\_2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logique_8h_a5371414b10358aeda7c6bcec8196342f}{sprite\+\_\+t}} world\+\_\+s\+::walls\+\_\+level\+\_\+2\mbox{[}50\mbox{]}}
+
+Champ représentant le tableau du sprite des murs de météorites du niveau 2 \Hypertarget{structworld__s_a1fd30e5180da25592a903513acc3e680}\label{structworld__s_a1fd30e5180da25592a903513acc3e680} 
 \index{world\_s@{world\_s}!win@{win}}
 \index{win@{win}!world\_s@{world\_s}}
 \doxysubsubsection{\texorpdfstring{win}{win}}
