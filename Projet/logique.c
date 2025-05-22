@@ -149,7 +149,7 @@ void init_ovnis_level_2(world_t* world){
     init_sprite(&(world->ovnis_level_2[17]), 260, -4095, OVNI_WIDTH, OVNI_HEIGHT); // droite
     // ligne 23
     init_sprite(&(world->ovnis_level_2[18]), 136, -4530, OVNI_WIDTH, OVNI_HEIGHT); // centre
-    init_sprite(&(world->ovnis_level_2[19]), 136, -4550, OVNI_WIDTH, OVNI_HEIGHT); // pareil au dessus
+    init_sprite(&(world->ovnis_level_2[19]), 136, -4570, OVNI_WIDTH, OVNI_HEIGHT); // pareil au dessus
     // ligne 25
     init_sprite(&(world->ovnis_level_2[20]), 152, -5000, OVNI_WIDTH, OVNI_HEIGHT); // centre
     init_sprite(&(world->ovnis_level_2[21]), 152, -5063, OVNI_WIDTH, OVNI_HEIGHT); // pareil au dessus
@@ -184,7 +184,7 @@ void init_data_level_1(world_t* world){
     // initialisation de la limite invisible
     init_sprite(&(world->invisible_limit), 0, INVISIBLE_LIMIT_HEIGHT, SCREEN_WIDTH, 20);
 
-    // initialisation des missiles en dehors de l'écran (pas encore actifs)
+    // initialisation des missiles en dehors de l'écran (inactifs)
     for(int i=0; i<10; i++){
         init_sprite(&(world->missiles[i]), -10000, 0, MISSILE_WIDTH, MISSILE_HEIGHT);
     }
@@ -205,10 +205,10 @@ void init_data_level_1(world_t* world){
 
 void init_data_level_2(world_t* world){
 
-    // initialisation du vaisseau
+    // reset de la position du vaisseau
     init_sprite(&(world->spacecraft), SCREEN_WIDTH/2-SHIP_SIZE/2, SCREEN_HEIGHT-SHIP_SIZE, SHIP_SIZE, SHIP_SIZE);
 
-    // initialisation de la ligne d'arrivée du niveau 2
+    // déplacement de la ligne d'arrivée à celle du niveau 2
     init_sprite(&(world->ligne_arrivee), 0, FINISH_LINE_HEIGHT_2, SCREEN_WIDTH, 20);
 
     // initialisation des murs de météorites du niveau 2
@@ -217,25 +217,22 @@ void init_data_level_2(world_t* world){
     // initialisation des ovnis du niveau 2
     init_ovnis_level_2(world);
 
-    // initialisation de la limite invisible
-    init_sprite(&(world->invisible_limit), 0, INVISIBLE_LIMIT_HEIGHT, SCREEN_WIDTH, 20);
-
-    // initialisation des missiles en dehors de l'écran (pas encore actifs)
+    // reset des missiles en dehors de l'écran (inactifs)
     for(int i=0; i<10; i++){
         init_sprite(&(world->missiles[i]), -10000, 0, MISSILE_WIDTH, MISSILE_HEIGHT);
     }
 
-    // vitesse de la ligne d'arrivée
+    // reset vitesse de la ligne d'arrivée
     world->vy = INITIAL_SPEED;
   
-    // gameover et win
+    // reset du gameover et win
     world->gameover = 0;
     world->win = 0;  
 
-    // temps écoulé
+    // reset du temps écoulé
     world->time = 0;
 
-    // cooldown du tir de missile
+    // reset du cooldown du tir de missile
     world->missileCooldown = 0;
 }
 

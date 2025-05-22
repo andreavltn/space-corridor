@@ -154,12 +154,8 @@ int main(int argc, char* args[]){
   // initialisation du jeu initiale
   init(&window,&renderer,&ressources,&world);
 
-  // --- AJOUT POUR TESTER LE NIVEAU 2 DIRECTEMENT ---
-  world.game_status = 4; // 4 = GAMEPLAY NIVEAU 2
-  init_data_level_2(&world);
-
   while(world.game_status!=-1){ // tant que le jeu n'est pas fini
-    timeSinceLaunch = SDL_GetTicks();
+    timeSinceLaunch = SDL_GetTicks(); // compteur de ticks depuis le lancement du jeu
 
     // gestion des évènements
     handle_events(&event,&world);
@@ -192,7 +188,7 @@ int main(int argc, char* args[]){
             level_1_startTick = timeSinceLaunch;
           }
 
-          // calcul du temps réel
+          // calcul du temps réel (ticks totaux - ticks écoulés entre le lancement du jeu et début du niveau 1)
           actualTime = timeSinceLaunch - level_1_startTick;
 
           // tant que le niveau n'est pas terminé
@@ -222,9 +218,10 @@ int main(int argc, char* args[]){
           }
     
           if(timeSinceLaunch - levelSwapTick > TRANSITION_TIME){ // si il s'est passé + de 3s 
-            skip_to_next_stage(&(world)); // passe au gameplay du niveau 2
-            levelSwapTick = 0; // reset pour le prochain niveau
             init_data_level_2(&(world)); // initialisation des données pour le niveau 2
+            levelSwapTick = 0; // reset pour le prochain niveau
+            lastTimeCheck = 0; // pareil
+            skip_to_next_stage(&(world)); // passe au gameplay du niveau 2
           }
           break;
 
@@ -235,12 +232,12 @@ int main(int argc, char* args[]){
               level_2_startTick = timeSinceLaunch;
             }
 
-            // calcul du temps réel
+            // calcul du temps réel (ticks totaux - ticks écoulés entre le lancement du jeu et début du niveau 2)
             actualTime = timeSinceLaunch - level_2_startTick;
 
             // tant que le niveau n'est pas terminé
             if(!is_finished_level(&(world))){
-
+              
               // mise à jour des données liées à la physique du monde pour le niveau 2
               update_data_level_2(&world, &ressources);
 
