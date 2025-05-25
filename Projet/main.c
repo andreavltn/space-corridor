@@ -198,9 +198,12 @@ int main(int argc, char* args[]){
             update_missileCooldown(&world, actualTime, &lastMissileCooldownCheck);
 
           } else { // sinon le niveau est terminé
-
             pause(3000); // pause de 3s avec le message de win/gameover affiché
-            skip_to_next_stage(&(world)); // passe à l'écran du niveau 2 
+            if(world.win==1){ // si gagné
+              skip_to_next_stage(&(world)); // passe à l'écran du niveau 2 
+            } else if(world.gameover==1){ // sinon si perdu
+              world.game_status = -1; // sortie de la boucle de jeu (FIN)
+            }
           }
           break;
 
