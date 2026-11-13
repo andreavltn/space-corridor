@@ -13,11 +13,6 @@ PROG = spacecorridor
 spacecorridor: $(OBJ)
 	gcc $(CFLAGS) $(OBJ) $(LDFLAGS) -o $@
 
-doc: $(PROG)
-	doxygen ./$(PROG)
-	make -C latex
-
 clean:
 	rm -f *~ *.o $(PROG)
-	rm -rf latex html
 
