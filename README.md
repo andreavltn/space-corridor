@@ -1,13 +1,22 @@
 # Space Corridor
 
-Jeu 2D développé en C avec SDL2. Le joueur pilote un vaisseau, évite les obstacles et les ovnis, puis atteint la ligne d'arrivée.
+Jeu 2D développé en C avec SDL2, conçu pour **Linux**. Le joueur pilote un vaisseau, évite les obstacles et les ovnis, puis atteint la ligne d'arrivée.
 
 ## Prérequis
+
+Le projet est prévu pour fonctionner sous Linux.
 
 - GCC
 - GNU Make
 - SDL2
 - SDL2_ttf
+
+Installation des dépendances sous Debian / Ubuntu :
+
+```bash
+sudo apt update
+sudo apt install build-essential libsdl2-dev libsdl2-ttf-dev
+```
 
 ## Compilation
 
@@ -56,7 +65,7 @@ Les images et la police sont chargées avec des chemins relatifs. Si le jeu ne t
 ├── sdl2-ttf-light.c/.h # Fonctions utilitaires SDL2_ttf
 ├── constantes.h        # Constantes du jeu
 ├── ressources/         # Images et police
-└── Makefile             # Compilation
+└── Makefile            # Compilation
 ```
 
 ## Nettoyage
